@@ -22,7 +22,7 @@
 
   <meta name="description" content="快速排序使用分治法实现，即一个一个复杂的问题分解为一系列容易解决的小问题，最终得到问题的解。 1、算法步骤快速排序的三步分治过程：例如对 A[p..r] 进行快速排序  分解：数组 A[p..r] 被划分为两个(可能为空)子数组 A[p…q-1] 和 A[p+1…r]，使得A[p…q-1] 中的每一个元素都小于 A[q]，而 A[q] 也小于等于 A[q+1…r]中的每个元素。其中，计算下标 q">
 <meta property="og:type" content="article">
-<meta property="og:title" content="快速排序原理及时间复杂度">
+<meta property="og:title" content="快速排序分析及优化">
 <meta property="og:url" content="https://wangjunstf.github.io/2021/09/02/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F%E5%8E%9F%E7%90%86%E5%8F%8A%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6/index.html">
 <meta property="og:site_name" content="编程之禅">
 <meta property="og:description" content="快速排序使用分治法实现，即一个一个复杂的问题分解为一系列容易解决的小问题，最终得到问题的解。 1、算法步骤快速排序的三步分治过程：例如对 A[p..r] 进行快速排序  分解：数组 A[p..r] 被划分为两个(可能为空)子数组 A[p…q-1] 和 A[p+1…r]，使得A[p…q-1] 中的每一个元素都小于 A[q]，而 A[q] 也小于等于 A[q+1…r]中的每个元素。其中，计算下标 q">
@@ -49,7 +49,7 @@
   };
 </script>
 
-  <title>快速排序原理及时间复杂度 | 编程之禅</title>
+  <title>快速排序分析及优化 | 编程之禅</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-206629018-1"></script>
     <script>
@@ -222,7 +222,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          快速排序原理及时间复杂度
+          快速排序分析及优化
         </h1>
 
         <div class="post-meta">
@@ -352,13 +352,6 @@
 
 
         
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/2021/09/02/hello-world/" rel="prev" title="Hello World">
-      <i class="fa fa-chevron-left"></i> Hello World
-    </a></div>
-      <div class="post-nav-item"></div>
-    </div>
       </footer>
     
   </article>
@@ -437,7 +430,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-count">1</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -561,7 +554,7 @@
   var disqus_config = function() {
     this.page.url = "https://wangjunstf.github.io/2021/09/02/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F%E5%8E%9F%E7%90%86%E5%8F%8A%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6/";
     this.page.identifier = "2021/09/02/快速排序原理及时间复杂度/";
-    this.page.title = "快速排序原理及时间复杂度";
+    this.page.title = "快速排序分析及优化";
     };
   NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
     if (window.DISQUS) {
