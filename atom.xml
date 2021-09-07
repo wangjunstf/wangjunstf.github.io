@@ -6,7 +6,7 @@
   <link href="https://wangjunstf.github.io/atom.xml" rel="self"/>
   
   <link href="https://wangjunstf.github.io/"/>
-  <updated>2021-09-07T03:54:05.805Z</updated>
+  <updated>2021-09-07T03:54:47.717Z</updated>
   <id>https://wangjunstf.github.io/</id>
   
   <author>
@@ -21,19 +21,33 @@
     <link href="https://wangjunstf.github.io/2021/09/07/C-%E5%AE%8C%E6%95%B4%E5%AE%9E%E7%8E%B0-%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E5%92%8C%E7%BA%A2%E9%BB%91%E6%A0%91/"/>
     <id>https://wangjunstf.github.io/2021/09/07/C-%E5%AE%8C%E6%95%B4%E5%AE%9E%E7%8E%B0-%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E5%92%8C%E7%BA%A2%E9%BB%91%E6%A0%91/</id>
     <published>2021-09-07T03:50:28.000Z</published>
-    <updated>2021-09-07T03:54:05.805Z</updated>
+    <updated>2021-09-07T03:54:47.717Z</updated>
     
     
-      
-      
-        
-        
     <summary type="html">&lt;p&gt;本文包含以下内容：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;二叉树概念&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;使用 C 语言</summary>
-        
-      
+&lt;li&gt;&lt;strong&gt;使用 C 语言 实现的二叉查找树的动态集合操作：&lt;/strong&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;构造：使用二叉树的中序遍历构造二叉树。&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;插入，删除，查询&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前驱和后继&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;最大值和最小值&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;红黑树的概念&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;使用 C++ 面向对象思想 实现的红黑树的动态集合操作：&lt;/strong&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;构造：使用二叉树的中序遍历构造二叉树。&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;左旋和右旋&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;插入&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;颜色修复&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;删除&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;由于本文较长，可按目录选择自己需要的章节。因为用到初始化列表。 g++ 版本确保支持 c++11，所有代码在以下环境中调试通过。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;系统 : ubuntu 18.04 64位&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;编程语言: c++&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;g++ 版本: g++ 8.4.0&lt;/code&gt;&lt;/p&gt;</summary>
     
     
     
