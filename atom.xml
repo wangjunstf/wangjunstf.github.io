@@ -6,7 +6,7 @@
   <link href="https://wangjunstf.github.io/atom.xml" rel="self"/>
   
   <link href="https://wangjunstf.github.io/"/>
-  <updated>2021-09-08T03:17:07.471Z</updated>
+  <updated>2021-09-08T03:18:08.673Z</updated>
   <id>https://wangjunstf.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://wangjunstf.github.io/2021/09/08/c-%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86-%E8%BF%AD%E4%BB%A3%E5%AE%9E%E7%8E%B0/"/>
     <id>https://wangjunstf.github.io/2021/09/08/c-%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86-%E8%BF%AD%E4%BB%A3%E5%AE%9E%E7%8E%B0/</id>
     <published>2021-09-08T03:06:39.000Z</published>
-    <updated>2021-09-08T03:17:07.471Z</updated>
+    <updated>2021-09-08T03:18:08.673Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;递归的缺点&quot;&gt;&lt;a href=&quot;#递归的缺点&quot; class=&quot;headerlink&quot; title=&quot;递归的缺点&quot;&gt;&lt;/a&gt;递归的缺点&lt;/h1&gt;&lt;p&gt;二叉树的主要遍历方式有以下几种：&lt;/p&gt;
@@ -110,7 +110,7 @@
     
     
     <summary type="html">&lt;p&gt;快速排序使用分治法实现，即一个一个复杂的问题分解为一系列容易解决的小问题，最终得到问题的解。&lt;/p&gt;
-&lt;h2 id=&quot;1、算法步骤&quot;&gt;&lt;a href=&quot;#1、算法步骤&quot; class=&quot;headerlink&quot; title=&quot;1、算法步骤&quot;&gt;&lt;/a&gt;1、算法步骤&lt;/h2&gt;&lt;p&gt;快速排序的三步分治过程：例如对 A[p..r] 进行快速排序&lt;/p&gt;
+&lt;h1 id=&quot;算法步骤&quot;&gt;&lt;a href=&quot;#算法步骤&quot; class=&quot;headerlink&quot; title=&quot;算法步骤&quot;&gt;&lt;/a&gt;算法步骤&lt;/h1&gt;&lt;p&gt;快速排序的三步分治过程：例如对 A[p..r] 进行快速排序&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;分解：数组 A[p..r] 被划分为两个(可能为空)子数组 A[p…q-1] 和 A[p+1…r]，使得A[p…q-1] 中的每一个元素都小于 A[q]，而 A[q] 也小于等于 A[q+1…r]中的每个元素。其中，计算下标 q 也是划分过程的一部分。&lt;/li&gt;
 &lt;li&gt;解决：通过递归调用快速排序，对子数组A[p…q-1] 和  A[p+1…r] 进行排序。&lt;/li&gt;
