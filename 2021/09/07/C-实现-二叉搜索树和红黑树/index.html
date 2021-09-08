@@ -22,8 +22,8 @@
 
   <meta name="description" content="本文包含以下内容：  二叉树概念 使用 C 语言 实现的二叉查找树的动态集合操作： 构造：使用二叉树的前序遍历构造二叉树。 插入，删除，查询 前驱和后继 最大值和最小值   红黑树的概念 使用 C++ 面向对象思想 实现的红黑树的动态集合操作： 构造：使用二叉树的前序遍历构造二叉树。 左旋和右旋 插入 颜色修复 删除    由于本文较长，可按目录选择自己需要的章节。因为用到初始化列表。 g++ 版">
 <meta property="og:type" content="article">
-<meta property="og:title" content="C++完整实现 二叉搜索树和红黑树">
-<meta property="og:url" content="https://wangjunstf.github.io/2021/09/07/C-%E5%AE%8C%E6%95%B4%E5%AE%9E%E7%8E%B0-%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E5%92%8C%E7%BA%A2%E9%BB%91%E6%A0%91/index.html">
+<meta property="og:title" content="C++实现 二叉搜索树和红黑树">
+<meta property="og:url" content="https://wangjunstf.github.io/2021/09/07/C-%E5%AE%9E%E7%8E%B0-%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E5%92%8C%E7%BA%A2%E9%BB%91%E6%A0%91/index.html">
 <meta property="og:site_name" content="编程之禅">
 <meta property="og:description" content="本文包含以下内容：  二叉树概念 使用 C 语言 实现的二叉查找树的动态集合操作： 构造：使用二叉树的前序遍历构造二叉树。 插入，删除，查询 前驱和后继 最大值和最小值   红黑树的概念 使用 C++ 面向对象思想 实现的红黑树的动态集合操作： 构造：使用二叉树的前序遍历构造二叉树。 左旋和右旋 插入 颜色修复 删除    由于本文较长，可按目录选择自己需要的章节。因为用到初始化列表。 g++ 版">
 <meta property="og:locale" content="zh_CN">
@@ -50,7 +50,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/wangjunstf/pics/main/uPic/%E6%88%AA%E5%B1%8F2021-09-07%20%E4%B8%8A%E5%8D%8812.36.24.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/wangjunstf/pics/main/uPic/IMG_4C19A2C5EF65-1.jpeg">
 <meta property="article:published_time" content="2021-09-07T03:50:28.000Z">
-<meta property="article:modified_time" content="2021-09-07T09:17:31.837Z">
+<meta property="article:modified_time" content="2021-09-08T03:14:26.933Z">
 <meta property="article:author" content="编程之禅">
 <meta property="article:tag" content="c++">
 <meta property="article:tag" content="红黑树">
@@ -58,7 +58,7 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/wangjunstf/pics/main/uPic/%E4%B8%8B%E8%BD%BD.png">
 
-<link rel="canonical" href="https://wangjunstf.github.io/2021/09/07/C-%E5%AE%8C%E6%95%B4%E5%AE%9E%E7%8E%B0-%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E5%92%8C%E7%BA%A2%E9%BB%91%E6%A0%91/">
+<link rel="canonical" href="https://wangjunstf.github.io/2021/09/07/C-%E5%AE%9E%E7%8E%B0-%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E5%92%8C%E7%BA%A2%E9%BB%91%E6%A0%91/">
 
 
 <script id="page-configurations">
@@ -71,7 +71,7 @@
   };
 </script>
 
-  <title>C++完整实现 二叉搜索树和红黑树 | 编程之禅</title>
+  <title>C++实现 二叉搜索树和红黑树 | 编程之禅</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-206629018-1"></script>
     <script>
@@ -231,7 +231,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://wangjunstf.github.io/2021/09/07/C-%E5%AE%8C%E6%95%B4%E5%AE%9E%E7%8E%B0-%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E5%92%8C%E7%BA%A2%E9%BB%91%E6%A0%91/">
+    <link itemprop="mainEntityOfPage" href="https://wangjunstf.github.io/2021/09/07/C-%E5%AE%9E%E7%8E%B0-%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E5%92%8C%E7%BA%A2%E9%BB%91%E6%A0%91/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -244,7 +244,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          C++完整实现 二叉搜索树和红黑树
+          C++实现 二叉搜索树和红黑树
         </h1>
 
         <div class="post-meta">
@@ -253,10 +253,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-09-07 11:50:28 / 修改时间：17:17:31" itemprop="dateCreated datePublished" datetime="2021-09-07T11:50:28+08:00">2021-09-07</time>
+              <time title="创建时间：2021-09-07 11:50:28" itemprop="dateCreated datePublished" datetime="2021-09-07T11:50:28+08:00">2021-09-07</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-09-08 11:14:26" itemprop="dateModified" datetime="2021-09-08T11:14:26+08:00">2021-09-08</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -276,8 +282,8 @@
       </span>
       <span class="post-meta-item-text">Disqus：</span>
     
-    <a title="disqus" href="/2021/09/07/C-%E5%AE%8C%E6%95%B4%E5%AE%9E%E7%8E%B0-%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E5%92%8C%E7%BA%A2%E9%BB%91%E6%A0%91/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/09/07/C-完整实现-二叉搜索树和红黑树/" itemprop="commentCount"></span>
+    <a title="disqus" href="/2021/09/07/C-%E5%AE%9E%E7%8E%B0-%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E5%92%8C%E7%BA%A2%E9%BB%91%E6%A0%91/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/09/07/C-实现-二叉搜索树和红黑树/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -633,7 +639,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://wangjunstf.github.io/2021/09/07/C-%E5%AE%8C%E6%95%B4%E5%AE%9E%E7%8E%B0-%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E5%92%8C%E7%BA%A2%E9%BB%91%E6%A0%91/" title="C++完整实现 二叉搜索树和红黑树">https://wangjunstf.github.io/2021/09/07/C-完整实现-二叉搜索树和红黑树/</a>
+    <a href="https://wangjunstf.github.io/2021/09/07/C-%E5%AE%9E%E7%8E%B0-%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E5%92%8C%E7%BA%A2%E9%BB%91%E6%A0%91/" title="C++实现 二叉搜索树和红黑树">https://wangjunstf.github.io/2021/09/07/C-实现-二叉搜索树和红黑树/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -863,9 +869,9 @@
 </script>
 <script>
   var disqus_config = function() {
-    this.page.url = "https://wangjunstf.github.io/2021/09/07/C-%E5%AE%8C%E6%95%B4%E5%AE%9E%E7%8E%B0-%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E5%92%8C%E7%BA%A2%E9%BB%91%E6%A0%91/";
-    this.page.identifier = "2021/09/07/C-完整实现-二叉搜索树和红黑树/";
-    this.page.title = "C++完整实现 二叉搜索树和红黑树";
+    this.page.url = "https://wangjunstf.github.io/2021/09/07/C-%E5%AE%9E%E7%8E%B0-%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E5%92%8C%E7%BA%A2%E9%BB%91%E6%A0%91/";
+    this.page.identifier = "2021/09/07/C-实现-二叉搜索树和红黑树/";
+    this.page.title = "C++实现 二叉搜索树和红黑树";
     };
   NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
     if (window.DISQUS) {
