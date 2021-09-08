@@ -6,7 +6,7 @@
   <link href="https://wangjunstf.github.io/atom.xml" rel="self"/>
   
   <link href="https://wangjunstf.github.io/"/>
-  <updated>2021-09-08T03:12:34.023Z</updated>
+  <updated>2021-09-08T03:17:07.471Z</updated>
   <id>https://wangjunstf.github.io/</id>
   
   <author>
@@ -21,17 +21,24 @@
     <link href="https://wangjunstf.github.io/2021/09/08/c-%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86-%E8%BF%AD%E4%BB%A3%E5%AE%9E%E7%8E%B0/"/>
     <id>https://wangjunstf.github.io/2021/09/08/c-%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86-%E8%BF%AD%E4%BB%A3%E5%AE%9E%E7%8E%B0/</id>
     <published>2021-09-08T03:06:39.000Z</published>
-    <updated>2021-09-08T03:12:34.023Z</updated>
+    <updated>2021-09-08T03:17:07.471Z</updated>
     
     
-      
-      
-        
-        
     <summary type="html">&lt;h1 id=&quot;递归的缺点&quot;&gt;&lt;a href=&quot;#递归的缺点&quot; class=&quot;headerlink&quot; title=&quot;递归的缺点&quot;&gt;&lt;/a&gt;递归的缺点&lt;/h1&gt;&lt;p&gt;二叉树的主要遍历方式有以下几种：&lt;/p&gt;
-&lt;p&gt;前序遍历：根-</summary>
-        
-      
+&lt;p&gt;前序遍历：根- 左子树-右子树（&lt;strong&gt;前序遍历可以唯一确定一棵二叉树&lt;/strong&gt;）&lt;/p&gt;
+&lt;p&gt;中序遍历：左子树-根-右子树（&lt;strong&gt;二叉搜索树使用此遍历可以从小大到大输出所有元素。&lt;/strong&gt;）&lt;/p&gt;
+&lt;p&gt;后序遍历：左子树-右子树-根（&lt;strong&gt;结合中序遍历可以唯一确定一棵二叉树&lt;/strong&gt;）&lt;/p&gt;
+&lt;p&gt;二叉树遍历最常见的，也是最简单的思路是使用递归算法。既然有了最简答的写法，为什么还有学习更复杂的迭代实现呢？主要是递归有以下缺点：&lt;/p&gt;
+&lt;p&gt;递归的本质是函数调用，对于大多数操作系统，每一次函数调用都是一个代价较高的过程，主要因为以下几个方面：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;性能上考虑：&lt;strong&gt;函数每一次调用都得往栈中压入函数返回地址，函数参数，以及为函数内的所有局部变量分配空间。每个进程的栈空间是有限的，递归层次太多，会导致往栈中存在太多数据，易导致栈溢出，进而程序崩溃。&lt;/strong&gt; &lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;效率上考虑：&lt;strong&gt;当系统进行函数调用时，会向栈中压入函数返回地址，函数形参，为局部变量分配空间，当函数执行完毕时，需要进行弹栈(也称为清栈)操作使之与函数调用前一模一样，往栈中压入数据和弹出数据都需要时间，从某种程度上降低了程序的性能。&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;说了递归的缺点，现在说下迭代的好处：&lt;strong&gt;迭代没有函数调用所产生的额外开销，也没有压栈和弹栈操作，通常空间利用率更高，程序运行效率更好。&lt;/strong&gt;&lt;br&gt;&lt;code&gt;系统 : ubuntu 18.04 64位&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;编程语言: c++&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;g++ 版本: g++ 8.4.0&lt;/code&gt;&lt;/p&gt;</summary>
     
     
     
