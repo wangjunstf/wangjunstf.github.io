@@ -6,7 +6,7 @@
   <link href="https://wangjunstf.github.io/atom.xml" rel="self"/>
   
   <link href="https://wangjunstf.github.io/"/>
-  <updated>2021-09-08T03:06:40.037Z</updated>
+  <updated>2021-09-08T03:12:34.023Z</updated>
   <id>https://wangjunstf.github.io/</id>
   
   <author>
@@ -17,15 +17,34 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title># c++ 二叉树遍历 迭代实现</title>
+    <title>c++ 二叉树遍历 迭代实现</title>
     <link href="https://wangjunstf.github.io/2021/09/08/c-%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86-%E8%BF%AD%E4%BB%A3%E5%AE%9E%E7%8E%B0/"/>
     <id>https://wangjunstf.github.io/2021/09/08/c-%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86-%E8%BF%AD%E4%BB%A3%E5%AE%9E%E7%8E%B0/</id>
     <published>2021-09-08T03:06:39.000Z</published>
-    <updated>2021-09-08T03:06:40.037Z</updated>
+    <updated>2021-09-08T03:12:34.023Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;递归的缺点&quot;&gt;&lt;a href=&quot;#递归的缺点&quot; class=&quot;headerlink&quot; title=&quot;递归的缺点&quot;&gt;&lt;/a&gt;递归的缺点&lt;/h1&gt;&lt;p&gt;二叉树的主要遍历方式有以下几种：&lt;/p&gt;
+&lt;p&gt;前序遍历：根-</summary>
+        
+      
     
     
     
+    <category term="数据结构" scheme="https://wangjunstf.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
+    
+    <category term="c++" scheme="https://wangjunstf.github.io/tags/c/"/>
+    
+    <category term="二叉树遍历" scheme="https://wangjunstf.github.io/tags/%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86/"/>
+    
+    <category term="迭代" scheme="https://wangjunstf.github.io/tags/%E8%BF%AD%E4%BB%A3/"/>
+    
+    <category term="递归" scheme="https://wangjunstf.github.io/tags/%E9%80%92%E5%BD%92/"/>
     
   </entry>
   

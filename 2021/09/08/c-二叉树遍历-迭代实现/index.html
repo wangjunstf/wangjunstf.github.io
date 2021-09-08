@@ -20,21 +20,20 @@
     var CONFIG = {"hostname":"wangjunstf.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="喜欢钻研和阅读，本博客用于分享编程语言，网络原理，操作系统，数据结构与算法等知识。">
+  <meta name="description" content="递归的缺点二叉树的主要遍历方式有以下几种： 前序遍历：根- 左子树-右子树（前序遍历可以唯一确定一棵二叉树） 中序遍历：左子树-根-右子树（二叉搜索树使用此遍历可以从小大到大输出所有元素。） 后序遍历：左子树-右子树-根（结合中序遍历可以唯一确定一棵二叉树） 二叉树遍历最常见的，也是最简单的思路是使用递归算法。既然有了最简答的写法，为什么还有学习更复杂的迭代实现呢？主要是递归有以下缺点： 递归的本">
 <meta property="og:type" content="article">
-<meta property="og:title" content="# c++ 二叉树遍历 迭代实现">
+<meta property="og:title" content="c++ 二叉树遍历 迭代实现">
 <meta property="og:url" content="https://wangjunstf.github.io/2021/09/08/c-%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86-%E8%BF%AD%E4%BB%A3%E5%AE%9E%E7%8E%B0/index.html">
 <meta property="og:site_name" content="编程之禅">
-<meta property="og:description" content="喜欢钻研和阅读，本博客用于分享编程语言，网络原理，操作系统，数据结构与算法等知识。">
+<meta property="og:description" content="递归的缺点二叉树的主要遍历方式有以下几种： 前序遍历：根- 左子树-右子树（前序遍历可以唯一确定一棵二叉树） 中序遍历：左子树-根-右子树（二叉搜索树使用此遍历可以从小大到大输出所有元素。） 后序遍历：左子树-右子树-根（结合中序遍历可以唯一确定一棵二叉树） 二叉树遍历最常见的，也是最简单的思路是使用递归算法。既然有了最简答的写法，为什么还有学习更复杂的迭代实现呢？主要是递归有以下缺点： 递归的本">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-09-08T03:06:39.000Z">
-<meta property="article:modified_time" content="2021-09-08T03:06:40.037Z">
+<meta property="article:modified_time" content="2021-09-08T03:12:34.023Z">
 <meta property="article:author" content="编程之禅">
-<meta property="article:tag" content="后端开发">
-<meta property="article:tag" content="网络原理">
-<meta property="article:tag" content="操作系统">
-<meta property="article:tag" content="数据结构">
-<meta property="article:tag" content="算法">
+<meta property="article:tag" content="c++">
+<meta property="article:tag" content="二叉树遍历">
+<meta property="article:tag" content="迭代">
+<meta property="article:tag" content="递归">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="https://wangjunstf.github.io/2021/09/08/c-%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86-%E8%BF%AD%E4%BB%A3%E5%AE%9E%E7%8E%B0/">
@@ -50,7 +49,7 @@
   };
 </script>
 
-  <title># c++ 二叉树遍历 迭代实现 | 编程之禅</title>
+  <title>c++ 二叉树遍历 迭代实现 | 编程之禅</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-206629018-1"></script>
     <script>
@@ -223,7 +222,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          # c++ 二叉树遍历 迭代实现
+          c++ 二叉树遍历 迭代实现
         </h1>
 
         <div class="post-meta">
@@ -234,7 +233,16 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-09-08 11:06:39 / 修改时间：11:06:40" itemprop="dateCreated datePublished" datetime="2021-09-08T11:06:39+08:00">2021-09-08</time>
+              <time title="创建时间：2021-09-08 11:06:39 / 修改时间：11:12:34" itemprop="dateCreated datePublished" datetime="2021-09-08T11:06:39+08:00">2021-09-08</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" itemprop="url" rel="index"><span itemprop="name">数据结构</span></a>
+                </span>
             </span>
 
           
@@ -262,7 +270,92 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        
+        <h1 id="递归的缺点"><a href="#递归的缺点" class="headerlink" title="递归的缺点"></a>递归的缺点</h1><p>二叉树的主要遍历方式有以下几种：</p>
+<p>前序遍历：根- 左子树-右子树（<strong>前序遍历可以唯一确定一棵二叉树</strong>）</p>
+<p>中序遍历：左子树-根-右子树（<strong>二叉搜索树使用此遍历可以从小大到大输出所有元素。</strong>）</p>
+<p>后序遍历：左子树-右子树-根（<strong>结合中序遍历可以唯一确定一棵二叉树</strong>）</p>
+<p>二叉树遍历最常见的，也是最简单的思路是使用递归算法。既然有了最简答的写法，为什么还有学习更复杂的迭代实现呢？主要是递归有以下缺点：</p>
+<p>递归的本质是函数调用，对于大多数操作系统，每一次函数调用都是一个代价较高的过程，主要因为以下几个方面：</p>
+<ul>
+<li><p>性能上考虑：<strong>函数每一次调用都得往栈中压入函数返回地址，函数参数，以及为函数内的所有局部变量分配空间。每个进程的栈空间是有限的，递归层次太多，会导致往栈中存在太多数据，易导致栈溢出，进而程序崩溃。</strong> </p>
+</li>
+<li><p>效率上考虑：<strong>当系统进行函数调用时，会向栈中压入函数返回地址，函数形参，为局部变量分配空间，当函数执行完毕时，需要进行弹栈(也称为清栈)操作使之与函数调用前一模一样，往栈中压入数据和弹出数据都需要时间，从某种程度上降低了程序的性能。</strong></p>
+</li>
+</ul>
+<p>说了递归的缺点，现在说下迭代的好处：<strong>迭代没有函数调用所产生的额外开销，也没有压栈和弹栈操作，通常空间利用率更高，程序运行效率更好。</strong></p>
+<p>节点定义：为了简化代码，省略了父节点。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">TreeNode</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> key;</span><br><span class="line">    TreeNode *left;</span><br><span class="line">    TreeNode *right;</span><br><span class="line">    TreeNode *parent;     </span><br><span class="line">    <span class="built_in">TreeNode</span>() : <span class="built_in">val</span>(<span class="number">0</span>), <span class="built_in">left</span>(<span class="literal">nullptr</span>), <span class="built_in">right</span>(<span class="literal">nullptr</span>)&#123;&#125;</span><br><span class="line">    <span class="built_in">TreeNode</span>(<span class="keyword">int</span> x) : <span class="built_in">val</span>(x), <span class="built_in">left</span>(<span class="literal">nullptr</span>), <span class="built_in">right</span>(<span class="literal">nullptr</span>) &#123;&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>为了封装二叉树的各种操作，我们创建一个二叉树类：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BinaryTree</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    TreeNode *root;  </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(TreeNode *node)</span></span>;                           										<span class="comment">// 插入元素</span></span><br><span class="line">  	<span class="function">TreeNode* <span class="title">treeBuild</span><span class="params">(vector&lt;<span class="keyword">int</span>&gt; &amp;tab, <span class="keyword">int</span> &amp;index, TreeNode *parent)</span>；     <span class="comment">// 构造二叉树</span></span></span><br><span class="line"><span class="function">    <span class="keyword">void</span> <span class="title">preOrder</span><span class="params">(TreeNode *root)</span></span>;                          									<span class="comment">// 前序遍历(递归)</span></span><br><span class="line">  	<span class="function"><span class="keyword">void</span> <span class="title">preIteration</span><span class="params">(TreeNode *root)</span></span>;																				<span class="comment">// 前序遍历(迭代)</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h1 id="二叉树构造"><a href="#二叉树构造" class="headerlink" title="二叉树构造"></a>二叉树构造</h1><p>为了测试遍历代码的正确性，往往需要构建一棵二叉树。二叉树的构建方法主要有两种：</p>
+<h2 id="前序遍历法"><a href="#前序遍历法" class="headerlink" title="前序遍历法"></a>前序遍历法</h2><p>使用前序遍历可以唯一确定一棵二叉树，二叉树的前序遍历顺序：根-左子树-右子树，可以使用 vector 来存储二叉树的前序遍历，遍历序列中必须包含空子树标记。例如：现在给定一个前序遍历序列：<code>vector&lt;int&gt; pre&#123;4,2,1,NULL,NULL,3,NULL,NULL,5,NULL,NULL&#125;;</code> 可以根据前序遍历的步骤来构建二叉树。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">TreeNode*</span></span><br><span class="line"><span class="function"><span class="title">BinaryTree::treeBuild</span><span class="params">(vector&lt;<span class="keyword">int</span>&gt; &amp;tab, <span class="keyword">int</span> &amp;index, TreeNode *parent)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    TreeNode *root = <span class="literal">nullptr</span>;</span><br><span class="line">    <span class="keyword">if</span> (index &lt; tab.<span class="built_in">size</span>() &amp;&amp; tab[index] != <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        root = <span class="keyword">new</span> <span class="built_in">TreeNode</span>(tab[index]);</span><br><span class="line">        root-&gt;parent = parent;</span><br><span class="line">        root-&gt;left = <span class="built_in">treeBuild</span>(tab, ++index, root);</span><br><span class="line">        root-&gt;right = <span class="built_in">treeBuild</span>(tab, ++index, root);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> root;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="随机插入法"><a href="#随机插入法" class="headerlink" title="随机插入法"></a>随机插入法</h2><p>此方法适用于二叉搜索树，一棵二叉搜索树的定义如下，若它的左子树不空，则左子树上所有结点的值均小于它的根结点的值； 若它的右子树不空，则右子树上所有结点的值均大于它的根结点的值。二叉搜索树的所有子树都为二叉搜索树。</p>
+<p>给定一组序列，使用二叉搜索树的插入方法，可以构建一棵有序的二叉树。次方法不必知道二叉树的结构。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> </span></span><br><span class="line"><span class="function"><span class="title">BinaryTree::insert</span><span class="params">(TreeNode *node)</span></span>&#123;</span><br><span class="line">    TreeNode *x = root;</span><br><span class="line">    TreeNode *y = <span class="literal">nullptr</span>;</span><br><span class="line">    <span class="keyword">while</span> (x != <span class="literal">nullptr</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        y = x;</span><br><span class="line">        <span class="keyword">if</span> (node-&gt;val &lt; x-&gt;val)</span><br><span class="line">        &#123;</span><br><span class="line">            x = x-&gt;left;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            x = x-&gt;right;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (y == <span class="literal">nullptr</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        root = node;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (node-&gt;val &lt; y-&gt;val)</span><br><span class="line">    &#123;</span><br><span class="line">        y-&gt;left = node;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        y-&gt;right = node;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="前序遍历"><a href="#前序遍历" class="headerlink" title="前序遍历"></a>前序遍历</h1><h2 id="递归法"><a href="#递归法" class="headerlink" title="递归法"></a>递归法</h2><ul>
+<li>递归的本质是自己调用自己，每一次调用都是输出当前子树的根节点值。</li>
+<li>函数第一次调用时，root 为根节点，首先输出根节点值。</li>
+<li>然后再递归调用左子树，右子树。这样就依次输出了左节点值，右节点。和前序遍历的要求一致：根-左-右</li>
+</ul>
+<p>递归本质是基于栈的回溯，即它在递归的时候，会在栈中记录所走的路径，回溯时输出节点值。可以看到递归法代码更加简洁，只需4行代码即可。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">BinaryTree::preOrder</span><span class="params">(TreeNode *root)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  	<span class="comment">// 前序遍历，输出所有节点值</span></span><br><span class="line">    <span class="keyword">if</span> (root != <span class="literal">nullptr</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        cout &lt;&lt; root-&gt;val &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">        <span class="built_in">preOrder</span>(root-&gt;left);</span><br><span class="line">        <span class="built_in">preOrder</span>(root-&gt;right);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="迭代法"><a href="#迭代法" class="headerlink" title="迭代法"></a>迭代法</h2><p>迭代的原理就是利用一个栈来记录路径，模拟函数调用的回溯。迭代法避免了函数调用产生的代价，具有更高的运行效率，但代码会更复杂一些。</p>
+<ul>
+<li>循环开始前，将根节点入栈。</li>
+<li>每一次循环都先输出当前子树根节点值，弹出当前子树根节点 cur，然后再 cur 的右子树，左子树入栈。因为栈本身的特性，后到先服务。</li>
+<li>再下一轮循环中，首先处理左子树，然后处理右子树。这样就满足前序遍历：根-左子树-右子树的要求。</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> </span></span><br><span class="line"><span class="function"><span class="title">BinaryTree::preIteration</span><span class="params">(TreeNode *root)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  	<span class="comment">// 前序遍历，输出所有节点值</span></span><br><span class="line">    stack&lt;TreeNode *&gt; s;</span><br><span class="line">    s.<span class="built_in">push</span>(root); </span><br><span class="line">    <span class="keyword">while</span>(!s.<span class="built_in">empty</span>())&#123;</span><br><span class="line">        TreeNode *p = s.<span class="built_in">top</span>();</span><br><span class="line">        s.<span class="built_in">pop</span>();</span><br><span class="line">        cout&lt;&lt;p-&gt;val&lt;&lt;<span class="string">&quot; &quot;</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 先将右节点入栈，后将左节点入栈，因为前序遍历，需要先访问左节点，再访问右节点</span></span><br><span class="line">        <span class="keyword">if</span>(p-&gt;right!=<span class="literal">nullptr</span>)&#123;</span><br><span class="line">            s.<span class="built_in">push</span>(p-&gt;right);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(p-&gt;left!=<span class="literal">nullptr</span>)&#123;</span><br><span class="line">            s.<span class="built_in">push</span>(p-&gt;left);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="中序遍历"><a href="#中序遍历" class="headerlink" title="中序遍历"></a>中序遍历</h1><h2 id="递归法-1"><a href="#递归法-1" class="headerlink" title="递归法"></a>递归法</h2><p>只需改变输出根节点值的位置即可。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> </span></span><br><span class="line"><span class="function"><span class="title">BinaryTree::inOrder</span><span class="params">(TreeNode *root)</span></span>&#123;</span><br><span class="line">    <span class="comment">// 中序遍历，输出所有节点值</span></span><br><span class="line">    <span class="keyword">if</span> (root != <span class="literal">nullptr</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">inOrder</span>(root-&gt;left);</span><br><span class="line">        cout &lt;&lt; root-&gt;val &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">        <span class="built_in">inOrder</span>(root-&gt;right);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="迭代法-1"><a href="#迭代法-1" class="headerlink" title="迭代法"></a>迭代法</h2><p>中序遍历是；左-根-右。</p>
+<ul>
+<li>使用 cur 作为当前节点，循环开始前 cur 的值为根节点。</li>
+<li>因为要先输出左子树，在循环开始，使用一个子循环将 当前节点 cur 的左孩子节点，左孩子的左孩子入栈，直到 cur 为空为止。</li>
+<li>此时栈顶就是输出的第一个节点。弹出栈顶到 cur 中，并输出，将 cur 设置为它的右孩子，如果其右孩子存在的话，对其右子树执行相同的操作，就是找到最左边节点；如果 其右孩子为空，则 cur 也为空，在循环开始处不会有节点在进栈，此时弹出的当前节点 cur 就是最先输出节点的父节点，将该节点输出，然后将 cur 设置为其右孩子，对其右孩子执行相同的操作。这样就实现了回溯的功能。</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> </span></span><br><span class="line"><span class="function"><span class="title">BinaryTree::inIteration</span><span class="params">(TreeNode *root)</span></span>&#123;</span><br><span class="line">    <span class="comment">// 中序遍历输出所有节点值</span></span><br><span class="line">    stack&lt;TreeNode *&gt; s;</span><br><span class="line">    TreeNode* cur = root;</span><br><span class="line">    <span class="keyword">while</span>(cur!=<span class="literal">nullptr</span> || !s.<span class="built_in">empty</span>())&#123;</span><br><span class="line">        <span class="keyword">while</span>(cur!=<span class="literal">nullptr</span>)&#123;</span><br><span class="line">            s.<span class="built_in">push</span>(cur);</span><br><span class="line">            cur = cur-&gt;left;</span><br><span class="line">        &#125;</span><br><span class="line">        cur = s.<span class="built_in">top</span>();</span><br><span class="line">        s.<span class="built_in">pop</span>();</span><br><span class="line">        cout&lt;&lt; cur-&gt;val&lt;&lt;<span class="string">&quot; &quot;</span>;</span><br><span class="line">        cur = cur-&gt;right;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="后序遍历"><a href="#后序遍历" class="headerlink" title="后序遍历"></a>后序遍历</h1><h2 id="递归版本"><a href="#递归版本" class="headerlink" title="递归版本"></a>递归版本</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> </span></span><br><span class="line"><span class="function"><span class="title">BinaryTree::postOrder</span><span class="params">(TreeNode *root)</span></span>&#123;</span><br><span class="line">    <span class="comment">// 后续遍历输出所有节点值</span></span><br><span class="line">    <span class="keyword">if</span>(root!=<span class="literal">nullptr</span>)&#123;</span><br><span class="line">        <span class="built_in">postOrder</span>(root-&gt;left);</span><br><span class="line">        <span class="built_in">postOrder</span>(root-&gt;right);</span><br><span class="line">        cout&lt;&lt;root-&gt;val&lt;&lt;<span class="string">&quot; &quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="迭代版本"><a href="#迭代版本" class="headerlink" title="迭代版本"></a>迭代版本</h2><p>后续遍历的迭代版本会更加复杂一些。</p>
+<ul>
+<li>后序遍历: 左-右-根。输出左孩子简单，使用一个子循环就可以找到最左边孩子，重点是从右节点到根节点之后，需要判断它是否从右孩子回溯而来，如果是，则表示它的右孩子已经处理，可以处理根节点，如果不是回溯而来，则需要先处理它的右子树。</li>
+<li>使用一个遍历 pre 来记录上一次访问的节点，这样就可以容易的判断当前节点是不是由右孩子回溯而来。</li>
+<li>第一次循环：当前节点是根节点，pre 为空节点。使用一个子循环将当前节点 cur 的左孩子节点，左孩子的左孩子入栈，知道 cur 为空。</li>
+<li>弹出栈顶元素到 cur，此时判断 cur 是否为回溯而来，只需判断 cur 的右孩子是否是 pre，不是则将 cur 再次入栈，并将 cur 的右孩子入栈，执行相同的操作。如果 cur 的右孩子为 pre，则表示 cur 是由 pre 回溯而来，当前 cur 作为当前子树的根节点，将 pre 设置为 cur，将 cur 设置为 空。在下一次循环中，就来到了上一层节点，实现了回溯的功能。</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span></span></span><br><span class="line"><span class="function"><span class="title">BinaryTree::postIteration</span><span class="params">(TreeNode *root)</span></span>&#123;</span><br><span class="line">    stack&lt;TreeNode *&gt; s;</span><br><span class="line">    TreeNode *cur = root;</span><br><span class="line">    TreeNode *pre = <span class="literal">nullptr</span>;</span><br><span class="line">    <span class="keyword">while</span>(cur || !s.<span class="built_in">empty</span>())&#123;</span><br><span class="line">        <span class="keyword">while</span>(cur)&#123;</span><br><span class="line">            s.<span class="built_in">push</span>(cur);</span><br><span class="line">            cur = cur-&gt;left;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(!s.<span class="built_in">empty</span>())&#123;</span><br><span class="line">            cur = s.<span class="built_in">top</span>();</span><br><span class="line">            s.<span class="built_in">pop</span>();</span><br><span class="line">            <span class="keyword">if</span>(cur-&gt;right==<span class="literal">nullptr</span> || pre == cur-&gt;right)&#123;</span><br><span class="line">                cout&lt;&lt;cur-&gt;val&lt;&lt;<span class="string">&quot; &quot;</span>;</span><br><span class="line">                pre = cur;</span><br><span class="line">                cur = <span class="literal">nullptr</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                s.<span class="built_in">push</span>(cur);</span><br><span class="line">                cur = cur-&gt;right;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="测试代码"><a href="#测试代码" class="headerlink" title="测试代码"></a>测试代码</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    vector&lt;<span class="keyword">int</span>&gt; pre&#123;<span class="number">4</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="literal">NULL</span>,<span class="literal">NULL</span>,<span class="number">3</span>,<span class="literal">NULL</span>,<span class="literal">NULL</span>,<span class="number">5</span>,<span class="literal">NULL</span>,<span class="literal">NULL</span>&#125;;   <span class="comment">// 中序遍历，未用到</span></span><br><span class="line"></span><br><span class="line">    vector&lt;<span class="keyword">int</span>&gt;tab &#123;<span class="number">1</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">6</span>,<span class="number">4</span>,<span class="number">5</span>&#125;;</span><br><span class="line">    BinaryTree b;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span> x:tab)&#123;</span><br><span class="line">        TreeNode *node = <span class="keyword">new</span> <span class="built_in">TreeNode</span>(x);</span><br><span class="line">        b.<span class="built_in">insert</span>(node);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;前序遍历(递归): &quot;</span>;</span><br><span class="line">    b.<span class="built_in">preOrder</span>(b.root);</span><br><span class="line">    cout&lt;&lt;endl;</span><br><span class="line"></span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;前序遍历(迭代): &quot;</span>;</span><br><span class="line">    b.<span class="built_in">preIteration</span>(b.root);</span><br><span class="line">    cout&lt;&lt;endl;</span><br><span class="line"></span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;中序遍历(递归): &quot;</span>;</span><br><span class="line">    b.<span class="built_in">inOrder</span>(b.root);</span><br><span class="line">    cout&lt;&lt;endl;</span><br><span class="line"></span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;中序遍历(迭代): &quot;</span>;</span><br><span class="line">    b.<span class="built_in">inIteration</span>(b.root);</span><br><span class="line">    cout&lt;&lt;endl;</span><br><span class="line"></span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;后序遍历(递归): &quot;</span>;</span><br><span class="line">    b.<span class="built_in">postOrder</span>(b.root);</span><br><span class="line">    cout&lt;&lt;endl;</span><br><span class="line"></span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;后续遍历(迭代): &quot;</span>;</span><br><span class="line">    b.<span class="built_in">postIteration</span>(b.root);</span><br><span class="line">    cout&lt;&lt;endl;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">前序遍历(递归): 1 3 2 6 4 5 </span><br><span class="line">前序遍历(迭代): 1 3 2 6 4 5 </span><br><span class="line">中序遍历(递归): 1 2 3 4 5 6 </span><br><span class="line">中序遍历(迭代): 1 2 3 4 5 6 </span><br><span class="line">后序遍历(递归): 2 5 4 6 3 1 </span><br><span class="line">后续遍历(迭代): 2 5 4 6 3 1 </span><br></pre></td></tr></table></figure>
+
+<h1 id="编程练习"><a href="#编程练习" class="headerlink" title="编程练习"></a>编程练习</h1><p>学习完二叉树遍历方法，可以做题巩固一下，建议把递归和迭代都实现一遍。</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/binary-tree-preorder-traversal/">二叉树的前序遍历</a> </li>
+<li><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/binary-tree-inorder-traversal/">二叉树的中序遍历</a> </li>
+<li><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/binary-tree-postorder-traversal/">二叉树的后序遍历</a> </li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a target="_blank" rel="noopener" href="http://icejoywoo.github.io/2020/03/31/binary-tree-traversal.html">http://icejoywoo.github.io/2020/03/31/binary-tree-traversal.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/80578741">https://zhuanlan.zhihu.com/p/80578741</a></p>
+
     </div>
 
     
@@ -297,7 +390,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://wangjunstf.github.io/2021/09/08/c-%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86-%E8%BF%AD%E4%BB%A3%E5%AE%9E%E7%8E%B0/" title="# c++ 二叉树遍历 迭代实现">https://wangjunstf.github.io/2021/09/08/c-二叉树遍历-迭代实现/</a>
+    <a href="https://wangjunstf.github.io/2021/09/08/c-%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86-%E8%BF%AD%E4%BB%A3%E5%AE%9E%E7%8E%B0/" title="c++ 二叉树遍历 迭代实现">https://wangjunstf.github.io/2021/09/08/c-二叉树遍历-迭代实现/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -307,6 +400,12 @@
 
 
       <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/c/" rel="tag"># c++</a>
+              <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86/" rel="tag"># 二叉树遍历</a>
+              <a href="/tags/%E8%BF%AD%E4%BB%A3/" rel="tag"># 迭代</a>
+              <a href="/tags/%E9%80%92%E5%BD%92/" rel="tag"># 递归</a>
+          </div>
 
         
 
@@ -383,6 +482,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%80%92%E5%BD%92%E7%9A%84%E7%BC%BA%E7%82%B9"><span class="nav-number">1.</span> <span class="nav-text">递归的缺点</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E5%8F%89%E6%A0%91%E6%9E%84%E9%80%A0"><span class="nav-number">2.</span> <span class="nav-text">二叉树构造</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E5%BA%8F%E9%81%8D%E5%8E%86%E6%B3%95"><span class="nav-number">2.1.</span> <span class="nav-text">前序遍历法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9A%8F%E6%9C%BA%E6%8F%92%E5%85%A5%E6%B3%95"><span class="nav-number">2.2.</span> <span class="nav-text">随机插入法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E5%BA%8F%E9%81%8D%E5%8E%86"><span class="nav-number">3.</span> <span class="nav-text">前序遍历</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%92%E5%BD%92%E6%B3%95"><span class="nav-number">3.1.</span> <span class="nav-text">递归法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%AD%E4%BB%A3%E6%B3%95"><span class="nav-number">3.2.</span> <span class="nav-text">迭代法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%AD%E5%BA%8F%E9%81%8D%E5%8E%86"><span class="nav-number">4.</span> <span class="nav-text">中序遍历</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%92%E5%BD%92%E6%B3%95-1"><span class="nav-number">4.1.</span> <span class="nav-text">递归法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%AD%E4%BB%A3%E6%B3%95-1"><span class="nav-number">4.2.</span> <span class="nav-text">迭代法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86"><span class="nav-number">5.</span> <span class="nav-text">后序遍历</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%92%E5%BD%92%E7%89%88%E6%9C%AC"><span class="nav-number">5.1.</span> <span class="nav-text">递归版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%AD%E4%BB%A3%E7%89%88%E6%9C%AC"><span class="nav-number">5.2.</span> <span class="nav-text">迭代版本</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95%E4%BB%A3%E7%A0%81"><span class="nav-number">6.</span> <span class="nav-text">测试代码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BC%96%E7%A8%8B%E7%BB%83%E4%B9%A0"><span class="nav-number">7.</span> <span class="nav-text">编程练习</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">8.</span> <span class="nav-text">参考</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -409,7 +509,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -520,7 +620,7 @@
   var disqus_config = function() {
     this.page.url = "https://wangjunstf.github.io/2021/09/08/c-%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86-%E8%BF%AD%E4%BB%A3%E5%AE%9E%E7%8E%B0/";
     this.page.identifier = "2021/09/08/c-二叉树遍历-迭代实现/";
-    this.page.title = "# c++ 二叉树遍历 迭代实现";
+    this.page.title = "c++ 二叉树遍历 迭代实现";
     };
   NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
     if (window.DISQUS) {
