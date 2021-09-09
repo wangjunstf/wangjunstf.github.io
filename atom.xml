@@ -6,7 +6,7 @@
   <link href="https://wangjunstf.github.io/atom.xml" rel="self"/>
   
   <link href="https://wangjunstf.github.io/"/>
-  <updated>2021-09-08T03:18:08.673Z</updated>
+  <updated>2021-09-08T14:13:38.827Z</updated>
   <id>https://wangjunstf.github.io/</id>
   
   <author>
@@ -21,24 +21,10 @@
     <link href="https://wangjunstf.github.io/2021/09/08/c-%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86-%E8%BF%AD%E4%BB%A3%E5%AE%9E%E7%8E%B0/"/>
     <id>https://wangjunstf.github.io/2021/09/08/c-%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86-%E8%BF%AD%E4%BB%A3%E5%AE%9E%E7%8E%B0/</id>
     <published>2021-09-08T03:06:39.000Z</published>
-    <updated>2021-09-08T03:18:08.673Z</updated>
+    <updated>2021-09-08T14:13:38.827Z</updated>
     
     
-    <summary type="html">&lt;h1 id=&quot;递归的缺点&quot;&gt;&lt;a href=&quot;#递归的缺点&quot; class=&quot;headerlink&quot; title=&quot;递归的缺点&quot;&gt;&lt;/a&gt;递归的缺点&lt;/h1&gt;&lt;p&gt;二叉树的主要遍历方式有以下几种：&lt;/p&gt;
-&lt;p&gt;前序遍历：根- 左子树-右子树（&lt;strong&gt;前序遍历可以唯一确定一棵二叉树&lt;/strong&gt;）&lt;/p&gt;
-&lt;p&gt;中序遍历：左子树-根-右子树（&lt;strong&gt;二叉搜索树使用此遍历可以从小大到大输出所有元素。&lt;/strong&gt;）&lt;/p&gt;
-&lt;p&gt;后序遍历：左子树-右子树-根（&lt;strong&gt;结合中序遍历可以唯一确定一棵二叉树&lt;/strong&gt;）&lt;/p&gt;
-&lt;p&gt;二叉树遍历最常见的，也是最简单的思路是使用递归算法。既然有了最简答的写法，为什么还有学习更复杂的迭代实现呢？主要是递归有以下缺点：&lt;/p&gt;
-&lt;p&gt;递归的本质是函数调用，对于大多数操作系统，每一次函数调用都是一个代价较高的过程，主要因为以下几个方面：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;性能上考虑：&lt;strong&gt;函数每一次调用都得往栈中压入函数返回地址，函数参数，以及为函数内的所有局部变量分配空间。每个进程的栈空间是有限的，递归层次太多，会导致往栈中存在太多数据，易导致栈溢出，进而程序崩溃。&lt;/strong&gt; &lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;效率上考虑：&lt;strong&gt;当系统进行函数调用时，会向栈中压入函数返回地址，函数形参，为局部变量分配空间，当函数执行完毕时，需要进行弹栈(也称为清栈)操作使之与函数调用前一模一样，往栈中压入数据和弹出数据都需要时间，从某种程度上降低了程序的性能。&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;说了递归的缺点，现在说下迭代的好处：&lt;strong&gt;迭代没有函数调用所产生的额外开销，也没有压栈和弹栈操作，通常空间利用率更高，程序运行效率更好。&lt;/strong&gt;&lt;br&gt;&lt;code&gt;系统 : ubuntu 18.04 64位&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;编程语言: c++&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;g++ 版本: g++ 8.4.0&lt;/code&gt;&lt;/p&gt;</summary>
+    <summary type="html">分别用递归和迭代实现二叉树三种遍历方式：前序遍历，中序遍历，后序遍历。递归的缺点分析。</summary>
     
     
     
@@ -60,33 +46,10 @@
     <link href="https://wangjunstf.github.io/2021/09/07/C-%E5%AE%9E%E7%8E%B0-%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E5%92%8C%E7%BA%A2%E9%BB%91%E6%A0%91/"/>
     <id>https://wangjunstf.github.io/2021/09/07/C-%E5%AE%9E%E7%8E%B0-%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E5%92%8C%E7%BA%A2%E9%BB%91%E6%A0%91/</id>
     <published>2021-09-07T03:50:28.000Z</published>
-    <updated>2021-09-08T03:15:41.248Z</updated>
+    <updated>2021-09-08T14:16:57.653Z</updated>
     
     
-    <summary type="html">&lt;p&gt;本文包含以下内容：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;二叉树概念&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;使用 C 语言 实现的二叉查找树的动态集合操作：&lt;/strong&gt;&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;构造：使用二叉树的前序遍历构造二叉树。&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;插入，删除，查询&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;前驱和后继&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;最大值和最小值&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;红黑树的概念&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;使用 C++ 面向对象思想 实现的红黑树的动态集合操作：&lt;/strong&gt;&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;构造：使用二叉树的前序遍历构造二叉树。&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;左旋和右旋&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;插入&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;颜色修复&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;删除&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;由于本文较长，可按目录选择自己需要的章节。因为用到初始化列表。 g++ 版本确保支持 c++11，所有代码在以下环境中调试通过。&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;系统 : ubuntu 18.04 64位&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;编程语言: c++&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;g++ 版本: g++ 8.4.0&lt;/code&gt;&lt;/p&gt;</summary>
+    <summary type="html">‘本文包含二叉搜索树的概念，多种动态操作集合：插入，删除，前驱和后继，最大值最小值等。红黑树的概念，多种动态集合操作，插入，删除，前驱和后继，最大值最小值等。’</summary>
     
     
     
@@ -109,13 +72,7 @@
     <updated>2021-09-02T16:26:32.000Z</updated>
     
     
-    <summary type="html">&lt;p&gt;快速排序使用分治法实现，即一个一个复杂的问题分解为一系列容易解决的小问题，最终得到问题的解。&lt;/p&gt;
-&lt;h1 id=&quot;算法步骤&quot;&gt;&lt;a href=&quot;#算法步骤&quot; class=&quot;headerlink&quot; title=&quot;算法步骤&quot;&gt;&lt;/a&gt;算法步骤&lt;/h1&gt;&lt;p&gt;快速排序的三步分治过程：例如对 A[p..r] 进行快速排序&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;分解：数组 A[p..r] 被划分为两个(可能为空)子数组 A[p…q-1] 和 A[p+1…r]，使得A[p…q-1] 中的每一个元素都小于 A[q]，而 A[q] 也小于等于 A[q+1…r]中的每个元素。其中，计算下标 q 也是划分过程的一部分。&lt;/li&gt;
-&lt;li&gt;解决：通过递归调用快速排序，对子数组A[p…q-1] 和  A[p+1…r] 进行排序。&lt;/li&gt;
-&lt;li&gt;合并：因为子数组都是原址排序，所以不需要合并操作，数组A[p…r]已经有序&lt;/li&gt;
-&lt;/ol&gt;</summary>
+    <summary type="html">‘快速排序的原理，代码实现，时间复杂度分析，以及优化。’</summary>
     
     
     

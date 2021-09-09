@@ -232,7 +232,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-09-08 11:06:39 / 修改时间：11:18:08" itemprop="dateCreated datePublished" datetime="2021-09-08T11:06:39+08:00">2021-09-08</time>
+              <time title="创建时间：2021-09-08 11:06:39 / 修改时间：22:13:38" itemprop="dateCreated datePublished" datetime="2021-09-08T11:06:39+08:00">2021-09-08</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -269,24 +269,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="递归的缺点"><a href="#递归的缺点" class="headerlink" title="递归的缺点"></a>递归的缺点</h1><p>二叉树的主要遍历方式有以下几种：</p>
-<p>前序遍历：根- 左子树-右子树（<strong>前序遍历可以唯一确定一棵二叉树</strong>）</p>
-<p>中序遍历：左子树-根-右子树（<strong>二叉搜索树使用此遍历可以从小大到大输出所有元素。</strong>）</p>
-<p>后序遍历：左子树-右子树-根（<strong>结合中序遍历可以唯一确定一棵二叉树</strong>）</p>
-<p>二叉树遍历最常见的，也是最简单的思路是使用递归算法。既然有了最简答的写法，为什么还有学习更复杂的迭代实现呢？主要是递归有以下缺点：</p>
-<p>递归的本质是函数调用，对于大多数操作系统，每一次函数调用都是一个代价较高的过程，主要因为以下几个方面：</p>
-<ul>
-<li><p>性能上考虑：<strong>函数每一次调用都得往栈中压入函数返回地址，函数参数，以及为函数内的所有局部变量分配空间。每个进程的栈空间是有限的，递归层次太多，会导致往栈中存在太多数据，易导致栈溢出，进而程序崩溃。</strong> </p>
-</li>
-<li><p>效率上考虑：<strong>当系统进行函数调用时，会向栈中压入函数返回地址，函数形参，为局部变量分配空间，当函数执行完毕时，需要进行弹栈(也称为清栈)操作使之与函数调用前一模一样，往栈中压入数据和弹出数据都需要时间，从某种程度上降低了程序的性能。</strong></p>
-</li>
-</ul>
-<p>说了递归的缺点，现在说下迭代的好处：<strong>迭代没有函数调用所产生的额外开销，也没有压栈和弹栈操作，通常空间利用率更高，程序运行效率更好。</strong><br><code>系统 : ubuntu 18.04 64位</code></p>
-<p><code>编程语言: c++</code></p>
-<p><code>g++ 版本: g++ 8.4.0</code></p>
+          <p>分别用递归和迭代实现二叉树三种遍历方式：前序遍历，中序遍历，后序遍历。递归的缺点分析。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2021/09/08/c-%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86-%E8%BF%AD%E4%BB%A3%E5%AE%9E%E7%8E%B0/#more" rel="contents">
+              <a class="btn" href="/2021/09/08/c-%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86-%E8%BF%AD%E4%BB%A3%E5%AE%9E%E7%8E%B0/">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -341,7 +327,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-09-08 11:15:41" itemprop="dateModified" datetime="2021-09-08T11:15:41+08:00">2021-09-08</time>
+                <time title="修改时间：2021-09-08 22:16:57" itemprop="dateModified" datetime="2021-09-08T22:16:57+08:00">2021-09-08</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -378,33 +364,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>本文包含以下内容：</p>
-<ul>
-<li><strong>二叉树概念</strong></li>
-<li><strong>使用 C 语言 实现的二叉查找树的动态集合操作：</strong><ul>
-<li><strong>构造：使用二叉树的前序遍历构造二叉树。</strong></li>
-<li><strong>插入，删除，查询</strong></li>
-<li><strong>前驱和后继</strong></li>
-<li><strong>最大值和最小值</strong></li>
-</ul>
-</li>
-<li><strong>红黑树的概念</strong></li>
-<li><strong>使用 C++ 面向对象思想 实现的红黑树的动态集合操作：</strong><ul>
-<li><strong>构造：使用二叉树的前序遍历构造二叉树。</strong></li>
-<li><strong>左旋和右旋</strong></li>
-<li><strong>插入</strong></li>
-<li><strong>颜色修复</strong></li>
-<li><strong>删除</strong></li>
-</ul>
-</li>
-</ul>
-<p>由于本文较长，可按目录选择自己需要的章节。因为用到初始化列表。 g++ 版本确保支持 c++11，所有代码在以下环境中调试通过。</p>
-<p><code>系统 : ubuntu 18.04 64位</code></p>
-<p><code>编程语言: c++</code></p>
-<p><code>g++ 版本: g++ 8.4.0</code></p>
+          <p>‘本文包含二叉搜索树的概念，多种动态操作集合：插入，删除，前驱和后继，最大值最小值等。红黑树的概念，多种动态集合操作，插入，删除，前驱和后继，最大值最小值等。’</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2021/09/07/C-%E5%AE%9E%E7%8E%B0-%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E5%92%8C%E7%BA%A2%E9%BB%91%E6%A0%91/#more" rel="contents">
+              <a class="btn" href="/2021/09/07/C-%E5%AE%9E%E7%8E%B0-%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E5%92%8C%E7%BA%A2%E9%BB%91%E6%A0%91/">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -496,16 +459,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>快速排序使用分治法实现，即一个一个复杂的问题分解为一系列容易解决的小问题，最终得到问题的解。</p>
-<h1 id="算法步骤"><a href="#算法步骤" class="headerlink" title="算法步骤"></a>算法步骤</h1><p>快速排序的三步分治过程：例如对 A[p..r] 进行快速排序</p>
-<ol>
-<li>分解：数组 A[p..r] 被划分为两个(可能为空)子数组 A[p…q-1] 和 A[p+1…r]，使得A[p…q-1] 中的每一个元素都小于 A[q]，而 A[q] 也小于等于 A[q+1…r]中的每个元素。其中，计算下标 q 也是划分过程的一部分。</li>
-<li>解决：通过递归调用快速排序，对子数组A[p…q-1] 和  A[p+1…r] 进行排序。</li>
-<li>合并：因为子数组都是原址排序，所以不需要合并操作，数组A[p…r]已经有序</li>
-</ol>
+          <p>‘快速排序的原理，代码实现，时间复杂度分析，以及优化。’</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2021/09/02/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F%E5%8E%9F%E7%90%86%E5%8F%8A%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6/#more" rel="contents">
+              <a class="btn" href="/2021/09/02/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F%E5%8E%9F%E7%90%86%E5%8F%8A%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6/">
                 阅读全文 &raquo;
               </a>
             </div>

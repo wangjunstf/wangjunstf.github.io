@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"wangjunstf.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="递归的缺点二叉树的主要遍历方式有以下几种： 前序遍历：根- 左子树-右子树（前序遍历可以唯一确定一棵二叉树） 中序遍历：左子树-根-右子树（二叉搜索树使用此遍历可以从小大到大输出所有元素。） 后序遍历：左子树-右子树-根（结合中序遍历可以唯一确定一棵二叉树） 二叉树遍历最常见的，也是最简单的思路是使用递归算法。既然有了最简答的写法，为什么还有学习更复杂的迭代实现呢？主要是递归有以下缺点： 递归的本">
+  <meta name="description" content="分别用递归和迭代实现二叉树三种遍历方式：前序遍历，中序遍历，后序遍历。递归的缺点分析。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="c++ 二叉树遍历 迭代实现">
 <meta property="og:url" content="https://wangjunstf.github.io/2021/09/08/c-%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86-%E8%BF%AD%E4%BB%A3%E5%AE%9E%E7%8E%B0/index.html">
 <meta property="og:site_name" content="编程之禅">
-<meta property="og:description" content="递归的缺点二叉树的主要遍历方式有以下几种： 前序遍历：根- 左子树-右子树（前序遍历可以唯一确定一棵二叉树） 中序遍历：左子树-根-右子树（二叉搜索树使用此遍历可以从小大到大输出所有元素。） 后序遍历：左子树-右子树-根（结合中序遍历可以唯一确定一棵二叉树） 二叉树遍历最常见的，也是最简单的思路是使用递归算法。既然有了最简答的写法，为什么还有学习更复杂的迭代实现呢？主要是递归有以下缺点： 递归的本">
+<meta property="og:description" content="分别用递归和迭代实现二叉树三种遍历方式：前序遍历，中序遍历，后序遍历。递归的缺点分析。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-09-08T03:06:39.000Z">
-<meta property="article:modified_time" content="2021-09-08T03:18:08.673Z">
+<meta property="article:modified_time" content="2021-09-08T14:13:38.827Z">
 <meta property="article:author" content="编程之禅">
 <meta property="article:tag" content="c++">
 <meta property="article:tag" content="二叉树遍历">
@@ -233,7 +233,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-09-08 11:06:39 / 修改时间：11:18:08" itemprop="dateCreated datePublished" datetime="2021-09-08T11:06:39+08:00">2021-09-08</time>
+              <time title="创建时间：2021-09-08 11:06:39 / 修改时间：22:13:38" itemprop="dateCreated datePublished" datetime="2021-09-08T11:06:39+08:00">2021-09-08</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -260,6 +260,7 @@
   </span>
   
   
+            <div class="post-description">分别用递归和迭代实现二叉树三种遍历方式：前序遍历，中序遍历，后序遍历。递归的缺点分析。</div>
 
         </div>
       </header>
