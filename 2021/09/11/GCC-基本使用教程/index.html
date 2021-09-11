@@ -28,7 +28,7 @@
 <meta property="og:description" content="GCC全称GNU C Compiler，是以GPL协议发布的自由软件，其创始人理查德·马修·斯托曼是自由软件运动的精神领袖。 GNU 编译器套件包括 C、C++、Objective-C、Java、Ada 和 Go 语言前端，也包括了这些语言的库（如 libstdc++，libgcj等） GCC 不仅支持 C 的许多“方言”，也可以区别不同的 C 语言标准；可以使用命令行选项来控制编译器在翻译源代码">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-09-11T12:05:04.000Z">
-<meta property="article:modified_time" content="2021-09-11T12:14:41.895Z">
+<meta property="article:modified_time" content="2021-09-11T12:16:56.558Z">
 <meta property="article:author" content="编程之禅">
 <meta property="article:tag" content="gcc">
 <meta property="article:tag" content="g++">
@@ -234,7 +234,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-09-11 20:05:04 / 修改时间：20:14:41" itemprop="dateCreated datePublished" datetime="2021-09-11T20:05:04+08:00">2021-09-11</time>
+              <time title="创建时间：2021-09-11 20:05:04 / 修改时间：20:16:56" itemprop="dateCreated datePublished" datetime="2021-09-11T20:05:04+08:00">2021-09-11</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -274,12 +274,11 @@
         <p>GCC全称GNU C Compiler，是以GPL协议发布的自由软件，其创始人理查德·马修·斯托曼是自由软件运动的精神领袖。</p>
 <p>GNU 编译器套件包括 C、C++、Objective-C、Java、Ada 和 Go 语言前端，也包括了这些语言的库（如 libstdc++，libgcj等）</p>
 <p>GCC 不仅支持 C 的许多“方言”，也可以区别不同的 C 语言标准；可以使用命令行选项来控制编译器在翻译源代码时应该遵循哪个 C 标准。例如，当使用命令行参数<code>-std=c99</code> 启动 GCC 时，编译器支持 C99 标准。</p>
+<span id="more"></span>
 <p>查看版本 gcc/g++ -v/–version</p>
 <blockquote>
 <p>g++相对gcc对代码书写规范更加严格，如果编译 c++ 语言,将其替换为 g++ 即可。</p>
 </blockquote>
-<span id="more"></span>
-
 <h1 id="编译过程"><a href="#编译过程" class="headerlink" title="编译过程"></a>编译过程</h1><p>高级语言源代码 -&gt; 汇编语言 -&gt; 机器语言</p>
 <h2 id="新建文件-t-c"><a href="#新建文件-t-c" class="headerlink" title="新建文件 t.c"></a>新建文件 t.c</h2><p><code>vim t.c</code></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Hello world&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -682,6 +681,26 @@
 
   
 
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '00c06e8fabae7b42521c',
+      clientSecret: '753415ed39734f4af6c6363c48340bb130817349',
+      repo        : 'wangjunstf.github.io',
+      owner       : 'wangjunstf',
+      admin       : ['wangjunstf'],
+      id          : '9cb35890c613b69ce4885abc1ce1d0d6',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
 <script>
   function loadCount() {
     var d = document, s = d.createElement('script');
@@ -711,26 +730,6 @@
       (d.head || d.body).appendChild(s);
     }
   });
-</script>
-
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
-
-<script>
-NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
-    var gitalk = new Gitalk({
-      clientID    : '00c06e8fabae7b42521c',
-      clientSecret: '753415ed39734f4af6c6363c48340bb130817349',
-      repo        : 'wangjunstf.github.io',
-      owner       : 'wangjunstf',
-      admin       : ['wangjunstf'],
-      id          : '9cb35890c613b69ce4885abc1ce1d0d6',
-        language: 'zh-CN',
-      distractionFreeMode: true
-    });
-    gitalk.render('gitalk-container');
-  }, window.Gitalk);
-});
 </script>
 
 </body>

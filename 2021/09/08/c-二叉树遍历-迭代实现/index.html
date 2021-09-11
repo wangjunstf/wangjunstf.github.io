@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"wangjunstf.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":{"disqus":{"text":"Load Disqus","order":-1},"gitalk":{"order":-2}}},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="分别用递归和迭代实现二叉树三种遍历方式：前序遍历，中序遍历，后序遍历。递归的缺点分析。">
+  <meta name="description" content="递归的缺点二叉树的主要遍历方式有以下几种： 前序遍历：根- 左子树-右子树（前序遍历可以唯一确定一棵二叉树） 中序遍历：左子树-根-右子树（二叉搜索树使用此遍历可以从小大到大输出所有元素。） 后序遍历：左子树-右子树-根（结合中序遍历可以唯一确定一棵二叉树） 二叉树遍历最常见的，也是最简单的思路是使用递归算法。既然有了最简答的写法，为什么还有学习更复杂的迭代实现呢？主要是递归有以下缺点： 递归的本">
 <meta property="og:type" content="article">
 <meta property="og:title" content="c++迭代实现二叉树遍历">
 <meta property="og:url" content="https://wangjunstf.github.io/2021/09/08/c-%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86-%E8%BF%AD%E4%BB%A3%E5%AE%9E%E7%8E%B0/index.html">
 <meta property="og:site_name" content="编程之禅">
-<meta property="og:description" content="分别用递归和迭代实现二叉树三种遍历方式：前序遍历，中序遍历，后序遍历。递归的缺点分析。">
+<meta property="og:description" content="递归的缺点二叉树的主要遍历方式有以下几种： 前序遍历：根- 左子树-右子树（前序遍历可以唯一确定一棵二叉树） 中序遍历：左子树-根-右子树（二叉搜索树使用此遍历可以从小大到大输出所有元素。） 后序遍历：左子树-右子树-根（结合中序遍历可以唯一确定一棵二叉树） 二叉树遍历最常见的，也是最简单的思路是使用递归算法。既然有了最简答的写法，为什么还有学习更复杂的迭代实现呢？主要是递归有以下缺点： 递归的本">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-09-08T03:06:39.000Z">
-<meta property="article:modified_time" content="2021-09-11T12:11:13.817Z">
+<meta property="article:modified_time" content="2021-09-11T12:16:53.758Z">
 <meta property="article:author" content="编程之禅">
 <meta property="article:tag" content="c++">
 <meta property="article:tag" content="二叉树遍历">
@@ -241,7 +241,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-09-11 20:11:13" itemprop="dateModified" datetime="2021-09-11T20:11:13+08:00">2021-09-11</time>
+                <time title="修改时间：2021-09-11 20:16:53" itemprop="dateModified" datetime="2021-09-11T20:16:53+08:00">2021-09-11</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -268,7 +268,6 @@
   </span>
   
   
-            <div class="post-description">分别用递归和迭代实现二叉树三种遍历方式：前序遍历，中序遍历，后序遍历。递归的缺点分析。</div>
 
         </div>
       </header>
@@ -291,11 +290,11 @@
 <li><p>效率上考虑：<strong>当系统进行函数调用时，会向栈中压入函数返回地址，函数形参，为局部变量分配空间，当函数执行完毕时，需要进行弹栈(也称为清栈)操作使之与函数调用前一模一样，往栈中压入数据和弹出数据都需要时间，从某种程度上降低了程序的性能。</strong></p>
 </li>
 </ul>
-<p>说了递归的缺点，现在说下迭代的好处：<strong>迭代没有函数调用所产生的额外开销，也没有压栈和弹栈操作，通常空间利用率更高，程序运行效率更好。</strong><br><code>系统 : ubuntu 18.04 64位</code></p>
+<p>说了递归的缺点，现在说下迭代的好处：<strong>迭代没有函数调用所产生的额外开销，也没有压栈和弹栈操作，通常空间利用率更高，程序运行效率更好。</strong></p>
+<span id="more"></span>
+<p><code>系统 : ubuntu 18.04 64位</code></p>
 <p><code>编程语言: c++</code></p>
 <p><code>g++ 版本: g++ 8.4.0</code></p>
-<span id="more"></span>
-
 <p>节点定义：为了简化代码，省略了父节点。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">TreeNode</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> key;</span><br><span class="line">    TreeNode *left;</span><br><span class="line">    TreeNode *right;</span><br><span class="line">    TreeNode *parent;     </span><br><span class="line">    <span class="built_in">TreeNode</span>() : <span class="built_in">val</span>(<span class="number">0</span>), <span class="built_in">left</span>(<span class="literal">nullptr</span>), <span class="built_in">right</span>(<span class="literal">nullptr</span>)&#123;&#125;</span><br><span class="line">    <span class="built_in">TreeNode</span>(<span class="keyword">int</span> x) : <span class="built_in">val</span>(x), <span class="built_in">left</span>(<span class="literal">nullptr</span>), <span class="built_in">right</span>(<span class="literal">nullptr</span>) &#123;&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
@@ -662,6 +661,26 @@
 
   
 
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '00c06e8fabae7b42521c',
+      clientSecret: '753415ed39734f4af6c6363c48340bb130817349',
+      repo        : 'wangjunstf.github.io',
+      owner       : 'wangjunstf',
+      admin       : ['wangjunstf'],
+      id          : 'db2af275dd7babf744a484ab6521d3b9',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
 <script>
   function loadCount() {
     var d = document, s = d.createElement('script');
@@ -691,26 +710,6 @@
       (d.head || d.body).appendChild(s);
     }
   });
-</script>
-
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
-
-<script>
-NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
-    var gitalk = new Gitalk({
-      clientID    : '00c06e8fabae7b42521c',
-      clientSecret: '753415ed39734f4af6c6363c48340bb130817349',
-      repo        : 'wangjunstf.github.io',
-      owner       : 'wangjunstf',
-      admin       : ['wangjunstf'],
-      id          : 'db2af275dd7babf744a484ab6521d3b9',
-        language: 'zh-CN',
-      distractionFreeMode: true
-    });
-    gitalk.render('gitalk-container');
-  }, window.Gitalk);
-});
 </script>
 
 </body>
