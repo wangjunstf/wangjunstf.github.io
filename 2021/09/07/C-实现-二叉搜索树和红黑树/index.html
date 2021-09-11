@@ -683,13 +683,26 @@
 
           </div>
           
-    
+      <div class="tabs tabs-comment">
+        <ul class="nav-tabs">
+            <li class="tab"><a href="#comment-disqus">disqus</a></li>
+            <li class="tab"><a href="#comment-gitalk">gitalk</a></li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane disqus" id="comment-disqus">
+              
   <div class="comments">
     <div id="disqus_thread">
       <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
     </div>
   </div>
   
+            </div>
+            <div class="tab-pane gitalk" id="comment-gitalk">
+              <div class="comments" id="gitalk-container"></div>
+            </div>
+        </div>
+      </div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -916,6 +929,26 @@
       (d.head || d.body).appendChild(s);
     }
   });
+</script>
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '00c06e8fabae7b42521c',
+      clientSecret: '753415ed39734f4af6c6363c48340bb130817349',
+      repo        : 'wangjunstf.github.io',
+      owner       : 'wangjunstf',
+      admin       : ['wangjunstf'],
+      id          : 'b2373614b68f70fbdd5d492073002e9a',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
 </script>
 
 </body>
