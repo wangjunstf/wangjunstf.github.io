@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://wangjunstf.github.io/2021/09/11/GCC-%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/</loc>
+    
+    <lastmod>2021-09-11</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://wangjunstf.github.io/2021/09/07/C-%E5%AE%9E%E7%8E%B0-%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E5%92%8C%E7%BA%A2%E9%BB%91%E6%A0%91/</loc>
     
     <lastmod>2021-09-08</lastmod>
@@ -74,14 +81,21 @@
   </url>
   
   <url>
-    <loc>https://wangjunstf.github.io/tags/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/</loc>
+    <loc>https://wangjunstf.github.io/tags/gcc/</loc>
     <lastmod>2021-09-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://wangjunstf.github.io/tags/%E7%AE%97%E6%B3%95/</loc>
+    <loc>https://wangjunstf.github.io/tags/g/</loc>
+    <lastmod>2021-09-11</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://wangjunstf.github.io/tags/%E7%BC%96%E8%AF%91%E8%BF%87%E7%A8%8B/</loc>
     <lastmod>2021-09-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -108,10 +122,31 @@
     <priority>0.6</priority>
   </url>
   
+  <url>
+    <loc>https://wangjunstf.github.io/tags/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/</loc>
+    <lastmod>2021-09-11</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://wangjunstf.github.io/tags/%E7%AE%97%E6%B3%95/</loc>
+    <lastmod>2021-09-11</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
 
   
   <url>
     <loc>https://wangjunstf.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</loc>
+    <lastmod>2021-09-11</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://wangjunstf.github.io/categories/Linux/</loc>
     <lastmod>2021-09-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
