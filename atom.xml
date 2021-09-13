@@ -6,7 +6,7 @@
   <link href="https://wangjunstf.github.io/atom.xml" rel="self"/>
   
   <link href="https://wangjunstf.github.io/"/>
-  <updated>2021-09-13T08:54:05.294Z</updated>
+  <updated>2021-09-13T14:04:10.992Z</updated>
   <id>https://wangjunstf.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>求解子集的两种办法</title>
+    <link href="https://wangjunstf.github.io/2021/09/13/%E6%B1%82%E8%A7%A3%E5%AD%90%E9%9B%86%E7%9A%84%E4%B8%A4%E7%A7%8D%E5%8A%9E%E6%B3%95/"/>
+    <id>https://wangjunstf.github.io/2021/09/13/%E6%B1%82%E8%A7%A3%E5%AD%90%E9%9B%86%E7%9A%84%E4%B8%A4%E7%A7%8D%E5%8A%9E%E6%B3%95/</id>
+    <published>2021-09-13T14:01:57.000Z</published>
+    <updated>2021-09-13T14:04:10.992Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/subsets/&quot;&gt;题目链接&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;给你一个整数数组 nums ，数组中的元素 互不相同 。返回该数组所有可能的子集（幂集）。&lt;/p&gt;
+&lt;p&gt;解集 不能 包含重复的子集。你可以按 任意顺序 返回解集。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="算法" scheme="https://wangjunstf.github.io/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+    <category term="算法" scheme="https://wangjunstf.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+    <category term="二进制枚举子集" scheme="https://wangjunstf.github.io/tags/%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%9E%9A%E4%B8%BE%E5%AD%90%E9%9B%86/"/>
+    
+    <category term="DFS" scheme="https://wangjunstf.github.io/tags/DFS/"/>
+    
+  </entry>
   
   <entry>
     <title>递归算法时间与空间复杂度分析</title>
@@ -505,29 +530,6 @@
     <category term="操作系统" scheme="https://wangjunstf.github.io/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
     
     <category term="处理器调度" scheme="https://wangjunstf.github.io/tags/%E5%A4%84%E7%90%86%E5%99%A8%E8%B0%83%E5%BA%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>比例份额调度</title>
-    <link href="https://wangjunstf.github.io/2021/07/17/%E6%AF%94%E4%BE%8B%E4%BB%BD%E9%A2%9D%E8%B0%83%E5%BA%A6/"/>
-    <id>https://wangjunstf.github.io/2021/07/17/%E6%AF%94%E4%BE%8B%E4%BB%BD%E9%A2%9D%E8%B0%83%E5%BA%A6/</id>
-    <published>2021-07-17T15:54:54.000Z</published>
-    <updated>2021-09-11T16:20:02.942Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;比例份额(proportional-share)调度程序，也称公平份额(fair-share)调度程序。比例份额算法基于一个简单的想法：调度程序的最终目标是，确保每个工作获得一定比例的 CPU 时间，而不是优化周转时间和响应时间。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;彩票调度&lt;/strong&gt;是一个非常优秀的比例调度程序。&lt;/p&gt;
-&lt;h1 id=&quot;基本概念：彩票数表示份额&quot;&gt;&lt;a href=&quot;#基本概念：彩票数表示份额&quot; class=&quot;headerlink&quot; title=&quot;基本概念：彩票数表示份额&quot;&gt;&lt;/a&gt;基本概念：彩票数表示份额&lt;/h1&gt;&lt;p&gt;彩票数(ticket)代表了进程(或用户或其他)占用了某个资源的份额。例如：假设两个进程 A 和 B，A 拥有 75 张彩票，B 拥有 25 张。因此我们希望 A 占用 75% 的 CPU 时间，而 B 占用 25%。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="操作系统" scheme="https://wangjunstf.github.io/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
-    
-    
-    <category term="调度算法" scheme="https://wangjunstf.github.io/tags/%E8%B0%83%E5%BA%A6%E7%AE%97%E6%B3%95/"/>
-    
-    <category term="比例份额调度" scheme="https://wangjunstf.github.io/tags/%E6%AF%94%E4%BE%8B%E4%BB%BD%E9%A2%9D%E8%B0%83%E5%BA%A6/"/>
     
   </entry>
   
