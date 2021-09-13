@@ -42,33 +42,6 @@
   </entry>
   
   <entry>
-    <title>归并排序原理</title>
-    <link href="https://wangjunstf.github.io/2021/09/12/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F%E5%8E%9F%E7%90%86/"/>
-    <id>https://wangjunstf.github.io/2021/09/12/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F%E5%8E%9F%E7%90%86/</id>
-    <published>2021-09-12T07:52:12.000Z</published>
-    <updated>2021-09-12T07:57:47.143Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;归并排序属于分治法思想，归并排序完全遵循分治模式。直观上其操作如下：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;分解：分解待排序的n个元素成各具n/2个元素的两个子序列。&lt;/li&gt;
-&lt;li&gt;解决：使用归并排序递归地排序两个子序列。&lt;/li&gt;
-&lt;li&gt;合并：合并两个已排序的子序列以产生已排序的数组。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;核心函数有两个，merge(A,p,q,r)：将已经有序的序列 A[p…q]和A[q+1,r] 合并为一个有序序列。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="算法" scheme="https://wangjunstf.github.io/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-    <category term="归并排序" scheme="https://wangjunstf.github.io/tags/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/"/>
-    
-    <category term="排序算法" scheme="https://wangjunstf.github.io/tags/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/"/>
-    
-  </entry>
-  
-  <entry>
     <title>插入排序原理</title>
     <link href="https://wangjunstf.github.io/2021/09/12/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F%E5%8E%9F%E7%90%86/"/>
     <id>https://wangjunstf.github.io/2021/09/12/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F%E5%8E%9F%E7%90%86/</id>
@@ -164,6 +137,33 @@
     <category term="并发" scheme="https://wangjunstf.github.io/tags/%E5%B9%B6%E5%8F%91/"/>
     
     <category term="进程" scheme="https://wangjunstf.github.io/tags/%E8%BF%9B%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>归并排序原理</title>
+    <link href="https://wangjunstf.github.io/2021/09/11/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F%E5%8E%9F%E7%90%86/"/>
+    <id>https://wangjunstf.github.io/2021/09/11/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F%E5%8E%9F%E7%90%86/</id>
+    <published>2021-09-11T07:52:12.000Z</published>
+    <updated>2021-09-13T09:12:18.370Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;归并排序属于分治法思想，归并排序完全遵循分治模式。直观上其操作如下：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;分解：分解待排序的n个元素成各具n/2个元素的两个子序列。&lt;/li&gt;
+&lt;li&gt;解决：使用归并排序递归地排序两个子序列。&lt;/li&gt;
+&lt;li&gt;合并：合并两个已排序的子序列以产生已排序的数组。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;核心函数有两个，merge(A,p,q,r)：将已经有序的序列 A[p…q]和A[q+1,r] 合并为一个有序序列。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="算法" scheme="https://wangjunstf.github.io/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+    <category term="归并排序" scheme="https://wangjunstf.github.io/tags/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/"/>
+    
+    <category term="排序算法" scheme="https://wangjunstf.github.io/tags/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
