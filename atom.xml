@@ -93,7 +93,7 @@
     <link href="https://wangjunstf.github.io/2021/09/12/c-dong-tai-nei-cun-yu-zhi-neng-zhi-zhen/"/>
     <id>https://wangjunstf.github.io/2021/09/12/c-dong-tai-nei-cun-yu-zhi-neng-zhi-zhen/</id>
     <published>2021-09-12T02:35:29.000Z</published>
-    <updated>2021-09-14T03:24:57.763Z</updated>
+    <updated>2021-09-14T09:37:02.592Z</updated>
     
     
     <summary type="html">&lt;p&gt;使用智能指针需包含以下头文件：&lt;code&gt;#include  &amp;lt;memory&amp;gt;&lt;/code&gt; &lt;/p&gt;
@@ -104,7 +104,7 @@
     <category term="CPP" scheme="https://wangjunstf.github.io/categories/CPP/"/>
     
     
-    <category term="c++" scheme="https://wangjunstf.github.io/tags/c/"/>
+    <category term="CPP" scheme="https://wangjunstf.github.io/tags/CPP/"/>
     
     <category term="动态内存" scheme="https://wangjunstf.github.io/tags/%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98/"/>
     
