@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"wangjunstf.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":{"disqus":{"text":"Load Disqus","order":-1},"gitalk":{"order":-2}}},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="缓冲区溢出是一种非常普遍的漏洞，它的原理为输入大量的数据，超出了缓冲区的大小，且系统没有对输入数据的长度进行检查，这样数据可能覆盖了内存的重要区域，例如返回地址等，攻击者只需制作特定的数据，就可以让受攻击的计算机执行指定的代码。为了重现一些经典的缓冲区溢出漏洞，需要关闭 Linux 下针对这方面的一些保护措施，例如： SSP( Stack Smashing Protector )SSP 是 gcc">
+  <meta name="description" content="缓冲区溢出是一种非常普遍的漏洞，它的原理为输入大量的数据，超出了缓冲区的大小，且系统没有对输入数据的长度进行检查，这样数据可能覆盖了内存的重要区域，例如返回地址等，攻击者只需制作特定的数据，就可以让受攻击的计算机执行指定的代码。为了重现一些经典的缓冲区溢出漏洞，需要关闭 Linux 下针对这方面的一些保护措施，例如： SSP( Stack Smashing Protector )">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux 缓冲区溢出漏洞">
 <meta property="og:url" content="https://wangjunstf.github.io/2021/09/17/linux-huan-chong-qu-yi-chu-lou-dong/index.html">
 <meta property="og:site_name" content="编程之禅">
-<meta property="og:description" content="缓冲区溢出是一种非常普遍的漏洞，它的原理为输入大量的数据，超出了缓冲区的大小，且系统没有对输入数据的长度进行检查，这样数据可能覆盖了内存的重要区域，例如返回地址等，攻击者只需制作特定的数据，就可以让受攻击的计算机执行指定的代码。为了重现一些经典的缓冲区溢出漏洞，需要关闭 Linux 下针对这方面的一些保护措施，例如： SSP( Stack Smashing Protector )SSP 是 gcc">
+<meta property="og:description" content="缓冲区溢出是一种非常普遍的漏洞，它的原理为输入大量的数据，超出了缓冲区的大小，且系统没有对输入数据的长度进行检查，这样数据可能覆盖了内存的重要区域，例如返回地址等，攻击者只需制作特定的数据，就可以让受攻击的计算机执行指定的代码。为了重现一些经典的缓冲区溢出漏洞，需要关闭 Linux 下针对这方面的一些保护措施，例如： SSP( Stack Smashing Protector )">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-09-17T05:50:09.000Z">
-<meta property="article:modified_time" content="2021-09-17T05:55:17.855Z">
+<meta property="article:modified_time" content="2021-09-17T08:15:55.924Z">
 <meta property="article:author" content="编程之禅">
 <meta property="article:tag" content="Linux">
 <meta property="article:tag" content="缓冲区溢出">
@@ -248,7 +248,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-09-17 13:50:09 / 修改时间：13:55:17" itemprop="dateCreated datePublished" datetime="2021-09-17T13:50:09+08:00">2021-09-17</time>
+              <time title="创建时间：2021-09-17 13:50:09 / 修改时间：16:15:55" itemprop="dateCreated datePublished" datetime="2021-09-17T13:50:09+08:00">2021-09-17</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -286,7 +286,8 @@
 
       
         <p>缓冲区溢出是一种非常普遍的漏洞，它的原理为输入大量的数据，超出了缓冲区的大小，且系统没有对输入数据的长度进行检查，这样数据可能覆盖了内存的重要区域，例如返回地址等，攻击者只需制作特定的数据，就可以让受攻击的计算机执行指定的代码。为了重现一些经典的缓冲区溢出漏洞，需要关闭 Linux 下针对这方面的一些保护措施，例如：</p>
-<h2 id="SSP-Stack-Smashing-Protector"><a href="#SSP-Stack-Smashing-Protector" class="headerlink" title="SSP( Stack Smashing Protector )"></a>SSP( Stack Smashing Protector )</h2><p>SSP 是 gcc 提供的针对栈上缓冲区溢出提供的检查机制。典型的缓冲区溢出攻击会构造输入数据来覆盖缓冲区之外的数据，尤其是函数返回地址。启用 SSP机制后，在编译器生成的代码中，对于那些存在缓冲区的函数，函数开始时会在对应栈帧中压入一个随机值，当函数快要返回时，检查该随机值是否发生了变化，如果发生了变化，就将控制流转移到特定的函数。比较常见为输出以下信息，并退出进程。</p>
+<h2 id="SSP-Stack-Smashing-Protector"><a href="#SSP-Stack-Smashing-Protector" class="headerlink" title="SSP( Stack Smashing Protector )"></a>SSP( Stack Smashing Protector )</h2><span id="more"></span>
+<p>SSP 是 gcc 提供的针对栈上缓冲区溢出提供的检查机制。典型的缓冲区溢出攻击会构造输入数据来覆盖缓冲区之外的数据，尤其是函数返回地址。启用 SSP机制后，在编译器生成的代码中，对于那些存在缓冲区的函数，函数开始时会在对应栈帧中压入一个随机值，当函数快要返回时，检查该随机值是否发生了变化，如果发生了变化，就将控制流转移到特定的函数。比较常见为输出以下信息，并退出进程。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">*** stack smashing detected ***: &lt;unknown&gt; terminated</span><br><span class="line">Aborted (core dumped)</span><br></pre></td></tr></table></figure>
 
 <p>使用以下代码进行说明：</p>

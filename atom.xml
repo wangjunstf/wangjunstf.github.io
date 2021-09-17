@@ -6,7 +6,7 @@
   <link href="https://wangjunstf.github.io/atom.xml" rel="self"/>
   
   <link href="https://wangjunstf.github.io/"/>
-  <updated>2021-09-17T05:55:17.855Z</updated>
+  <updated>2021-09-17T08:15:55.924Z</updated>
   <id>https://wangjunstf.github.io/</id>
   
   <author>
@@ -21,16 +21,11 @@
     <link href="https://wangjunstf.github.io/2021/09/17/linux-huan-chong-qu-yi-chu-lou-dong/"/>
     <id>https://wangjunstf.github.io/2021/09/17/linux-huan-chong-qu-yi-chu-lou-dong/</id>
     <published>2021-09-17T05:50:09.000Z</published>
-    <updated>2021-09-17T05:55:17.855Z</updated>
+    <updated>2021-09-17T08:15:55.924Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;缓冲区溢出是一种非常普遍的漏洞，它的原理为输入大量的数据，超出了缓冲区的大小，且系统没有对输入数据的长度进行检查，这样数据可能覆盖了内存的重要区域，例如返回地址等，攻击者只需制作特定的数据，就可以让受攻击的计算机执行指定的代码。为了重现一些经典的缓冲区溢出漏洞，需要关闭</summary>
-        
-      
+    <summary type="html">&lt;p&gt;缓冲区溢出是一种非常普遍的漏洞，它的原理为输入大量的数据，超出了缓冲区的大小，且系统没有对输入数据的长度进行检查，这样数据可能覆盖了内存的重要区域，例如返回地址等，攻击者只需制作特定的数据，就可以让受攻击的计算机执行指定的代码。为了重现一些经典的缓冲区溢出漏洞，需要关闭 Linux 下针对这方面的一些保护措施，例如：&lt;/p&gt;
+&lt;h2 id=&quot;SSP-Stack-Smashing-Protector&quot;&gt;&lt;a href=&quot;#SSP-Stack-Smashing-Protector&quot; class=&quot;headerlink&quot; title=&quot;SSP( Stack Smashing Protector )&quot;&gt;&lt;/a&gt;SSP( Stack Smashing Protector )&lt;/h2&gt;</summary>
     
     
     
