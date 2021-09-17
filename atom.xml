@@ -6,7 +6,7 @@
   <link href="https://wangjunstf.github.io/atom.xml" rel="self"/>
   
   <link href="https://wangjunstf.github.io/"/>
-  <updated>2021-09-17T15:51:20.616Z</updated>
+  <updated>2021-09-17T15:56:43.331Z</updated>
   <id>https://wangjunstf.github.io/</id>
   
   <author>
@@ -21,11 +21,21 @@
     <link href="https://wangjunstf.github.io/2021/09/17/zi-fu-chuan-zhuan-zheng-shu-zi-dong-ji/"/>
     <id>https://wangjunstf.github.io/2021/09/17/zi-fu-chuan-zhuan-zheng-shu-zi-dong-ji/</id>
     <published>2021-09-17T15:51:20.000Z</published>
-    <updated>2021-09-17T15:51:20.616Z</updated>
+    <updated>2021-09-17T15:56:43.331Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;字符串转整数——自动机&quot;&gt;&lt;a href=&quot;#字符串转整数——自动机&quot; class=&quot;headerlink&quot; title=&quot;字符串转整数——自动机&quot;&gt;&lt;/a&gt;字符串转整数——自动机&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/string-to-integer-atoi/&quot;&gt;题目链接&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;请你来实现一个 myAtoi(string s) 函数，使其能将字符串转换成一个 32 位有符号整数（类似 C/C++ 中的 atoi 函数）。&lt;/p&gt;
+&lt;p&gt;函数 myAtoi(string s) 的算法如下：&lt;/p&gt;</summary>
     
     
     
+    <category term="算法" scheme="https://wangjunstf.github.io/categories/%E7%AE%97%E6%B3%95/"/>
     
+    
+    <category term="自动机" scheme="https://wangjunstf.github.io/tags/%E8%87%AA%E5%8A%A8%E6%9C%BA/"/>
+    
+    <category term="字符串转整数" scheme="https://wangjunstf.github.io/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%95%B4%E6%95%B0/"/>
     
   </entry>
   
