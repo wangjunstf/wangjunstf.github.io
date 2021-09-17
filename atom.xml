@@ -6,7 +6,7 @@
   <link href="https://wangjunstf.github.io/atom.xml" rel="self"/>
   
   <link href="https://wangjunstf.github.io/"/>
-  <updated>2021-09-16T09:00:23.609Z</updated>
+  <updated>2021-09-17T05:51:03.543Z</updated>
   <id>https://wangjunstf.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Linux 缓冲区溢出漏洞</title>
+    <link href="https://wangjunstf.github.io/2021/09/17/linux-huan-chong-qu-yi-chu-lou-dong/"/>
+    <id>https://wangjunstf.github.io/2021/09/17/linux-huan-chong-qu-yi-chu-lou-dong/</id>
+    <published>2021-09-17T05:50:09.000Z</published>
+    <updated>2021-09-17T05:51:03.543Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;缓冲区溢出是一种非常普遍的漏洞，它的原理为输入大量的数据，超出了缓冲区的大小，且系统没有对输入数据的长度进行检查，这样数据可能覆盖了内存的重要区域，例如返回地址等，攻击者只需制作特定的数据，就可以让受攻击的计算机执行指定的代码。为了重现一些经典的缓冲区溢出漏洞，需要关闭</summary>
+        
+      
+    
+    
+    
+    <category term="信息安全" scheme="https://wangjunstf.github.io/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/"/>
+    
+    
+    <category term="Linux" scheme="https://wangjunstf.github.io/tags/Linux/"/>
+    
+    <category term="缓冲区溢出" scheme="https://wangjunstf.github.io/tags/%E7%BC%93%E5%86%B2%E5%8C%BA%E6%BA%A2%E5%87%BA/"/>
+    
+    <category term="信息安全" scheme="https://wangjunstf.github.io/tags/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/"/>
+    
+  </entry>
   
   <entry>
     <title>恢复二叉搜索树</title>
@@ -507,33 +536,6 @@
     <category term="c" scheme="https://wangjunstf.github.io/tags/c/"/>
     
     <category term="数组" scheme="https://wangjunstf.github.io/tags/%E6%95%B0%E7%BB%84/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>多级反馈队列</title>
-    <link href="https://wangjunstf.github.io/2021/07/18/duo-ji-fan-kui-dui-lie/"/>
-    <id>https://wangjunstf.github.io/2021/07/18/duo-ji-fan-kui-dui-lie/</id>
-    <published>2021-07-18T15:59:12.000Z</published>
-    <updated>2021-09-11T16:20:36.683Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;1962 年，Corbato 首次提出多级反馈队列(Multi-level Feedback Queue, MLFQ)，应用于兼容时分共享系统(CTSS)。&lt;/p&gt;
-&lt;p&gt;多级反馈队列需要解决两方面的问题：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;优化周转时间，这通过先执行短工作来实现。&lt;/li&gt;
-&lt;li&gt;降低响应时间，像轮转这样的算法降低了响应时间，但周转时间很差。</summary>
-    
-    
-    
-    <category term="操作系统" scheme="https://wangjunstf.github.io/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
-    
-    
-    <category term="进程" scheme="https://wangjunstf.github.io/tags/%E8%BF%9B%E7%A8%8B/"/>
-    
-    <category term="调度算法" scheme="https://wangjunstf.github.io/tags/%E8%B0%83%E5%BA%A6%E7%AE%97%E6%B3%95/"/>
-    
-    <category term="多级反馈队列" scheme="https://wangjunstf.github.io/tags/%E5%A4%9A%E7%BA%A7%E5%8F%8D%E9%A6%88%E9%98%9F%E5%88%97/"/>
     
   </entry>
   
