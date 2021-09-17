@@ -6,7 +6,7 @@
   <link href="https://wangjunstf.github.io/atom.xml" rel="self"/>
   
   <link href="https://wangjunstf.github.io/"/>
-  <updated>2021-09-17T08:15:55.924Z</updated>
+  <updated>2021-09-17T15:51:20.616Z</updated>
   <id>https://wangjunstf.github.io/</id>
   
   <author>
@@ -15,6 +15,19 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>字符串转整数——自动机</title>
+    <link href="https://wangjunstf.github.io/2021/09/17/zi-fu-chuan-zhuan-zheng-shu-zi-dong-ji/"/>
+    <id>https://wangjunstf.github.io/2021/09/17/zi-fu-chuan-zhuan-zheng-shu-zi-dong-ji/</id>
+    <published>2021-09-17T15:51:20.000Z</published>
+    <updated>2021-09-17T15:51:20.616Z</updated>
+    
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>Linux 缓冲区溢出漏洞</title>
@@ -510,27 +523,6 @@
     
     
     <category term="JavaScript" scheme="https://wangjunstf.github.io/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>C语言数组作为函数参数</title>
-    <link href="https://wangjunstf.github.io/2021/08/13/c-yu-yan-shu-zu-zuo-wei-han-shu-can-shu/"/>
-    <id>https://wangjunstf.github.io/2021/08/13/c-yu-yan-shu-zu-zuo-wei-han-shu-can-shu/</id>
-    <published>2021-08-12T17:07:46.000Z</published>
-    <updated>2021-09-12T02:42:52.567Z</updated>
-    
-    
-    <summary type="html">指针传递：传递的指针只包含数组的起始地址，要使用数组还应传出数组长度信息; 数组名传递：数组名称依旧是一个指针，和方法1本质是一样的，只是书写形式不一样。</summary>
-    
-    
-    
-    <category term="C" scheme="https://wangjunstf.github.io/categories/C/"/>
-    
-    
-    <category term="c" scheme="https://wangjunstf.github.io/tags/c/"/>
-    
-    <category term="数组" scheme="https://wangjunstf.github.io/tags/%E6%95%B0%E7%BB%84/"/>
     
   </entry>
   
