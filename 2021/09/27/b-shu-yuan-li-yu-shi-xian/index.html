@@ -20,18 +20,19 @@
     var CONFIG = {"hostname":"wangjunstf.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":{"disqus":{"text":"Load Disqus","order":-1},"gitalk":{"order":-2}}},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="B树原理与实现前言B树是为磁盘等慢速IO设备设计的一种平衡搜索树，B树类似于红黑树，但它在降低I&#x2F;O操作数方面要更好一些，许多数据库使用 B树或B树的变种来存储信息。 B 树与红黑树的不同之处在于 B树的节点可以有很多孩子，从数个到数千个。含有 n 个节点的B树的高度为 O(ln n)，一棵B树的严格高度可能比一棵红黑树的高度要小许多，因为它的分支因子，即表示高度的对数的底数可以非常大。因此我们可">
+  <meta name="description" content="前言B树是为磁盘等慢速IO设备设计的一种平衡搜索树，B树类似于红黑树，但它在降低I&#x2F;O操作数方面要更好一些，许多数据库使用 B树或B树的变种来存储信息。 B 树与红黑树的不同之处在于 B树的节点可以有很多孩子，从数个到数千个。含有 n 个节点的B树的高度为 O(ln n)，一棵B树的严格高度可能比一棵红黑树的高度要小许多，因为它的分支因子，即表示高度的对数的底数可以非常大。因此我们可以使用 B树在">
 <meta property="og:type" content="article">
 <meta property="og:title" content="B树原理与实现">
 <meta property="og:url" content="https://wangjunstf.github.io/2021/09/27/b-shu-yuan-li-yu-shi-xian/index.html">
 <meta property="og:site_name" content="编程之禅">
-<meta property="og:description" content="B树原理与实现前言B树是为磁盘等慢速IO设备设计的一种平衡搜索树，B树类似于红黑树，但它在降低I&#x2F;O操作数方面要更好一些，许多数据库使用 B树或B树的变种来存储信息。 B 树与红黑树的不同之处在于 B树的节点可以有很多孩子，从数个到数千个。含有 n 个节点的B树的高度为 O(ln n)，一棵B树的严格高度可能比一棵红黑树的高度要小许多，因为它的分支因子，即表示高度的对数的底数可以非常大。因此我们可">
+<meta property="og:description" content="前言B树是为磁盘等慢速IO设备设计的一种平衡搜索树，B树类似于红黑树，但它在降低I&#x2F;O操作数方面要更好一些，许多数据库使用 B树或B树的变种来存储信息。 B 树与红黑树的不同之处在于 B树的节点可以有很多孩子，从数个到数千个。含有 n 个节点的B树的高度为 O(ln n)，一棵B树的严格高度可能比一棵红黑树的高度要小许多，因为它的分支因子，即表示高度的对数的底数可以非常大。因此我们可以使用 B树在">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://qqimage.wangjunblogs.com/uPic/IMG_114F612089BE-1.jpeg">
 <meta property="og:image" content="http://qqimage.wangjunblogs.com/uPic/IMG_75D52E22A84C-1.jpeg">
+<meta property="og:image" content="http://qqimage.wangjunblogs.com/uPic/IMG_C23F70EEC19E-1.jpeg">
 <meta property="og:image" content="http://qqimage.wangjunblogs.com/uPic/IMG_B592E67F349A-1.jpeg">
 <meta property="article:published_time" content="2021-09-27T10:00:36.000Z">
-<meta property="article:modified_time" content="2021-09-27T10:03:12.989Z">
+<meta property="article:modified_time" content="2021-09-27T15:44:14.048Z">
 <meta property="article:author" content="编程之禅">
 <meta property="article:tag" content="B树">
 <meta property="article:tag" content="磁盘结构">
@@ -251,7 +252,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-09-27 18:00:36 / 修改时间：18:03:12" itemprop="dateCreated datePublished" datetime="2021-09-27T18:00:36+08:00">2021-09-27</time>
+              <time title="创建时间：2021-09-27 18:00:36 / 修改时间：23:44:14" itemprop="dateCreated datePublished" datetime="2021-09-27T18:00:36+08:00">2021-09-27</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -288,11 +289,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="B树原理与实现"><a href="#B树原理与实现" class="headerlink" title="B树原理与实现"></a>B树原理与实现</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>B树是为磁盘等慢速IO设备设计的一种平衡搜索树，B树类似于红黑树，但它在降低I/O操作数方面要更好一些，许多数据库使用 B树或B树的变种来存储信息。</p>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>B树是为磁盘等慢速IO设备设计的一种平衡搜索树，B树类似于红黑树，但它在降低I/O操作数方面要更好一些，许多数据库使用 B树或B树的变种来存储信息。</p>
 <p>B 树与红黑树的不同之处在于 B树的节点可以有很多孩子，从数个到数千个。含有 n 个节点的B树的高度为 O(ln n)，一棵B树的严格高度可能比一棵红黑树的高度要小许多，因为它的分支因子，即表示高度的对数的底数可以非常大。因此我们可以使用 B树在 O(lg n) 内完成一些动态集合操作。</p>
-<span id="more"></span>
-
-
 <h2 id="磁盘结构"><a href="#磁盘结构" class="headerlink" title="磁盘结构"></a>磁盘结构</h2><p>一个磁盘的典型结构如下：</p>
 <img src="http://qqimage.wangjunblogs.com/uPic/IMG_114F612089BE-1.jpeg" alt="IMG_114F612089BE-1" style="zoom:50%;" />
 
@@ -306,18 +304,31 @@
 <p>B树的每个节点一般在磁盘中分配空间，以下为了简化分析，在内存中分配节点，这样就可以省略在磁盘中分配节点的过程，以及必要的读写磁盘操作：disk-read() 和 dis-write() 过程。</p>
 <h2 id="B树的定义"><a href="#B树的定义" class="headerlink" title="B树的定义"></a>B树的定义</h2><p>一棵B树具有以下性质：</p>
 <ol>
-<li>每个节点 x 有以下属性：<ul>
-<li>x.n：当前存储在节点中的关键字个数(key)</li>
-<li>x.keys：x.n 个关键字本身 x.key<sub>1</sub> , x.key<sub>2</sub>……x.key<sub>n</sub>，以非降序存放，使得  x.key<sub>1</sub> &lt;= x.key<sub>2</sub>&lt;=……&lt;=x.key<sub>n</sub></li>
-<li>x.leaf，一个布尔值，如果 x 是叶节点，则为 true，如果 x 为内部节点，则为 false</li>
-</ul>
+<li><p>（1）B树的每个节点 x 都具有以下属性：</p>
+<ul>
+<li><p>x.n 存储在节点 x 中的关键字个数。</p>
 </li>
-<li>每个内部节点 x 还包含 x.n+1 个指向其孩子的指针，x.c<sub>1</sub>, x.c<sub>2</sub>……x.c<sub>n+1</sub>，叶节点没有孩子节点</li>
-<li>关键字 x.key<sub>i</sub>对存储在各子树中的关键字范围加以分割：如果 k<sub>i</sub>为任意一个存储在以 x.c<sub>i</sub>为根的子树中的关键字，那么：k<sub>1</sub>&lt;=x.key<sub>1</sub>&lt;=k<sub>2</sub>&lt;=……&lt;=x.key<sub>n</sub>&lt;=k<sub>x.n+1</sub></li>
-<li>每个叶节点具有相同的深度，即树的高度h</li>
-<li>每个节点所包含的关键字个数有上界和下界。用一个称为B树的最小度数(minimum degree)的固定整数 t&gt;=2 来表示这些界。<ul>
-<li>除了根节点以外的每个节点必须至少有 t-1 个关键字。因此，除了根节点以外的每个内部节点至少有 t 个孩子。如果树非空，根节点至少有一个关键字。</li>
-<li>每个节点至多可包含2t-1个关键字。因此，一个内部节点至多可有 2t 个孩子。当一个节点恰好有 2t-1 个关键字时，称该节点是满的。</li>
+<li><p>x.n 个关键字本身 x.key<sub>0</sub>, x.key<sub>1</sub>,…, x.key<sub>n-1</sub>，以升序排列，注编程语言数组下标从 0 开始。</p>
+</li>
+<li><p>x.leaf 布尔值，表示节点 x 是否是叶节点。</p>
+</li>
+</ul>
+<p>（2）B树的每个内部节点具有以下属性：</p>
+<ul>
+<li>包含 x.n+1 个指向其孩子的指针 x.c<sub>0</sub>，x.c<sub>1</sub>，…，x.c<sub>n</sub>，叶节点没有孩子节点，它们的 c<sub>i</sub> 属性值未定义。</li>
+</ul>
+<p>（3）关键字 x.key<sub>i</sub>对子树节点中的关键字进行分割，如果 k<sub>i</sub>为任意一个存储在以 x.c<sub>i</sub>为根的子树中的关键字，那么：k<sub>1</sub>&lt;=x.key<sub>1</sub>&lt;=k<sub>2</sub>&lt;=……&lt;=x.key<sub>n</sub>&lt;=k<sub>x.n+1</sub>，如下图所示：</p>
+<img src="http://qqimage.wangjunblogs.com/uPic/IMG_C23F70EEC19E-1.jpeg" alt="IMG_C23F70EEC19E-1" style="zoom:50%;" />
+
+<p>（4）每个叶节点具有相同的深度，即树的高度 h</p>
+<p>（5）每个节点所包含的关键字个数有上界和下界，用一个被称为B树的最小度数的固定整数 t&gt;=2 来表示这些界：</p>
+<ul>
+<li><p>下界：除了根节点以外的每个节点必须至少有 t-1 个关键字。除了根节点和叶子节点以外的每个节点至少有 t 个孩子。如果树非空，根节点至少有 1 个关键字。</p>
+</li>
+<li><p>上界：每个节点至多可包含 2t-1 个关键字，一个内部节点(非叶子节点)至多可有 2t 个孩子。当一个节点有 2t-1 个关键字时，称该节点为满的。</p>
+</li>
+<li><p>t 值越大，B树的高度就越小。</p>
+</li>
 </ul>
 </li>
 </ol>
@@ -417,7 +428,10 @@
     <a href="/2021/09/17/zi-fu-chuan-zhuan-zheng-shu-zi-dong-ji/" rel="prev" title="字符串转整数——自动机">
       <i class="fa fa-chevron-left"></i> 字符串转整数——自动机
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2021/09/27/b-shu-b-shu-b-shu-qu-bie/" rel="next" title="B树 B+树 B*树区别">
+      B树 B+树 B*树区别 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -496,7 +510,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#B%E6%A0%91%E5%8E%9F%E7%90%86%E4%B8%8E%E5%AE%9E%E7%8E%B0"><span class="nav-number">1.</span> <span class="nav-text">B树原理与实现</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A3%81%E7%9B%98%E7%BB%93%E6%9E%84"><span class="nav-number">1.2.</span> <span class="nav-text">磁盘结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#B%E6%A0%91%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.3.</span> <span class="nav-text">B树介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#B%E6%A0%91%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="nav-number">1.4.</span> <span class="nav-text">B树的定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#B%E6%A0%91%E7%9A%84%E9%AB%98%E5%BA%A6"><span class="nav-number">1.5.</span> <span class="nav-text">B树的高度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%8A%82%E7%82%B9%E5%AE%9A%E4%B9%89"><span class="nav-number">1.6.</span> <span class="nav-text">节点定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#B%E6%A0%91%E4%B8%8A%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C"><span class="nav-number">1.7.</span> <span class="nav-text">B树上的基本操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%90%9C%E7%B4%A2B%E6%A0%91"><span class="nav-number">1.7.1.</span> <span class="nav-text">搜索B树</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E4%B8%80%E6%A3%B5%E7%A9%BA%E7%9A%84B%E6%A0%91"><span class="nav-number">1.7.2.</span> <span class="nav-text">创建一棵空的B树</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8F%92%E5%85%A5B%E6%A0%91"><span class="nav-number">1.7.3.</span> <span class="nav-text">插入B树</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8F%92%E5%85%A5"><span class="nav-number">1.7.3.1.</span> <span class="nav-text">插入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%86%E8%A3%82B%E6%A0%91%E4%B8%AD%E7%9A%84%E8%8A%82%E7%82%B9"><span class="nav-number">1.7.3.2.</span> <span class="nav-text">分裂B树中的节点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8F%92%E5%85%A5%E9%9D%9E%E6%BB%A1%E8%8A%82%E7%82%B9"><span class="nav-number">1.7.3.3.</span> <span class="nav-text">插入非满节点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A0%E9%99%A4"><span class="nav-number">1.7.4.</span> <span class="nav-text">删除</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">1.8.</span> <span class="nav-text">参考</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A3%81%E7%9B%98%E7%BB%93%E6%9E%84"><span class="nav-number">2.</span> <span class="nav-text">磁盘结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#B%E6%A0%91%E4%BB%8B%E7%BB%8D"><span class="nav-number">3.</span> <span class="nav-text">B树介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#B%E6%A0%91%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="nav-number">4.</span> <span class="nav-text">B树的定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#B%E6%A0%91%E7%9A%84%E9%AB%98%E5%BA%A6"><span class="nav-number">5.</span> <span class="nav-text">B树的高度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%8A%82%E7%82%B9%E5%AE%9A%E4%B9%89"><span class="nav-number">6.</span> <span class="nav-text">节点定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#B%E6%A0%91%E4%B8%8A%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C"><span class="nav-number">7.</span> <span class="nav-text">B树上的基本操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%90%9C%E7%B4%A2B%E6%A0%91"><span class="nav-number">7.1.</span> <span class="nav-text">搜索B树</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E4%B8%80%E6%A3%B5%E7%A9%BA%E7%9A%84B%E6%A0%91"><span class="nav-number">7.2.</span> <span class="nav-text">创建一棵空的B树</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8F%92%E5%85%A5B%E6%A0%91"><span class="nav-number">7.3.</span> <span class="nav-text">插入B树</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8F%92%E5%85%A5"><span class="nav-number">7.3.1.</span> <span class="nav-text">插入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%86%E8%A3%82B%E6%A0%91%E4%B8%AD%E7%9A%84%E8%8A%82%E7%82%B9"><span class="nav-number">7.3.2.</span> <span class="nav-text">分裂B树中的节点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8F%92%E5%85%A5%E9%9D%9E%E6%BB%A1%E8%8A%82%E7%82%B9"><span class="nav-number">7.3.3.</span> <span class="nav-text">插入非满节点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A0%E9%99%A4"><span class="nav-number">7.4.</span> <span class="nav-text">删除</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">8.</span> <span class="nav-text">参考</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -510,7 +524,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">41</span>
+          <span class="site-state-item-count">42</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -523,7 +537,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">83</span>
+        <span class="site-state-item-count">85</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
