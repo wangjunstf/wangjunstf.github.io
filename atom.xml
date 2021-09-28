@@ -50,16 +50,11 @@
     <link href="https://wangjunstf.github.io/2021/09/27/b-shu-yuan-li-yu-shi-xian/"/>
     <id>https://wangjunstf.github.io/2021/09/27/b-shu-yuan-li-yu-shi-xian/</id>
     <published>2021-09-27T10:00:36.000Z</published>
-    <updated>2021-09-27T15:44:14.048Z</updated>
+    <updated>2021-09-28T03:35:06.803Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;B树是为磁盘等慢速IO设备设计的一种平衡搜索树，B树类似于红黑树，但它在降低I/O操作数方面要更好一些，许多数据库使用</summary>
-        
-      
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;B树是为磁盘等慢速IO设备设计的一种平衡搜索树，B树类似于红黑树，但它在降低I/O操作数方面要更好一些，许多数据库使用 B树或B树的变种来存储信息。&lt;/p&gt;
+&lt;p&gt;B 树与红黑树的不同之处在于 B树的节点可以有很多孩子，从数个到数千个。含有 n 个节点的B树的高度为 O(ln n)，一棵B树的严格高度可能比一棵红黑树的高度要小许多，因为它的分支因子，即表示高度的对数的底数可以非常大。因此我们可以使用 B树在 O(lg n) 内完成一些动态集合操作。&lt;/p&gt;</summary>
     
     
     
