@@ -6,7 +6,7 @@
   <link href="https://wangjunstf.github.io/atom.xml" rel="self"/>
   
   <link href="https://wangjunstf.github.io/"/>
-  <updated>2021-09-28T08:36:21.567Z</updated>
+  <updated>2021-09-28T08:43:44.373Z</updated>
   <id>https://wangjunstf.github.io/</id>
   
   <author>
@@ -21,16 +21,12 @@
     <link href="https://wangjunstf.github.io/2021/09/28/bing-cha-ji-yuan-li-yu-shi-xian/"/>
     <id>https://wangjunstf.github.io/2021/09/28/bing-cha-ji-yuan-li-yu-shi-xian/</id>
     <published>2021-09-28T08:35:08.000Z</published>
-    <updated>2021-09-28T08:36:21.567Z</updated>
+    <updated>2021-09-28T08:43:44.373Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;并查集原理&quot;&gt;&lt;a href=&quot;#并查集原理&quot; class=&quot;headerlink&quot;</summary>
-        
-      
+    <summary type="html">&lt;h2 id=&quot;并查集原理&quot;&gt;&lt;a href=&quot;#并查集原理&quot; class=&quot;headerlink&quot; title=&quot;并查集原理&quot;&gt;&lt;/a&gt;并查集原理&lt;/h2&gt;&lt;p&gt;（1）并查集用于解决以下问题&lt;/p&gt;
+&lt;p&gt;用于处理没有重复元素的集合(不交集)的查询和合并。可以快速判断一个元素是否在一个集合中，或者两个元素是否属于同一个集合。&lt;/p&gt;
+&lt;p&gt;（2）并查集支持以下操作：&lt;/p&gt;</summary>
     
     
     
