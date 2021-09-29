@@ -6,7 +6,7 @@
   <link href="https://wangjunstf.github.io/atom.xml" rel="self"/>
   
   <link href="https://wangjunstf.github.io/"/>
-  <updated>2021-09-28T08:43:44.373Z</updated>
+  <updated>2021-09-29T14:54:54.742Z</updated>
   <id>https://wangjunstf.github.io/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>C++ STL标准模版库总结</title>
+    <link href="https://wangjunstf.github.io/2021/09/29/c-stl-biao-zhun-mo-ban-ku-zong-jie/"/>
+    <id>https://wangjunstf.github.io/2021/09/29/c-stl-biao-zhun-mo-ban-ku-zong-jie/</id>
+    <published>2021-09-29T14:53:15.000Z</published>
+    <updated>2021-09-29T14:54:54.742Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;STL-的组成部分&quot;&gt;&lt;a href=&quot;#STL-的组成部分&quot; class=&quot;headerlink&quot; title=&quot;STL 的组成部分&quot;&gt;&lt;/a&gt;STL 的组成部分&lt;/h2&gt;&lt;p&gt;模版是C++程序设计语言的一个重要特征，STL 正是基于这一特征，STL</summary>
+        
+      
+    
+    
+    
+    <category term="cpp" scheme="https://wangjunstf.github.io/categories/cpp/"/>
+    
+    
+    <category term="STL" scheme="https://wangjunstf.github.io/tags/STL/"/>
+    
+    <category term="顺序容器" scheme="https://wangjunstf.github.io/tags/%E9%A1%BA%E5%BA%8F%E5%AE%B9%E5%99%A8/"/>
+    
+    <category term="关联容器" scheme="https://wangjunstf.github.io/tags/%E5%85%B3%E8%81%94%E5%AE%B9%E5%99%A8/"/>
+    
+    <category term="迭代器" scheme="https://wangjunstf.github.io/tags/%E8%BF%AD%E4%BB%A3%E5%99%A8/"/>
+    
+  </entry>
   
   <entry>
     <title>并查集原理与实现</title>
@@ -493,31 +524,6 @@
     <category term="算法" scheme="https://wangjunstf.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
     <category term="快速排序" scheme="https://wangjunstf.github.io/tags/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux umask chown chgrp</title>
-    <link href="https://wangjunstf.github.io/2021/08/25/linux-umask-chown-chgrp/"/>
-    <id>https://wangjunstf.github.io/2021/08/25/linux-umask-chown-chgrp/</id>
-    <published>2021-08-25T09:05:08.000Z</published>
-    <updated>2021-09-12T15:48:15.156Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;umask命令&quot;&gt;&lt;a href=&quot;#umask命令&quot; class=&quot;headerlink&quot; title=&quot;umask命令&quot;&gt;&lt;/a&gt;umask命令&lt;/h2&gt;&lt;h3 id=&quot;说明&quot;&gt;&lt;a href=&quot;#说明&quot; class=&quot;headerlink&quot; title=&quot;说明&quot;&gt;&lt;/a&gt;说明&lt;/h3&gt;&lt;p&gt;umask命令指定在建立文件时预设的权限掩码。由3位八进制数字组成。&lt;br&gt;查看当前系统的文件掩码：&lt;code&gt;umask -S&lt;/code&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Linux" scheme="https://wangjunstf.github.io/categories/Linux/"/>
-    
-    
-    <category term="Linux" scheme="https://wangjunstf.github.io/tags/Linux/"/>
-    
-    <category term="umask" scheme="https://wangjunstf.github.io/tags/umask/"/>
-    
-    <category term="chown" scheme="https://wangjunstf.github.io/tags/chown/"/>
-    
-    <category term="chgrp" scheme="https://wangjunstf.github.io/tags/chgrp/"/>
     
   </entry>
   
