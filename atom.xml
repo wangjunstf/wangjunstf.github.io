@@ -6,7 +6,7 @@
   <link href="https://wangjunstf.github.io/atom.xml" rel="self"/>
   
   <link href="https://wangjunstf.github.io/"/>
-  <updated>2021-09-29T14:54:54.742Z</updated>
+  <updated>2021-09-29T14:57:15.246Z</updated>
   <id>https://wangjunstf.github.io/</id>
   
   <author>
@@ -21,16 +21,12 @@
     <link href="https://wangjunstf.github.io/2021/09/29/c-stl-biao-zhun-mo-ban-ku-zong-jie/"/>
     <id>https://wangjunstf.github.io/2021/09/29/c-stl-biao-zhun-mo-ban-ku-zong-jie/</id>
     <published>2021-09-29T14:53:15.000Z</published>
-    <updated>2021-09-29T14:54:54.742Z</updated>
+    <updated>2021-09-29T14:57:15.246Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;STL-的组成部分&quot;&gt;&lt;a href=&quot;#STL-的组成部分&quot; class=&quot;headerlink&quot; title=&quot;STL 的组成部分&quot;&gt;&lt;/a&gt;STL 的组成部分&lt;/h2&gt;&lt;p&gt;模版是C++程序设计语言的一个重要特征，STL 正是基于这一特征，STL</summary>
-        
-      
+    <summary type="html">&lt;h2 id=&quot;STL-的组成部分&quot;&gt;&lt;a href=&quot;#STL-的组成部分&quot; class=&quot;headerlink&quot; title=&quot;STL 的组成部分&quot;&gt;&lt;/a&gt;STL 的组成部分&lt;/h2&gt;&lt;p&gt;模版是C++程序设计语言的一个重要特征，STL 正是基于这一特征，STL 具有强大的功能，同时兼具良好的可扩展性。&lt;/p&gt;
+&lt;p&gt;STL 分为 3 类：Algorithm（算法）、Container（容器）和Iterator（迭代器），容器和算法通过迭代器可以进行无缝地连接。&lt;/p&gt;
+&lt;p&gt;STL 由 6 部分组成：容器(Container)、算法（Algorithm）、 迭代器（Iterator）、仿函数（Function object）、适配器（Adaptor）、空间配制器（Allocator）。&lt;/p&gt;</summary>
     
     
     
