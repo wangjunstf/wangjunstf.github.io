@@ -6,7 +6,7 @@
   <link href="https://wangjunstf.github.io/atom.xml" rel="self"/>
   
   <link href="https://wangjunstf.github.io/"/>
-  <updated>2021-09-30T07:29:28.146Z</updated>
+  <updated>2021-09-30T07:31:02.214Z</updated>
   <id>https://wangjunstf.github.io/</id>
   
   <author>
@@ -21,16 +21,14 @@
     <link href="https://wangjunstf.github.io/2021/09/30/jing-tai-ku-he-dong-tai-ku-zhi-zuo/"/>
     <id>https://wangjunstf.github.io/2021/09/30/jing-tai-ku-he-dong-tai-ku-zhi-zuo/</id>
     <published>2021-09-30T07:27:42.000Z</published>
-    <updated>2021-09-30T07:29:28.146Z</updated>
+    <updated>2021-09-30T07:31:02.214Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;什么是库&quot;&gt;&lt;a href=&quot;#什么是库&quot; class=&quot;headerlink&quot;</summary>
-        
-      
+    <summary type="html">&lt;h2 id=&quot;什么是库&quot;&gt;&lt;a href=&quot;#什么是库&quot; class=&quot;headerlink&quot; title=&quot;什么是库&quot;&gt;&lt;/a&gt;什么是库&lt;/h2&gt;&lt;p&gt;库文件是计算机上的一类文件，提供给使用者一些开箱即用的变量、函数或类。静态库和动态库，静态库和动态库的区别体现在程序的链接阶段：静态库在程序的链接阶段被复制到了程序中；动态库在链接阶段没有被复制到程序中，而是程序在运行时由系统动态加载到内存中供程序调用。&lt;/p&gt;
+&lt;p&gt;假设当前目录下有以下文件&lt;/p&gt;
+&lt;p&gt;├── main.c&lt;/p&gt;
+&lt;p&gt;├── tools.c&lt;/p&gt;
+&lt;p&gt;└── tools.h&lt;/p&gt;</summary>
     
     
     
