@@ -6,7 +6,7 @@
   <link href="https://wangjunstf.github.io/atom.xml" rel="self"/>
   
   <link href="https://wangjunstf.github.io/"/>
-  <updated>2021-09-29T14:57:15.246Z</updated>
+  <updated>2021-09-30T07:29:28.146Z</updated>
   <id>https://wangjunstf.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>静态库和动态库制作</title>
+    <link href="https://wangjunstf.github.io/2021/09/30/jing-tai-ku-he-dong-tai-ku-zhi-zuo/"/>
+    <id>https://wangjunstf.github.io/2021/09/30/jing-tai-ku-he-dong-tai-ku-zhi-zuo/</id>
+    <published>2021-09-30T07:27:42.000Z</published>
+    <updated>2021-09-30T07:29:28.146Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;什么是库&quot;&gt;&lt;a href=&quot;#什么是库&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Linux" scheme="https://wangjunstf.github.io/categories/Linux/"/>
+    
+    
+    <category term="静态库" scheme="https://wangjunstf.github.io/tags/%E9%9D%99%E6%80%81%E5%BA%93/"/>
+    
+    <category term="动态库" scheme="https://wangjunstf.github.io/tags/%E5%8A%A8%E6%80%81%E5%BA%93/"/>
+    
+  </entry>
   
   <entry>
     <title>C++ STL标准模版库总结</title>
@@ -494,32 +521,6 @@
     <category term="红黑树" scheme="https://wangjunstf.github.io/tags/%E7%BA%A2%E9%BB%91%E6%A0%91/"/>
     
     <category term="二叉搜索树" scheme="https://wangjunstf.github.io/tags/%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>快速排序分析及优化</title>
-    <link href="https://wangjunstf.github.io/2021/09/02/kuai-su-pai-xu-yuan-li-ji-shi-jian-fu-za-du/"/>
-    <id>https://wangjunstf.github.io/2021/09/02/kuai-su-pai-xu-yuan-li-ji-shi-jian-fu-za-du/</id>
-    <published>2021-09-01T16:26:32.000Z</published>
-    <updated>2021-09-02T16:26:32.000Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;快速排序使用分治法实现，即一个一个复杂的问题分解为一系列容易解决的小问题，最终得到问题的解。&lt;/p&gt;
-&lt;h1 id=&quot;算法步骤&quot;&gt;&lt;a href=&quot;#算法步骤&quot; class=&quot;headerlink&quot; title=&quot;算法步骤&quot;&gt;&lt;/a&gt;算法步骤&lt;/h1&gt;&lt;p&gt;快速排序的三步分治过程：例如对 A[p..r] 进行快速排序&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;分解：数组 A[p..r] 被划分为两个(可能为空)子数组 A[p…q-1] 和 A[p+1…r]，使得A[p…q-1] 中的每一个元素都小于 A[q]，而 A[q] 也小于等于 A[q+1…r]中的每个元素。其中，计算下标 q 也是划分过程的一部分。&lt;/li&gt;
-&lt;li&gt;解决：通过递归调用快速排序，对子数组A[p…q-1] 和  A[p+1…r] 进行排序。&lt;/li&gt;
-&lt;li&gt;合并：因为子数组都是原址排序，所以不需要合并操作，数组A[p…r]已经有序</summary>
-    
-    
-    
-    <category term="算法" scheme="https://wangjunstf.github.io/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-    <category term="算法" scheme="https://wangjunstf.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
-    <category term="快速排序" scheme="https://wangjunstf.github.io/tags/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/"/>
     
   </entry>
   
