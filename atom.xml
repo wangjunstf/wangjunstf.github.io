@@ -382,9 +382,9 @@
     
     <category term="Linux" scheme="https://wangjunstf.github.io/tags/Linux/"/>
     
-    <category term="进程" scheme="https://wangjunstf.github.io/tags/%E8%BF%9B%E7%A8%8B/"/>
-    
     <category term="并发" scheme="https://wangjunstf.github.io/tags/%E5%B9%B6%E5%8F%91/"/>
+    
+    <category term="进程" scheme="https://wangjunstf.github.io/tags/%E8%BF%9B%E7%A8%8B/"/>
     
   </entry>
   
