@@ -6,7 +6,7 @@
   <link href="https://wangjunstf.github.io/atom.xml" rel="self"/>
   
   <link href="https://wangjunstf.github.io/"/>
-  <updated>2021-10-03T09:43:25.037Z</updated>
+  <updated>2021-10-03T09:44:26.639Z</updated>
   <id>https://wangjunstf.github.io/</id>
   
   <author>
@@ -21,16 +21,11 @@
     <link href="https://wangjunstf.github.io/2021/10/03/qian-zhui-he-yu-er-fen-cha-zhao-de-ying-yong/"/>
     <id>https://wangjunstf.github.io/2021/10/03/qian-zhui-he-yu-er-fen-cha-zhao-de-ying-yong/</id>
     <published>2021-10-03T09:35:12.000Z</published>
-    <updated>2021-10-03T09:43:25.037Z</updated>
+    <updated>2021-10-03T09:44:26.639Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;前缀和与二分查找的应用&quot;&gt;&lt;a href=&quot;#前缀和与二分查找的应用&quot; class=&quot;headerlink&quot; title=&quot;前缀和与二分查找的应用&quot;&gt;&lt;/a&gt;前缀和与二分查找的应用&lt;/h1&gt;&lt;p&gt;题目链接：&lt;a</summary>
-        
-      
+    <summary type="html">&lt;h1 id=&quot;前缀和与二分查找的应用&quot;&gt;&lt;a href=&quot;#前缀和与二分查找的应用&quot; class=&quot;headerlink&quot; title=&quot;前缀和与二分查找的应用&quot;&gt;&lt;/a&gt;前缀和与二分查找的应用&lt;/h1&gt;&lt;p&gt;题目链接：&lt;a href=&quot;https://leetcode-cn.com/problems/maximize-the-confusion-of-an-exam/&quot;&gt;考试的最大困扰度&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;给出一个只有’F’ 和 ‘T’ 的字符串，和一个整数 k，可以对字符串种的字符进行两种修改：1. 把 ‘T’ 变为 ‘F’ ，2. 把 ‘F’ 变为 ‘T’。最多能修改 k 次，求由相同字符组成的连续子串长度的最大值。&lt;/p&gt;</summary>
     
     
     
@@ -387,9 +382,9 @@
     
     <category term="Linux" scheme="https://wangjunstf.github.io/tags/Linux/"/>
     
-    <category term="并发" scheme="https://wangjunstf.github.io/tags/%E5%B9%B6%E5%8F%91/"/>
-    
     <category term="进程" scheme="https://wangjunstf.github.io/tags/%E8%BF%9B%E7%A8%8B/"/>
+    
+    <category term="并发" scheme="https://wangjunstf.github.io/tags/%E5%B9%B6%E5%8F%91/"/>
     
   </entry>
   

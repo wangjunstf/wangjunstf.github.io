@@ -258,7 +258,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-10-03 17:35:12 / 修改时间：17:43:25" itemprop="dateCreated datePublished" datetime="2021-10-03T17:35:12+08:00">2021-10-03</time>
+              <time title="创建时间：2021-10-03 17:35:12 / 修改时间：17:44:26" itemprop="dateCreated datePublished" datetime="2021-10-03T17:35:12+08:00">2021-10-03</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -304,45 +304,14 @@
       
           <h1 id="前缀和与二分查找的应用"><a href="#前缀和与二分查找的应用" class="headerlink" title="前缀和与二分查找的应用"></a>前缀和与二分查找的应用</h1><p>题目链接：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/maximize-the-confusion-of-an-exam/">考试的最大困扰度</a></p>
 <p>给出一个只有’F’ 和 ‘T’ 的字符串，和一个整数 k，可以对字符串种的字符进行两种修改：1. 把 ‘T’ 变为 ‘F’ ，2. 把 ‘F’ 变为 ‘T’。最多能修改 k 次，求由相同字符组成的连续子串长度的最大值。</p>
-<p>例如：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&quot;TTFF&quot;, k = 2</span><br><span class="line">可以变为 &quot;TTTT&quot;，返回 4</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&quot;TFFT&quot;, k = 1</span><br><span class="line">可以变为&quot;FFFT&quot;，返回 3</span><br></pre></td></tr></table></figure>
-
-<p>从该题可以学到：</p>
-<ul>
-<li>前缀和思想</li>
-<li>二分查找思想</li>
-</ul>
-<h2 id="前缀和"><a href="#前缀和" class="headerlink" title="前缀和"></a>前缀和</h2><p>前缀和是一种常用的预处理技术，可以在 O(1) 内进行查询。例如给出一个字符串 “TTFTTFTT”，任意给出一个范围，分别求该范围内 T 的个数和F的个数。通常情况下，需要 O(n) 来遍历计算。如果查询次数很大，可以在 O(n) 内获得前缀和，在之后的每次查询中，只需 O(1) 时间复杂度。</p>
-<p>获取前缀和代码：字符串用 answerKey 表示，d 数组存储前缀和，大小为 字符串长度+1。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> d[<span class="number">50005</span>];  </span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;len; ++i)&#123;</span><br><span class="line">		d[i+<span class="number">1</span>] = d[i] + (answerKey[i]==<span class="string">&#x27;T&#x27;</span>?<span class="number">1</span>:<span class="number">0</span>); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>answerKey =”TTFTTFTT”</p>
-<p>前缀和为 0 1 2 2 3 4 4 5 6</p>
-<p>d[x]-d[0] 表示下标 0 到 x 范围内 T 的个数，用 w 表示，用该范围内字符总数减去 T 的个数，就是 F 的个数，即 x - (d[x]-d[0])，用 x-w 表示。</p>
-<p>根据题意，给一个范围内，我们取 x 和 x-w 的最小值 minum， 如果 minum 大于 k，说明范围太大了，不能在 k 次内将子串修改为相同字符。如果 minum 小于等于 k，说明该范围完全可以在 k 次修改变成相同字符，在继续扩大范围，以相同方式判断。直到不能将范围扩大为止。</p>
-<p>可以看到前缀和为递增数列，所有可能的范围如下，为了快速找到正确的右边界，很明显可以使用 二分查找。</p>
-<img src="http://qqimage.wangjunblogs.com/uPic/IMG_7E3EFB5C27F2-1.jpeg" alt="IMG_7E3EFB5C27F2-1" style="zoom:50%;" />
-
-
-
-<h2 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a>二分查找</h2><p>二分查找是一种快速的查找算法，它的时间复杂度为 O(lg n)。需要待查找数组有序。</p>
-<p>由上图可知，所有可能的范围的右边界是递增的。我们可以根据中间位置判断正确答案在左边还是右边。</p>
-<p>中间位置判断：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">binary</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=x; i&lt;=len; ++i)&#123;</span><br><span class="line">				<span class="keyword">int</span> w = d[i] - d[i-x];</span><br><span class="line">    		<span class="keyword">if</span>(<span class="built_in">min</span>(w,x-w)&lt;= k) <span class="keyword">return</span> <span class="literal">true</span>;   <span class="comment">// w: T的个数   x-w: F 的个数</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>只要以下的任何一种满足，右边界就在中间值的右边，否则在左边。</p>
-<p><img src="http://qqimage.wangjunblogs.com/uPic/IMG_F8E2C06B01A3-1.jpeg" alt="IMG_F8E2C06B01A3-1"></p>
-<p>二叉查找代码：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> l=<span class="number">1</span>,r=len;</span><br><span class="line"><span class="keyword">while</span>(l&lt;r)&#123;</span><br><span class="line">		<span class="keyword">int</span> mid=(l+r+<span class="number">1</span>)&gt;&gt;<span class="number">1</span>;     <span class="comment">// 防止死循环</span></span><br><span class="line">		<span class="keyword">if</span>(<span class="built_in">judge</span>(mid)) l = mid;</span><br><span class="line">		<span class="keyword">else</span> r = mid<span class="number">-1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="完整代码如下"><a href="#完整代码如下" class="headerlink" title="完整代码如下"></a>完整代码如下</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">int</span> d[<span class="number">50005</span>];</span><br><span class="line">    <span class="keyword">int</span> k;</span><br><span class="line">    <span class="keyword">int</span> len;</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">judge</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=x; i&lt;=len; ++i)&#123;</span><br><span class="line">            <span class="keyword">int</span> w = d[i] - d[i-x];</span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">min</span>(w,x-w)&lt;=k) <span class="keyword">return</span> <span class="literal">true</span>;   <span class="comment">// w: T的个数   x-w: F 的个数</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maxConsecutiveAnswers</span><span class="params">(string answerKey, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>-&gt;k = k;</span><br><span class="line">        len = answerKey.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;len; ++i)&#123;</span><br><span class="line">            d[i+<span class="number">1</span>] = d[i] + (answerKey[i]==<span class="string">&#x27;T&#x27;</span>?<span class="number">1</span>:<span class="number">0</span>); </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> l=<span class="number">1</span>,r=len;</span><br><span class="line">        <span class="keyword">while</span>(l&lt;r)&#123;</span><br><span class="line">            <span class="keyword">int</span> mid=(l+r+<span class="number">1</span>)&gt;&gt;<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">judge</span>(mid)) l = mid;</span><br><span class="line">            <span class="keyword">else</span> r = mid<span class="number">-1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> l;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>如有遗漏，欢迎指正。</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/10/03/qian-zhui-he-yu-er-fen-cha-zhao-de-ying-yong/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
