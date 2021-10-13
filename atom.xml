@@ -6,7 +6,7 @@
   <link href="https://wangjunstf.github.io/atom.xml" rel="self"/>
   
   <link href="https://wangjunstf.github.io/"/>
-  <updated>2021-10-03T09:44:26.639Z</updated>
+  <updated>2021-10-13T15:28:54.845Z</updated>
   <id>https://wangjunstf.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>C++单例设计模式的两种实现</title>
+    <link href="https://wangjunstf.github.io/2021/10/13/c-dan-li-she-ji-mo-shi-de-liang-chong-shi-xian/"/>
+    <id>https://wangjunstf.github.io/2021/10/13/c-dan-li-she-ji-mo-shi-de-liang-chong-shi-xian/</id>
+    <published>2021-10-13T15:27:39.000Z</published>
+    <updated>2021-10-13T15:28:54.845Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;单例设计模式的两种实现&quot;&gt;&lt;a href=&quot;#单例设计模式的两种实现&quot; class=&quot;headerlink&quot; title=&quot;单例设计模式的两种实现&quot;&gt;&lt;/a&gt;单例设计模式的两种实现&lt;/h1&gt;&lt;h2 id=&quot;单例模式的定义&quot;&gt;&lt;a href=&quot;#单例模式的定义&quot; class=&quot;headerlink&quot; title=&quot;单例模式的定义&quot;&gt;&lt;/a&gt;单例模式的定义&lt;/h2&gt;&lt;p&gt;保证一个类仅有一个实例，并提供一个它的全局访问点，该实例被所有程序模块所共享。&lt;/p&gt;
+&lt;p&gt;那么就必须保证：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;该类不能被实例化&lt;/li&gt;
+&lt;li&gt;该类不能被复制。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;对于 C++，意味着：它的构造函数，拷贝构造函数和拷贝赋值运算符不能被公开调用。&lt;/p&gt;</summary>
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>前缀和与二分查找的应用</title>
@@ -483,31 +504,6 @@
     <category term="makefile" scheme="https://wangjunstf.github.io/tags/makefile/"/>
     
     <category term="编译" scheme="https://wangjunstf.github.io/tags/%E7%BC%96%E8%AF%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>c++迭代实现二叉树遍历</title>
-    <link href="https://wangjunstf.github.io/2021/09/08/c-er-cha-shu-bian-li-die-dai-shi-xian/"/>
-    <id>https://wangjunstf.github.io/2021/09/08/c-er-cha-shu-bian-li-die-dai-shi-xian/</id>
-    <published>2021-09-08T03:06:39.000Z</published>
-    <updated>2021-09-12T01:28:50.964Z</updated>
-    
-    
-    <summary type="html">分别用递归和迭代实现二叉树三种遍历方式：前序遍历，中序遍历，后序遍历。递归的缺点分析。</summary>
-    
-    
-    
-    <category term="数据结构" scheme="https://wangjunstf.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-    
-    <category term="c++" scheme="https://wangjunstf.github.io/tags/c/"/>
-    
-    <category term="二叉树遍历" scheme="https://wangjunstf.github.io/tags/%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86/"/>
-    
-    <category term="迭代" scheme="https://wangjunstf.github.io/tags/%E8%BF%AD%E4%BB%A3/"/>
-    
-    <category term="递归" scheme="https://wangjunstf.github.io/tags/%E9%80%92%E5%BD%92/"/>
     
   </entry>
   
