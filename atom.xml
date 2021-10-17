@@ -6,7 +6,7 @@
   <link href="https://wangjunstf.github.io/atom.xml" rel="self"/>
   
   <link href="https://wangjunstf.github.io/"/>
-  <updated>2021-10-13T15:28:54.845Z</updated>
+  <updated>2021-10-17T03:33:07.778Z</updated>
   <id>https://wangjunstf.github.io/</id>
   
   <author>
@@ -15,6 +15,79 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Python 常用数据结构(列表,字典,元组,集合,序列,栈,队列)及方法</title>
+    <link href="https://wangjunstf.github.io/2021/10/17/python-chang-yong-shu-ju-jie-gou-ji-fang-fa/"/>
+    <id>https://wangjunstf.github.io/2021/10/17/python-chang-yong-shu-ju-jie-gou-ji-fang-fa/</id>
+    <published>2021-10-17T03:30:15.000Z</published>
+    <updated>2021-10-17T03:33:07.778Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;列表&quot;&gt;&lt;a href=&quot;#列表&quot; class=&quot;headerlink&quot; title=&quot;列表&quot;&gt;&lt;/a&gt;列表&lt;/h2&gt;&lt;p&gt;常用方法。&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&quot;center&quot;&gt;方法名&lt;/th&gt;
+&lt;th align=&quot;left&quot;&gt;说明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td align=&quot;center&quot;&gt;list.append(x)&lt;/td&gt;
+&lt;td align=&quot;left&quot;&gt;在列表末尾添加一个元素，相当于 a[len(a):] = [x]&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;center&quot;&gt;list.extend(iterable)&lt;/td&gt;
+&lt;td align=&quot;left&quot;&gt;用可迭代对象的元素扩展列表。相当于 a[len(a):] = iterable&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;center&quot;&gt;list.insert(i, x)&lt;/td&gt;
+&lt;td align=&quot;left&quot;&gt;在指定位置插入元素。第一个参数 i 是插入元素的索引&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;center&quot;&gt;list.remove(x)&lt;/td&gt;
+&lt;td align=&quot;left&quot;&gt;从列表中删除第一个值为 x 的元素。未找到指定元素时，触发 ValueError 异常。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;center&quot;&gt;list.pop([i])&lt;/td&gt;
+&lt;td align=&quot;left&quot;&gt;删除列表中指定位置的元素，并返回被删除的元素。未指定位置时，a.pop() 删除并返回列表的最后一个元素。(方法签名中 i 两边的方括号表示该参数是可选的，不是要求输入方括号。这种表示法常见于 Python 参考库）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;center&quot;&gt;list.clear()&lt;/td&gt;
+&lt;td align=&quot;left&quot;&gt;删除列表里的所有元素，相当于 del a[:] 。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;center&quot;&gt;list.index(x[, start[, end]])&lt;/td&gt;
+&lt;td align=&quot;left&quot;&gt;返回列表中第一个值为 x 的元素的零基索引。未找到指定元素时，触发 ValueError 异常。可选参数 start 和 end 是切片符号，用于将搜索限制为列表的特定子序列。返回的索引是相对于整个序列的开始计算的，而不是 start 参数。例如：list.index(3,0,2)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;center&quot;&gt;list.count(x)&lt;/td&gt;
+&lt;td align=&quot;left&quot;&gt;返回列表中元素 x 出现的次数。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;center&quot;&gt;list.sort(*, key=None, reverse=False)&lt;/td&gt;
+&lt;td align=&quot;left&quot;&gt;就地排序列表中的元素，关于自定义排序参数，详见 sorted()&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;center&quot;&gt;list.reverse()&lt;/td&gt;
+&lt;td align=&quot;left&quot;&gt;翻转列表中的元素。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&quot;center&quot;&gt;list.copy()&lt;/td&gt;
+&lt;td align=&quot;left&quot;&gt;返回列表的浅拷贝。相当于 a[:] 。浅拷贝：拷贝引用，不拷贝内存。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;</summary>
+    
+    
+    
+    <category term="Python" scheme="https://wangjunstf.github.io/categories/Python/"/>
+    
+    
+    <category term="Python" scheme="https://wangjunstf.github.io/tags/Python/"/>
+    
+    <category term="数据结构" scheme="https://wangjunstf.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+  </entry>
   
   <entry>
     <title>C++单例设计模式的两种实现</title>
@@ -479,31 +552,6 @@
     <category term="算法分析" scheme="https://wangjunstf.github.io/tags/%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90/"/>
     
     <category term="渐进符号" scheme="https://wangjunstf.github.io/tags/%E6%B8%90%E8%BF%9B%E7%AC%A6%E5%8F%B7/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>MakeFile 基础教程</title>
-    <link href="https://wangjunstf.github.io/2021/09/10/makefile-ji-chu-jiao-cheng/"/>
-    <id>https://wangjunstf.github.io/2021/09/10/makefile-ji-chu-jiao-cheng/</id>
-    <published>2021-09-10T02:26:53.000Z</published>
-    <updated>2021-09-12T17:03:55.729Z</updated>
-    
-    
-    <summary type="html">&lt;h1 id=&quot;Makefile-作用&quot;&gt;&lt;a href=&quot;#Makefile-作用&quot; class=&quot;headerlink&quot; title=&quot;Makefile 作用&quot;&gt;&lt;/a&gt;Makefile 作用&lt;/h1&gt;&lt;p&gt;Makefile的作用为实现自动化编译，主要为了解决以下问题：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;有很多源文件需要编译时&lt;/li&gt;
-&lt;li&gt;当存在很多源文件时，只修改了个别源文件，这时只需要编译修改过的文件即可，而无需整个项目都编译一遍。&lt;/li&gt;
-&lt;li&gt;当多个源文件存在依赖关系时，需要先编译一些文件，后编译一些文件&lt;h1 id=&quot;Makefile安装&quot;&gt;&lt;a href=&quot;#Makefile安装&quot; class=&quot;headerlink&quot; title=&quot;Makefile安装&quot;&gt;&lt;/a&gt;Makefile安装&lt;/h1&gt;</summary>
-    
-    
-    
-    <category term="Linux" scheme="https://wangjunstf.github.io/categories/Linux/"/>
-    
-    
-    <category term="makefile" scheme="https://wangjunstf.github.io/tags/makefile/"/>
-    
-    <category term="编译" scheme="https://wangjunstf.github.io/tags/%E7%BC%96%E8%AF%91/"/>
     
   </entry>
   

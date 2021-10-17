@@ -233,6 +233,154 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://wangjunstf.github.io/2021/10/17/python-chang-yong-shu-ju-jie-gou-ji-fang-fa/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="编程之禅">
+      <meta itemprop="description" content="本博客用于分享编程语言，网络原理，操作系统，数据结构与算法等知识。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="编程之禅">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/10/17/python-chang-yong-shu-ju-jie-gou-ji-fang-fa/" class="post-title-link" itemprop="url">Python 常用数据结构(列表,字典,元组,集合,序列,栈,队列)及方法</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-10-17 11:30:15 / 修改时间：11:33:07" itemprop="dateCreated datePublished" datetime="2021-10-17T11:30:15+08:00">2021-10-17</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2021/10/17/python-chang-yong-shu-ju-jie-gou-ji-fang-fa/" class="post-meta-item leancloud_visitors" data-flag-title="Python 常用数据结构(列表,字典,元组,集合,序列,栈,队列)及方法" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/2021/10/17/python-chang-yong-shu-ju-jie-gou-ji-fang-fa/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/10/17/python-chang-yong-shu-ju-jie-gou-ji-fang-fa/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><p>常用方法。</p>
+<table>
+<thead>
+<tr>
+<th align="center">方法名</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">list.append(x)</td>
+<td align="left">在列表末尾添加一个元素，相当于 a[len(a):] = [x]</td>
+</tr>
+<tr>
+<td align="center">list.extend(iterable)</td>
+<td align="left">用可迭代对象的元素扩展列表。相当于 a[len(a):] = iterable</td>
+</tr>
+<tr>
+<td align="center">list.insert(i, x)</td>
+<td align="left">在指定位置插入元素。第一个参数 i 是插入元素的索引</td>
+</tr>
+<tr>
+<td align="center">list.remove(x)</td>
+<td align="left">从列表中删除第一个值为 x 的元素。未找到指定元素时，触发 ValueError 异常。</td>
+</tr>
+<tr>
+<td align="center">list.pop([i])</td>
+<td align="left">删除列表中指定位置的元素，并返回被删除的元素。未指定位置时，a.pop() 删除并返回列表的最后一个元素。(方法签名中 i 两边的方括号表示该参数是可选的，不是要求输入方括号。这种表示法常见于 Python 参考库）</td>
+</tr>
+<tr>
+<td align="center">list.clear()</td>
+<td align="left">删除列表里的所有元素，相当于 del a[:] 。</td>
+</tr>
+<tr>
+<td align="center">list.index(x[, start[, end]])</td>
+<td align="left">返回列表中第一个值为 x 的元素的零基索引。未找到指定元素时，触发 ValueError 异常。可选参数 start 和 end 是切片符号，用于将搜索限制为列表的特定子序列。返回的索引是相对于整个序列的开始计算的，而不是 start 参数。例如：list.index(3,0,2)</td>
+</tr>
+<tr>
+<td align="center">list.count(x)</td>
+<td align="left">返回列表中元素 x 出现的次数。</td>
+</tr>
+<tr>
+<td align="center">list.sort(*, key=None, reverse=False)</td>
+<td align="left">就地排序列表中的元素，关于自定义排序参数，详见 sorted()</td>
+</tr>
+<tr>
+<td align="center">list.reverse()</td>
+<td align="left">翻转列表中的元素。</td>
+</tr>
+<tr>
+<td align="center">list.copy()</td>
+<td align="left">返回列表的浅拷贝。相当于 a[:] 。浅拷贝：拷贝引用，不拷贝内存。</td>
+</tr>
+</tbody></table>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/10/17/python-chang-yong-shu-ju-jie-gou-ji-fang-fa/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://wangjunstf.github.io/2021/10/13/c-dan-li-she-ji-mo-shi-de-liang-chong-shi-xian/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1121,104 +1269,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://wangjunstf.github.io/2021/09/16/hui-fu-er-cha-sou-suo-shu/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="编程之禅">
-      <meta itemprop="description" content="本博客用于分享编程语言，网络原理，操作系统，数据结构与算法等知识。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="编程之禅">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/09/16/hui-fu-er-cha-sou-suo-shu/" class="post-title-link" itemprop="url">恢复二叉搜索树</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-09-16 16:56:32 / 修改时间：17:00:23" itemprop="dateCreated datePublished" datetime="2021-09-16T16:56:32+08:00">2021-09-16</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2021/09/16/hui-fu-er-cha-sou-suo-shu/" class="post-meta-item leancloud_visitors" data-flag-title="恢复二叉搜索树" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus：</span>
-    
-    <a title="disqus" href="/2021/09/16/hui-fu-er-cha-sou-suo-shu/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/09/16/hui-fu-er-cha-sou-suo-shu/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/recover-binary-search-tree/">题目链接</a></p>
-<p>给你二叉搜索树的根节点 root ，该树中的两个节点被错误地交换。请在不改变其结构的情况下，恢复这棵树。</p>
-<p>进阶：使用 O(n) 空间复杂度的解法很容易实现。你能想出一个只使用常数空间的解决方案吗？</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/09/16/hui-fu-er-cha-sou-suo-shu/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1288,20 +1338,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">47</span>
+          <span class="site-state-item-count">48</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">95</span>
+        <span class="site-state-item-count">97</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
