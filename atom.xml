@@ -6,7 +6,7 @@
   <link href="https://wangjunstf.github.io/atom.xml" rel="self"/>
   
   <link href="https://wangjunstf.github.io/"/>
-  <updated>2021-10-23T06:52:49.935Z</updated>
+  <updated>2021-10-23T06:55:27.451Z</updated>
   <id>https://wangjunstf.github.io/</id>
   
   <author>
@@ -21,11 +21,11 @@
     <link href="https://wangjunstf.github.io/2021/10/23/tuo-bu-pai-xu/"/>
     <id>https://wangjunstf.github.io/2021/10/23/tuo-bu-pai-xu/</id>
     <published>2021-10-23T06:48:53.000Z</published>
-    <updated>2021-10-23T06:52:49.935Z</updated>
+    <updated>2021-10-23T06:55:27.451Z</updated>
     
     
     <summary type="html">&lt;p&gt;什么是拓扑排序？&lt;/p&gt;
-&lt;p&gt;拓扑排序就是对&lt;code&gt;有向五环图&lt;/code&gt;的顶点进行线性排列，使得从顶点 u 到顶点 v 的每个有向边，u 在排序中都在 v 的前面。一个有向五环图的拓扑排序可能有多种。&lt;/p&gt;</summary>
+&lt;p&gt;拓扑排序就是对&lt;code&gt;有向无环图&lt;/code&gt;的顶点进行线性排列，使得从顶点 u 到顶点 v 的每个有向边，u 在排序中都在 v 的前面。一个有向无环图的拓扑排序可能有多种。&lt;/p&gt;</summary>
     
     
     
