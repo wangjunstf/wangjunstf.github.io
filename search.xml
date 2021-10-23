@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>拓扑排序</title>
+      <link href="/2021/10/23/tuo-bu-pai-xu/"/>
+      <url>/2021/10/23/tuo-bu-pai-xu/</url>
+      
+        <content type="html"><![CDATA[<p>什么是拓扑排序？</p><p>拓扑排序就是对<code>有向五环图</code>的顶点进行线性排列，使得从顶点 u 到顶点 v 的每个有向边，u 在排序中都在 v 的前面。一个有向五环图的拓扑排序可能有多种。</p><blockquote><p>当前仅当图中不存在环时，才有可能进行拓扑排序。</p></blockquote><p>运用拓扑排序可以解决哪些问题？</p><p>最常见的问题就是，课程安排问题。有些课是基础课程，有些课是综合课程，往往我们需要先学习基础课，再学习综合课程。现在给出所有的课，和每门课与先修课的对应关系。求出可否学完所有课程，或者课程学习的一个合理顺序。</p><p>类似的问题还有工程安排问题。</p><blockquote><p>总之拓扑排序适合于那些局部有序(两个元素之间)，总体可以无序。例如 工程 A，B，C，开始工程 B 之前 必须先完成工程 A，但 C 无要求，这样合理的工程安排顺序如下：A B C，或者 C A B。只要满足 A 在 B 的前面既可。 </p></blockquote><p>题目链接：</p><p><a href="https://leetcode-cn.com/problems/course-schedule/">课程表</a>：本题需要求出能否学完所有课程。  <a href="https://leetcode-cn.com/problems/course-schedule/solution/ke-cheng-biao-by-leetcode-solution/">题解</a></p><p><a href="https://leetcode-cn.com/problems/course-schedule-ii/">课程表 II</a>：需要给出一个合理的课程学习顺序。<a href="https://leetcode-cn.com/problems/course-schedule-ii/solution/">题解</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 拓扑排序 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Python 常用数据结构(列表,字典,元组,集合,序列,栈,队列)及方法</title>
       <link href="/2021/10/17/python-chang-yong-shu-ju-jie-gou-ji-fang-fa/"/>
       <url>/2021/10/17/python-chang-yong-shu-ju-jie-gou-ji-fang-fa/</url>
