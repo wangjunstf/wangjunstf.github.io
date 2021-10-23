@@ -263,7 +263,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-10-23 14:48:53 / 修改时间：14:51:11" itemprop="dateCreated datePublished" datetime="2021-10-23T14:48:53+08:00">2021-10-23</time>
+              <time title="创建时间：2021-10-23 14:48:53 / 修改时间：14:52:49" itemprop="dateCreated datePublished" datetime="2021-10-23T14:48:53+08:00">2021-10-23</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -309,19 +309,14 @@
       
           <p>什么是拓扑排序？</p>
 <p>拓扑排序就是对<code>有向五环图</code>的顶点进行线性排列，使得从顶点 u 到顶点 v 的每个有向边，u 在排序中都在 v 的前面。一个有向五环图的拓扑排序可能有多种。</p>
-<blockquote>
-<p>当前仅当图中不存在环时，才有可能进行拓扑排序。</p>
-</blockquote>
-<p>运用拓扑排序可以解决哪些问题？</p>
-<p>最常见的问题就是，课程安排问题。有些课是基础课程，有些课是综合课程，往往我们需要先学习基础课，再学习综合课程。现在给出所有的课，和每门课与先修课的对应关系。求出可否学完所有课程，或者课程学习的一个合理顺序。</p>
-<p>类似的问题还有工程安排问题。</p>
-<blockquote>
-<p>总之拓扑排序适合于那些局部有序(两个元素之间)，总体可以无序。例如 工程 A，B，C，开始工程 B 之前 必须先完成工程 A，但 C 无要求，这样合理的工程安排顺序如下：A B C，或者 C A B。只要满足 A 在 B 的前面既可。 </p>
-</blockquote>
-<p>题目链接：</p>
-<p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/course-schedule/">课程表</a>：本题需要求出能否学完所有课程。  <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/course-schedule/solution/ke-cheng-biao-by-leetcode-solution/">题解</a></p>
-<p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/course-schedule-ii/">课程表 II</a>：需要给出一个合理的课程学习顺序。<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/course-schedule-ii/solution/">题解</a></p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/10/23/tuo-bu-pai-xu/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -363,10 +358,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-10-17 11:30:15 / 修改时间：11:33:07" itemprop="dateCreated datePublished" datetime="2021-10-17T11:30:15+08:00">2021-10-17</time>
+              <time title="创建时间：2021-10-17 11:30:15" itemprop="dateCreated datePublished" datetime="2021-10-17T11:30:15+08:00">2021-10-17</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-10-23 14:53:44" itemprop="dateModified" datetime="2021-10-23T14:53:44+08:00">2021-10-23</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -409,59 +410,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><p>常用方法。</p>
-<table>
-<thead>
-<tr>
-<th align="center">方法名</th>
-<th align="left">说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">list.append(x)</td>
-<td align="left">在列表末尾添加一个元素，相当于 a[len(a):] = [x]</td>
-</tr>
-<tr>
-<td align="center">list.extend(iterable)</td>
-<td align="left">用可迭代对象的元素扩展列表。相当于 a[len(a):] = iterable</td>
-</tr>
-<tr>
-<td align="center">list.insert(i, x)</td>
-<td align="left">在指定位置插入元素。第一个参数 i 是插入元素的索引</td>
-</tr>
-<tr>
-<td align="center">list.remove(x)</td>
-<td align="left">从列表中删除第一个值为 x 的元素。未找到指定元素时，触发 ValueError 异常。</td>
-</tr>
-<tr>
-<td align="center">list.pop([i])</td>
-<td align="left">删除列表中指定位置的元素，并返回被删除的元素。未指定位置时，a.pop() 删除并返回列表的最后一个元素。(方法签名中 i 两边的方括号表示该参数是可选的，不是要求输入方括号。这种表示法常见于 Python 参考库）</td>
-</tr>
-<tr>
-<td align="center">list.clear()</td>
-<td align="left">删除列表里的所有元素，相当于 del a[:] 。</td>
-</tr>
-<tr>
-<td align="center">list.index(x[, start[, end]])</td>
-<td align="left">返回列表中第一个值为 x 的元素的零基索引。未找到指定元素时，触发 ValueError 异常。可选参数 start 和 end 是切片符号，用于将搜索限制为列表的特定子序列。返回的索引是相对于整个序列的开始计算的，而不是 start 参数。例如：list.index(3,0,2)</td>
-</tr>
-<tr>
-<td align="center">list.count(x)</td>
-<td align="left">返回列表中元素 x 出现的次数。</td>
-</tr>
-<tr>
-<td align="center">list.sort(*, key=None, reverse=False)</td>
-<td align="left">就地排序列表中的元素，关于自定义排序参数，详见 sorted()</td>
-</tr>
-<tr>
-<td align="center">list.reverse()</td>
-<td align="left">翻转列表中的元素。</td>
-</tr>
-<tr>
-<td align="center">list.copy()</td>
-<td align="left">返回列表的浅拷贝。相当于 a[:] 。浅拷贝：拷贝引用，不拷贝内存。</td>
-</tr>
-</tbody></table>
+          <h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><p><code>insert</code>、<code>remove</code>、<code>sort</code> 等方法只修改列表，不输出返回值——返回的默认值为 <code>None</code> 。这是所有 Python 可变数据结构的设计原则。</p>
+<p>不是所有数据都可以排序或比较。例如，<code>[None, &#39;hello&#39;, 10]</code> 就不可排序，因为整数不能与字符串对比，而 None 不能与其他类型对比。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2021/10/17/python-chang-yong-shu-ju-jie-gou-ji-fang-fa/#more" rel="contents">

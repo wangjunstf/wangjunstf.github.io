@@ -6,7 +6,7 @@
   <link href="https://wangjunstf.github.io/atom.xml" rel="self"/>
   
   <link href="https://wangjunstf.github.io/"/>
-  <updated>2021-10-23T06:51:11.234Z</updated>
+  <updated>2021-10-23T06:52:49.935Z</updated>
   <id>https://wangjunstf.github.io/</id>
   
   <author>
@@ -21,17 +21,11 @@
     <link href="https://wangjunstf.github.io/2021/10/23/tuo-bu-pai-xu/"/>
     <id>https://wangjunstf.github.io/2021/10/23/tuo-bu-pai-xu/</id>
     <published>2021-10-23T06:48:53.000Z</published>
-    <updated>2021-10-23T06:51:11.234Z</updated>
+    <updated>2021-10-23T06:52:49.935Z</updated>
     
     
-      
-      
-        
-        
     <summary type="html">&lt;p&gt;什么是拓扑排序？&lt;/p&gt;
-&lt;p&gt;拓扑排序就是对&lt;code&gt;有向五环图&lt;/code&gt;的顶点进行线性排列，使得从顶点 u 到顶点 v 的每个有向边，u 在排序中都在 v</summary>
-        
-      
+&lt;p&gt;拓扑排序就是对&lt;code&gt;有向五环图&lt;/code&gt;的顶点进行线性排列，使得从顶点 u 到顶点 v 的每个有向边，u 在排序中都在 v 的前面。一个有向五环图的拓扑排序可能有多种。&lt;/p&gt;</summary>
     
     
     
@@ -47,62 +41,11 @@
     <link href="https://wangjunstf.github.io/2021/10/17/python-chang-yong-shu-ju-jie-gou-ji-fang-fa/"/>
     <id>https://wangjunstf.github.io/2021/10/17/python-chang-yong-shu-ju-jie-gou-ji-fang-fa/</id>
     <published>2021-10-17T03:30:15.000Z</published>
-    <updated>2021-10-17T03:33:07.778Z</updated>
+    <updated>2021-10-23T06:53:44.329Z</updated>
     
     
-    <summary type="html">&lt;h2 id=&quot;列表&quot;&gt;&lt;a href=&quot;#列表&quot; class=&quot;headerlink&quot; title=&quot;列表&quot;&gt;&lt;/a&gt;列表&lt;/h2&gt;&lt;p&gt;常用方法。&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th align=&quot;center&quot;&gt;方法名&lt;/th&gt;
-&lt;th align=&quot;left&quot;&gt;说明&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;&lt;tr&gt;
-&lt;td align=&quot;center&quot;&gt;list.append(x)&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;在列表末尾添加一个元素，相当于 a[len(a):] = [x]&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td align=&quot;center&quot;&gt;list.extend(iterable)&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;用可迭代对象的元素扩展列表。相当于 a[len(a):] = iterable&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td align=&quot;center&quot;&gt;list.insert(i, x)&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;在指定位置插入元素。第一个参数 i 是插入元素的索引&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td align=&quot;center&quot;&gt;list.remove(x)&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;从列表中删除第一个值为 x 的元素。未找到指定元素时，触发 ValueError 异常。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td align=&quot;center&quot;&gt;list.pop([i])&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;删除列表中指定位置的元素，并返回被删除的元素。未指定位置时，a.pop() 删除并返回列表的最后一个元素。(方法签名中 i 两边的方括号表示该参数是可选的，不是要求输入方括号。这种表示法常见于 Python 参考库）&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td align=&quot;center&quot;&gt;list.clear()&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;删除列表里的所有元素，相当于 del a[:] 。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td align=&quot;center&quot;&gt;list.index(x[, start[, end]])&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;返回列表中第一个值为 x 的元素的零基索引。未找到指定元素时，触发 ValueError 异常。可选参数 start 和 end 是切片符号，用于将搜索限制为列表的特定子序列。返回的索引是相对于整个序列的开始计算的，而不是 start 参数。例如：list.index(3,0,2)&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td align=&quot;center&quot;&gt;list.count(x)&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;返回列表中元素 x 出现的次数。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td align=&quot;center&quot;&gt;list.sort(*, key=None, reverse=False)&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;就地排序列表中的元素，关于自定义排序参数，详见 sorted()&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td align=&quot;center&quot;&gt;list.reverse()&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;翻转列表中的元素。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td align=&quot;center&quot;&gt;list.copy()&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;返回列表的浅拷贝。相当于 a[:] 。浅拷贝：拷贝引用，不拷贝内存。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;</summary>
+    <summary type="html">&lt;h2 id=&quot;列表&quot;&gt;&lt;a href=&quot;#列表&quot; class=&quot;headerlink&quot; title=&quot;列表&quot;&gt;&lt;/a&gt;列表&lt;/h2&gt;&lt;p&gt;&lt;code&gt;insert&lt;/code&gt;、&lt;code&gt;remove&lt;/code&gt;、&lt;code&gt;sort&lt;/code&gt; 等方法只修改列表，不输出返回值——返回的默认值为 &lt;code&gt;None&lt;/code&gt; 。这是所有 Python 可变数据结构的设计原则。&lt;/p&gt;
+&lt;p&gt;不是所有数据都可以排序或比较。例如，&lt;code&gt;[None, &amp;#39;hello&amp;#39;, 10]&lt;/code&gt; 就不可排序，因为整数不能与字符串对比，而 None 不能与其他类型对比。&lt;/p&gt;</summary>
     
     
     
