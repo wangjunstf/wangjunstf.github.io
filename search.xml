@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>C++ 智能指针需要注意的点</title>
+      <link href="/2021/10/24/c-zhi-neng-zhi-zhen-xu-yao-zhu-yi-de-dian/"/>
+      <url>/2021/10/24/c-zhi-neng-zhi-zhen-xu-yao-zhu-yi-de-dian/</url>
+      
+        <content type="html"><![CDATA[<p>C++11提供了三种智能指针：std::shared_ptr, std::unique_ptr, std::weak_ptr，使用时需添加头<code>&lt;memory&gt;</code>。</p><h2 id="智能指针与普通指针混用"><a href="#智能指针与普通指针混用" class="headerlink" title="智能指针与普通指针混用"></a>智能指针与普通指针混用</h2><span id="more"></span><p>不能将一个原始指针直接赋值给智能指针，<strong>尽量避免智能指针与普通指针混用</strong>。</p><p>错误示例：</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> *p = &amp;num;</span><br><span class="line">std::shared_ptr&lt;<span class="keyword">int</span>&gt; ptr = p; <span class="comment">// Error 当 ptr 引用计数变为 0 时，p 将变成空悬指针</span></span><br></pre></td></tr></table></figure><p>正确示例：尽量不要将 普通指针和智能指针<code>混用</code></p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">std::shared_ptr&lt;<span class="keyword">int</span>&gt; ptr = std::make_shared&lt;<span class="keyword">int</span>&gt;(<span class="number">123</span>);  </span><br><span class="line"><span class="function">std::shared_ptr&lt;<span class="keyword">int</span>&gt; <span class="title">ptr</span><span class="params">(<span class="keyword">new</span> <span class="keyword">int</span>(<span class="number">123</span>))</span></span>; </span><br></pre></td></tr></table></figure><p>std::make_shared 返回shared_ptr 智能指针，减少了一次内存分配操作，性能更好<br>std::make_shared 性能测试 <a href="http://tech-foo.blogspot.com/2012/04/experimenting-with-c-stdmakeshared.html">http://tech-foo.blogspot.com/2012/04/experimenting-with-c-stdmakeshared.html</a></p><h2 id="循环引用"><a href="#循环引用" class="headerlink" title="循环引用"></a>循环引用</h2><p>循环引用将无法正常释放资源，应尽量避免。</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;memory&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Node</span>&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    std::shared_ptr&lt;Node&gt; next;</span><br><span class="line">    <span class="built_in">Node</span>()</span><br><span class="line">    &#123;</span><br><span class="line">        std::cout&lt;&lt;<span class="string">&quot;Node construct&quot;</span>&lt;&lt;std::endl;</span><br><span class="line">    &#125;</span><br><span class="line">    ~<span class="built_in">Node</span>()&#123;</span><br><span class="line">        std::cout &lt;&lt; <span class="string">&quot;Node destroy&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    std::shared_ptr&lt;Node&gt; A = std::make_shared&lt;Node&gt;();  <span class="comment">// A 的引用计数为 1</span></span><br><span class="line">    std::shared_ptr&lt;Node&gt; B = std::make_shared&lt;Node&gt;();  <span class="comment">// B 的引用计数为 1</span></span><br><span class="line"></span><br><span class="line">    A-&gt;next = B;   <span class="comment">// B 的引用计数为 2</span></span><br><span class="line">    B-&gt;next = A;   <span class="comment">// A 的引用计数为 2</span></span><br><span class="line">    <span class="comment">// 离开作用域后，A 的引用计数减 1，B 的引用计数减 1。都不为 0，A 和 B 都没有自动释放</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>运行结果</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Node construct</span><br><span class="line">Node construct</span><br></pre></td></tr></table></figure><h2 id="weak-ptr-不可直接使用对象"><a href="#weak-ptr-不可直接使用对象" class="headerlink" title="weak_ptr 不可直接使用对象"></a>weak_ptr 不可直接使用对象</h2><p>要使用 weak_ptr 指向的对象，需要将 weak_ptr 提升为 shared_ptr</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;memory&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Node</span>&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    std::shared_ptr&lt;Node&gt; next;</span><br><span class="line">    <span class="built_in">Node</span>()</span><br><span class="line">    &#123;</span><br><span class="line">        std::cout&lt;&lt;<span class="string">&quot;Node construct&quot;</span>&lt;&lt;std::endl;</span><br><span class="line">    &#125;</span><br><span class="line">    ~<span class="built_in">Node</span>()&#123;</span><br><span class="line">        std::cout &lt;&lt; <span class="string">&quot;Node destroy&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    std::shared_ptr&lt;Node&gt; A = std::make_shared&lt;Node&gt;();  <span class="comment">// A 的引用计数为 1</span></span><br><span class="line">    std::weak_ptr&lt;Node&gt; wptr = A;        <span class="comment">// 定义 weak_ptr 不影响 A 的引用计数</span></span><br><span class="line">    </span><br><span class="line">    std::shared_ptr&lt;Node&gt; ptr= wptr.<span class="built_in">lock</span>();   <span class="comment">// 将 wptr 提升为 shared_ptr,A 的引用计数为 2</span></span><br><span class="line">    std::cout&lt;&lt;ptr.<span class="built_in">use_count</span>()&lt;&lt;std::endl;    <span class="comment">// 输出 2</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> CPP </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> CPP </tag>
+            
+            <tag> 指针指针 </tag>
+            
+            <tag> weak_ptr </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>拓扑排序</title>
       <link href="/2021/10/23/tuo-bu-pai-xu/"/>
       <url>/2021/10/23/tuo-bu-pai-xu/</url>
@@ -454,9 +483,9 @@
       
         <tags>
             
-            <tag> 算法 </tag>
-            
             <tag> 前缀和 </tag>
+            
+            <tag> 算法 </tag>
             
             <tag> 最长连续子数组 </tag>
             

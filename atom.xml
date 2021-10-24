@@ -6,7 +6,7 @@
   <link href="https://wangjunstf.github.io/atom.xml" rel="self"/>
   
   <link href="https://wangjunstf.github.io/"/>
-  <updated>2021-10-23T06:55:27.451Z</updated>
+  <updated>2021-10-24T03:12:57.489Z</updated>
   <id>https://wangjunstf.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>C++ 智能指针需要注意的点</title>
+    <link href="https://wangjunstf.github.io/2021/10/24/c-zhi-neng-zhi-zhen-xu-yao-zhu-yi-de-dian/"/>
+    <id>https://wangjunstf.github.io/2021/10/24/c-zhi-neng-zhi-zhen-xu-yao-zhu-yi-de-dian/</id>
+    <published>2021-10-24T03:10:21.000Z</published>
+    <updated>2021-10-24T03:12:57.489Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;C++11提供了三种智能指针：std::shared_ptr, std::unique_ptr, std::weak_ptr，使用时需添加头&lt;code&gt;&amp;lt;memory&amp;gt;&lt;/code&gt;。&lt;/p&gt;
+&lt;h2 id=&quot;智能指针与普通指针混用&quot;&gt;&lt;a href=&quot;#智能指针与普通指针混用&quot; class=&quot;headerlink&quot; title=&quot;智能指针与普通指针混用&quot;&gt;&lt;/a&gt;智能指针与普通指针混用&lt;/h2&gt;</summary>
+    
+    
+    
+    <category term="CPP" scheme="https://wangjunstf.github.io/categories/CPP/"/>
+    
+    
+    <category term="CPP" scheme="https://wangjunstf.github.io/tags/CPP/"/>
+    
+    <category term="指针指针" scheme="https://wangjunstf.github.io/tags/%E6%8C%87%E9%92%88%E6%8C%87%E9%92%88/"/>
+    
+    <category term="weak_ptr" scheme="https://wangjunstf.github.io/tags/weak-ptr/"/>
+    
+  </entry>
   
   <entry>
     <title>拓扑排序</title>
@@ -414,9 +438,9 @@
     <category term="算法" scheme="https://wangjunstf.github.io/categories/%E7%AE%97%E6%B3%95/"/>
     
     
-    <category term="算法" scheme="https://wangjunstf.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
     <category term="前缀和" scheme="https://wangjunstf.github.io/tags/%E5%89%8D%E7%BC%80%E5%92%8C/"/>
+    
+    <category term="算法" scheme="https://wangjunstf.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
     <category term="最长连续子数组" scheme="https://wangjunstf.github.io/tags/%E6%9C%80%E9%95%BF%E8%BF%9E%E7%BB%AD%E5%AD%90%E6%95%B0%E7%BB%84/"/>
     
@@ -475,30 +499,6 @@
     <category term="归并排序" scheme="https://wangjunstf.github.io/tags/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/"/>
     
     <category term="排序算法" scheme="https://wangjunstf.github.io/tags/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux 权限管理</title>
-    <link href="https://wangjunstf.github.io/2021/09/10/linux-quan-xian-guan-li/"/>
-    <id>https://wangjunstf.github.io/2021/09/10/linux-quan-xian-guan-li/</id>
-    <published>2021-09-10T09:01:36.000Z</published>
-    <updated>2021-09-12T17:04:45.708Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;Linux系统中用户和权限&quot;&gt;&lt;a href=&quot;#Linux系统中用户和权限&quot; class=&quot;headerlink&quot; title=&quot;Linux系统中用户和权限&quot;&gt;&lt;/a&gt;Linux系统中用户和权限&lt;/h2&gt;&lt;p&gt;三种不同类型的用户：文件拥护者（user），同组用户（group），可以访问系统的其他用户（others）。&lt;br&gt;三种访问文件或目录的方式：可读文件（r），可写文件（w），可执行文件（x）。&lt;/p&gt;
-&lt;p&gt;在shell环境中执行ls -la 输出当前目录的详细信息&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Linux" scheme="https://wangjunstf.github.io/categories/Linux/"/>
-    
-    
-    <category term="Linux" scheme="https://wangjunstf.github.io/tags/Linux/"/>
-    
-    <category term="权限管理" scheme="https://wangjunstf.github.io/tags/%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/"/>
-    
-    <category term="chmod" scheme="https://wangjunstf.github.io/tags/chmod/"/>
     
   </entry>
   
