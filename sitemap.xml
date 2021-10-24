@@ -424,6 +424,27 @@
   </url>
   
   <url>
+    <loc>https://wangjunstf.github.io/tags/CPP/</loc>
+    <lastmod>2021-10-24</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://wangjunstf.github.io/tags/%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98/</loc>
+    <lastmod>2021-10-24</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://wangjunstf.github.io/tags/%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88/</loc>
+    <lastmod>2021-10-24</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://wangjunstf.github.io/tags/STL/</loc>
     <lastmod>2021-10-24</lastmod>
     <changefreq>daily</changefreq>
@@ -452,48 +473,6 @@
   </url>
   
   <url>
-    <loc>https://wangjunstf.github.io/tags/CPP/</loc>
-    <lastmod>2021-10-24</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://wangjunstf.github.io/tags/%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98/</loc>
-    <lastmod>2021-10-24</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://wangjunstf.github.io/tags/%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88/</loc>
-    <lastmod>2021-10-24</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://wangjunstf.github.io/tags/c/</loc>
-    <lastmod>2021-10-24</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://wangjunstf.github.io/tags/%E7%BA%A2%E9%BB%91%E6%A0%91/</loc>
-    <lastmod>2021-10-24</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://wangjunstf.github.io/tags/%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91/</loc>
-    <lastmod>2021-10-24</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://wangjunstf.github.io/tags/%E6%8C%87%E9%92%88%E6%8C%87%E9%92%88/</loc>
     <lastmod>2021-10-24</lastmod>
     <changefreq>daily</changefreq>
@@ -516,6 +495,27 @@
   
   <url>
     <loc>https://wangjunstf.github.io/tags/%E8%AF%AD%E6%B3%95/</loc>
+    <lastmod>2021-10-24</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://wangjunstf.github.io/tags/c/</loc>
+    <lastmod>2021-10-24</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://wangjunstf.github.io/tags/%E7%BA%A2%E9%BB%91%E6%A0%91/</loc>
+    <lastmod>2021-10-24</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://wangjunstf.github.io/tags/%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91/</loc>
     <lastmod>2021-10-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -606,6 +606,20 @@
   </url>
   
   <url>
+    <loc>https://wangjunstf.github.io/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/</loc>
+    <lastmod>2021-10-24</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://wangjunstf.github.io/tags/LR%E5%88%86%E6%9E%90/</loc>
+    <lastmod>2021-10-24</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://wangjunstf.github.io/tags/Linux/</loc>
     <lastmod>2021-10-24</lastmod>
     <changefreq>daily</changefreq>
@@ -634,14 +648,14 @@
   </url>
   
   <url>
-    <loc>https://wangjunstf.github.io/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/</loc>
+    <loc>https://wangjunstf.github.io/tags/%E5%B9%B6%E5%8F%91/</loc>
     <lastmod>2021-10-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://wangjunstf.github.io/tags/LR%E5%88%86%E6%9E%90/</loc>
+    <loc>https://wangjunstf.github.io/tags/%E8%BF%9B%E7%A8%8B/</loc>
     <lastmod>2021-10-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -663,20 +677,6 @@
   
   <url>
     <loc>https://wangjunstf.github.io/tags/%E6%96%87%E4%BB%B6%E7%BB%93%E6%9D%9F%E7%AC%A6/</loc>
-    <lastmod>2021-10-24</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://wangjunstf.github.io/tags/%E5%B9%B6%E5%8F%91/</loc>
-    <lastmod>2021-10-24</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://wangjunstf.github.io/tags/%E8%BF%9B%E7%A8%8B/</loc>
     <lastmod>2021-10-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -732,6 +732,20 @@
   </url>
   
   <url>
+    <loc>https://wangjunstf.github.io/tags/Python/</loc>
+    <lastmod>2021-10-24</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://wangjunstf.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</loc>
+    <lastmod>2021-10-24</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://wangjunstf.github.io/tags/%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86/</loc>
     <lastmod>2021-10-24</lastmod>
     <changefreq>daily</changefreq>
@@ -747,20 +761,6 @@
   
   <url>
     <loc>https://wangjunstf.github.io/tags/%E9%80%92%E5%BD%92/</loc>
-    <lastmod>2021-10-24</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://wangjunstf.github.io/tags/Python/</loc>
-    <lastmod>2021-10-24</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://wangjunstf.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</loc>
     <lastmod>2021-10-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1105,14 +1105,14 @@
   </url>
   
   <url>
-    <loc>https://wangjunstf.github.io/categories/cpp/</loc>
+    <loc>https://wangjunstf.github.io/categories/CPP/</loc>
     <lastmod>2021-10-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://wangjunstf.github.io/categories/CPP/</loc>
+    <loc>https://wangjunstf.github.io/categories/cpp/</loc>
     <lastmod>2021-10-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
