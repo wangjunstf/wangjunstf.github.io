@@ -6,7 +6,7 @@
   <link href="https://wangjunstf.github.io/atom.xml" rel="self"/>
   
   <link href="https://wangjunstf.github.io/"/>
-  <updated>2021-10-24T09:59:58.845Z</updated>
+  <updated>2021-11-03T00:35:56.833Z</updated>
   <id>https://wangjunstf.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>深入理解计算机系统——虚拟内存笔记</title>
+    <link href="https://wangjunstf.github.io/2021/11/03/shen-ru-li-jie-ji-suan-ji-xi-tong-xu-ni-nei-cun-bi-ji/"/>
+    <id>https://wangjunstf.github.io/2021/11/03/shen-ru-li-jie-ji-suan-ji-xi-tong-xu-ni-nei-cun-bi-ji/</id>
+    <published>2021-11-03T00:33:59.000Z</published>
+    <updated>2021-11-03T00:35:56.833Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;9-1-物理地址和虚拟地址&quot;&gt;&lt;a href=&quot;#9-1-物理地址和虚拟地址&quot; class=&quot;headerlink&quot; title=&quot;9.1 物理地址和虚拟地址&quot;&gt;&lt;/a&gt;9.1 物理地址和虚拟地址&lt;/h2&gt;&lt;p&gt;计算机系统的主存是由 M</summary>
+        
+      
+    
+    
+    
+    <category term="操作系统" scheme="https://wangjunstf.github.io/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
+    
+    
+    <category term="虚拟内存" scheme="https://wangjunstf.github.io/tags/%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98/"/>
+    
+    <category term="TLB" scheme="https://wangjunstf.github.io/tags/TLB/"/>
+    
+    <category term="缓存" scheme="https://wangjunstf.github.io/tags/%E7%BC%93%E5%AD%98/"/>
+    
+  </entry>
   
   <entry>
     <title>快速排序的变种——快速选择算法</title>
@@ -465,35 +494,6 @@
     <category term="前缀和" scheme="https://wangjunstf.github.io/tags/%E5%89%8D%E7%BC%80%E5%92%8C/"/>
     
     <category term="最长连续子数组" scheme="https://wangjunstf.github.io/tags/%E6%9C%80%E9%95%BF%E8%BF%9E%E7%BB%AD%E5%AD%90%E6%95%B0%E7%BB%84/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux 并发与进程管理</title>
-    <link href="https://wangjunstf.github.io/2021/09/11/linux-bing-fa-yu-jin-cheng-guan-li/"/>
-    <id>https://wangjunstf.github.io/2021/09/11/linux-bing-fa-yu-jin-cheng-guan-li/</id>
-    <published>2021-09-11T08:04:20.000Z</published>
-    <updated>2021-09-12T17:04:53.409Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;进程和程序的区别&quot;&gt;&lt;a href=&quot;#进程和程序的区别&quot; class=&quot;headerlink&quot; title=&quot;进程和程序的区别&quot;&gt;&lt;/a&gt;进程和程序的区别&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;程序&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;程序本质上是一系列二进制信息，这些信息描述了如何在运行时创建一个进程：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;二进制格式标识:每个程序文件都包含用于描述可执行文件格式的元信息。内核利用此信息来解释 文件中的其他信息。&lt;/li&gt;
-&lt;li&gt;机器语言指令。&lt;/li&gt;
-&lt;li&gt;程序入口地址:标识程序开始执行时的起始指令位置。&lt;/li&gt;
-&lt;li&gt;数据:程序文件包含的变量初始值和程序使用的字面量值(比如字符串)。</summary>
-    
-    
-    
-    <category term="Linux" scheme="https://wangjunstf.github.io/categories/Linux/"/>
-    
-    
-    <category term="Linux" scheme="https://wangjunstf.github.io/tags/Linux/"/>
-    
-    <category term="并发" scheme="https://wangjunstf.github.io/tags/%E5%B9%B6%E5%8F%91/"/>
-    
-    <category term="进程" scheme="https://wangjunstf.github.io/tags/%E8%BF%9B%E7%A8%8B/"/>
     
   </entry>
   
