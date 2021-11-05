@@ -27,19 +27,19 @@
 <meta property="og:site_name" content="编程之禅">
 <meta property="og:description" content="调度指标周转时间 T周转时间&#x3D;T完成时间-T到达时间 如果所有任务在同一时间到达，那么 T完成时间 &#x3D; 0，T周转时间 &#x3D; T完成时间 先进先出(FIFO)(1) 假设有 3 个工作 A，B和C在大致在同一时间到达，A 比 B 早一点，B 比 C 早一点，假设每个工作的运行 10s，计算周转时间？">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://qqimage.wangjunblogs.com/uPic/%E6%88%AA%E5%B1%8F2021-07-15%20%E4%B8%8A%E5%8D%8810.51.35.png">
-<meta property="og:image" content="http://qqimage.wangjunblogs.com/uPic/%E6%88%AA%E5%B1%8F2021-07-15%20%E4%B8%8A%E5%8D%8811.27.10.png">
-<meta property="og:image" content="http://qqimage.wangjunblogs.com/uPic/%E6%88%AA%E5%B1%8F2021-07-15%20%E4%B8%8A%E5%8D%8811.28.19.png">
-<meta property="og:image" content="http://qqimage.wangjunblogs.com/uPic/%E6%88%AA%E5%B1%8F2021-07-15%20%E4%B8%8B%E5%8D%885.08.17.png">
-<meta property="og:image" content="http://qqimage.wangjunblogs.com/uPic/%E6%88%AA%E5%B1%8F2021-07-15%20%E4%B8%8B%E5%8D%885.42.28.png">
+<meta property="og:image" content="https://wangjun-1257394474.cos.ap-beijing.myqcloud.com/uPic/%E6%88%AA%E5%B1%8F2021-07-15%20%E4%B8%8A%E5%8D%8810.51.35.png">
+<meta property="og:image" content="https://wangjun-1257394474.cos.ap-beijing.myqcloud.com/uPic/%E6%88%AA%E5%B1%8F2021-07-15%20%E4%B8%8A%E5%8D%8811.27.10.png">
+<meta property="og:image" content="https://wangjun-1257394474.cos.ap-beijing.myqcloud.com/uPic/%E6%88%AA%E5%B1%8F2021-07-15%20%E4%B8%8A%E5%8D%8811.28.19.png">
+<meta property="og:image" content="https://wangjun-1257394474.cos.ap-beijing.myqcloud.com/uPic/%E6%88%AA%E5%B1%8F2021-07-15%20%E4%B8%8B%E5%8D%885.08.17.png">
+<meta property="og:image" content="https://wangjun-1257394474.cos.ap-beijing.myqcloud.com/uPic/%E6%88%AA%E5%B1%8F2021-07-15%20%E4%B8%8B%E5%8D%885.42.28.png">
 <meta property="article:published_time" content="2021-07-15T15:07:33.000Z">
-<meta property="article:modified_time" content="2021-09-12T07:55:57.229Z">
+<meta property="article:modified_time" content="2021-11-05T14:34:59.449Z">
 <meta property="article:author" content="编程之禅">
 <meta property="article:tag" content="进程调度">
 <meta property="article:tag" content="最短任务优先">
 <meta property="article:tag" content="时间片轮转">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://qqimage.wangjunblogs.com/uPic/%E6%88%AA%E5%B1%8F2021-07-15%20%E4%B8%8A%E5%8D%8810.51.35.png">
+<meta name="twitter:image" content="https://wangjun-1257394474.cos.ap-beijing.myqcloud.com/uPic/%E6%88%AA%E5%B1%8F2021-07-15%20%E4%B8%8A%E5%8D%8810.51.35.png">
 
 <link rel="canonical" href="https://wangjunstf.github.io/2021/07/15/jin-cheng-diao-du/">
 
@@ -275,7 +275,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-09-12 15:55:57" itemprop="dateModified" datetime="2021-09-12T15:55:57+08:00">2021-09-12</time>
+                <time title="修改时间：2021-11-05 22:34:59" itemprop="dateModified" datetime="2021-11-05T22:34:59+08:00">2021-11-05</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -327,7 +327,7 @@
 <p>(10+20+30)/3=20</p>
 <p>(2) 同(1)，不过这次 A 运行 100s，B和C运行10秒，计算周转时间？</p>
 <p>(100+110+120)/3=110</p>
-<p><img src="http://qqimage.wangjunblogs.com/uPic/%E6%88%AA%E5%B1%8F2021-07-15%20%E4%B8%8A%E5%8D%8810.51.35.png" alt="截屏2021-07-15 上午10.51.35"></p>
+<p><img src="https://wangjun-1257394474.cos.ap-beijing.myqcloud.com/uPic/%E6%88%AA%E5%B1%8F2021-07-15%20%E4%B8%8A%E5%8D%8810.51.35.png" alt="截屏2021-07-15 上午10.51.35"></p>
 <p>在 (2) 中，周转时间显著增长，这种问题称为护航效应(convoy effect)，一些耗时较少的潜在资源消费者被排在耗时较长的重量级资源消费者之后。</p>
 <h2 id="最短任务优先-SJF"><a href="#最短任务优先-SJF" class="headerlink" title="最短任务优先(SJF)"></a>最短任务优先(SJF)</h2><p>先运行最短的任务，然后是次短的任务。</p>
 <p>(1) 假设有 3 个工作 A，B和C在大致在同一时间到达，A 比 B 早一点，B 比 C 早一点，假设每个工作的运行 10s，计算周转时间？</p>
@@ -335,11 +335,11 @@
 <p>(2) 还是(1)中例子，不过此时A先到达，B和C在 t=10 到达。</p>
 <p>(100+(110-10)+(120-10))/3= 103.33</p>
 <p>这里还是会遭遇护航问题。</p>
-<p><img src="http://qqimage.wangjunblogs.com/uPic/%E6%88%AA%E5%B1%8F2021-07-15%20%E4%B8%8A%E5%8D%8811.27.10.png" alt="截屏2021-07-15 上午11.27.10"></p>
+<p><img src="https://wangjun-1257394474.cos.ap-beijing.myqcloud.com/uPic/%E6%88%AA%E5%B1%8F2021-07-15%20%E4%B8%8A%E5%8D%8811.27.10.png" alt="截屏2021-07-15 上午11.27.10"></p>
 <h2 id="最短完成时间优先-STCF"><a href="#最短完成时间优先-STCF" class="headerlink" title="最短完成时间优先(STCF)"></a>最短完成时间优先(STCF)</h2><p>将 SJF 添加抢占特性，成为最短完成时间优先(Shortest Time-to-Completion First, STCF)或抢占式最短作业优先(Preemptive Shortest Job First, PSJF)。这种调度程序称为抢占式调度程序。</p>
 <p>3.1 假设有 3 个工作 A，B和C在大致在同一时间到达，A先到达，B和C在 t=10 到达，计算周转时间？</p>
 <p>((20-10)+(30-10)+120)/3=50s，可见平均周转时间大大提高了。</p>
-<img src="http://qqimage.wangjunblogs.com/uPic/%E6%88%AA%E5%B1%8F2021-07-15%20%E4%B8%8A%E5%8D%8811.28.19.png" alt="截屏2021-07-15 上午11.28.19" style="zoom:67%;" />
+<img src="https://wangjun-1257394474.cos.ap-beijing.myqcloud.com/uPic/%E6%88%AA%E5%B1%8F2021-07-15%20%E4%B8%8A%E5%8D%8811.28.19.png" alt="截屏2021-07-15 上午11.28.19" style="zoom:67%;" />
 
 
 
@@ -350,7 +350,7 @@
 <p>STCF 和相关方法在响应时间上并不是很好，例如，如果 3 个工作同时到达，第 3 个工做必须等待前两个工作全部运行后才能运行。</p>
 <h2 id="轮转"><a href="#轮转" class="headerlink" title="轮转"></a>轮转</h2><p>通常称为轮转(Round-Robin，RR)调度。其基本思想是：RR 在一个时间片(time slice)内运行一个工作，然后切换到运行队列的下一个任务，而不是运行一个任务直到结束。它反复执行，直到所有任务完成。RR 有时被称为时间片(time-slicing)。时间片长度必须是时钟中断周期的倍数。如果时钟中断是每 10ms 中断一次，则时间片可以是 10ms，20ms或者 10ms。</p>
 <p>例如：现有 3 个任务 A，B和C在系统中同时到达，并且它们都希望运行 5s。SJF 调度程序必须完成当前任务才可以运行下一个任务。1s 时间片的 RR 可以快速地循环工作。</p>
-<p><img src="http://qqimage.wangjunblogs.com/uPic/%E6%88%AA%E5%B1%8F2021-07-15%20%E4%B8%8B%E5%8D%885.08.17.png" alt="截屏2021-07-15 下午5.08.17"></p>
+<p><img src="https://wangjun-1257394474.cos.ap-beijing.myqcloud.com/uPic/%E6%88%AA%E5%B1%8F2021-07-15%20%E4%B8%8B%E5%8D%885.08.17.png" alt="截屏2021-07-15 下午5.08.17"></p>
 <p>RR 的平均响应时间：(0+1+2)/3=1 </p>
 <p>SJF 的平均响应时间：(0+5+10)/3=5</p>
 <p>时间片越短，RR 在响应时间上表现越好，然后短也会造成上下文切换的成本过大。</p>
@@ -361,7 +361,7 @@
 <p>如果考虑周转时间，那么 RR 会是糟糕的策略。</p>
 <h2 id="结合-I-O"><a href="#结合-I-O" class="headerlink" title="结合 I/O"></a>结合 I/O</h2><p>假设两项工作 A 和 B，每项工作都需要 50 ms的 CPU 时间，A 运行 10 ms，然后发出 I/O 请求，假设每个 I/O 请求都需要 10 ms，而 B 只使用 CPU 50 ms，不执行 I/O。调度程序先运行 A，然后运行B。</p>
 <p>一种常见的方法是将 A 的每个 10ms 的子工作视为一项独立工作。因此，当系统启动时，它的选择是调度 10ms 的A，还是 50ms 的B。使用STCF，选择是明确的。</p>
-<p><img src="http://qqimage.wangjunblogs.com/uPic/%E6%88%AA%E5%B1%8F2021-07-15%20%E4%B8%8B%E5%8D%885.42.28.png" alt="截屏2021-07-15 下午5.42.28"></p>
+<p><img src="https://wangjun-1257394474.cos.ap-beijing.myqcloud.com/uPic/%E6%88%AA%E5%B1%8F2021-07-15%20%E4%B8%8B%E5%8D%885.42.28.png" alt="截屏2021-07-15 下午5.42.28"></p>
 <h2 id="无法预知"><a href="#无法预知" class="headerlink" title="无法预知"></a>无法预知</h2><p>前面的讨论都基于这样一个假设，就是作业的运行时间已知。但实际情况是操作系统对每个作业的运行时间知之甚少。因此，我们如何建立一个没有这种先验知识的 SJF/STCF？更进一步，我们如何将已经看到的一些想法与 RR 调度程序结合起来，以便响应时间也变得相当不错。</p>
 <h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>我们介绍了调度的基本思想，并开发了两类方法。第一类是运行最短的工作，从而优化周转时间。第二类是交替运行所有工作，从而优化响应时间。很难做到“鱼和熊掌兼得”，这是系统中常见的，固有的折中。我们也看到了如何将 I/O 结合到场景中，但仍未解决操作系统根本无法看到未来的问题。稍后，我们将看到如何通过构建一个调度程序，利用最近的历史预测未来，从而解决这个问题。这个调度程序称为多级反馈队列。</p>
 

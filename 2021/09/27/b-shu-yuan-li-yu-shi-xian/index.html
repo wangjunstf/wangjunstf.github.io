@@ -27,17 +27,17 @@
 <meta property="og:site_name" content="编程之禅">
 <meta property="og:description" content="前言B树是为磁盘等慢速IO设备设计的一种平衡搜索树，B树类似于红黑树，但它在降低I&#x2F;O操作数方面要更好一些，许多数据库使用 B树或B树的变种来存储信息。 B 树与红黑树的不同之处在于 B树的节点可以有很多孩子，从数个到数千个。含有 n 个节点的B树的高度为 O(ln n)，一棵B树的严格高度可能比一棵红黑树的高度要小许多，因为它的分支因子，即表示高度的对数的底数可以非常大。因此我们可以使用 B树在">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://qqimage.wangjunblogs.com/uPic/IMG_114F612089BE-1.jpeg">
-<meta property="og:image" content="http://qqimage.wangjunblogs.com/uPic/IMG_75D52E22A84C-1.jpeg">
-<meta property="og:image" content="http://qqimage.wangjunblogs.com/uPic/IMG_C23F70EEC19E-1.jpeg">
-<meta property="og:image" content="http://qqimage.wangjunblogs.com/uPic/IMG_B592E67F349A-1.jpeg">
+<meta property="og:image" content="https://wangjun-1257394474.cos.ap-beijing.myqcloud.com/uPic/IMG_114F612089BE-1.jpeg">
+<meta property="og:image" content="https://wangjun-1257394474.cos.ap-beijing.myqcloud.com/uPic/IMG_75D52E22A84C-1.jpeg">
+<meta property="og:image" content="https://wangjun-1257394474.cos.ap-beijing.myqcloud.com/uPic/IMG_C23F70EEC19E-1.jpeg">
+<meta property="og:image" content="https://wangjun-1257394474.cos.ap-beijing.myqcloud.com/uPic/IMG_B592E67F349A-1.jpeg">
 <meta property="article:published_time" content="2021-09-27T10:00:36.000Z">
-<meta property="article:modified_time" content="2021-09-28T03:35:06.803Z">
+<meta property="article:modified_time" content="2021-11-05T14:34:59.437Z">
 <meta property="article:author" content="编程之禅">
 <meta property="article:tag" content="B树">
 <meta property="article:tag" content="磁盘结构">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://qqimage.wangjunblogs.com/uPic/IMG_114F612089BE-1.jpeg">
+<meta name="twitter:image" content="https://wangjun-1257394474.cos.ap-beijing.myqcloud.com/uPic/IMG_114F612089BE-1.jpeg">
 
 <link rel="canonical" href="https://wangjunstf.github.io/2021/09/27/b-shu-yuan-li-yu-shi-xian/">
 
@@ -273,7 +273,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-09-28 11:35:06" itemprop="dateModified" datetime="2021-09-28T11:35:06+08:00">2021-09-28</time>
+                <time title="修改时间：2021-11-05 22:34:59" itemprop="dateModified" datetime="2021-11-05T22:34:59+08:00">2021-11-05</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -323,14 +323,14 @@
 
 
 <h2 id="磁盘结构"><a href="#磁盘结构" class="headerlink" title="磁盘结构"></a>磁盘结构</h2><p>一个磁盘的典型结构如下：</p>
-<img src="http://qqimage.wangjunblogs.com/uPic/IMG_114F612089BE-1.jpeg" alt="IMG_114F612089BE-1" style="zoom:50%;" />
+<img src="https://wangjun-1257394474.cos.ap-beijing.myqcloud.com/uPic/IMG_114F612089BE-1.jpeg" alt="IMG_114F612089BE-1" style="zoom:50%;" />
 
 <p>磁盘是一种辅存，一个计算机系统的主存使用硅存储芯片组成，这种存储技术每位的存储代价一般比磁存储技术高不只一个数量级。虽然固态硬盘正在越来越普及，但是磁盘具有的容量大，价格实惠等特点，还依然被广泛使用。一个典型的磁盘由以下部分组成，盘片，磁道，读/写头，主轴和磁臂组成。一个盘片由多个磁道组成，形状上看类似于同心圆。一个磁道由多个扇区组成，扇区是磁盘的最小读写单位，即每次可以读写一个或多个扇区。大多数磁盘的扇区大小为 512字节，即每次读取或写入 512字节。</p>
 <p>那么磁盘如何读取数据？主轴带动盘片旋转，这样 读/写磁头 就能按位读/写扇区的数据。旋转磁臂就可以切换到不同的磁道，这个过程叫做寻道。磁盘之所以慢就是因为它在读/写数据的时候涉及到机械运动，分别是盘片旋转和磁臂移动。一个盘片旋转一周的时间要比硅存储的常见存取时间高出 5 个数量级。为了摊还机械运动所花费的等待时间，磁盘会一次存取多个数据线而不是一个。信息被分为一系列相等大小的在柱面内连续出现的页面(page)，一页的长度可能为 2<sup>11</sup>到2<sup>14</sup>。</p>
 <h2 id="B树介绍"><a href="#B树介绍" class="headerlink" title="B树介绍"></a>B树介绍</h2><p>一个典型的 B树应用所要处理的数据量非常大，以至于所有数据无法一次性装入主存。B树算法所需读或写的页数无法一次装入内存，B树算法将所需的页面从磁盘复制到主存，然后将修改过的页面写会磁盘。主存的大小并不限制被处理的 B树的大小。</p>
 <p>大多数系统中，一个B树算法的运行时间主要由它所执行的 disk-read() 和 dis-write() 操作的次数决定，我们希望这些操作能读或写尽可能多的信息，一个B树节点通常和一个完整磁盘页一样大，并且比盘页的大小限制了一个 B树节点可以含有的孩子的个数。</p>
 <p>对存储在磁盘的一棵大的B树，通常看到分支因子在 50到 2000之间，具体取决于一个关键字相对于一页的大小。一个大的分支因子可以大大地降低树的高度以及查找任何一个关键字所需的存取次数。下图所示一棵分支因子为 1001，高度为 2 的B树，它可以存储超过 10 亿个<code>(1001*1001-1)*1000</code>关键字。由于根节点可以持久地保存在主存中，这棵树中查找某个关键字至多只需两次磁盘存取。</p>
-<img src="http://qqimage.wangjunblogs.com/uPic/IMG_75D52E22A84C-1.jpeg" alt="IMG_75D52E22A84C-1" style="zoom:50%;" />
+<img src="https://wangjun-1257394474.cos.ap-beijing.myqcloud.com/uPic/IMG_75D52E22A84C-1.jpeg" alt="IMG_75D52E22A84C-1" style="zoom:50%;" />
 
 <p>B树的每个节点一般在磁盘中分配空间，以下为了简化分析，在内存中分配节点，这样就可以省略在磁盘中分配节点的过程，以及必要的读写磁盘操作：disk-read() 和 dis-write() 过程。</p>
 <h2 id="B树的定义"><a href="#B树的定义" class="headerlink" title="B树的定义"></a>B树的定义</h2><p>一棵B树具有以下性质：</p>
@@ -349,7 +349,7 @@
 <li>包含 x.n+1 个指向其孩子的指针 x.c<sub>0</sub>，x.c<sub>1</sub>，…，x.c<sub>n</sub>，叶节点没有孩子节点，它们的 c<sub>i</sub> 属性值未定义。</li>
 </ul>
 <p>（3）关键字 x.key<sub>i</sub>对子树节点中的关键字进行分割，如果 k<sub>i</sub>为任意一个存储在以 x.c<sub>i</sub>为根的子树中的关键字，那么：k<sub>1</sub>&lt;=x.key<sub>1</sub>&lt;=k<sub>2</sub>&lt;=……&lt;=x.key<sub>n</sub>&lt;=k<sub>x.n+1</sub>，如下图所示：</p>
-<img src="http://qqimage.wangjunblogs.com/uPic/IMG_C23F70EEC19E-1.jpeg" alt="IMG_C23F70EEC19E-1" style="zoom:50%;" />
+<img src="https://wangjun-1257394474.cos.ap-beijing.myqcloud.com/uPic/IMG_C23F70EEC19E-1.jpeg" alt="IMG_C23F70EEC19E-1" style="zoom:50%;" />
 
 <p>（4）每个叶节点具有相同的深度，即树的高度 h</p>
 <p>（5）每个节点所包含的关键字个数有上界和下界，用一个被称为B树的最小度数的固定整数 t&gt;=2 来表示这些界：</p>
@@ -393,7 +393,7 @@
 
 <h4 id="插入非满节点"><a href="#插入非满节点" class="headerlink" title="插入非满节点"></a>插入非满节点</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> </span></span><br><span class="line"><span class="function"><span class="title">Btree::insertNonfull</span><span class="params">(TreeNode *x, <span class="keyword">int</span> k)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i = x-&gt;n;</span><br><span class="line">    <span class="keyword">if</span>(x-&gt;leaf)&#123;</span><br><span class="line">        <span class="comment">// 如果当前节点为叶子节点，则之间插入</span></span><br><span class="line">        <span class="keyword">while</span>(i&gt;=<span class="number">0</span> &amp;&amp; k&lt;x-&gt;key[i])&#123;</span><br><span class="line">            x-&gt;key[i+<span class="number">1</span>] = x-&gt;key[i];</span><br><span class="line">            --i;</span><br><span class="line">        &#125;</span><br><span class="line">        x-&gt;key[i+<span class="number">1</span>] = k;</span><br><span class="line">        x-&gt;n = x-&gt;n+<span class="number">1</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="comment">// 如果非叶子节点，找到插入位置，如果其子节点为满，则将其分类，然后递归</span></span><br><span class="line">        <span class="keyword">while</span>(i&gt;=<span class="number">0</span> &amp;&amp; k&lt;x-&gt;key[i])&#123;</span><br><span class="line">            --i;</span><br><span class="line">        &#125;</span><br><span class="line">        ++i;</span><br><span class="line">        <span class="keyword">if</span>(x-&gt;child[i]-&gt;n==<span class="number">2</span>*t<span class="number">-1</span>)&#123;</span><br><span class="line">            <span class="built_in">splitChild</span>(x,i);</span><br><span class="line">            <span class="keyword">if</span>(k&gt; x-&gt;key[i])&#123;</span><br><span class="line">                ++i;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">insertNonfull</span>(x-&gt;child[i],k);   </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<img src="http://qqimage.wangjunblogs.com/uPic/IMG_B592E67F349A-1.jpeg" alt="IMG_B592E67F349A-1" style="zoom: 67%;" />
+<img src="https://wangjun-1257394474.cos.ap-beijing.myqcloud.com/uPic/IMG_B592E67F349A-1.jpeg" alt="IMG_B592E67F349A-1" style="zoom: 67%;" />
 
 <p>时间复杂度</p>
 <p>insert 访问O(h) 个节点，h 为 B树的高度，每次调用 insertNonfull，所需时间为 O(1)，insertNonfull为递归，递归深度最多为 O(h)，每次递归对 n 个关键字进行扫描，由于 x.n &lt;= 2t，每个节点所花费的时间为 O(t)。总的 cpu 时间为 O(th) = O(t$\log_t{n}$​)，n 为B树所含关键字的个数。</p>

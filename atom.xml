@@ -6,7 +6,7 @@
   <link href="https://wangjunstf.github.io/atom.xml" rel="self"/>
   
   <link href="https://wangjunstf.github.io/"/>
-  <updated>2021-11-05T12:25:47.185Z</updated>
+  <updated>2021-11-05T14:34:59.433Z</updated>
   <id>https://wangjunstf.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://wangjunstf.github.io/2021/11/05/jie-jue-hexo-bo-ke-zai-chrome-xia-wu-fa-zheng-chang-xian-shi-tu-pian-de-wen-ti/"/>
     <id>https://wangjunstf.github.io/2021/11/05/jie-jue-hexo-bo-ke-zai-chrome-xia-wu-fa-zheng-chang-xian-shi-tu-pian-de-wen-ti/</id>
     <published>2021-11-05T12:09:05.000Z</published>
-    <updated>2021-11-05T12:25:47.185Z</updated>
+    <updated>2021-11-05T14:34:59.433Z</updated>
     
     
     <summary type="html">&lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot;/&gt;
@@ -46,7 +46,7 @@
     <link href="https://wangjunstf.github.io/2021/11/05/parallels-desktop-zui-xiao-an-zhuang-centos-7/"/>
     <id>https://wangjunstf.github.io/2021/11/05/parallels-desktop-zui-xiao-an-zhuang-centos-7/</id>
     <published>2021-11-05T09:36:45.000Z</published>
-    <updated>2021-11-05T12:28:23.670Z</updated>
+    <updated>2021-11-05T12:29:17.629Z</updated>
     
     
     <summary type="html">&lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot;/&gt;
@@ -68,10 +68,16 @@
     <link href="https://wangjunstf.github.io/2021/11/03/shen-ru-li-jie-ji-suan-ji-xi-tong-xu-ni-nei-cun-bi-ji/"/>
     <id>https://wangjunstf.github.io/2021/11/03/shen-ru-li-jie-ji-suan-ji-xi-tong-xu-ni-nei-cun-bi-ji/</id>
     <published>2021-11-03T00:33:59.000Z</published>
-    <updated>2021-11-03T00:36:50.399Z</updated>
+    <updated>2021-11-05T14:31:20.834Z</updated>
     
     
-    <summary type="html">&lt;h2 id=&quot;9-1-物理地址和虚拟地址&quot;&gt;&lt;a href=&quot;#9-1-物理地址和虚拟地址&quot; class=&quot;headerlink&quot; title=&quot;9.1 物理地址和虚拟地址&quot;&gt;&lt;/a&gt;9.1 物理地址和虚拟地址&lt;/h2&gt;&lt;p&gt;计算机系统的主存是由 M 个连续的字节大小的单元组成的数组。每个字节都有一个唯一的物理地址，地址范围从 0 到 M-1。计算机使用内存最自然的方式是使用物理地址，我们将这种方式称为物理寻址。&lt;/p&gt;</summary>
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;9-1-物理地址和虚拟地址&quot;&gt;&lt;a href=&quot;#9-1-物理地址和虚拟地址&quot; class=&quot;headerlink&quot; title=&quot;9.1 物理地址和虚拟地址&quot;&gt;&lt;/a&gt;9.1 物理地址和虚拟地址&lt;/h2&gt;&lt;p&gt;计算机系统的主存是由 M</summary>
+        
+      
     
     
     
@@ -200,7 +206,7 @@
     <link href="https://wangjunstf.github.io/2021/10/03/qian-zhui-he-yu-er-fen-cha-zhao-de-ying-yong/"/>
     <id>https://wangjunstf.github.io/2021/10/03/qian-zhui-he-yu-er-fen-cha-zhao-de-ying-yong/</id>
     <published>2021-10-03T09:35:12.000Z</published>
-    <updated>2021-10-24T10:06:59.870Z</updated>
+    <updated>2021-11-05T14:34:59.433Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;前缀和与二分查找的应用&quot;&gt;&lt;a href=&quot;#前缀和与二分查找的应用&quot; class=&quot;headerlink&quot; title=&quot;前缀和与二分查找的应用&quot;&gt;&lt;/a&gt;前缀和与二分查找的应用&lt;/h1&gt;&lt;p&gt;题目链接：&lt;a href=&quot;https://leetcode-cn.com/problems/maximize-the-confusion-of-an-exam/&quot;&gt;考试的最大困扰度&lt;/a&gt;&lt;/p&gt;
@@ -222,7 +228,7 @@
     <link href="https://wangjunstf.github.io/2021/09/30/jing-tai-ku-he-dong-tai-ku-zhi-zuo/"/>
     <id>https://wangjunstf.github.io/2021/09/30/jing-tai-ku-he-dong-tai-ku-zhi-zuo/</id>
     <published>2021-09-30T07:27:42.000Z</published>
-    <updated>2021-09-30T07:31:02.214Z</updated>
+    <updated>2021-11-05T14:34:59.441Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;什么是库&quot;&gt;&lt;a href=&quot;#什么是库&quot; class=&quot;headerlink&quot; title=&quot;什么是库&quot;&gt;&lt;/a&gt;什么是库&lt;/h2&gt;&lt;p&gt;库文件是计算机上的一类文件，提供给使用者一些开箱即用的变量、函数或类。静态库和动态库，静态库和动态库的区别体现在程序的链接阶段：静态库在程序的链接阶段被复制到了程序中；动态库在链接阶段没有被复制到程序中，而是程序在运行时由系统动态加载到内存中供程序调用。&lt;/p&gt;
@@ -274,7 +280,7 @@
     <link href="https://wangjunstf.github.io/2021/09/28/bing-cha-ji-yuan-li-yu-shi-xian/"/>
     <id>https://wangjunstf.github.io/2021/09/28/bing-cha-ji-yuan-li-yu-shi-xian/</id>
     <published>2021-09-28T08:35:08.000Z</published>
-    <updated>2021-09-28T08:43:44.373Z</updated>
+    <updated>2021-11-05T14:34:59.437Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;并查集原理&quot;&gt;&lt;a href=&quot;#并查集原理&quot; class=&quot;headerlink&quot; title=&quot;并查集原理&quot;&gt;&lt;/a&gt;并查集原理&lt;/h2&gt;&lt;p&gt;（1）并查集用于解决以下问题&lt;/p&gt;
@@ -299,7 +305,7 @@
     <link href="https://wangjunstf.github.io/2021/09/27/b-shu-b-shu-b-shu-qu-bie/"/>
     <id>https://wangjunstf.github.io/2021/09/27/b-shu-b-shu-b-shu-qu-bie/</id>
     <published>2021-09-27T15:42:22.000Z</published>
-    <updated>2021-09-27T15:44:42.084Z</updated>
+    <updated>2021-11-05T14:34:59.433Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;B树的性质&quot;&gt;&lt;a href=&quot;#B树的性质&quot; class=&quot;headerlink&quot; title=&quot;B树的性质&quot;&gt;&lt;/a&gt;B树的性质&lt;/h2&gt;&lt;p&gt;（1）B树的每个节点 x 都具有以下属性：&lt;/p&gt;
@@ -328,7 +334,7 @@
     <link href="https://wangjunstf.github.io/2021/09/27/b-shu-yuan-li-yu-shi-xian/"/>
     <id>https://wangjunstf.github.io/2021/09/27/b-shu-yuan-li-yu-shi-xian/</id>
     <published>2021-09-27T10:00:36.000Z</published>
-    <updated>2021-09-28T03:35:06.803Z</updated>
+    <updated>2021-11-05T14:34:59.437Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;B树是为磁盘等慢速IO设备设计的一种平衡搜索树，B树类似于红黑树，但它在降低I/O操作数方面要更好一些，许多数据库使用 B树或B树的变种来存储信息。&lt;/p&gt;
@@ -350,7 +356,7 @@
     <link href="https://wangjunstf.github.io/2021/09/17/zi-fu-chuan-zhuan-zheng-shu-zi-dong-ji/"/>
     <id>https://wangjunstf.github.io/2021/09/17/zi-fu-chuan-zhuan-zheng-shu-zi-dong-ji/</id>
     <published>2021-09-17T15:51:20.000Z</published>
-    <updated>2021-09-17T16:04:18.443Z</updated>
+    <updated>2021-11-05T14:34:59.437Z</updated>
     
     
     <summary type="html">&lt;p&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/string-to-integer-atoi/&quot;&gt;题目链接&lt;/a&gt;&lt;/p&gt;
@@ -397,7 +403,7 @@
     <link href="https://wangjunstf.github.io/2021/09/16/hui-fu-er-cha-sou-suo-shu/"/>
     <id>https://wangjunstf.github.io/2021/09/16/hui-fu-er-cha-sou-suo-shu/</id>
     <published>2021-09-16T08:56:32.000Z</published>
-    <updated>2021-09-16T09:00:23.609Z</updated>
+    <updated>2021-11-05T14:34:59.441Z</updated>
     
     
     <summary type="html">&lt;p&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/recover-binary-search-tree/&quot;&gt;题目链接&lt;/a&gt;&lt;/p&gt;
@@ -422,7 +428,7 @@
     <link href="https://wangjunstf.github.io/2021/09/13/qiu-jie-zi-ji-de-liang-chong-ban-fa/"/>
     <id>https://wangjunstf.github.io/2021/09/13/qiu-jie-zi-ji-de-liang-chong-ban-fa/</id>
     <published>2021-09-13T14:01:57.000Z</published>
-    <updated>2021-09-13T16:36:13.971Z</updated>
+    <updated>2021-11-05T14:34:59.433Z</updated>
     
     
     <summary type="html">&lt;p&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/subsets/&quot;&gt;题目链接&lt;/a&gt;&lt;/p&gt;
@@ -448,7 +454,7 @@
     <link href="https://wangjunstf.github.io/2021/09/12/di-gui-suan-fa-shi-jian-yu-kong-jian-fu-za-du-fen-xi/"/>
     <id>https://wangjunstf.github.io/2021/09/12/di-gui-suan-fa-shi-jian-yu-kong-jian-fu-za-du-fen-xi/</id>
     <published>2021-09-12T07:59:57.000Z</published>
-    <updated>2021-09-13T08:54:05.294Z</updated>
+    <updated>2021-11-05T14:34:59.433Z</updated>
     
     
     <summary type="html">&lt;p&gt;递归是一种强大的技术，可以解决很多复杂的问题。很多算法都建立递归之上，像树的遍历，深搜，广搜，还有很多强大的排序算法等。现在来分析以下这些常见的递归算法的时间复杂度是怎样的。&lt;/p&gt;
@@ -473,7 +479,7 @@
     <link href="https://wangjunstf.github.io/2021/09/12/cha-ru-pai-xu-yuan-li/"/>
     <id>https://wangjunstf.github.io/2021/09/12/cha-ru-pai-xu-yuan-li/</id>
     <published>2021-09-12T02:50:21.000Z</published>
-    <updated>2021-09-12T02:58:29.867Z</updated>
+    <updated>2021-11-05T14:34:59.433Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;原理&quot;&gt;&lt;a href=&quot;#原理&quot; class=&quot;headerlink&quot; title=&quot;原理&quot;&gt;&lt;/a&gt;原理&lt;/h2&gt;&lt;p&gt;对于少数元素的排序，这是一个有效算法。插入排序类似于排序手中的扑克牌。开始时，我们左手为空并且桌子上的牌面向下。然后我们每次从桌子上拿走一张牌并将它插入左手中正确的位置。为了找到一张牌的正确位置，我们从右到左将它与已在手中的每张牌进行比较。&lt;/p&gt;</summary>

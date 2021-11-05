@@ -27,15 +27,15 @@
 <meta property="og:site_name" content="编程之禅">
 <meta property="og:description" content="前缀和与二分查找的应用题目链接：考试的最大困扰度 给出一个只有’F’ 和 ‘T’ 的字符串，和一个整数 k，可以对字符串种的字符进行两种修改：1. 把 ‘T’ 变为 ‘F’ ，2. 把 ‘F’ 变为 ‘T’。最多能修改 k 次，求由相同字符组成的连续子串长度的最大值。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://qqimage.wangjunblogs.com/uPic/IMG_7E3EFB5C27F2-1.jpeg">
-<meta property="og:image" content="http://qqimage.wangjunblogs.com/uPic/IMG_F8E2C06B01A3-1.jpeg">
+<meta property="og:image" content="https://wangjun-1257394474.cos.ap-beijing.myqcloud.com/uPic/IMG_7E3EFB5C27F2-1.jpeg">
+<meta property="og:image" content="https://wangjun-1257394474.cos.ap-beijing.myqcloud.com/uPic/IMG_F8E2C06B01A3-1.jpeg">
 <meta property="article:published_time" content="2021-10-03T09:35:12.000Z">
-<meta property="article:modified_time" content="2021-10-24T10:06:59.870Z">
+<meta property="article:modified_time" content="2021-11-05T14:34:59.433Z">
 <meta property="article:author" content="编程之禅">
 <meta property="article:tag" content="前缀和">
 <meta property="article:tag" content="二分查找">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://qqimage.wangjunblogs.com/uPic/IMG_7E3EFB5C27F2-1.jpeg">
+<meta name="twitter:image" content="https://wangjun-1257394474.cos.ap-beijing.myqcloud.com/uPic/IMG_7E3EFB5C27F2-1.jpeg">
 
 <link rel="canonical" href="https://wangjunstf.github.io/2021/10/03/qian-zhui-he-yu-er-fen-cha-zhao-de-ying-yong/">
 
@@ -271,7 +271,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-24 18:06:59" itemprop="dateModified" datetime="2021-10-24T18:06:59+08:00">2021-10-24</time>
+                <time title="修改时间：2021-11-05 22:34:59" itemprop="dateModified" datetime="2021-11-05T22:34:59+08:00">2021-11-05</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -337,7 +337,7 @@
 <p>d[x]-d[0] 表示下标 0 到 x 范围内 T 的个数，用 w 表示，用该范围内字符总数减去 T 的个数，就是 F 的个数，即 x - (d[x]-d[0])，用 x-w 表示。</p>
 <p>根据题意，给一个范围内，我们取 x 和 x-w 的最小值 minum， 如果 minum 大于 k，说明范围太大了，不能在 k 次内将子串修改为相同字符。如果 minum 小于等于 k，说明该范围完全可以在 k 次修改变成相同字符，在继续扩大范围，以相同方式判断。直到不能将范围扩大为止。</p>
 <p>可以看到前缀和为递增数列，所有可能的范围如下，为了快速找到正确的右边界，很明显可以使用 二分查找。</p>
-<img src="http://qqimage.wangjunblogs.com/uPic/IMG_7E3EFB5C27F2-1.jpeg" alt="IMG_7E3EFB5C27F2-1" style="zoom:50%;" />
+<img src="https://wangjun-1257394474.cos.ap-beijing.myqcloud.com/uPic/IMG_7E3EFB5C27F2-1.jpeg" alt="IMG_7E3EFB5C27F2-1" style="zoom:50%;" />
 
 
 
@@ -347,7 +347,7 @@
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">binary</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=x; i&lt;=len; ++i)&#123;</span><br><span class="line">				<span class="keyword">int</span> w = d[i] - d[i-x];</span><br><span class="line">    		<span class="keyword">if</span>(<span class="built_in">min</span>(w,x-w)&lt;= k) <span class="keyword">return</span> <span class="literal">true</span>;   <span class="comment">// w: T的个数   x-w: F 的个数</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>只要以下的任何一种满足，右边界就在中间值的右边，否则在左边。</p>
-<p><img src="http://qqimage.wangjunblogs.com/uPic/IMG_F8E2C06B01A3-1.jpeg" alt="IMG_F8E2C06B01A3-1"></p>
+<p><img src="https://wangjun-1257394474.cos.ap-beijing.myqcloud.com/uPic/IMG_F8E2C06B01A3-1.jpeg" alt="IMG_F8E2C06B01A3-1"></p>
 <p>二叉查找代码：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> l=<span class="number">1</span>,r=len;</span><br><span class="line"><span class="keyword">while</span>(l&lt;r)&#123;</span><br><span class="line">		<span class="keyword">int</span> mid=(l+r+<span class="number">1</span>)&gt;&gt;<span class="number">1</span>;     <span class="comment">// 防止死循环</span></span><br><span class="line">		<span class="keyword">if</span>(<span class="built_in">judge</span>(mid)) l = mid;</span><br><span class="line">		<span class="keyword">else</span> r = mid<span class="number">-1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 

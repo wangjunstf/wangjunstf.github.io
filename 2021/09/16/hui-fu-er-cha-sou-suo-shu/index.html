@@ -27,16 +27,16 @@
 <meta property="og:site_name" content="编程之禅">
 <meta property="og:description" content="题目链接 给你二叉搜索树的根节点 root ，该树中的两个节点被错误地交换。请在不改变其结构的情况下，恢复这棵树。 进阶：使用 O(n) 空间复杂度的解法很容易实现。你能想出一个只使用常数空间的解决方案吗？">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://qqimage.wangjunblogs.com/uPic/%E6%88%AA%E5%B1%8F2021-09-16%20%E4%B8%8B%E5%8D%8812.01.40.png">
-<meta property="og:image" content="http://qqimage.wangjunblogs.com/uPic/%E6%88%AA%E5%B1%8F2021-09-16%20%E4%B8%8B%E5%8D%881.12.41.png">
+<meta property="og:image" content="https://wangjun-1257394474.cos.ap-beijing.myqcloud.com/uPic/%E6%88%AA%E5%B1%8F2021-09-16%20%E4%B8%8B%E5%8D%8812.01.40.png">
+<meta property="og:image" content="https://wangjun-1257394474.cos.ap-beijing.myqcloud.com/uPic/%E6%88%AA%E5%B1%8F2021-09-16%20%E4%B8%8B%E5%8D%881.12.41.png">
 <meta property="article:published_time" content="2021-09-16T08:56:32.000Z">
-<meta property="article:modified_time" content="2021-09-16T09:00:23.609Z">
+<meta property="article:modified_time" content="2021-11-05T14:34:59.441Z">
 <meta property="article:author" content="编程之禅">
 <meta property="article:tag" content="二叉搜索树">
 <meta property="article:tag" content="中序遍历">
 <meta property="article:tag" content="Morris中序遍历">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://qqimage.wangjunblogs.com/uPic/%E6%88%AA%E5%B1%8F2021-09-16%20%E4%B8%8B%E5%8D%8812.01.40.png">
+<meta name="twitter:image" content="https://wangjun-1257394474.cos.ap-beijing.myqcloud.com/uPic/%E6%88%AA%E5%B1%8F2021-09-16%20%E4%B8%8B%E5%8D%8812.01.40.png">
 
 <link rel="canonical" href="https://wangjunstf.github.io/2021/09/16/hui-fu-er-cha-sou-suo-shu/">
 
@@ -264,10 +264,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-09-16 16:56:32 / 修改时间：17:00:23" itemprop="dateCreated datePublished" datetime="2021-09-16T16:56:32+08:00">2021-09-16</time>
+              <time title="创建时间：2021-09-16 16:56:32" itemprop="dateCreated datePublished" datetime="2021-09-16T16:56:32+08:00">2021-09-16</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-11-05 22:34:59" itemprop="dateModified" datetime="2021-11-05T22:34:59+08:00">2021-11-05</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -314,7 +320,7 @@
 <p>给你二叉搜索树的根节点 root ，该树中的两个节点被错误地交换。请在不改变其结构的情况下，恢复这棵树。</p>
 <p>进阶：使用 O(n) 空间复杂度的解法很容易实现。你能想出一个只使用常数空间的解决方案吗？</p>
 <span id="more"></span>
-<p>示例 1：<br><img src="http://qqimage.wangjunblogs.com/uPic/%E6%88%AA%E5%B1%8F2021-09-16%20%E4%B8%8B%E5%8D%8812.01.40.png" alt="截屏2021-09-16 下午12.01.40" style="zoom: 33%;" /></p>
+<p>示例 1：<br><img src="https://wangjun-1257394474.cos.ap-beijing.myqcloud.com/uPic/%E6%88%AA%E5%B1%8F2021-09-16%20%E4%B8%8B%E5%8D%8812.01.40.png" alt="截屏2021-09-16 下午12.01.40" style="zoom: 33%;" /></p>
 <p>输入：root = [1,3,null,null,2]<br>输出：[3,1,null,null,2]<br>解释：3 不能是 1 左孩子，因为 3 &gt; 1 。交换 1 和 3 使二叉搜索树有效。</p>
 <h2 id="显式中序遍历"><a href="#显式中序遍历" class="headerlink" title="显式中序遍历"></a>显式中序遍历</h2><p>这种方法，我们需要借助一个数组，保存二叉树的中序遍历(左-根-右)顺序，一颗二叉搜索树的前序遍历是有序数列(从小到大)。遍历完成后，只需遍历数组就可以找到哪两个节点被错误交换了位置。</p>
 <p>如上图所示，左边子树的中序遍历为: 3 2 1。正常应该为递增数列，很明显 3 和 1被交换了位置，正确顺序应该为：1 2 3，只需交换 3 和 1 的节点值即可。</p>
@@ -326,7 +332,7 @@
 <h3 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h3><p>DFS 耗时 O(n)，后续只需循环一次，最多耗时 O(n)，n 为节点个数，所以总的时间复杂度为 O(2n)=O(n)。</p>
 <h3 id="空间复杂度"><a href="#空间复杂度" class="headerlink" title="空间复杂度"></a>空间复杂度</h3><p>存储遍历需要 O(n)，递归所需空间O(H*1)，H 为二叉搜索树的深度，因为 O(H*1) &lt;=  O(n)，根据渐进关系，空间复杂度为 O(n)。</p>
 <h2 id="隐式中序遍历"><a href="#隐式中序遍历" class="headerlink" title="隐式中序遍历"></a>隐式中序遍历</h2><p>有没有办法只需一次遍历就可以找到两个被错误交换的节点。使用 pre 标记节点的前驱，如果当前节点 root-&gt;val &lt; pre-&gt;val，说明root 和 pre 应该交换。</p>
-<img src="http://qqimage.wangjunblogs.com/uPic/%E6%88%AA%E5%B1%8F2021-09-16%20%E4%B8%8B%E5%8D%881.12.41.png" alt="截屏2021-09-16 下午1.12.41" style="zoom: 33%;" />
+<img src="https://wangjun-1257394474.cos.ap-beijing.myqcloud.com/uPic/%E6%88%AA%E5%B1%8F2021-09-16%20%E4%B8%8B%E5%8D%881.12.41.png" alt="截屏2021-09-16 下午1.12.41" style="zoom: 33%;" />
 
 <p>由上图所示，当使用中序遍历时，记录每个节点的前驱节点，初始化 pre == nullptr。</p>
 <p>root 为 1 时，它的前驱为 nullptr，设置 pre 为 1</p>
