@@ -6,7 +6,7 @@
   <link href="https://wangjunstf.github.io/atom.xml" rel="self"/>
   
   <link href="https://wangjunstf.github.io/"/>
-  <updated>2021-11-05T09:37:49.211Z</updated>
+  <updated>2021-11-05T12:09:05.416Z</updated>
   <id>https://wangjunstf.github.io/</id>
   
   <author>
@@ -17,26 +17,50 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>解决 hexo 博客在 chrome 下无法正常显示图片的问题</title>
+    <link href="https://wangjunstf.github.io/2021/11/05/jie-jue-hexo-bo-ke-zai-chrome-xia-wu-fa-zheng-chang-xian-shi-tu-pian-de-wen-ti/"/>
+    <id>https://wangjunstf.github.io/2021/11/05/jie-jue-hexo-bo-ke-zai-chrome-xia-wu-fa-zheng-chang-xian-shi-tu-pian-de-wen-ti/</id>
+    <published>2021-11-05T12:09:05.000Z</published>
+    <updated>2021-11-05T12:09:05.416Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;meta name=&quot;referrer&quot;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
     <title>Parallels Desktop 最小安装 CentOS 7</title>
     <link href="https://wangjunstf.github.io/2021/11/05/parallels-desktop-zui-xiao-an-zhuang-centos-7/"/>
     <id>https://wangjunstf.github.io/2021/11/05/parallels-desktop-zui-xiao-an-zhuang-centos-7/</id>
     <published>2021-11-05T09:36:45.000Z</published>
-    <updated>2021-11-05T09:37:49.211Z</updated>
+    <updated>2021-11-05T12:12:28.980Z</updated>
     
     
-      
-      
-        
-        
     <summary type="html">&lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot;/&gt;
 ## 镜像文件下载
 
-&lt;p&gt;下载地址：&lt;a</summary>
-        
-      
+&lt;p&gt;下载地址：&lt;a href=&quot;http://mirrors.aliyun.com/centos/7.9.2009/isos/x86_64/&quot;&gt;http://mirrors.aliyun.com/centos/7.9.2009/isos/x86_64/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;BT种子：&lt;a href=&quot;http://mirrors.aliyun.com/centos/7.9.2009/isos/x86_64/CentOS-7-x86_64-DVD-2009.torrent&quot;&gt;http://mirrors.aliyun.com/centos/7.9.2009/isos/x86_64/CentOS-7-x86_64-DVD-2009.torrent&lt;/a&gt;&lt;/p&gt;</summary>
     
     
     
+    <category term="Linux" scheme="https://wangjunstf.github.io/categories/Linux/"/>
+    
+    
+    <category term="CentOS 7" scheme="https://wangjunstf.github.io/tags/CentOS-7/"/>
+    
+    <category term="Parallels Desktop" scheme="https://wangjunstf.github.io/tags/Parallels-Desktop/"/>
+    
+    <category term="CentOS7" scheme="https://wangjunstf.github.io/tags/CentOS7/"/>
     
   </entry>
   
@@ -463,30 +487,6 @@
     <category term="算法" scheme="https://wangjunstf.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
     <category term="插入排序" scheme="https://wangjunstf.github.io/tags/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>C++动态内存与智能指针</title>
-    <link href="https://wangjunstf.github.io/2021/09/12/c-dong-tai-nei-cun-yu-zhi-neng-zhi-zhen/"/>
-    <id>https://wangjunstf.github.io/2021/09/12/c-dong-tai-nei-cun-yu-zhi-neng-zhi-zhen/</id>
-    <published>2021-09-12T02:35:29.000Z</published>
-    <updated>2021-09-14T09:37:02.592Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;使用智能指针需包含以下头文件：&lt;code&gt;#include  &amp;lt;memory&amp;gt;&lt;/code&gt; &lt;/p&gt;
-&lt;h2 id=&quot;shared-ptr类&quot;&gt;&lt;a href=&quot;#shared-ptr类&quot; class=&quot;headerlink&quot; title=&quot;shared_ptr类&quot;&gt;&lt;/a&gt;shared_ptr类&lt;/h2&gt;&lt;p&gt;shared_ptr允许多个指针指向同一个对象&lt;br&gt;&lt;strong&gt;支持的操作：&lt;/strong&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="CPP" scheme="https://wangjunstf.github.io/categories/CPP/"/>
-    
-    
-    <category term="CPP" scheme="https://wangjunstf.github.io/tags/CPP/"/>
-    
-    <category term="动态内存" scheme="https://wangjunstf.github.io/tags/%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98/"/>
-    
-    <category term="智能指针" scheme="https://wangjunstf.github.io/tags/%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88/"/>
     
   </entry>
   

@@ -9,6 +9,13 @@
   </url>
   
   <url>
+    <loc>https://wangjunstf.github.io/2021/11/05/jie-jue-hexo-bo-ke-zai-chrome-xia-wu-fa-zheng-chang-xian-shi-tu-pian-de-wen-ti/</loc>
+    
+    <lastmod>2021-11-05</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://wangjunstf.github.io/2021/11/03/shen-ru-li-jie-ji-suan-ji-xi-tong-xu-ni-nei-cun-bi-ji/</loc>
     
     <lastmod>2021-11-03</lastmod>
@@ -753,6 +760,13 @@
   </url>
   
   <url>
+    <loc>https://wangjunstf.github.io/tags/CentOS-7/</loc>
+    <lastmod>2021-11-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://wangjunstf.github.io/tags/%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86/</loc>
     <lastmod>2021-11-05</lastmod>
     <changefreq>daily</changefreq>
@@ -1139,6 +1153,20 @@
   
   <url>
     <loc>https://wangjunstf.github.io/tags/%E5%8A%A8%E6%80%81%E5%BA%93/</loc>
+    <lastmod>2021-11-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://wangjunstf.github.io/tags/Parallels-Desktop/</loc>
+    <lastmod>2021-11-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://wangjunstf.github.io/tags/CentOS7/</loc>
     <lastmod>2021-11-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
