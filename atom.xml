@@ -6,7 +6,7 @@
   <link href="https://wangjunstf.github.io/atom.xml" rel="self"/>
   
   <link href="https://wangjunstf.github.io/"/>
-  <updated>2021-11-05T12:22:14.217Z</updated>
+  <updated>2021-11-05T12:25:09.882Z</updated>
   <id>https://wangjunstf.github.io/</id>
   
   <author>
@@ -21,13 +21,12 @@
     <link href="https://wangjunstf.github.io/2021/11/05/jie-jue-hexo-bo-ke-zai-chrome-xia-wu-fa-zheng-chang-xian-shi-tu-pian-de-wen-ti/"/>
     <id>https://wangjunstf.github.io/2021/11/05/jie-jue-hexo-bo-ke-zai-chrome-xia-wu-fa-zheng-chang-xian-shi-tu-pian-de-wen-ti/</id>
     <published>2021-11-05T12:09:05.000Z</published>
-    <updated>2021-11-05T12:22:14.217Z</updated>
+    <updated>2021-11-05T12:25:09.882Z</updated>
     
     
     <summary type="html">&lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot;/&gt;
-## 出现的问题
 
-&lt;p&gt;最近发现一个奇怪的问题， hexo 发的博客图片 在 Google Chrome 下无法正常显示，但在 Safari 和 FireFox 下确可以正常显示。&lt;/p&gt;</summary>
+&lt;h2 id=&quot;出现的问题&quot;&gt;&lt;a href=&quot;#出现的问题&quot; class=&quot;headerlink&quot; title=&quot;出现的问题&quot;&gt;&lt;/a&gt;出现的问题&lt;/h2&gt;&lt;p&gt;最近发现一个奇怪的问题， hexo 发的博客图片 在 Google Chrome 下无法正常显示，但在 Safari 和 FireFox 下确可以正常显示。&lt;/p&gt;</summary>
     
     
     
