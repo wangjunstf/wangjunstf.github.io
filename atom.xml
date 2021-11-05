@@ -68,16 +68,10 @@
     <link href="https://wangjunstf.github.io/2021/11/03/shen-ru-li-jie-ji-suan-ji-xi-tong-xu-ni-nei-cun-bi-ji/"/>
     <id>https://wangjunstf.github.io/2021/11/03/shen-ru-li-jie-ji-suan-ji-xi-tong-xu-ni-nei-cun-bi-ji/</id>
     <published>2021-11-03T00:33:59.000Z</published>
-    <updated>2021-11-05T14:31:20.834Z</updated>
+    <updated>2021-11-05T16:01:29.049Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;9-1-物理地址和虚拟地址&quot;&gt;&lt;a href=&quot;#9-1-物理地址和虚拟地址&quot; class=&quot;headerlink&quot; title=&quot;9.1 物理地址和虚拟地址&quot;&gt;&lt;/a&gt;9.1 物理地址和虚拟地址&lt;/h2&gt;&lt;p&gt;计算机系统的主存是由 M</summary>
-        
-      
+    <summary type="html">&lt;h2 id=&quot;9-1-物理地址和虚拟地址&quot;&gt;&lt;a href=&quot;#9-1-物理地址和虚拟地址&quot; class=&quot;headerlink&quot; title=&quot;9.1 物理地址和虚拟地址&quot;&gt;&lt;/a&gt;9.1 物理地址和虚拟地址&lt;/h2&gt;&lt;p&gt;计算机系统的主存是由 M 个连续的字节大小的单元组成的数组。每个字节都有一个唯一的物理地址，地址范围从 0 到 M-1。计算机使用内存最自然的方式是使用物理地址，我们将这种方式称为物理寻址。&lt;/p&gt;</summary>
     
     
     
