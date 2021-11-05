@@ -6,7 +6,7 @@
   <link href="https://wangjunstf.github.io/atom.xml" rel="self"/>
   
   <link href="https://wangjunstf.github.io/"/>
-  <updated>2021-11-03T00:36:50.399Z</updated>
+  <updated>2021-11-05T07:45:18.897Z</updated>
   <id>https://wangjunstf.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Parallels Desktop 最小安装 CentOS 7</title>
+    <link href="https://wangjunstf.github.io/2021/11/05/parallels-desktop-zui-xiao-an-zhuang-centos-7/"/>
+    <id>https://wangjunstf.github.io/2021/11/05/parallels-desktop-zui-xiao-an-zhuang-centos-7/</id>
+    <published>2021-11-05T07:42:10.000Z</published>
+    <updated>2021-11-05T07:45:18.897Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Parallels-Desktop-最小安装-CentOS-7&quot;&gt;&lt;a href=&quot;#Parallels-Desktop-最小安装-CentOS-7&quot; class=&quot;headerlink&quot; title=&quot;Parallels Desktop 最小安装 CentOS</summary>
+        
+      
+    
+    
+    
+    <category term="Linux" scheme="https://wangjunstf.github.io/categories/Linux/"/>
+    
+    
+    <category term="Parallels" scheme="https://wangjunstf.github.io/tags/Parallels/"/>
+    
+    <category term="CentOS 7" scheme="https://wangjunstf.github.io/tags/CentOS-7/"/>
+    
+    <category term="Parallels tools" scheme="https://wangjunstf.github.io/tags/Parallels-tools/"/>
+    
+  </entry>
   
   <entry>
     <title>深入理解计算机系统——虚拟内存笔记</title>
@@ -463,31 +492,6 @@
     <category term="动态内存" scheme="https://wangjunstf.github.io/tags/%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98/"/>
     
     <category term="智能指针" scheme="https://wangjunstf.github.io/tags/%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>前缀和——找到含有相同数量 0 和 1 的最长连续子数组</title>
-    <link href="https://wangjunstf.github.io/2021/09/12/qian-zhui-he-zhao-dao-han-you-xiang-tong-shu-liang-0-he-1-de-zui-chang-lian-xu-zi-shu-zu/"/>
-    <id>https://wangjunstf.github.io/2021/09/12/qian-zhui-he-zhao-dao-han-you-xiang-tong-shu-liang-0-he-1-de-zui-chang-lian-xu-zi-shu-zu/</id>
-    <published>2021-09-11T16:48:28.000Z</published>
-    <updated>2021-09-11T16:50:55.769Z</updated>
-    
-    
-    <summary type="html">&lt;h1 id=&quot;问题描述&quot;&gt;&lt;a href=&quot;#问题描述&quot; class=&quot;headerlink&quot; title=&quot;问题描述&quot;&gt;&lt;/a&gt;问题描述&lt;/h1&gt;&lt;p&gt;给定一个二进制数组, 找到含有相同数量的 0 和 1 的最长连续子数组（的长度）。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;示例 1:&lt;/strong&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;输入: [0,1]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;输出: 2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;说明: [0, 1] 是具有相同数量0和1的最长连续子数组。&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
-    
-    
-    
-    <category term="算法" scheme="https://wangjunstf.github.io/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-    <category term="算法" scheme="https://wangjunstf.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
-    <category term="前缀和" scheme="https://wangjunstf.github.io/tags/%E5%89%8D%E7%BC%80%E5%92%8C/"/>
-    
-    <category term="最长连续子数组" scheme="https://wangjunstf.github.io/tags/%E6%9C%80%E9%95%BF%E8%BF%9E%E7%BB%AD%E5%AD%90%E6%95%B0%E7%BB%84/"/>
     
   </entry>
   
