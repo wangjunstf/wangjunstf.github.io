@@ -6,7 +6,7 @@
   <link href="https://wangjunstf.github.io/atom.xml" rel="self"/>
   
   <link href="https://wangjunstf.github.io/"/>
-  <updated>2021-11-09T10:11:08.956Z</updated>
+  <updated>2021-11-09T10:14:13.715Z</updated>
   <id>https://wangjunstf.github.io/</id>
   
   <author>
@@ -21,18 +21,13 @@
     <link href="https://wangjunstf.github.io/2021/11/09/c-chang-jian-de-nei-cun-cuo-wu/"/>
     <id>https://wangjunstf.github.io/2021/11/09/c-chang-jian-de-nei-cun-cuo-wu/</id>
     <published>2021-11-09T10:09:58.000Z</published>
-    <updated>2021-11-09T10:11:08.956Z</updated>
+    <updated>2021-11-09T10:14:13.715Z</updated>
     
     
-      
-      
-        
-        
     <summary type="html">&lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot;/&gt;
 
-&lt;h3 id=&quot;间接引用坏指针&quot;&gt;&lt;a href=&quot;#间接引用坏指针&quot; class=&quot;headerlink&quot;</summary>
-        
-      
+&lt;h3 id=&quot;间接引用坏指针&quot;&gt;&lt;a href=&quot;#间接引用坏指针&quot; class=&quot;headerlink&quot; title=&quot;间接引用坏指针&quot;&gt;&lt;/a&gt;间接引用坏指针&lt;/h3&gt;&lt;p&gt;使用以下代码向 val 变量写入数据&lt;/p&gt;
+&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;scanf&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;quot;%d&amp;quot;&lt;/span&gt;,&amp;amp;val);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
     
     
     
