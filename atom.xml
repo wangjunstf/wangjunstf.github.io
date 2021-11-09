@@ -6,7 +6,7 @@
   <link href="https://wangjunstf.github.io/atom.xml" rel="self"/>
   
   <link href="https://wangjunstf.github.io/"/>
-  <updated>2021-11-06T07:06:41.653Z</updated>
+  <updated>2021-11-09T10:11:08.956Z</updated>
   <id>https://wangjunstf.github.io/</id>
   
   <author>
@@ -15,6 +15,123 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>C/C++ 常见的内存错误</title>
+    <link href="https://wangjunstf.github.io/2021/11/09/c-chang-jian-de-nei-cun-cuo-wu/"/>
+    <id>https://wangjunstf.github.io/2021/11/09/c-chang-jian-de-nei-cun-cuo-wu/</id>
+    <published>2021-11-09T10:09:58.000Z</published>
+    <updated>2021-11-09T10:11:08.956Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot;/&gt;
+
+&lt;h3 id=&quot;间接引用坏指针&quot;&gt;&lt;a href=&quot;#间接引用坏指针&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="深入理解计算机系统" scheme="https://wangjunstf.github.io/categories/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/"/>
+    
+    
+    <category term="CPP" scheme="https://wangjunstf.github.io/tags/CPP/"/>
+    
+    <category term="C" scheme="https://wangjunstf.github.io/tags/C/"/>
+    
+    <category term="常见内存错误" scheme="https://wangjunstf.github.io/tags/%E5%B8%B8%E8%A7%81%E5%86%85%E5%AD%98%E9%94%99%E8%AF%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>垃圾回收的基本原理</title>
+    <link href="https://wangjunstf.github.io/2021/11/09/la-ji-hui-shou-de-ji-ben-yuan-li/"/>
+    <id>https://wangjunstf.github.io/2021/11/09/la-ji-hui-shou-de-ji-ben-yuan-li/</id>
+    <published>2021-11-09T10:07:09.000Z</published>
+    <updated>2021-11-09T10:09:34.294Z</updated>
+    
+    
+    <summary type="html">&lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot;/&gt;
+
+&lt;p&gt;对于像 maclloc 这样的显式分配器，应用通过调用 malloc 和 free 来分配和释放堆块，应用要负责释放所有不再需要的已分配块。&lt;/p&gt;
+&lt;p&gt;不能及时释放内存堆块可能造成严重的内存错误，例如：内存泄漏，如下列代码所示：&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="深入理解计算机系统" scheme="https://wangjunstf.github.io/categories/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/"/>
+    
+    
+    <category term="垃圾回收" scheme="https://wangjunstf.github.io/tags/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/"/>
+    
+    <category term="标记清除法" scheme="https://wangjunstf.github.io/tags/%E6%A0%87%E8%AE%B0%E6%B8%85%E9%99%A4%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux 虚拟内存系统, 内存映射, fork, execve, malloc, free 动态内存分配与释放</title>
+    <link href="https://wangjunstf.github.io/2021/11/09/linux-xu-ni-nei-cun-xi-tong-nei-cun-ying-she-fork-execve-malloc-free-dong-tai-nei-cun-fen-pei-yu-shi-fang/"/>
+    <id>https://wangjunstf.github.io/2021/11/09/linux-xu-ni-nei-cun-xi-tong-nei-cun-ying-she-fork-execve-malloc-free-dong-tai-nei-cun-fen-pei-yu-shi-fang/</id>
+    <published>2021-11-09T10:02:08.000Z</published>
+    <updated>2021-11-09T10:05:31.096Z</updated>
+    
+    
+    <summary type="html">&lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot;/&gt;
+
+&lt;p&gt;Linux 为每个进程维护一个单独的虚拟地址空间，如下图所示。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;内核虚拟内存包含内核中的代码和数据结构。&lt;/li&gt;
+&lt;li&gt;内核虚拟内存的某些区域被映射到所有进程共享的物理页面，例如每个进程都共享内核的代码和全局数据结构。&lt;/li&gt;
+&lt;li&gt;Linux 也将一组连续的虚拟页面(大小等于系统中 DRAM 的总量)映射到相应的一组连续的物理页面。例如：访问页表，或对设备执行IO操作，这些设备被映射到特定物理内存位置时。&lt;/li&gt;
+&lt;li&gt;内核虚拟内存的其它区域包含每个进程的独有数据，例如页表，内核在进程的上下文中执行代码时使用的栈，以及记录虚拟地址空间当前组织的各种数据结构。</summary>
+    
+    
+    
+    <category term="深入理解计算机系统" scheme="https://wangjunstf.github.io/categories/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/"/>
+    
+    
+    <category term="动态内存" scheme="https://wangjunstf.github.io/tags/%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98/"/>
+    
+    <category term="Linux" scheme="https://wangjunstf.github.io/tags/Linux/"/>
+    
+    <category term="虚拟内存" scheme="https://wangjunstf.github.io/tags/%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98/"/>
+    
+    <category term="内存映射" scheme="https://wangjunstf.github.io/tags/%E5%86%85%E5%AD%98%E6%98%A0%E5%B0%84/"/>
+    
+    <category term="fork" scheme="https://wangjunstf.github.io/tags/fork/"/>
+    
+    <category term="execve" scheme="https://wangjunstf.github.io/tags/execve/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>虚拟内存的作用，虚拟地址，页表，TLB，缓存原理</title>
+    <link href="https://wangjunstf.github.io/2021/11/09/xu-ni-nei-cun-de-zuo-yong-xu-ni-di-zhi-ye-biao-tlb-huan-cun-yuan-li/"/>
+    <id>https://wangjunstf.github.io/2021/11/09/xu-ni-nei-cun-de-zuo-yong-xu-ni-di-zhi-ye-biao-tlb-huan-cun-yuan-li/</id>
+    <published>2021-11-09T09:55:22.000Z</published>
+    <updated>2021-11-09T09:57:23.070Z</updated>
+    
+    
+    <summary type="html">&lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot;/&gt;
+
+&lt;h2 id=&quot;9-1-物理地址和虚拟地址&quot;&gt;&lt;a href=&quot;#9-1-物理地址和虚拟地址&quot; class=&quot;headerlink&quot; title=&quot;9.1 物理地址和虚拟地址&quot;&gt;&lt;/a&gt;9.1 物理地址和虚拟地址&lt;/h2&gt;&lt;p&gt;计算机系统的主存是由 M 个连续的字节大小的单元组成的数组。每个字节都有一个唯一的物理地址，地址范围从 0 到 M-1。计算机使用内存最自然的方式是使用物理地址，我们将这种方式称为物理寻址。&lt;/p&gt;
+&lt;p&gt;CPU 向内存发送一个地址，内存将该地址开始的四个字节信息传送到 CPU 中的一个 4字节寄存器。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="深入理解计算机系统" scheme="https://wangjunstf.github.io/categories/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/"/>
+    
+    
+    <category term="虚拟内存" scheme="https://wangjunstf.github.io/tags/%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98/"/>
+    
+    <category term="虚拟地址" scheme="https://wangjunstf.github.io/tags/%E8%99%9A%E6%8B%9F%E5%9C%B0%E5%9D%80/"/>
+    
+    <category term="页表" scheme="https://wangjunstf.github.io/tags/%E9%A1%B5%E8%A1%A8/"/>
+    
+  </entry>
   
   <entry>
     <title>解决 hexo 博客在 chrome 下无法正常显示图片的问题</title>
@@ -60,29 +177,6 @@
     
     
     <category term="CentOS7" scheme="https://wangjunstf.github.io/tags/CentOS7/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>深入理解计算机系统——虚拟内存笔记</title>
-    <link href="https://wangjunstf.github.io/2021/11/03/shen-ru-li-jie-ji-suan-ji-xi-tong-xu-ni-nei-cun-bi-ji/"/>
-    <id>https://wangjunstf.github.io/2021/11/03/shen-ru-li-jie-ji-suan-ji-xi-tong-xu-ni-nei-cun-bi-ji/</id>
-    <published>2021-11-03T00:33:59.000Z</published>
-    <updated>2021-11-05T16:01:29.049Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;9-1-物理地址和虚拟地址&quot;&gt;&lt;a href=&quot;#9-1-物理地址和虚拟地址&quot; class=&quot;headerlink&quot; title=&quot;9.1 物理地址和虚拟地址&quot;&gt;&lt;/a&gt;9.1 物理地址和虚拟地址&lt;/h2&gt;&lt;p&gt;计算机系统的主存是由 M 个连续的字节大小的单元组成的数组。每个字节都有一个唯一的物理地址，地址范围从 0 到 M-1。计算机使用内存最自然的方式是使用物理地址，我们将这种方式称为物理寻址。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="操作系统" scheme="https://wangjunstf.github.io/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
-    
-    
-    <category term="虚拟内存" scheme="https://wangjunstf.github.io/tags/%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98/"/>
-    
-    <category term="TLB" scheme="https://wangjunstf.github.io/tags/TLB/"/>
-    
-    <category term="缓存" scheme="https://wangjunstf.github.io/tags/%E7%BC%93%E5%AD%98/"/>
     
   </entry>
   
@@ -414,78 +508,6 @@
     <category term="中序遍历" scheme="https://wangjunstf.github.io/tags/%E4%B8%AD%E5%BA%8F%E9%81%8D%E5%8E%86/"/>
     
     <category term="Morris中序遍历" scheme="https://wangjunstf.github.io/tags/Morris%E4%B8%AD%E5%BA%8F%E9%81%8D%E5%8E%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>求解子集的两种办法</title>
-    <link href="https://wangjunstf.github.io/2021/09/13/qiu-jie-zi-ji-de-liang-chong-ban-fa/"/>
-    <id>https://wangjunstf.github.io/2021/09/13/qiu-jie-zi-ji-de-liang-chong-ban-fa/</id>
-    <published>2021-09-13T14:01:57.000Z</published>
-    <updated>2021-11-05T14:34:59.433Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/subsets/&quot;&gt;题目链接&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;给你一个整数数组 nums ，数组中的元素 互不相同 。返回该数组所有可能的子集（幂集）。&lt;/p&gt;
-&lt;p&gt;解集 不能 包含重复的子集。你可以按 任意顺序 返回解集。&lt;/p&gt;
-&lt;p&gt;示例 1：&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="算法" scheme="https://wangjunstf.github.io/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-    <category term="算法" scheme="https://wangjunstf.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
-    <category term="二进制枚举子集" scheme="https://wangjunstf.github.io/tags/%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%9E%9A%E4%B8%BE%E5%AD%90%E9%9B%86/"/>
-    
-    <category term="DFS" scheme="https://wangjunstf.github.io/tags/DFS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>递归算法时间与空间复杂度分析</title>
-    <link href="https://wangjunstf.github.io/2021/09/12/di-gui-suan-fa-shi-jian-yu-kong-jian-fu-za-du-fen-xi/"/>
-    <id>https://wangjunstf.github.io/2021/09/12/di-gui-suan-fa-shi-jian-yu-kong-jian-fu-za-du-fen-xi/</id>
-    <published>2021-09-12T07:59:57.000Z</published>
-    <updated>2021-11-05T14:34:59.433Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;递归是一种强大的技术，可以解决很多复杂的问题。很多算法都建立递归之上，像树的遍历，深搜，广搜，还有很多强大的排序算法等。现在来分析以下这些常见的递归算法的时间复杂度是怎样的。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;递归的时间复杂度=递归的深度*每层递归的代价&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;递归的空间复杂度=递归的深度*每次递归所需空间&lt;/strong&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="算法" scheme="https://wangjunstf.github.io/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-    <category term="递归算法" scheme="https://wangjunstf.github.io/tags/%E9%80%92%E5%BD%92%E7%AE%97%E6%B3%95/"/>
-    
-    <category term="阶乘" scheme="https://wangjunstf.github.io/tags/%E9%98%B6%E4%B9%98/"/>
-    
-    <category term="斐波那契" scheme="https://wangjunstf.github.io/tags/%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>插入排序原理</title>
-    <link href="https://wangjunstf.github.io/2021/09/12/cha-ru-pai-xu-yuan-li/"/>
-    <id>https://wangjunstf.github.io/2021/09/12/cha-ru-pai-xu-yuan-li/</id>
-    <published>2021-09-12T02:50:21.000Z</published>
-    <updated>2021-11-05T14:34:59.433Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;原理&quot;&gt;&lt;a href=&quot;#原理&quot; class=&quot;headerlink&quot; title=&quot;原理&quot;&gt;&lt;/a&gt;原理&lt;/h2&gt;&lt;p&gt;对于少数元素的排序，这是一个有效算法。插入排序类似于排序手中的扑克牌。开始时，我们左手为空并且桌子上的牌面向下。然后我们每次从桌子上拿走一张牌并将它插入左手中正确的位置。为了找到一张牌的正确位置，我们从右到左将它与已在手中的每张牌进行比较。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="算法" scheme="https://wangjunstf.github.io/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-    <category term="算法" scheme="https://wangjunstf.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
-    <category term="插入排序" scheme="https://wangjunstf.github.io/tags/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/"/>
     
   </entry>
   
