@@ -6,7 +6,7 @@
   <link href="https://wangjunstf.github.io/atom.xml" rel="self"/>
   
   <link href="https://wangjunstf.github.io/"/>
-  <updated>2021-11-09T10:14:13.715Z</updated>
+  <updated>2021-11-09T10:21:35.231Z</updated>
   <id>https://wangjunstf.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>C 语言实现一个堆内存分配器(malloc/free)</title>
+    <link href="https://wangjunstf.github.io/2021/11/09/c-yu-yan-shi-xian-yi-ge-dui-nei-cun-fen-pei-qi-malloc-free/"/>
+    <id>https://wangjunstf.github.io/2021/11/09/c-yu-yan-shi-xian-yi-ge-dui-nei-cun-fen-pei-qi-malloc-free/</id>
+    <published>2021-11-09T10:21:22.000Z</published>
+    <updated>2021-11-09T10:21:35.231Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;meta name=&quot;referrer&quot;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>C/C++ 常见的内存错误</title>
@@ -478,31 +499,6 @@
     <category term="缓冲区溢出" scheme="https://wangjunstf.github.io/tags/%E7%BC%93%E5%86%B2%E5%8C%BA%E6%BA%A2%E5%87%BA/"/>
     
     <category term="信息安全" scheme="https://wangjunstf.github.io/tags/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>恢复二叉搜索树</title>
-    <link href="https://wangjunstf.github.io/2021/09/16/hui-fu-er-cha-sou-suo-shu/"/>
-    <id>https://wangjunstf.github.io/2021/09/16/hui-fu-er-cha-sou-suo-shu/</id>
-    <published>2021-09-16T08:56:32.000Z</published>
-    <updated>2021-11-05T14:34:59.441Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/recover-binary-search-tree/&quot;&gt;题目链接&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;给你二叉搜索树的根节点 root ，该树中的两个节点被错误地交换。请在不改变其结构的情况下，恢复这棵树。&lt;/p&gt;
-&lt;p&gt;进阶：使用 O(n) 空间复杂度的解法很容易实现。你能想出一个只使用常数空间的解决方案吗？&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="算法" scheme="https://wangjunstf.github.io/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-    <category term="二叉搜索树" scheme="https://wangjunstf.github.io/tags/%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91/"/>
-    
-    <category term="中序遍历" scheme="https://wangjunstf.github.io/tags/%E4%B8%AD%E5%BA%8F%E9%81%8D%E5%8E%86/"/>
-    
-    <category term="Morris中序遍历" scheme="https://wangjunstf.github.io/tags/Morris%E4%B8%AD%E5%BA%8F%E9%81%8D%E5%8E%86/"/>
     
   </entry>
   
