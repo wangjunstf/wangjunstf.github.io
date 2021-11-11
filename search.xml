@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>用两个栈模拟一个队列</title>
+      <link href="/2021/11/11/yong-liang-ge-zhan-mo-ni-yi-ge-dui-lie/"/>
+      <url>/2021/11/11/yong-liang-ge-zhan-mo-ni-yi-ge-dui-lie/</url>
+      
+        <content type="html"><![CDATA[<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>本题是考察栈和队列的常见问题。要解答本题必须知道栈的队列的基本原理。</p><p>栈：一种后进先出的数据结构，想象一个单车道，汽车一辆接一辆往里开，最先进入的在最里面，最后进入的在最外面，当需要出去的时候，最后进入的先出，最先进入的最后出去。符合类似进出原则的数据结构就叫做栈。 往栈中存入数据也叫压栈，取出数据也叫弹栈。</p><p>队列：先进先出的数据结构。顾名思义，就像排队一样，最先进入在队头，后进入在队尾，队头先出队，队尾后出队。往队列中存入数据叫入队，往队列中取数据叫出队。</p><span id="more"></span><p>说完了栈和队列的基本概念，那怎么用两个栈来模拟一个队列呢？ 假设两个栈分别为 stack1，stack2</p><p>举个例子，现有一个入队顺序如下：1 2 3 4 5 6 7</p><p>它的合法出队顺序应该如下：1 2 3 4 5 6 7</p><p>我们先用一个栈，例如 stack1 入队信息依次压栈：1 2 3 4 5 6 7，那么弹栈顺序为：7 6 5 4 3 2 1，很明显和入队顺序刚好相反，那该怎么办呢？这就需要借助第二个栈了。</p><p>我们将 stack1 弹栈，然后按弹栈顺序入栈 stack2 中（方法一），这样 stack2 中的数据为：7 6 5 4 3 2 1，这样 stack2 的输出就符合队列的输出要求了，也就是：1 2 3 4 5 6 7</p><p>现在还有一个问题，后续的入队和出队问题，也很简单。每次入队，都将其存入 stack1 中，出队时，首先判断 stack2 是否为空，如果为空就使用采取<strong>方法一</strong>，如果不为空，就从 stack2 中弹出一个数据，就是正确的出队顺序。<strong>关键：只有当 stack2 为空时，才将 stack1 中的数据按出栈顺序压入 stack2 中。</strong></p><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CQueue</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    stack&lt;<span class="keyword">int</span>&gt;stack1;</span><br><span class="line">    stack&lt;<span class="keyword">int</span>&gt;stack2;</span><br><span class="line">    <span class="built_in">CQueue</span>() &#123;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">appendTail</span><span class="params">(<span class="keyword">int</span> value)</span> </span>&#123;</span><br><span class="line">        stack1.<span class="built_in">push</span>(value);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">deleteHead</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(stack2.<span class="built_in">empty</span>())&#123;                     <span class="comment">// stack2 为空才执行方法一</span></span><br><span class="line">            <span class="keyword">while</span>(!stack1.<span class="built_in">empty</span>())&#123;</span><br><span class="line">                stack2.<span class="built_in">push</span>(stack1.<span class="built_in">top</span>());</span><br><span class="line">                stack1.<span class="built_in">pop</span>();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(stack2.<span class="built_in">empty</span>())                     <span class="comment">// 不存在数据的情况</span></span><br><span class="line">            <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">int</span> ret = stack2.<span class="built_in">top</span>();</span><br><span class="line">        stack2.<span class="built_in">pop</span>();</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><h2 id="时间复杂度分析"><a href="#时间复杂度分析" class="headerlink" title="时间复杂度分析"></a>时间复杂度分析</h2><p>时间复杂度 O(1)，上述方法一虽然是需要消耗时间 O(n)，但是均摊下来，每个元素的入队和出队，都是 O(1)</p><p>空间复杂度 O(n)</p><p><a href="https://leetcode-cn.com/problems/yong-liang-ge-zhan-shi-xian-dui-lie-lcof/">题目链接</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 栈 </tag>
+            
+            <tag> 队列 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>快速幂算法</title>
       <link href="/2021/11/11/kuai-su-mi-suan-fa/"/>
       <url>/2021/11/11/kuai-su-mi-suan-fa/</url>
