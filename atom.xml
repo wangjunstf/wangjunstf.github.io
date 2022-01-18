@@ -6,7 +6,7 @@
   <link href="https://wangjunstf.github.io/atom.xml" rel="self"/>
   
   <link href="https://wangjunstf.github.io/"/>
-  <updated>2021-11-16T03:15:49.713Z</updated>
+  <updated>2022-01-18T03:25:47.287Z</updated>
   <id>https://wangjunstf.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>test</title>
+    <link href="https://wangjunstf.github.io/2022/01/18/test/"/>
+    <id>https://wangjunstf.github.io/2022/01/18/test/</id>
+    <published>2022-01-18T03:25:12.000Z</published>
+    <updated>2022-01-18T03:25:47.287Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;Test blog on</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>用 Lisp 实现一个简单的数据库</title>
@@ -470,35 +491,6 @@
     <category term="压缩路径" scheme="https://wangjunstf.github.io/tags/%E5%8E%8B%E7%BC%A9%E8%B7%AF%E5%BE%84/"/>
     
     <category term="启发式合并" scheme="https://wangjunstf.github.io/tags/%E5%90%AF%E5%8F%91%E5%BC%8F%E5%90%88%E5%B9%B6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>B树 B+树 B*树区别</title>
-    <link href="https://wangjunstf.github.io/2021/09/27/b-shu-b-shu-b-shu-qu-bie/"/>
-    <id>https://wangjunstf.github.io/2021/09/27/b-shu-b-shu-b-shu-qu-bie/</id>
-    <published>2021-09-27T15:42:22.000Z</published>
-    <updated>2021-11-05T14:34:59.433Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;B树的性质&quot;&gt;&lt;a href=&quot;#B树的性质&quot; class=&quot;headerlink&quot; title=&quot;B树的性质&quot;&gt;&lt;/a&gt;B树的性质&lt;/h2&gt;&lt;p&gt;（1）B树的每个节点 x 都具有以下属性：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;x.n 存储在节点 x 中的关键字个数。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;x.n 个关键字本身 x.key&lt;sub&gt;0&lt;/sub&gt;, x.key&lt;sub&gt;1&lt;/sub&gt;,…, x.key&lt;sub&gt;n-1&lt;/sub&gt;，以升序排列，注编程语言数组下标从 0 开始。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;x.leaf 布尔值，表示节点 x 是否是叶节点。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="数据结构" scheme="https://wangjunstf.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-    
-    <category term="B树" scheme="https://wangjunstf.github.io/tags/B%E6%A0%91/"/>
-    
-    <category term="B+树" scheme="https://wangjunstf.github.io/tags/B-%E6%A0%91/"/>
-    
-    <category term="B*树" scheme="https://wangjunstf.github.io/tags/B-%E6%A0%91/"/>
     
   </entry>
   
