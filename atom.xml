@@ -6,7 +6,7 @@
   <link href="https://wangjunstf.github.io/atom.xml" rel="self"/>
   
   <link href="https://wangjunstf.github.io/"/>
-  <updated>2022-01-20T06:10:33.091Z</updated>
+  <updated>2022-01-20T06:14:45.442Z</updated>
   <id>https://wangjunstf.github.io/</id>
   
   <author>
@@ -21,12 +21,10 @@
     <link href="https://wangjunstf.github.io/2022/01/20/arm-yi-wei-zhi-ling/"/>
     <id>https://wangjunstf.github.io/2022/01/20/arm-yi-wei-zhi-ling/</id>
     <published>2022-01-20T03:36:23.000Z</published>
-    <updated>2022-01-20T06:10:33.091Z</updated>
+    <updated>2022-01-20T06:14:45.442Z</updated>
     
     
-    <summary type="html">&lt;p&gt;以下两条指令等价：&lt;/p&gt;
-&lt;p&gt;LSL（逻辑左移）：最高位丢失，最低位补 0&lt;/p&gt;
-&lt;p&gt;ASL（算术左移）：最高位丢失，最低位补 0&lt;/p&gt;</summary>
+    <summary type="html">&lt;p&gt;以下两条指令等价：&lt;br&gt;LSL（逻辑左移）：最高位丢失，最低位补 0&lt;br&gt;ASL（算术左移）：最高位丢失，最低位补 0&lt;/p&gt;</summary>
     
     
     
