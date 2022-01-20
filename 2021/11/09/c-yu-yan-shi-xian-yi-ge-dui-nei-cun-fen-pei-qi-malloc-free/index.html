@@ -28,7 +28,7 @@
 <meta property="og:description" content="C 语言使用 malloc 分配内存，使用 free 释放内存。那么它们是怎么实现的呢？ 堆内存位于数据段(data) 和内存映射区之间，它有一个堆顶指针 brk，malloc 将堆内存分为空闲块和已分配块，使用链表来管理空闲块和已分配块。当堆内存用完时，使用系统调用 sbrk 增大 brk 来增大堆内存的大小。当要求分配的内存大小大于空闲块时，就将空闲块分成两份，一份分配给用户，剩下的内存作为一">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-11-09T10:27:32.000Z">
-<meta property="article:modified_time" content="2021-11-09T10:30:09.937Z">
+<meta property="article:modified_time" content="2021-11-09T10:30:09.000Z">
 <meta property="article:author" content="编程之禅">
 <meta property="article:tag" content="堆内存">
 <meta property="article:tag" content="内存分配器">
