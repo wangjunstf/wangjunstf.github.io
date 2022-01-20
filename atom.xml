@@ -6,7 +6,7 @@
   <link href="https://wangjunstf.github.io/atom.xml" rel="self"/>
   
   <link href="https://wangjunstf.github.io/"/>
-  <updated>2022-01-20T06:14:45.442Z</updated>
+  <updated>2022-01-20T08:09:07.459Z</updated>
   <id>https://wangjunstf.github.io/</id>
   
   <author>
@@ -21,10 +21,17 @@
     <link href="https://wangjunstf.github.io/2022/01/20/arm-yi-wei-zhi-ling/"/>
     <id>https://wangjunstf.github.io/2022/01/20/arm-yi-wei-zhi-ling/</id>
     <published>2022-01-20T03:36:23.000Z</published>
-    <updated>2022-01-20T06:14:45.442Z</updated>
+    <updated>2022-01-20T08:09:07.459Z</updated>
     
     
-    <summary type="html">&lt;p&gt;以下两条指令等价：&lt;br&gt;LSL（逻辑左移）：最高位丢失，最低位补 0&lt;br&gt;ASL（算术左移）：最高位丢失，最低位补 0&lt;/p&gt;</summary>
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;移位指令是一组经常使用的指令，它包括移位指令（含算术移位指令，逻辑移位指令），循环移位指令（含带进位循环移位指令），其作用就是将目的操作数的所有位按操作符规定的方式移动指定的位数。&lt;/p&gt;
+&lt;p&gt;ARM 中的移位指令如下：ASR, LSR, LSL, ROR和</summary>
+        
+      
     
     
     
