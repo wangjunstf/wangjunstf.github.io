@@ -678,9 +678,9 @@
       
         <tags>
             
-            <tag> 中序遍历 </tag>
-            
             <tag> 二叉搜索树 </tag>
+            
+            <tag> 中序遍历 </tag>
             
             <tag> Morris中序遍历 </tag>
             
@@ -1022,9 +1022,9 @@
             
             <tag> c++ </tag>
             
-            <tag> 二叉搜索树 </tag>
-            
             <tag> 红黑树 </tag>
+            
+            <tag> 二叉搜索树 </tag>
             
         </tags>
       
