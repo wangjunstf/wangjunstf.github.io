@@ -6,7 +6,7 @@
   <link href="https://wangjunstf.github.io/atom.xml" rel="self"/>
   
   <link href="https://wangjunstf.github.io/"/>
-  <updated>2022-09-28T08:50:46.671Z</updated>
+  <updated>2022-01-20T08:28:47.601Z</updated>
   <id>https://wangjunstf.github.io/</id>
   
   <author>
@@ -15,27 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>test</title>
-    <link href="https://wangjunstf.github.io/2022/09/28/test/"/>
-    <id>https://wangjunstf.github.io/2022/09/28/test/</id>
-    <published>2022-09-28T08:50:23.000Z</published>
-    <updated>2022-09-28T08:50:46.671Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;This is</summary>
-        
-      
-    
-    
-    
-    
-  </entry>
   
   <entry>
     <title>ARM 移位指令</title>
@@ -488,6 +467,31 @@
     <category term="关联容器" scheme="https://wangjunstf.github.io/tags/%E5%85%B3%E8%81%94%E5%AE%B9%E5%99%A8/"/>
     
     <category term="迭代器" scheme="https://wangjunstf.github.io/tags/%E8%BF%AD%E4%BB%A3%E5%99%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>并查集原理与实现</title>
+    <link href="https://wangjunstf.github.io/2021/09/28/bing-cha-ji-yuan-li-yu-shi-xian/"/>
+    <id>https://wangjunstf.github.io/2021/09/28/bing-cha-ji-yuan-li-yu-shi-xian/</id>
+    <published>2021-09-28T08:35:08.000Z</published>
+    <updated>2021-11-05T14:34:59.000Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;并查集原理&quot;&gt;&lt;a href=&quot;#并查集原理&quot; class=&quot;headerlink&quot; title=&quot;并查集原理&quot;&gt;&lt;/a&gt;并查集原理&lt;/h2&gt;&lt;p&gt;（1）并查集用于解决以下问题&lt;/p&gt;
+&lt;p&gt;用于处理没有重复元素的集合(不交集)的查询和合并。可以快速判断一个元素是否在一个集合中，或者两个元素是否属于同一个集合。&lt;/p&gt;
+&lt;p&gt;（2）并查集支持以下操作：&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="数据结构" scheme="https://wangjunstf.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+    
+    <category term="并查集" scheme="https://wangjunstf.github.io/tags/%E5%B9%B6%E6%9F%A5%E9%9B%86/"/>
+    
+    <category term="压缩路径" scheme="https://wangjunstf.github.io/tags/%E5%8E%8B%E7%BC%A9%E8%B7%AF%E5%BE%84/"/>
+    
+    <category term="启发式合并" scheme="https://wangjunstf.github.io/tags/%E5%90%AF%E5%8F%91%E5%BC%8F%E5%90%88%E5%B9%B6/"/>
     
   </entry>
   
