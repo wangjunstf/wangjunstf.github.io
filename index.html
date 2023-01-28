@@ -238,6 +238,105 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://wangjunstf.github.io/2023/01/28/the-rust-slice-type/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="编程之禅">
+      <meta itemprop="description" content="本博客用于分享编程语言，网络原理，操作系统，数据结构与算法等知识。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="编程之禅">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/01/28/the-rust-slice-type/" class="post-title-link" itemprop="url">The Rust Slice Type</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2023-01-28 17:22:10 / 修改时间：17:40:57" itemprop="dateCreated datePublished" datetime="2023-01-28T17:22:10+08:00">2023-01-28</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Rust/" itemprop="url" rel="index"><span itemprop="name">Rust</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2023/01/28/the-rust-slice-type/" class="post-meta-item leancloud_visitors" data-flag-title="The Rust Slice Type" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/2023/01/28/the-rust-slice-type/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2023/01/28/the-rust-slice-type/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="The-Rust-Slice-Type"><a href="#The-Rust-Slice-Type" class="headerlink" title="The Rust Slice Type"></a>The Rust Slice Type</h1><p>Slice is a kind of data structure that store heap memory, it contains two fields, one representing the memory address and the other representing the length. Our most common string literal is a kind of slice.</p>
+<p>Slice let us reference a contiguous sequence of elements in a collection rather than the whole collection. A slice is a kind of reference, so it does not have ownership. And the slice ensures that the data it references is always valid. </p>
+<h2 id="String-Slices"><a href="#String-Slices" class="headerlink" title="String Slices"></a>String Slices</h2><p>A string slice is a reference to part of a String, and it looks like this:</p>
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> s = <span class="built_in">String</span>::from(<span class="string">&quot;hello world&quot;</span>);</span><br><span class="line"><span class="keyword">let</span> world = &amp;s[<span class="number">6</span>..<span class="number">11</span>];</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/01/28/the-rust-slice-type/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://wangjunstf.github.io/2023/01/12/effective-cpp/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1166,111 +1265,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://wangjunstf.github.io/2021/11/09/xu-ni-nei-cun-de-zuo-yong-xu-ni-di-zhi-ye-biao-tlb-huan-cun-yuan-li/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="编程之禅">
-      <meta itemprop="description" content="本博客用于分享编程语言，网络原理，操作系统，数据结构与算法等知识。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="编程之禅">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/11/09/xu-ni-nei-cun-de-zuo-yong-xu-ni-di-zhi-ye-biao-tlb-huan-cun-yuan-li/" class="post-title-link" itemprop="url">虚拟内存的作用，虚拟地址，页表，TLB，缓存原理</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-11-09 17:55:22" itemprop="dateCreated datePublished" datetime="2021-11-09T17:55:22+08:00">2021-11-09</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-01-12 15:57:54" itemprop="dateModified" datetime="2023-01-12T15:57:54+08:00">2023-01-12</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/" itemprop="url" rel="index"><span itemprop="name">深入理解计算机系统</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2021/11/09/xu-ni-nei-cun-de-zuo-yong-xu-ni-di-zhi-ye-biao-tlb-huan-cun-yuan-li/" class="post-meta-item leancloud_visitors" data-flag-title="虚拟内存的作用，虚拟地址，页表，TLB，缓存原理" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus：</span>
-    
-    <a title="disqus" href="/2021/11/09/xu-ni-nei-cun-de-zuo-yong-xu-ni-di-zhi-ye-biao-tlb-huan-cun-yuan-li/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/11/09/xu-ni-nei-cun-de-zuo-yong-xu-ni-di-zhi-ye-biao-tlb-huan-cun-yuan-li/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <meta name="referrer" content="no-referrer"/>
-
-<h2 id="9-1-物理地址和虚拟地址"><a href="#9-1-物理地址和虚拟地址" class="headerlink" title="9.1 物理地址和虚拟地址"></a>9.1 物理地址和虚拟地址</h2><p>计算机系统的主存是由 M 个连续的字节大小的单元组成的数组。每个字节都有一个唯一的物理地址，地址范围从 0 到 M-1。计算机使用内存最自然的方式是使用物理地址，我们将这种方式称为物理寻址。</p>
-<p>CPU 向内存发送一个地址，内存将该地址开始的四个字节信息传送到 CPU 中的一个 4字节寄存器。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/11/09/xu-ni-nei-cun-de-zuo-yong-xu-ni-di-zhi-ye-biao-tlb-huan-cun-yuan-li/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1340,20 +1334,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-count">64</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-count">18</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">126</span>
+        <span class="site-state-item-count">128</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

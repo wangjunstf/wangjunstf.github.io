@@ -238,6 +238,114 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://wangjunstf.github.io/2021/04/16/linux-jin-cheng-guan-li/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="编程之禅">
+      <meta itemprop="description" content="本博客用于分享编程语言，网络原理，操作系统，数据结构与算法等知识。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="编程之禅">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/04/16/linux-jin-cheng-guan-li/" class="post-title-link" itemprop="url">Linux进程管理</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-04-16 15:41:02" itemprop="dateCreated datePublished" datetime="2021-04-16T15:41:02+08:00">2021-04-16</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-01-12 15:57:54" itemprop="dateModified" datetime="2023-01-12T15:57:54+08:00">2023-01-12</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2021/04/16/linux-jin-cheng-guan-li/" class="post-meta-item leancloud_visitors" data-flag-title="Linux进程管理" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/2021/04/16/linux-jin-cheng-guan-li/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/04/16/linux-jin-cheng-guan-li/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="CentOS-7的启动过程"><a href="#CentOS-7的启动过程" class="headerlink" title="CentOS 7的启动过程"></a>CentOS 7的启动过程</h1><ol>
+<li>BIOS加电自检</li>
+<li>进入Boot Loader</li>
+<li>加载Linux系统内核</li>
+<li>启动初始化程序（前期版本System V init，CentOS7中使用systems，采用并发启动机制，提升开启速度），该进程为系统的第一个进程。</li>
+<li>systemd初始化系统，创建login进程。</li>
+<li>用户登录，login进程创建shell进程。以后进程都是由shell衍生出来。
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/04/16/linux-jin-cheng-guan-li/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://wangjunstf.github.io/2021/04/08/c-yu-yan-fgets/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -614,20 +722,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-count">64</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-count">18</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">126</span>
+        <span class="site-state-item-count">128</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

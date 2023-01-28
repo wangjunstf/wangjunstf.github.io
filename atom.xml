@@ -6,7 +6,7 @@
   <link href="https://wangjunstf.github.io/atom.xml" rel="self"/>
   
   <link href="https://wangjunstf.github.io/"/>
-  <updated>2023-01-12T10:54:44.427Z</updated>
+  <updated>2023-01-28T09:40:57.038Z</updated>
   <id>https://wangjunstf.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>The Rust Slice Type</title>
+    <link href="https://wangjunstf.github.io/2023/01/28/the-rust-slice-type/"/>
+    <id>https://wangjunstf.github.io/2023/01/28/the-rust-slice-type/</id>
+    <published>2023-01-28T09:22:10.000Z</published>
+    <updated>2023-01-28T09:40:57.038Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;The-Rust-Slice-Type&quot;&gt;&lt;a href=&quot;#The-Rust-Slice-Type&quot; class=&quot;headerlink&quot; title=&quot;The Rust Slice Type&quot;&gt;&lt;/a&gt;The Rust Slice Type&lt;/h1&gt;&lt;p&gt;Slice is a kind of data structure that store heap memory, it contains two fields, one representing the memory address and the other representing the length. Our most common string literal is a kind of slice.&lt;/p&gt;
+&lt;p&gt;Slice let us reference a contiguous sequence of elements in a collection rather than the whole collection. A slice is a kind of reference, so it does not have ownership. And the slice ensures that the data it references is always valid. &lt;/p&gt;
+&lt;h2 id=&quot;String-Slices&quot;&gt;&lt;a href=&quot;#String-Slices&quot; class=&quot;headerlink&quot; title=&quot;String Slices&quot;&gt;&lt;/a&gt;String Slices&lt;/h2&gt;&lt;p&gt;A string slice is a reference to part of a String, and it looks like this:&lt;/p&gt;
+&lt;figure class=&quot;highlight rust&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; s = &lt;span class=&quot;built_in&quot;&gt;String&lt;/span&gt;::from(&lt;span class=&quot;string&quot;&gt;&amp;quot;hello world&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; world = &amp;amp;s[&lt;span class=&quot;number&quot;&gt;6&lt;/span&gt;..&lt;span class=&quot;number&quot;&gt;11&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
+    
+    
+    
+    <category term="Rust" scheme="https://wangjunstf.github.io/categories/Rust/"/>
+    
+    
+    <category term="Rust" scheme="https://wangjunstf.github.io/tags/Rust/"/>
+    
+    <category term="slice" scheme="https://wangjunstf.github.io/tags/slice/"/>
+    
+  </entry>
   
   <entry>
     <title>Effective C++总结</title>
@@ -463,33 +487,6 @@
     <category term="静态库" scheme="https://wangjunstf.github.io/tags/%E9%9D%99%E6%80%81%E5%BA%93/"/>
     
     <category term="动态库" scheme="https://wangjunstf.github.io/tags/%E5%8A%A8%E6%80%81%E5%BA%93/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>C++ STL标准模版库总结</title>
-    <link href="https://wangjunstf.github.io/2021/09/29/c-stl-biao-zhun-mo-ban-ku-zong-jie/"/>
-    <id>https://wangjunstf.github.io/2021/09/29/c-stl-biao-zhun-mo-ban-ku-zong-jie/</id>
-    <published>2021-09-29T14:53:15.000Z</published>
-    <updated>2023-01-12T07:57:54.107Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;STL-的组成部分&quot;&gt;&lt;a href=&quot;#STL-的组成部分&quot; class=&quot;headerlink&quot; title=&quot;STL 的组成部分&quot;&gt;&lt;/a&gt;STL 的组成部分&lt;/h2&gt;&lt;p&gt;模版是C++程序设计语言的一个重要特征，STL 正是基于这一特征，STL 具有强大的功能，同时兼具良好的可扩展性。&lt;/p&gt;
-&lt;p&gt;STL 分为 3 类：Algorithm（算法）、Container（容器）和Iterator（迭代器），容器和算法通过迭代器可以进行无缝地连接。&lt;/p&gt;
-&lt;p&gt;STL 由 6 部分组成：容器(Container)、算法（Algorithm）、 迭代器（Iterator）、仿函数（Function object）、适配器（Adaptor）、空间配制器（Allocator）。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="cpp" scheme="https://wangjunstf.github.io/categories/cpp/"/>
-    
-    
-    <category term="STL" scheme="https://wangjunstf.github.io/tags/STL/"/>
-    
-    <category term="顺序容器" scheme="https://wangjunstf.github.io/tags/%E9%A1%BA%E5%BA%8F%E5%AE%B9%E5%99%A8/"/>
-    
-    <category term="关联容器" scheme="https://wangjunstf.github.io/tags/%E5%85%B3%E8%81%94%E5%AE%B9%E5%99%A8/"/>
-    
-    <category term="迭代器" scheme="https://wangjunstf.github.io/tags/%E8%BF%AD%E4%BB%A3%E5%99%A8/"/>
     
   </entry>
   
