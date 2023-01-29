@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"wangjunstf.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":{"disqus":{"text":"Load Disqus","order":-1},"gitalk":{"order":-2}}},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="The Rust Slice TypeSlice is a kind of data structure that store heap memory, it contains two fields, one representing the memory address and the other representing the length. Our most common string l">
+  <meta name="description" content="The Rust Slice TypeSlice is a kind of data structure that store in heap memory, it contains two fields, one representing the memory address and the other representing the length. Our most common strin">
 <meta property="og:type" content="article">
 <meta property="og:title" content="The Rust Slice Type">
 <meta property="og:url" content="https://wangjunstf.github.io/2023/01/28/the-rust-slice-type/index.html">
 <meta property="og:site_name" content="编程之禅">
-<meta property="og:description" content="The Rust Slice TypeSlice is a kind of data structure that store heap memory, it contains two fields, one representing the memory address and the other representing the length. Our most common string l">
+<meta property="og:description" content="The Rust Slice TypeSlice is a kind of data structure that store in heap memory, it contains two fields, one representing the memory address and the other representing the length. Our most common strin">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-01-28T09:22:10.000Z">
-<meta property="article:modified_time" content="2023-01-28T09:40:57.038Z">
+<meta property="article:modified_time" content="2023-01-29T02:17:10.742Z">
 <meta property="article:author" content="编程之禅">
 <meta property="article:tag" content="Rust">
 <meta property="article:tag" content="slice">
@@ -260,10 +260,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2023-01-28 17:22:10 / 修改时间：17:40:57" itemprop="dateCreated datePublished" datetime="2023-01-28T17:22:10+08:00">2023-01-28</time>
+              <time title="创建时间：2023-01-28 17:22:10" itemprop="dateCreated datePublished" datetime="2023-01-28T17:22:10+08:00">2023-01-28</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-01-29 10:17:10" itemprop="dateModified" datetime="2023-01-29T10:17:10+08:00">2023-01-29</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -306,7 +312,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="The-Rust-Slice-Type"><a href="#The-Rust-Slice-Type" class="headerlink" title="The Rust Slice Type"></a>The Rust Slice Type</h1><p>Slice is a kind of data structure that store heap memory, it contains two fields, one representing the memory address and the other representing the length. Our most common string literal is a kind of slice.</p>
+        <h1 id="The-Rust-Slice-Type"><a href="#The-Rust-Slice-Type" class="headerlink" title="The Rust Slice Type"></a>The Rust Slice Type</h1><p>Slice is a kind of data structure that store in heap memory, it contains two fields, one representing the memory address and the other representing the length. Our most common string literal is a kind of slice.</p>
 <p>Slice let us reference a contiguous sequence of elements in a collection rather than the whole collection. A slice is a kind of reference, so it does not have ownership. And the slice ensures that the data it references is always valid. </p>
 <h2 id="String-Slices"><a href="#String-Slices" class="headerlink" title="String Slices"></a>String Slices</h2><p>A string slice is a reference to part of a String, and it looks like this:</p>
 <figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> s = <span class="built_in">String</span>::from(<span class="string">&quot;hello world&quot;</span>);</span><br><span class="line"><span class="keyword">let</span> world = &amp;s[<span class="number">6</span>..<span class="number">11</span>];</span><br></pre></td></tr></table></figure>
