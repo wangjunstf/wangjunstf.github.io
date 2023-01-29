@@ -6,7 +6,7 @@
   <link href="https://wangjunstf.github.io/atom.xml" rel="self"/>
   
   <link href="https://wangjunstf.github.io/"/>
-  <updated>2023-01-29T02:17:10.742Z</updated>
+  <updated>2023-01-29T06:55:43.282Z</updated>
   <id>https://wangjunstf.github.io/</id>
   
   <author>
@@ -17,14 +17,36 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>The Rust Raw Pointer</title>
+    <link href="https://wangjunstf.github.io/2023/01/29/the-rust-raw-pointer/"/>
+    <id>https://wangjunstf.github.io/2023/01/29/the-rust-raw-pointer/</id>
+    <published>2023-01-29T02:33:17.000Z</published>
+    <updated>2023-01-29T06:55:43.282Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;In rust compiler ensures references are always valid. Unsafe Rust has a type called raw pointer that are similar to references. As with reference, raw pointers can be immutable or mutable and are written as &lt;code&gt;*const T&lt;/code&gt; and &lt;code&gt;* mut T&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Different from references and smart pointers, raw pointers:&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Rust" scheme="https://wangjunstf.github.io/categories/Rust/"/>
+    
+    
+    <category term="Rust" scheme="https://wangjunstf.github.io/tags/Rust/"/>
+    
+    <category term="pointer" scheme="https://wangjunstf.github.io/tags/pointer/"/>
+    
+  </entry>
+  
+  <entry>
     <title>The Rust Slice Type</title>
     <link href="https://wangjunstf.github.io/2023/01/28/the-rust-slice-type/"/>
     <id>https://wangjunstf.github.io/2023/01/28/the-rust-slice-type/</id>
     <published>2023-01-28T09:22:10.000Z</published>
-    <updated>2023-01-29T02:17:10.742Z</updated>
+    <updated>2023-01-29T02:46:28.484Z</updated>
     
     
-    <summary type="html">&lt;h1 id=&quot;The-Rust-Slice-Type&quot;&gt;&lt;a href=&quot;#The-Rust-Slice-Type&quot; class=&quot;headerlink&quot; title=&quot;The Rust Slice Type&quot;&gt;&lt;/a&gt;The Rust Slice Type&lt;/h1&gt;&lt;p&gt;Slice is a kind of data structure that store in heap memory, it contains two fields, one representing the memory address and the other representing the length. Our most common string literal is a kind of slice.&lt;/p&gt;
+    <summary type="html">&lt;h1 id=&quot;The-Rust-Slice-Type&quot;&gt;&lt;a href=&quot;#The-Rust-Slice-Type&quot; class=&quot;headerlink&quot; title=&quot;The Rust Slice Type&quot;&gt;&lt;/a&gt;The Rust Slice Type&lt;/h1&gt;&lt;p&gt;Slice is a kind of data structure that store heap memory, it contains two fields, one representing the memory address and the other representing the length. Our most common string literal is a kind of slice.&lt;/p&gt;
 &lt;p&gt;Slice let us reference a contiguous sequence of elements in a collection rather than the whole collection. A slice is a kind of reference, so it does not have ownership. And the slice ensures that the data it references is always valid. &lt;/p&gt;
 &lt;h2 id=&quot;String-Slices&quot;&gt;&lt;a href=&quot;#String-Slices&quot; class=&quot;headerlink&quot; title=&quot;String Slices&quot;&gt;&lt;/a&gt;String Slices&lt;/h2&gt;&lt;p&gt;A string slice is a reference to part of a String, and it looks like this:&lt;/p&gt;
 &lt;figure class=&quot;highlight rust&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; s = &lt;span class=&quot;built_in&quot;&gt;String&lt;/span&gt;::from(&lt;span class=&quot;string&quot;&gt;&amp;quot;hello world&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; world = &amp;amp;s[&lt;span class=&quot;number&quot;&gt;6&lt;/span&gt;..&lt;span class=&quot;number&quot;&gt;11&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
@@ -462,31 +484,6 @@
     <category term="前缀和" scheme="https://wangjunstf.github.io/tags/%E5%89%8D%E7%BC%80%E5%92%8C/"/>
     
     <category term="二分查找" scheme="https://wangjunstf.github.io/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>静态库和动态库制作</title>
-    <link href="https://wangjunstf.github.io/2021/09/30/jing-tai-ku-he-dong-tai-ku-zhi-zuo/"/>
-    <id>https://wangjunstf.github.io/2021/09/30/jing-tai-ku-he-dong-tai-ku-zhi-zuo/</id>
-    <published>2021-09-30T07:27:42.000Z</published>
-    <updated>2023-01-12T07:57:54.107Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;什么是库&quot;&gt;&lt;a href=&quot;#什么是库&quot; class=&quot;headerlink&quot; title=&quot;什么是库&quot;&gt;&lt;/a&gt;什么是库&lt;/h2&gt;&lt;p&gt;库文件是计算机上的一类文件，提供给使用者一些开箱即用的变量、函数或类。静态库和动态库，静态库和动态库的区别体现在程序的链接阶段：静态库在程序的链接阶段被复制到了程序中；动态库在链接阶段没有被复制到程序中，而是程序在运行时由系统动态加载到内存中供程序调用。&lt;/p&gt;
-&lt;p&gt;假设当前目录下有以下文件&lt;/p&gt;
-&lt;p&gt;├── main.c&lt;/p&gt;
-&lt;p&gt;├── tools.c&lt;/p&gt;
-&lt;p&gt;└── tools.h&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Linux" scheme="https://wangjunstf.github.io/categories/Linux/"/>
-    
-    
-    <category term="静态库" scheme="https://wangjunstf.github.io/tags/%E9%9D%99%E6%80%81%E5%BA%93/"/>
-    
-    <category term="动态库" scheme="https://wangjunstf.github.io/tags/%E5%8A%A8%E6%80%81%E5%BA%93/"/>
     
   </entry>
   
