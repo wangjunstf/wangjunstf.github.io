@@ -8,7 +8,7 @@ tags: [Rust, slice]
 
 # The Rust Slice Type
 
-Slice is a kind of data structure that store in heap memory, it contains two fields, one representing the memory address and the other representing the length. Our most common string literal is a kind of slice.
+Slice is a kind of data structure that store heap memory, it contains two fields, one representing the memory address and the other representing the length. Our most common string literal is a kind of slice.
 
 Slice let us reference a contiguous sequence of elements in a collection rather than the whole collection. A slice is a kind of reference, so it does not have ownership. And the slice ensures that the data it references is always valid. 
 
@@ -21,7 +21,7 @@ let s = String::from("hello world");
 let world = &s[6..11];
 ```
 <!-- more -->
-The s is a reference to the entire String `hello world`, but the world is a slice, it reference to part of the String `hello world`.string slice referring to part of a `String`
+The s is a reference to the entire String `hello world`, but the world is a slice, it reference to part of the String `hello world`. String slice referring to part of a `String`
 
 We can use slices to refer to any part of a string with Rust's `..`syntax, for example:
 
