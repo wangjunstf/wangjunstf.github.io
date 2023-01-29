@@ -43,12 +43,11 @@
     <link href="https://wangjunstf.github.io/2023/01/28/the-rust-slice-type/"/>
     <id>https://wangjunstf.github.io/2023/01/28/the-rust-slice-type/</id>
     <published>2023-01-28T09:22:10.000Z</published>
-    <updated>2023-01-29T06:56:49.601Z</updated>
+    <updated>2023-01-29T06:57:22.781Z</updated>
     
     
     <summary type="html">&lt;p&gt;Slice is a kind of data structure that store heap memory, it contains two fields, one representing the memory address and the other representing the length. Our most common string literal is a kind of slice.&lt;/p&gt;
-&lt;p&gt;Slice let us reference a contiguous sequence of elements in a collection rather than the whole collection. A slice is a kind of reference, so it does not have ownership. And the slice ensures that the data it references is always valid. &lt;/p&gt;
-&lt;h2 id=&quot;String-Slices&quot;&gt;&lt;a href=&quot;#String-Slices&quot; class=&quot;headerlink&quot; title=&quot;String Slices&quot;&gt;&lt;/a&gt;String Slices&lt;/h2&gt;&lt;p&gt;A string slice is a reference to part of a String, and it looks like this:&lt;/p&gt;</summary>
+&lt;p&gt;Slice let us reference a contiguous sequence of elements in a collection rather than the whole collection. A slice is a kind of reference, so it does not have ownership. And the slice ensures that the data it references is always valid. &lt;/p&gt;</summary>
     
     
     
