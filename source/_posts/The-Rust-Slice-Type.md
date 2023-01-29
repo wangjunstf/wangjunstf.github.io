@@ -8,7 +8,7 @@ tags: [Rust, slice]
 
 # The Rust Slice Type
 
-Slice is a kind of data structure that store heap memory, it contains two fields, one representing the memory address and the other representing the length. Our most common string literal is a kind of slice.
+Slice is a kind of data structure that store in heap memory, it contains two fields, one representing the memory address and the other representing the length. Our most common string literal is a kind of slice.
 
 Slice let us reference a contiguous sequence of elements in a collection rather than the whole collection. A slice is a kind of reference, so it does not have ownership. And the slice ensures that the data it references is always valid. 
 
