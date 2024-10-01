@@ -1,0 +1,489 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>编程之禅</title>
+  
+  
+  <link href="https://wangjunstf.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://wangjunstf.github.io/"/>
+  <updated>2024-10-01T14:30:41.752Z</updated>
+  <id>https://wangjunstf.github.io/</id>
+  
+  <author>
+    <name>编程之禅</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>hello world</title>
+    <link href="https://wangjunstf.github.io/2024/10/01/hello-world/"/>
+    <id>https://wangjunstf.github.io/2024/10/01/hello-world/</id>
+    <published>2024-10-01T14:30:13.000Z</published>
+    <updated>2024-10-01T14:30:41.752Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;Hello</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>The Rust Slice Type</title>
+    <link href="https://wangjunstf.github.io/2023/01/28/the-rust-slice-type/"/>
+    <id>https://wangjunstf.github.io/2023/01/28/the-rust-slice-type/</id>
+    <published>2023-01-28T09:22:10.000Z</published>
+    <updated>2024-10-01T14:17:56.613Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;The-Rust-Slice-Type&quot;&gt;&lt;a href=&quot;#The-Rust-Slice-Type&quot; class=&quot;headerlink&quot; title=&quot;The Rust Slice Type&quot;&gt;&lt;/a&gt;The Rust Slice Type&lt;/h1&gt;&lt;p&gt;Slice is a kind of data structure that store heap memory, it contains two fields, one representing the memory address and the other representing the length. Our most common string literal is a kind of slice.&lt;/p&gt;
+&lt;p&gt;Slice let us reference a contiguous sequence of elements in a collection rather than the whole collection. A slice is a kind of reference, so it does not have ownership. And the slice ensures that the data it references is always valid. &lt;/p&gt;
+&lt;h2 id=&quot;String-Slices&quot;&gt;&lt;a href=&quot;#String-Slices&quot; class=&quot;headerlink&quot; title=&quot;String Slices&quot;&gt;&lt;/a&gt;String Slices&lt;/h2&gt;&lt;p&gt;A string slice is a reference to part of a String, and it looks like this:&lt;/p&gt;
+&lt;figure class=&quot;highlight rust&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;variable&quot;&gt;s&lt;/span&gt; = &lt;span class=&quot;type&quot;&gt;String&lt;/span&gt;::&lt;span class=&quot;title function_ invoke__&quot;&gt;from&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;quot;hello world&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;variable&quot;&gt;world&lt;/span&gt; = &amp;amp;s[&lt;span class=&quot;number&quot;&gt;6&lt;/span&gt;..&lt;span class=&quot;number&quot;&gt;11&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
+    
+    
+    
+    <category term="Rust" scheme="https://wangjunstf.github.io/categories/Rust/"/>
+    
+    
+    <category term="Rust" scheme="https://wangjunstf.github.io/tags/Rust/"/>
+    
+    <category term="slice" scheme="https://wangjunstf.github.io/tags/slice/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Effective C++总结</title>
+    <link href="https://wangjunstf.github.io/2023/01/12/effective-cpp/"/>
+    <id>https://wangjunstf.github.io/2023/01/12/effective-cpp/</id>
+    <published>2023-01-12T09:31:47.000Z</published>
+    <updated>2024-10-01T14:17:56.609Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;导读&quot;&gt;&lt;a href=&quot;#导读&quot; class=&quot;headerlink&quot; title=&quot;导读&quot;&gt;&lt;/a&gt;&lt;strong&gt;导读&lt;/strong&gt;&lt;/h2&gt;&lt;p&gt;学习程序语言根本大法是一回事；学习如何以某种语言设计并实现高效程序则是令一会事。&lt;/p&gt;
+&lt;p&gt;一组明智选择并精心设计的 classes，functions 和 templates 可使程序编写容易，直观，高效，并且远离错误。&lt;/p&gt;
+&lt;h3 id=&quot;1-explicit&quot;&gt;&lt;a href=&quot;#1-explicit&quot; class=&quot;headerlink&quot; title=&quot;1 explicit&quot;&gt;&lt;/a&gt;&lt;strong&gt;1 explicit&lt;/strong&gt;&lt;/h3&gt;&lt;p&gt;default 构造函数：一个可被调用而不带任何实参的函数，这样的构造函数要不没有参数，要不就是每个参数都有缺省值。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="编程语言" scheme="https://wangjunstf.github.io/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
+    
+    
+    <category term="C++" scheme="https://wangjunstf.github.io/tags/C/"/>
+    
+    <category term="Effective C++" scheme="https://wangjunstf.github.io/tags/Effective-C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ARM 移位指令</title>
+    <link href="https://wangjunstf.github.io/2022/01/20/arm-yi-wei-zhi-ling/"/>
+    <id>https://wangjunstf.github.io/2022/01/20/arm-yi-wei-zhi-ling/</id>
+    <published>2022-01-20T03:36:23.000Z</published>
+    <updated>2024-10-01T14:17:56.604Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;移位指令是一组经常使用的指令，它包括移位指令（含算术移位指令，逻辑移位指令），循环移位指令（含带进位循环移位指令），其作用就是将目的操作数的所有位按操作符规定的方式移动指定的位数。&lt;/p&gt;
+&lt;p&gt;ARM 中的移位指令如下：ASR, LSR, LSL, ROR和 RRX，直接写入目标寄存器中。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="ARM" scheme="https://wangjunstf.github.io/categories/ARM/"/>
+    
+    
+    <category term="ARM" scheme="https://wangjunstf.github.io/tags/ARM/"/>
+    
+    <category term="移位指令" scheme="https://wangjunstf.github.io/tags/%E7%A7%BB%E4%BD%8D%E6%8C%87%E4%BB%A4/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>用 Lisp 实现一个简单的数据库</title>
+    <link href="https://wangjunstf.github.io/2021/11/16/yong-lisp-shi-xian-yi-ge-jian-dan-de-shu-ju-ku/"/>
+    <id>https://wangjunstf.github.io/2021/11/16/yong-lisp-shi-xian-yi-ge-jian-dan-de-shu-ju-ku/</id>
+    <published>2021-11-16T03:12:14.000Z</published>
+    <updated>2024-10-01T14:17:56.617Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;第一次认识 Lisp 是通过《黑客与画家》这本书，书中对 Lisp 赞不绝口，声称现在编程语言的发展也只是赶上了 1958 年的 Lisp 语言的水平。很多人就有疑问了，一个诞生于 1958 年的语言，计算机技术不是日新月异吗，为什么 Lisp 还没有过时？书中是这样说的，Lisp 是数学，数学是不会过时的。在书的作者 Paul Graham 的力荐下，对 Lisp 充满了浓厚的兴趣，就开始了 Lisp 的学习之旅。由于之前学习的繁忙，加上 Lisp 在”主流编程界” 好像并不受待见，我也没有一直持续学习，而是学习更加受欢迎的 C，Python 等语言，毕竟以后是要吃饭的嘛。在大学生涯的最后一段时间里，计算机基础知识学的越多，越发觉得编程语言的有趣之处，也明白了所有编程语言其实都是图灵等价的，即一个功能可以用任何编程语言实现，只不过是实现方式不一样。编程语言学的越多，越来越感受到 Lisp 本身设计的优雅，怀着一份好奇心，我又重新走进了 Lisp 的世界。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Lisp" scheme="https://wangjunstf.github.io/categories/Lisp/"/>
+    
+    
+    <category term="Lisp" scheme="https://wangjunstf.github.io/tags/Lisp/"/>
+    
+    <category term="数据结构" scheme="https://wangjunstf.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>用两个栈模拟一个队列</title>
+    <link href="https://wangjunstf.github.io/2021/11/11/yong-liang-ge-zhan-mo-ni-yi-ge-dui-lie/"/>
+    <id>https://wangjunstf.github.io/2021/11/11/yong-liang-ge-zhan-mo-ni-yi-ge-dui-lie/</id>
+    <published>2021-11-11T09:39:40.000Z</published>
+    <updated>2024-10-01T14:17:56.618Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;思路&quot;&gt;&lt;a href=&quot;#思路&quot; class=&quot;headerlink&quot; title=&quot;思路&quot;&gt;&lt;/a&gt;思路&lt;/h2&gt;&lt;p&gt;本题是考察栈和队列的常见问题。要解答本题必须知道栈的队列的基本原理。&lt;/p&gt;
+&lt;p&gt;栈：一种后进先出的数据结构，想象一个单车道，汽车一辆接一辆往里开，最先进入的在最里面，最后进入的在最外面，当需要出去的时候，最后进入的先出，最先进入的最后出去。符合类似进出原则的数据结构就叫做栈。 往栈中存入数据也叫压栈，取出数据也叫弹栈。&lt;/p&gt;
+&lt;p&gt;队列：先进先出的数据结构。顾名思义，就像排队一样，最先进入在队头，后进入在队尾，队头先出队，队尾后出队。往队列中存入数据叫入队，往队列中取数据叫出队。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="算法" scheme="https://wangjunstf.github.io/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+    <category term="栈" scheme="https://wangjunstf.github.io/tags/%E6%A0%88/"/>
+    
+    <category term="队列" scheme="https://wangjunstf.github.io/tags/%E9%98%9F%E5%88%97/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>快速幂算法</title>
+    <link href="https://wangjunstf.github.io/2021/11/11/kuai-su-mi-suan-fa/"/>
+    <id>https://wangjunstf.github.io/2021/11/11/kuai-su-mi-suan-fa/</id>
+    <published>2021-11-10T16:51:08.000Z</published>
+    <updated>2024-10-01T14:17:56.616Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;快速幂算法&quot;&gt;&lt;a href=&quot;#快速幂算法&quot; class=&quot;headerlink&quot; title=&quot;快速幂算法&quot;&gt;&lt;/a&gt;快速幂算法&lt;/h1&gt;&lt;p&gt;看了不少题解，都讲的太复杂，而本人一直崇尚大道至简，于是萌生出写该题解的想法。&lt;/p&gt;
+&lt;p&gt;快速幂算法可以在 O(lgn) 内完一个数的 n 次幂计算，即实现C语言库函数 &lt;code&gt;double pow(double x, double y)&lt;/code&gt; &lt;/p&gt;</summary>
+    
+    
+    
+    <category term="算法" scheme="https://wangjunstf.github.io/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+    <category term="快速幂" scheme="https://wangjunstf.github.io/tags/%E5%BF%AB%E9%80%9F%E5%B9%82/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C/C++ 实现一个堆内存分配器(malloc/free)</title>
+    <link href="https://wangjunstf.github.io/2021/11/09/c-yu-yan-shi-xian-yi-ge-dui-nei-cun-fen-pei-qi-malloc-free/"/>
+    <id>https://wangjunstf.github.io/2021/11/09/c-yu-yan-shi-xian-yi-ge-dui-nei-cun-fen-pei-qi-malloc-free/</id>
+    <published>2021-11-09T10:27:32.000Z</published>
+    <updated>2024-10-01T14:17:56.607Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;C 语言使用 malloc 分配内存，使用 free 释放内存。那么它们是怎么实现的呢？&lt;/p&gt;
+&lt;p&gt;堆内存位于数据段(data) 和内存映射区之间，它有一个堆顶指针 brk，malloc 将堆内存分为空闲块和已分配块，使用链表来管理空闲块和已分配块。当堆内存用完时，使用系统调用 sbrk 增大 brk 来增大堆内存的大小。当要求分配的内存大小大于空闲块时，就将空闲块分成两份，一份分配给用户，剩下的内存作为一个空闲块。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="深入理解计算机系统" scheme="https://wangjunstf.github.io/categories/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/"/>
+    
+    
+    <category term="堆内存" scheme="https://wangjunstf.github.io/tags/%E5%A0%86%E5%86%85%E5%AD%98/"/>
+    
+    <category term="内存分配器" scheme="https://wangjunstf.github.io/tags/%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E5%99%A8/"/>
+    
+    <category term="malloc" scheme="https://wangjunstf.github.io/tags/malloc/"/>
+    
+    <category term="free" scheme="https://wangjunstf.github.io/tags/free/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C/C++ 常见的内存错误</title>
+    <link href="https://wangjunstf.github.io/2021/11/09/c-chang-jian-de-nei-cun-cuo-wu/"/>
+    <id>https://wangjunstf.github.io/2021/11/09/c-chang-jian-de-nei-cun-cuo-wu/</id>
+    <published>2021-11-09T10:09:58.000Z</published>
+    <updated>2024-10-01T14:17:56.605Z</updated>
+    
+    
+    <summary type="html">&lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot;/&gt;
+
+&lt;h3 id=&quot;间接引用坏指针&quot;&gt;&lt;a href=&quot;#间接引用坏指针&quot; class=&quot;headerlink&quot; title=&quot;间接引用坏指针&quot;&gt;&lt;/a&gt;间接引用坏指针&lt;/h3&gt;&lt;p&gt;使用以下代码向 val 变量写入数据&lt;/p&gt;
+&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;scanf&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;quot;%d&amp;quot;&lt;/span&gt;,&amp;amp;val);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
+    
+    
+    
+    <category term="深入理解计算机系统" scheme="https://wangjunstf.github.io/categories/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/"/>
+    
+    
+    <category term="CPP" scheme="https://wangjunstf.github.io/tags/CPP/"/>
+    
+    <category term="C" scheme="https://wangjunstf.github.io/tags/C/"/>
+    
+    <category term="常见内存错误" scheme="https://wangjunstf.github.io/tags/%E5%B8%B8%E8%A7%81%E5%86%85%E5%AD%98%E9%94%99%E8%AF%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>垃圾回收的基本原理</title>
+    <link href="https://wangjunstf.github.io/2021/11/09/la-ji-hui-shou-de-ji-ben-yuan-li/"/>
+    <id>https://wangjunstf.github.io/2021/11/09/la-ji-hui-shou-de-ji-ben-yuan-li/</id>
+    <published>2021-11-09T10:07:09.000Z</published>
+    <updated>2024-10-01T14:17:56.614Z</updated>
+    
+    
+    <summary type="html">&lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot;/&gt;
+
+&lt;p&gt;对于像 maclloc 这样的显式分配器，应用通过调用 malloc 和 free 来分配和释放堆块，应用要负责释放所有不再需要的已分配块。&lt;/p&gt;
+&lt;p&gt;不能及时释放内存堆块可能造成严重的内存错误，例如：内存泄漏，如下列代码所示：&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="深入理解计算机系统" scheme="https://wangjunstf.github.io/categories/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/"/>
+    
+    
+    <category term="垃圾回收" scheme="https://wangjunstf.github.io/tags/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/"/>
+    
+    <category term="标记清除法" scheme="https://wangjunstf.github.io/tags/%E6%A0%87%E8%AE%B0%E6%B8%85%E9%99%A4%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux 虚拟内存系统, 内存映射, fork, execve, malloc, free 动态内存分配与释放</title>
+    <link href="https://wangjunstf.github.io/2021/11/09/linux-xu-ni-nei-cun-xi-tong-nei-cun-ying-she-fork-execve-malloc-free-dong-tai-nei-cun-fen-pei-yu-shi-fang/"/>
+    <id>https://wangjunstf.github.io/2021/11/09/linux-xu-ni-nei-cun-xi-tong-nei-cun-ying-she-fork-execve-malloc-free-dong-tai-nei-cun-fen-pei-yu-shi-fang/</id>
+    <published>2021-11-09T10:02:08.000Z</published>
+    <updated>2024-10-01T14:17:56.611Z</updated>
+    
+    
+    <summary type="html">&lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot;/&gt;
+
+&lt;p&gt;Linux 为每个进程维护一个单独的虚拟地址空间，如下图所示。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;内核虚拟内存包含内核中的代码和数据结构。&lt;/li&gt;
+&lt;li&gt;内核虚拟内存的某些区域被映射到所有进程共享的物理页面，例如每个进程都共享内核的代码和全局数据结构。&lt;/li&gt;
+&lt;li&gt;Linux 也将一组连续的虚拟页面(大小等于系统中 DRAM 的总量)映射到相应的一组连续的物理页面。例如：访问页表，或对设备执行IO操作，这些设备被映射到特定物理内存位置时。&lt;/li&gt;
+&lt;li&gt;内核虚拟内存的其它区域包含每个进程的独有数据，例如页表，内核在进程的上下文中执行代码时使用的栈，以及记录虚拟地址空间当前组织的各种数据结构。</summary>
+    
+    
+    
+    <category term="深入理解计算机系统" scheme="https://wangjunstf.github.io/categories/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/"/>
+    
+    
+    <category term="动态内存" scheme="https://wangjunstf.github.io/tags/%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98/"/>
+    
+    <category term="Linux" scheme="https://wangjunstf.github.io/tags/Linux/"/>
+    
+    <category term="虚拟内存" scheme="https://wangjunstf.github.io/tags/%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98/"/>
+    
+    <category term="内存映射" scheme="https://wangjunstf.github.io/tags/%E5%86%85%E5%AD%98%E6%98%A0%E5%B0%84/"/>
+    
+    <category term="fork" scheme="https://wangjunstf.github.io/tags/fork/"/>
+    
+    <category term="execve" scheme="https://wangjunstf.github.io/tags/execve/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>虚拟内存的作用，虚拟地址，页表，TLB，缓存原理</title>
+    <link href="https://wangjunstf.github.io/2021/11/09/xu-ni-nei-cun-de-zuo-yong-xu-ni-di-zhi-ye-biao-tlb-huan-cun-yuan-li/"/>
+    <id>https://wangjunstf.github.io/2021/11/09/xu-ni-nei-cun-de-zuo-yong-xu-ni-di-zhi-ye-biao-tlb-huan-cun-yuan-li/</id>
+    <published>2021-11-09T09:55:22.000Z</published>
+    <updated>2024-10-01T14:17:56.618Z</updated>
+    
+    
+    <summary type="html">&lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot;/&gt;
+
+&lt;h2 id=&quot;9-1-物理地址和虚拟地址&quot;&gt;&lt;a href=&quot;#9-1-物理地址和虚拟地址&quot; class=&quot;headerlink&quot; title=&quot;9.1 物理地址和虚拟地址&quot;&gt;&lt;/a&gt;9.1 物理地址和虚拟地址&lt;/h2&gt;&lt;p&gt;计算机系统的主存是由 M 个连续的字节大小的单元组成的数组。每个字节都有一个唯一的物理地址，地址范围从 0 到 M-1。计算机使用内存最自然的方式是使用物理地址，我们将这种方式称为物理寻址。&lt;/p&gt;
+&lt;p&gt;CPU 向内存发送一个地址，内存将该地址开始的四个字节信息传送到 CPU 中的一个 4字节寄存器。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="深入理解计算机系统" scheme="https://wangjunstf.github.io/categories/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/"/>
+    
+    
+    <category term="虚拟内存" scheme="https://wangjunstf.github.io/tags/%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98/"/>
+    
+    <category term="虚拟地址" scheme="https://wangjunstf.github.io/tags/%E8%99%9A%E6%8B%9F%E5%9C%B0%E5%9D%80/"/>
+    
+    <category term="页表" scheme="https://wangjunstf.github.io/tags/%E9%A1%B5%E8%A1%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>解决 hexo 博客在 chrome 下无法正常显示图片的问题</title>
+    <link href="https://wangjunstf.github.io/2021/11/05/jie-jue-hexo-bo-ke-zai-chrome-xia-wu-fa-zheng-chang-xian-shi-tu-pian-de-wen-ti/"/>
+    <id>https://wangjunstf.github.io/2021/11/05/jie-jue-hexo-bo-ke-zai-chrome-xia-wu-fa-zheng-chang-xian-shi-tu-pian-de-wen-ti/</id>
+    <published>2021-11-05T12:09:05.000Z</published>
+    <updated>2024-10-01T14:17:56.618Z</updated>
+    
+    
+    <summary type="html">&lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot;/&gt;
+
+&lt;h2 id=&quot;出现的问题&quot;&gt;&lt;a href=&quot;#出现的问题&quot; class=&quot;headerlink&quot; title=&quot;出现的问题&quot;&gt;&lt;/a&gt;出现的问题&lt;/h2&gt;&lt;p&gt;最近发现一个奇怪的问题， hexo 发的博客图片 在 Google Chrome 下无法正常显示，但在 Safari 和 FireFox 下确可以正常显示。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="疑难杂症" scheme="https://wangjunstf.github.io/categories/%E7%96%91%E9%9A%BE%E6%9D%82%E7%97%87/"/>
+    
+    
+    <category term="chrome" scheme="https://wangjunstf.github.io/tags/chrome/"/>
+    
+    <category term="hexo" scheme="https://wangjunstf.github.io/tags/hexo/"/>
+    
+    <category term="next主题" scheme="https://wangjunstf.github.io/tags/next%E4%B8%BB%E9%A2%98/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Parallels Desktop 最小安装 CentOS 7</title>
+    <link href="https://wangjunstf.github.io/2021/11/05/parallels-desktop-zui-xiao-an-zhuang-centos-7/"/>
+    <id>https://wangjunstf.github.io/2021/11/05/parallels-desktop-zui-xiao-an-zhuang-centos-7/</id>
+    <published>2021-11-05T09:36:45.000Z</published>
+    <updated>2024-10-01T14:17:56.611Z</updated>
+    
+    
+    <summary type="html">&lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot;/&gt;
+
+&lt;h2 id=&quot;镜像文件下载&quot;&gt;&lt;a href=&quot;#镜像文件下载&quot; class=&quot;headerlink&quot; title=&quot;镜像文件下载&quot;&gt;&lt;/a&gt;镜像文件下载&lt;/h2&gt;&lt;p&gt;下载地址：&lt;a href=&quot;http://mirrors.aliyun.com/centos/7.9.2009/isos/x86_64/&quot;&gt;http://mirrors.aliyun.com/centos/7.9.2009/isos/x86_64/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;BT种子：&lt;a href=&quot;http://mirrors.aliyun.com/centos/7.9.2009/isos/x86_64/CentOS-7-x86_64-DVD-2009.torrent&quot;&gt;http://mirrors.aliyun.com/centos/7.9.2009/isos/x86_64/CentOS-7-x86_64-DVD-2009.torrent&lt;/a&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Linux" scheme="https://wangjunstf.github.io/categories/Linux/"/>
+    
+    
+    <category term="CentOS7" scheme="https://wangjunstf.github.io/tags/CentOS7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>快速排序的变种——快速选择算法</title>
+    <link href="https://wangjunstf.github.io/2021/10/24/kuai-su-pai-xu-de-bian-chong-kuai-su-xuan-ze-suan-fa/"/>
+    <id>https://wangjunstf.github.io/2021/10/24/kuai-su-pai-xu-de-bian-chong-kuai-su-xuan-ze-suan-fa/</id>
+    <published>2021-10-24T09:58:56.000Z</published>
+    <updated>2024-10-01T14:17:56.616Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;快速排序的变种——快速选择算法&quot;&gt;&lt;a href=&quot;#快速排序的变种——快速选择算法&quot; class=&quot;headerlink&quot; title=&quot;快速排序的变种——快速选择算法&quot;&gt;&lt;/a&gt;快速排序的变种——快速选择算法&lt;/h1&gt;&lt;p&gt;给出一个数组，例如[1,4,2,6,8,3]，现在要求出第 k 大的数字，即将数组从大到小排列，选择第k个数。用什么算法更快找到这个数？&lt;/p&gt;
+&lt;p&gt;最容易想到的就是先将数组排序，就可以很容易找到第 k 大的数字。就算用快速排序，时间复杂度为 O(nlgn)。有没有更快的算法？&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="LeetCode" scheme="https://wangjunstf.github.io/categories/LeetCode/"/>
+    
+    
+    <category term="快速排序" scheme="https://wangjunstf.github.io/tags/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/"/>
+    
+    <category term="快速选择" scheme="https://wangjunstf.github.io/tags/%E5%BF%AB%E9%80%9F%E9%80%89%E6%8B%A9/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C++ 智能指针需要注意的点</title>
+    <link href="https://wangjunstf.github.io/2021/10/24/c-zhi-neng-zhi-zhen-xu-yao-zhu-yi-de-dian/"/>
+    <id>https://wangjunstf.github.io/2021/10/24/c-zhi-neng-zhi-zhen-xu-yao-zhu-yi-de-dian/</id>
+    <published>2021-10-24T03:10:21.000Z</published>
+    <updated>2024-10-01T14:17:56.607Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;C++11提供了三种智能指针：std::shared_ptr, std::unique_ptr, std::weak_ptr，使用时需添加头&lt;code&gt;&amp;lt;memory&amp;gt;&lt;/code&gt;。&lt;/p&gt;
+&lt;h2 id=&quot;智能指针与普通指针混用&quot;&gt;&lt;a href=&quot;#智能指针与普通指针混用&quot; class=&quot;headerlink&quot; title=&quot;智能指针与普通指针混用&quot;&gt;&lt;/a&gt;智能指针与普通指针混用&lt;/h2&gt;</summary>
+    
+    
+    
+    <category term="CPP" scheme="https://wangjunstf.github.io/categories/CPP/"/>
+    
+    
+    <category term="CPP" scheme="https://wangjunstf.github.io/tags/CPP/"/>
+    
+    <category term="指针指针" scheme="https://wangjunstf.github.io/tags/%E6%8C%87%E9%92%88%E6%8C%87%E9%92%88/"/>
+    
+    <category term="weak_ptr" scheme="https://wangjunstf.github.io/tags/weak-ptr/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>拓扑排序</title>
+    <link href="https://wangjunstf.github.io/2021/10/23/tuo-bu-pai-xu/"/>
+    <id>https://wangjunstf.github.io/2021/10/23/tuo-bu-pai-xu/</id>
+    <published>2021-10-23T06:48:53.000Z</published>
+    <updated>2024-10-01T14:17:56.616Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;什么是拓扑排序？&lt;/p&gt;
+&lt;p&gt;拓扑排序就是对&lt;code&gt;有向无环图&lt;/code&gt;的顶点进行线性排列，使得从顶点 u 到顶点 v 的每个有向边，u 在排序中都在 v 的前面。一个有向无环图的拓扑排序可能有多种。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="算法" scheme="https://wangjunstf.github.io/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+    <category term="拓扑排序" scheme="https://wangjunstf.github.io/tags/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python 常用数据结构(列表,字典,元组,集合,序列,栈,队列)及方法</title>
+    <link href="https://wangjunstf.github.io/2021/10/17/python-chang-yong-shu-ju-jie-gou-ji-fang-fa/"/>
+    <id>https://wangjunstf.github.io/2021/10/17/python-chang-yong-shu-ju-jie-gou-ji-fang-fa/</id>
+    <published>2021-10-17T03:30:15.000Z</published>
+    <updated>2024-10-01T14:17:56.611Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;列表&quot;&gt;&lt;a href=&quot;#列表&quot; class=&quot;headerlink&quot; title=&quot;列表&quot;&gt;&lt;/a&gt;列表&lt;/h2&gt;&lt;p&gt;&lt;code&gt;insert&lt;/code&gt;、&lt;code&gt;remove&lt;/code&gt;、&lt;code&gt;sort&lt;/code&gt; 等方法只修改列表，不输出返回值——返回的默认值为 &lt;code&gt;None&lt;/code&gt; 。这是所有 Python 可变数据结构的设计原则。&lt;/p&gt;
+&lt;p&gt;不是所有数据都可以排序或比较。例如，&lt;code&gt;[None, &amp;#39;hello&amp;#39;, 10]&lt;/code&gt; 就不可排序，因为整数不能与字符串对比，而 None 不能与其他类型对比。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Python" scheme="https://wangjunstf.github.io/categories/Python/"/>
+    
+    
+    <category term="Python" scheme="https://wangjunstf.github.io/tags/Python/"/>
+    
+    <category term="数据结构" scheme="https://wangjunstf.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C++单例设计模式的两种实现</title>
+    <link href="https://wangjunstf.github.io/2021/10/13/c-dan-li-she-ji-mo-shi-de-liang-chong-shi-xian/"/>
+    <id>https://wangjunstf.github.io/2021/10/13/c-dan-li-she-ji-mo-shi-de-liang-chong-shi-xian/</id>
+    <published>2021-10-13T15:27:39.000Z</published>
+    <updated>2024-10-01T14:17:56.605Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;单例设计模式的两种实现&quot;&gt;&lt;a href=&quot;#单例设计模式的两种实现&quot; class=&quot;headerlink&quot; title=&quot;单例设计模式的两种实现&quot;&gt;&lt;/a&gt;单例设计模式的两种实现&lt;/h1&gt;&lt;h2 id=&quot;单例模式的定义&quot;&gt;&lt;a href=&quot;#单例模式的定义&quot; class=&quot;headerlink&quot; title=&quot;单例模式的定义&quot;&gt;&lt;/a&gt;单例模式的定义&lt;/h2&gt;&lt;p&gt;保证一个类仅有一个实例，并提供一个它的全局访问点，该实例被所有程序模块所共享。&lt;/p&gt;
+&lt;p&gt;那么就必须保证：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;该类不能被实例化&lt;/li&gt;
+&lt;li&gt;该类不能被复制。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;对于 C++，意味着：它的构造函数，拷贝构造函数和拷贝赋值运算符不能被公开调用。&lt;/p&gt;</summary>
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>前缀和与二分查找的应用</title>
+    <link href="https://wangjunstf.github.io/2021/10/03/qian-zhui-he-yu-er-fen-cha-zhao-de-ying-yong/"/>
+    <id>https://wangjunstf.github.io/2021/10/03/qian-zhui-he-yu-er-fen-cha-zhao-de-ying-yong/</id>
+    <published>2021-10-03T09:35:12.000Z</published>
+    <updated>2024-10-01T14:17:56.614Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;前缀和与二分查找的应用&quot;&gt;&lt;a href=&quot;#前缀和与二分查找的应用&quot; class=&quot;headerlink&quot; title=&quot;前缀和与二分查找的应用&quot;&gt;&lt;/a&gt;前缀和与二分查找的应用&lt;/h1&gt;&lt;p&gt;题目链接：&lt;a href=&quot;https://leetcode-cn.com/problems/maximize-the-confusion-of-an-exam/&quot;&gt;考试的最大困扰度&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;给出一个只有’F’ 和 ‘T’ 的字符串，和一个整数 k，可以对字符串种的字符进行两种修改：1. 把 ‘T’ 变为 ‘F’ ，2. 把 ‘F’ 变为 ‘T’。最多能修改 k 次，求由相同字符组成的连续子串长度的最大值。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="LeetCode" scheme="https://wangjunstf.github.io/categories/LeetCode/"/>
+    
+    
+    <category term="前缀和" scheme="https://wangjunstf.github.io/tags/%E5%89%8D%E7%BC%80%E5%92%8C/"/>
+    
+    <category term="二分查找" scheme="https://wangjunstf.github.io/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/"/>
+    
+  </entry>
+  
+</feed>
