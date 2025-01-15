@@ -6,7 +6,7 @@
   <link href="https://wangjunstf.github.io/atom.xml" rel="self"/>
   
   <link href="https://wangjunstf.github.io/"/>
-  <updated>2025-01-15T15:46:44.104Z</updated>
+  <updated>2024-10-01T14:17:56.613Z</updated>
   <id>https://wangjunstf.github.io/</id>
   
   <author>
@@ -15,48 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>test-Jason</title>
-    <link href="https://wangjunstf.github.io/2025/01/15/test-jason/"/>
-    <id>https://wangjunstf.github.io/2025/01/15/test-jason/</id>
-    <published>2025-01-15T15:45:30.000Z</published>
-    <updated>2025-01-15T15:46:44.104Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;Hello</summary>
-        
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>hello world</title>
-    <link href="https://wangjunstf.github.io/2024/10/01/hello-world/"/>
-    <id>https://wangjunstf.github.io/2024/10/01/hello-world/</id>
-    <published>2024-10-01T14:30:13.000Z</published>
-    <updated>2024-10-01T14:30:41.752Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;Hello</summary>
-        
-      
-    
-    
-    
-    
-  </entry>
   
   <entry>
     <title>The Rust Slice Type</title>
@@ -482,6 +440,53 @@
     
     
     
+    
+  </entry>
+  
+  <entry>
+    <title>前缀和与二分查找的应用</title>
+    <link href="https://wangjunstf.github.io/2021/10/03/qian-zhui-he-yu-er-fen-cha-zhao-de-ying-yong/"/>
+    <id>https://wangjunstf.github.io/2021/10/03/qian-zhui-he-yu-er-fen-cha-zhao-de-ying-yong/</id>
+    <published>2021-10-03T09:35:12.000Z</published>
+    <updated>2024-10-01T14:17:56.614Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;前缀和与二分查找的应用&quot;&gt;&lt;a href=&quot;#前缀和与二分查找的应用&quot; class=&quot;headerlink&quot; title=&quot;前缀和与二分查找的应用&quot;&gt;&lt;/a&gt;前缀和与二分查找的应用&lt;/h1&gt;&lt;p&gt;题目链接：&lt;a href=&quot;https://leetcode-cn.com/problems/maximize-the-confusion-of-an-exam/&quot;&gt;考试的最大困扰度&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;给出一个只有’F’ 和 ‘T’ 的字符串，和一个整数 k，可以对字符串种的字符进行两种修改：1. 把 ‘T’ 变为 ‘F’ ，2. 把 ‘F’ 变为 ‘T’。最多能修改 k 次，求由相同字符组成的连续子串长度的最大值。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="LeetCode" scheme="https://wangjunstf.github.io/categories/LeetCode/"/>
+    
+    
+    <category term="前缀和" scheme="https://wangjunstf.github.io/tags/%E5%89%8D%E7%BC%80%E5%92%8C/"/>
+    
+    <category term="二分查找" scheme="https://wangjunstf.github.io/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>静态库和动态库制作</title>
+    <link href="https://wangjunstf.github.io/2021/09/30/jing-tai-ku-he-dong-tai-ku-zhi-zuo/"/>
+    <id>https://wangjunstf.github.io/2021/09/30/jing-tai-ku-he-dong-tai-ku-zhi-zuo/</id>
+    <published>2021-09-30T07:27:42.000Z</published>
+    <updated>2024-10-01T14:17:56.619Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;什么是库&quot;&gt;&lt;a href=&quot;#什么是库&quot; class=&quot;headerlink&quot; title=&quot;什么是库&quot;&gt;&lt;/a&gt;什么是库&lt;/h2&gt;&lt;p&gt;库文件是计算机上的一类文件，提供给使用者一些开箱即用的变量、函数或类。静态库和动态库，静态库和动态库的区别体现在程序的链接阶段：静态库在程序的链接阶段被复制到了程序中；动态库在链接阶段没有被复制到程序中，而是程序在运行时由系统动态加载到内存中供程序调用。&lt;/p&gt;
+&lt;p&gt;假设当前目录下有以下文件&lt;/p&gt;
+&lt;p&gt;├── main.c&lt;/p&gt;
+&lt;p&gt;├── tools.c&lt;/p&gt;
+&lt;p&gt;└── tools.h&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Linux" scheme="https://wangjunstf.github.io/categories/Linux/"/>
+    
+    
+    <category term="静态库" scheme="https://wangjunstf.github.io/tags/%E9%9D%99%E6%80%81%E5%BA%93/"/>
+    
+    <category term="动态库" scheme="https://wangjunstf.github.io/tags/%E5%8A%A8%E6%80%81%E5%BA%93/"/>
     
   </entry>
   
