@@ -5,8 +5,8 @@
 # Site
 title: 编程之禅
 # subtitle: '求知若饥，虚心若愚'
-description: '本博客用于分享编程语言，网络原理，操作系统，数据结构与算法等知识。'
-keywords: [后端开发,网络原理,操作系统,数据结构,算法]
+description: '本博客用于分享大模型，编程语言，网络原理，操作系统，数据结构与算法等知识。'
+keywords: [大模型,后端开发,网络原理,操作系统,数据结构,算法]
 author: 编程之禅
 language: zh-CN
 timezone: ''

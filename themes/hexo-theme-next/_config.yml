@@ -120,6 +120,7 @@ menu:
   about: /about/ || fa fa-user
   tags: /tags/ || fa fa-tags
   categories: /categories/ || fa fa-th
+  大模型: /categories/大模型/ || fas fa-robot
   算法: /categories/算法/ || fas fa-cogs
   数据结构: /categories/数据结构/ || fa fa-code
   Linux: /categories/Linux/ || fab fa-ubuntu    
