@@ -2,6 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://wangjunstf.github.io/2025/01/16/test-ai/</loc>
+    
+    <lastmod>2025-01-15</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://wangjunstf.github.io/%E5%A4%A7%E6%A8%A1%E5%9E%8B/index.html</loc>
+    
+    <lastmod>2025-01-15</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://wangjunstf.github.io/github/index.html</loc>
     
     <lastmod>2024-10-01</lastmod>
@@ -1650,6 +1668,13 @@
   
   <url>
     <loc>https://wangjunstf.github.io/categories/%E7%96%91%E9%9A%BE%E6%9D%82%E7%97%87/</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://wangjunstf.github.io/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B/</loc>
     <lastmod>2025-01-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
