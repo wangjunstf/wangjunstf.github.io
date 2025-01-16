@@ -244,7 +244,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://wangjunstf.github.io/2025/01/16/test-ai/">
+    <link itemprop="mainEntityOfPage" href="https://wangjunstf.github.io/2025/01/16/common-lisp-shi-jian-jian-li-dan-yuan-ce-shi-kuang-jia/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -258,7 +258,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2025/01/16/test-ai/" class="post-title-link" itemprop="url">test-ai</a>
+            <a href="/2025/01/16/common-lisp-shi-jian-jian-li-dan-yuan-ce-shi-kuang-jia/" class="post-title-link" itemprop="url">Common Lisp实践：建立单元测试框架</a>
         </h2>
 
         <div class="post-meta">
@@ -269,7 +269,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2025-01-16 00:35:10 / 修改时间：00:35:36" itemprop="dateCreated datePublished" datetime="2025-01-16T00:35:10+08:00">2025-01-16</time>
+              <time title="创建时间：2025-01-16 18:44:23 / 修改时间：18:45:49" itemprop="dateCreated datePublished" datetime="2025-01-16T18:44:23+08:00">2025-01-16</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -277,12 +277,12 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B/" itemprop="url" rel="index"><span itemprop="name">大模型</span></a>
+                  <a href="/categories/Lisp/" itemprop="url" rel="index"><span itemprop="name">Lisp</span></a>
                 </span>
             </span>
 
           
-            <span id="/2025/01/16/test-ai/" class="post-meta-item leancloud_visitors" data-flag-title="test-ai" title="阅读次数">
+            <span id="/2025/01/16/common-lisp-shi-jian-jian-li-dan-yuan-ce-shi-kuang-jia/" class="post-meta-item leancloud_visitors" data-flag-title="Common Lisp实践：建立单元测试框架" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -297,8 +297,8 @@
       </span>
       <span class="post-meta-item-text">Disqus：</span>
     
-    <a title="disqus" href="/2025/01/16/test-ai/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2025/01/16/test-ai/" itemprop="commentCount"></span>
+    <a title="disqus" href="/2025/01/16/common-lisp-shi-jian-jian-li-dan-yuan-ce-shi-kuang-jia/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2025/01/16/common-lisp-shi-jian-jian-li-dan-yuan-ce-shi-kuang-jia/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -313,8 +313,400 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>test 大模型</p>
+          <p><strong>单元测试框架</strong>是一种工具或库，用于帮助开发人员创建、组织、运行和报告代码的单元测试。<br><strong>单元测试</strong>是指对软件系统中最小的可测试单元（通常是一个函数或方法）进行的验证测试。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2025/01/16/common-lisp-shi-jian-jian-li-dan-yuan-ce-shi-kuang-jia/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
 
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://wangjunstf.github.io/2025/01/16/common-lisp-ru-he-bian-xie-hong/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="编程之禅">
+      <meta itemprop="description" content="本博客用于分享大模型，编程语言，网络原理，操作系统，数据结构与算法等知识。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="编程之禅">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2025/01/16/common-lisp-ru-he-bian-xie-hong/" class="post-title-link" itemprop="url">Common Lisp如何编写宏</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2025-01-16 18:41:56 / 修改时间：18:43:32" itemprop="dateCreated datePublished" datetime="2025-01-16T18:41:56+08:00">2025-01-16</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Lisp/" itemprop="url" rel="index"><span itemprop="name">Lisp</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2025/01/16/common-lisp-ru-he-bian-xie-hong/" class="post-meta-item leancloud_visitors" data-flag-title="Common Lisp如何编写宏" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/2025/01/16/common-lisp-ru-he-bian-xie-hong/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2025/01/16/common-lisp-ru-he-bian-xie-hong/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="一-宏展开期和运行期"><a href="#一-宏展开期和运行期" class="headerlink" title="一 宏展开期和运行期"></a>一 宏展开期和运行期</h2><p>编写宏就是在编写那些将被编译器用来生成代码并随后编译的程序，只有当所有宏都被完全展开并且产生的代码被编译后，程序才可以实际运行。宏运行的时期被称为宏展开期(macro expansion time)，这和运行期(runtime)是不同的，宏展开期无法访问运行期的数据。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2025/01/16/common-lisp-ru-he-bian-xie-hong/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://wangjunstf.github.io/2025/01/16/jie-gou-common-lisp-hong-cong-ji-ben-yu-fa-dao-gao-ji-yong-fa/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="编程之禅">
+      <meta itemprop="description" content="本博客用于分享大模型，编程语言，网络原理，操作系统，数据结构与算法等知识。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="编程之禅">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2025/01/16/jie-gou-common-lisp-hong-cong-ji-ben-yu-fa-dao-gao-ji-yong-fa/" class="post-title-link" itemprop="url">解构Common Lisp宏：从基本语法到高级用法</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2025-01-16 18:33:41 / 修改时间：18:39:21" itemprop="dateCreated datePublished" datetime="2025-01-16T18:33:41+08:00">2025-01-16</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Lisp/" itemprop="url" rel="index"><span itemprop="name">Lisp</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2025/01/16/jie-gou-common-lisp-hong-cong-ji-ben-yu-fa-dao-gao-ji-yong-fa/" class="post-meta-item leancloud_visitors" data-flag-title="解构Common Lisp宏：从基本语法到高级用法" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/2025/01/16/jie-gou-common-lisp-hong-cong-ji-ben-yu-fa-dao-gao-ji-yong-fa/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2025/01/16/jie-gou-common-lisp-hong-cong-ji-ben-yu-fa-dao-gao-ji-yong-fa/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>其余自Lisp的许多编程思想，从条件表达式到垃圾收集，都已经被吸取进其他语言，但Lisp的宏系统却始终使它保持了在语言风格上的独特性。Lisp的宏和大多数其他语言中的也叫宏的东西是完全不一样的，要完全认识Lisp中的宏系统，就需要重新看待它。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2025/01/16/jie-gou-common-lisp-hong-cong-ji-ben-yu-fa-dao-gao-ji-yong-fa/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://wangjunstf.github.io/2025/01/16/uiop-run-program-ji-ben-shi-yong-jiao-cheng/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="编程之禅">
+      <meta itemprop="description" content="本博客用于分享大模型，编程语言，网络原理，操作系统，数据结构与算法等知识。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="编程之禅">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2025/01/16/uiop-run-program-ji-ben-shi-yong-jiao-cheng/" class="post-title-link" itemprop="url">uiop-run-program 基本使用教程</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2025-01-16 18:28:41 / 修改时间：18:39:38" itemprop="dateCreated datePublished" datetime="2025-01-16T18:28:41+08:00">2025-01-16</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Lisp/" itemprop="url" rel="index"><span itemprop="name">Lisp</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2025/01/16/uiop-run-program-ji-ben-shi-yong-jiao-cheng/" class="post-meta-item leancloud_visitors" data-flag-title="uiop-run-program 基本使用教程" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/2025/01/16/uiop-run-program-ji-ben-shi-yong-jiao-cheng/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2025/01/16/uiop-run-program-ji-ben-shi-yong-jiao-cheng/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>uiop:run-program 是 Common Lisp 中 UIOP (Utilities for Implementation- and OS- Portability) 库的一部分，用于在 Lisp 环境中执行外部程序和命令。这个函数提供了一个强大的接口来启动外部进程，并可以处理进程的输入、输出和退出状态。以下是一个关于如何使用 uiop:run-program 的入门教程：</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2025/01/16/uiop-run-program-ji-ben-shi-yong-jiao-cheng/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://wangjunstf.github.io/2025/01/16/common-lisp-bian-liang/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="编程之禅">
+      <meta itemprop="description" content="本博客用于分享大模型，编程语言，网络原理，操作系统，数据结构与算法等知识。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="编程之禅">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2025/01/16/common-lisp-bian-liang/" class="post-title-link" itemprop="url">Common Lisp 变量</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2025-01-16 18:17:39 / 修改时间：18:25:54" itemprop="dateCreated datePublished" datetime="2025-01-16T18:17:39+08:00">2025-01-16</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Lisp/" itemprop="url" rel="index"><span itemprop="name">Lisp</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2025/01/16/common-lisp-bian-liang/" class="post-meta-item leancloud_visitors" data-flag-title="Common Lisp 变量" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/2025/01/16/common-lisp-bian-liang/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2025/01/16/common-lisp-bian-liang/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>Common Lisp 支持两种类型的变量：词法变量(lexical)和动态变量(dynamic)</p>
+<h2 id="一-变量的基础知识"><a href="#一-变量的基础知识" class="headerlink" title="一 变量的基础知识"></a>一 变量的基础知识</h2><p>和常见的编程语言一样，Common Lisp中的变量是一些可以保存值的具名位置，但在Common Lisp 中，变量并不像在C++或Java那样带有确定的类型，一个变量可以保存任何类型的值，并且这些变量带有可用于运行期类型检查的类型信息。因此，Common Lisp是动态类型的，如果将某个并非数字的对象传给了+函数，那么Common Lisp将会报类型错误。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2025/01/16/common-lisp-bian-liang/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -847,422 +1239,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://wangjunstf.github.io/2021/11/11/kuai-su-mi-suan-fa/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="编程之禅">
-      <meta itemprop="description" content="本博客用于分享大模型，编程语言，网络原理，操作系统，数据结构与算法等知识。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="编程之禅">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/11/11/kuai-su-mi-suan-fa/" class="post-title-link" itemprop="url">快速幂算法</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-11-11 00:51:08" itemprop="dateCreated datePublished" datetime="2021-11-11T00:51:08+08:00">2021-11-11</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-10-01 22:17:56" itemprop="dateModified" datetime="2024-10-01T22:17:56+08:00">2024-10-01</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2021/11/11/kuai-su-mi-suan-fa/" class="post-meta-item leancloud_visitors" data-flag-title="快速幂算法" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus：</span>
-    
-    <a title="disqus" href="/2021/11/11/kuai-su-mi-suan-fa/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/11/11/kuai-su-mi-suan-fa/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="快速幂算法"><a href="#快速幂算法" class="headerlink" title="快速幂算法"></a>快速幂算法</h1><p>看了不少题解，都讲的太复杂，而本人一直崇尚大道至简，于是萌生出写该题解的想法。</p>
-<p>快速幂算法可以在 O(lgn) 内完一个数的 n 次幂计算，即实现C语言库函数 <code>double pow(double x, double y)</code> </p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/11/11/kuai-su-mi-suan-fa/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://wangjunstf.github.io/2021/11/09/c-yu-yan-shi-xian-yi-ge-dui-nei-cun-fen-pei-qi-malloc-free/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="编程之禅">
-      <meta itemprop="description" content="本博客用于分享大模型，编程语言，网络原理，操作系统，数据结构与算法等知识。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="编程之禅">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/11/09/c-yu-yan-shi-xian-yi-ge-dui-nei-cun-fen-pei-qi-malloc-free/" class="post-title-link" itemprop="url">C/C++ 实现一个堆内存分配器(malloc/free)</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-11-09 18:27:32" itemprop="dateCreated datePublished" datetime="2021-11-09T18:27:32+08:00">2021-11-09</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-10-01 22:17:56" itemprop="dateModified" datetime="2024-10-01T22:17:56+08:00">2024-10-01</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/" itemprop="url" rel="index"><span itemprop="name">深入理解计算机系统</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2021/11/09/c-yu-yan-shi-xian-yi-ge-dui-nei-cun-fen-pei-qi-malloc-free/" class="post-meta-item leancloud_visitors" data-flag-title="C/C++ 实现一个堆内存分配器(malloc/free)" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus：</span>
-    
-    <a title="disqus" href="/2021/11/09/c-yu-yan-shi-xian-yi-ge-dui-nei-cun-fen-pei-qi-malloc-free/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/11/09/c-yu-yan-shi-xian-yi-ge-dui-nei-cun-fen-pei-qi-malloc-free/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>C 语言使用 malloc 分配内存，使用 free 释放内存。那么它们是怎么实现的呢？</p>
-<p>堆内存位于数据段(data) 和内存映射区之间，它有一个堆顶指针 brk，malloc 将堆内存分为空闲块和已分配块，使用链表来管理空闲块和已分配块。当堆内存用完时，使用系统调用 sbrk 增大 brk 来增大堆内存的大小。当要求分配的内存大小大于空闲块时，就将空闲块分成两份，一份分配给用户，剩下的内存作为一个空闲块。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/11/09/c-yu-yan-shi-xian-yi-ge-dui-nei-cun-fen-pei-qi-malloc-free/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://wangjunstf.github.io/2021/11/09/c-chang-jian-de-nei-cun-cuo-wu/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="编程之禅">
-      <meta itemprop="description" content="本博客用于分享大模型，编程语言，网络原理，操作系统，数据结构与算法等知识。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="编程之禅">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/11/09/c-chang-jian-de-nei-cun-cuo-wu/" class="post-title-link" itemprop="url">C/C++ 常见的内存错误</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-11-09 18:09:58" itemprop="dateCreated datePublished" datetime="2021-11-09T18:09:58+08:00">2021-11-09</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-10-01 22:17:56" itemprop="dateModified" datetime="2024-10-01T22:17:56+08:00">2024-10-01</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/" itemprop="url" rel="index"><span itemprop="name">深入理解计算机系统</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2021/11/09/c-chang-jian-de-nei-cun-cuo-wu/" class="post-meta-item leancloud_visitors" data-flag-title="C/C++ 常见的内存错误" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus：</span>
-    
-    <a title="disqus" href="/2021/11/09/c-chang-jian-de-nei-cun-cuo-wu/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/11/09/c-chang-jian-de-nei-cun-cuo-wu/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <meta name="referrer" content="no-referrer"/>
-
-<h3 id="间接引用坏指针"><a href="#间接引用坏指针" class="headerlink" title="间接引用坏指针"></a>间接引用坏指针</h3><p>使用以下代码向 val 变量写入数据</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;val);</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/11/09/c-chang-jian-de-nei-cun-cuo-wu/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://wangjunstf.github.io/2021/11/09/la-ji-hui-shou-de-ji-ben-yuan-li/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="编程之禅">
-      <meta itemprop="description" content="本博客用于分享大模型，编程语言，网络原理，操作系统，数据结构与算法等知识。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="编程之禅">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/11/09/la-ji-hui-shou-de-ji-ben-yuan-li/" class="post-title-link" itemprop="url">垃圾回收的基本原理</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-11-09 18:07:09" itemprop="dateCreated datePublished" datetime="2021-11-09T18:07:09+08:00">2021-11-09</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-10-01 22:17:56" itemprop="dateModified" datetime="2024-10-01T22:17:56+08:00">2024-10-01</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/" itemprop="url" rel="index"><span itemprop="name">深入理解计算机系统</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2021/11/09/la-ji-hui-shou-de-ji-ben-yuan-li/" class="post-meta-item leancloud_visitors" data-flag-title="垃圾回收的基本原理" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus：</span>
-    
-    <a title="disqus" href="/2021/11/09/la-ji-hui-shou-de-ji-ben-yuan-li/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/11/09/la-ji-hui-shou-de-ji-ben-yuan-li/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <meta name="referrer" content="no-referrer"/>
-
-<p>对于像 maclloc 这样的显式分配器，应用通过调用 malloc 和 free 来分配和释放堆块，应用要负责释放所有不再需要的已分配块。</p>
-<p>不能及时释放内存堆块可能造成严重的内存错误，例如：内存泄漏，如下列代码所示：</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/11/09/la-ji-hui-shou-de-ji-ben-yuan-li/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1332,20 +1308,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">65</span>
+          <span class="site-state-item-count">69</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-count">18</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">128</span>
+        <span class="site-state-item-count">138</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

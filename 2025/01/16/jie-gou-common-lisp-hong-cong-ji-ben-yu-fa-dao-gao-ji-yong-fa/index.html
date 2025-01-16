@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.2">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"wangjunstf.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":{"disqus":{"text":"Load Disqus","order":-1},"gitalk":{"order":-2}}},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="其余自Lisp的许多编程思想，从条件表达式到垃圾收集，都已经被吸取进其他语言，但Lisp的宏系统却始终使它保持了在语言风格上的独特性。Lisp的宏和大多数其他语言中的也叫宏的东西是完全不一样的，要完全认识Lisp中的宏系统，就需要重新看待它。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="解构Common Lisp宏：从基本语法到高级用法">
+<meta property="og:url" content="https://wangjunstf.github.io/2025/01/16/jie-gou-common-lisp-hong-cong-ji-ben-yu-fa-dao-gao-ji-yong-fa/index.html">
+<meta property="og:site_name" content="编程之禅">
+<meta property="og:description" content="其余自Lisp的许多编程思想，从条件表达式到垃圾收集，都已经被吸取进其他语言，但Lisp的宏系统却始终使它保持了在语言风格上的独特性。Lisp的宏和大多数其他语言中的也叫宏的东西是完全不一样的，要完全认识Lisp中的宏系统，就需要重新看待它。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-01-16T10:33:41.000Z">
+<meta property="article:modified_time" content="2025-01-16T10:39:21.127Z">
+<meta property="article:author" content="编程之禅">
+<meta property="article:tag" content="Common Lisp">
+<meta property="article:tag" content="宏">
+<meta property="article:tag" content="WHEN">
+<meta property="article:tag" content="COND">
+<meta property="article:tag" content="DO">
+<meta property="article:tag" content="DOLIST">
+<meta property="article:tag" content="DOTIMES">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://wangjunstf.github.io/2025/01/16/jie-gou-common-lisp-hong-cong-ji-ben-yu-fa-dao-gao-ji-yong-fa/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>解构Common Lisp宏：从基本语法到高级用法 | 编程之禅</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-206629018-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-206629018-1');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="编程之禅" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">编程之禅</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-大模型">
+
+    <a href="/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B/" rel="section"><i class="fas fa-robot fa-fw"></i>大模型</a>
+
+  </li>
+        <li class="menu-item menu-item-算法">
+
+    <a href="/categories/%E7%AE%97%E6%B3%95/" rel="section"><i class="fas fa-cogs fa-fw"></i>算法</a>
+
+  </li>
+        <li class="menu-item menu-item-数据结构">
+
+    <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="section"><i class="fa fa-code fa-fw"></i>数据结构</a>
+
+  </li>
+        <li class="menu-item menu-item-linux">
+
+    <a href="/categories/Linux/" rel="section"><i class="fab fa-ubuntu fa-fw"></i>Linux</a>
+
+  </li>
+        <li class="menu-item menu-item-github">
+
+    <a href="/github/" rel="section"><i class="fab fa-github fa-fw"></i>Github</a>
+
+  </li>
+        <li class="menu-item menu-item-gdb">
+
+    <a href="/2021/06/12/gdb-ru-men-jiao-cheng/" rel="section"><i class="fa fa-bug fa-fw"></i>GDB</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/wangjunstf" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://wangjunstf.github.io/2025/01/16/jie-gou-common-lisp-hong-cong-ji-ben-yu-fa-dao-gao-ji-yong-fa/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="编程之禅">
+      <meta itemprop="description" content="本博客用于分享大模型，编程语言，网络原理，操作系统，数据结构与算法等知识。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="编程之禅">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          解构Common Lisp宏：从基本语法到高级用法
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2025-01-16 18:33:41 / 修改时间：18:39:21" itemprop="dateCreated datePublished" datetime="2025-01-16T18:33:41+08:00">2025-01-16</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Lisp/" itemprop="url" rel="index"><span itemprop="name">Lisp</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2025/01/16/jie-gou-common-lisp-hong-cong-ji-ben-yu-fa-dao-gao-ji-yong-fa/" class="post-meta-item leancloud_visitors" data-flag-title="解构Common Lisp宏：从基本语法到高级用法" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/2025/01/16/jie-gou-common-lisp-hong-cong-ji-ben-yu-fa-dao-gao-ji-yong-fa/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2025/01/16/jie-gou-common-lisp-hong-cong-ji-ben-yu-fa-dao-gao-ji-yong-fa/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>其余自Lisp的许多编程思想，从条件表达式到垃圾收集，都已经被吸取进其他语言，但Lisp的宏系统却始终使它保持了在语言风格上的独特性。Lisp的宏和大多数其他语言中的也叫宏的东西是完全不一样的，要完全认识Lisp中的宏系统，就需要重新看待它。</p>
+<span id="more"></span>
+<p>一种常见的观点认为，语言的定义可能包含一个使用“核心”语言实现的标准功能库——如果某些功能没有被实现在标准库中，那么他们可能被程序员使用标准库提供的功能实现了。C的标准库差不多可以完全用可移植的C来实现，类似的，Java的标准Java开发包(JDK)中提供的不断改进的类和接口也是用”纯”Java编写的。</p>
+<p>使用核心加上标准库的方式来定义语言的优势在于易于理解和实现，但真正的好处是很容易对其进行扩展，如果C语言中不包括做某件事的函数，那么就可以写出这个函数。类似的，类似Java这样的语言通过定义新的类就可以扩展该语言。</p>
+<p><strong>尽管Common Lisp支持所有这些扩展语言的方法，但宏还提供了另一个表达方法。</strong> 每个宏都有自己的语法，它们能够决定那些被传递的S-表达式如何转换成Lisp形式。核心语言有了宏就可以构造出新的语法，例如WHEN, DOLIST和LOOP这样的控制构造以及DEFUN和DEFPARAMETER这样的定义形式，从而使这些新语法可以作为“标准库”的一部分而不是将其硬编码到语言核心。这已经涉及到语言本身是如何实现的，但作为一个Lisp程序员，我们更关心的是它所提供的语言扩展方式，而这将使Common Lisp成为更好的用于表达特定编程问题解决方案的语言。</p>
+<p><strong>S-表达式</strong><br>S-表达式的基本元素是列表(lisp)和原子(atom)，列表由括号所包围，并可包含任何数量的由空格所分割的元素。原子是除了列表之外的所有元素，包括符号、数字、字符串等。列表元素本身也可以是S-表达式(原子或嵌套的列表)</p>
+<p><strong>作为Lisp形式的S-表达式</strong><br>在读取器把大量文本转化为S-表达式后，这些S-表达式随后可以作为Lisp形式被求值，并不是每个读取器可读的S-表达式都有必要作为Lisp形式来求值，Common Lisp的求值规则定义了第二层的语法来检测哪种S-表达式可以看作Lisp形式。例如，从读取 (foo 1 2) 得到的S-表达式在句法上是良好定义的，但是只有当foo是一个函数或宏的名字时，它才可以被求值。</p>
+<p>现在以Lisp中常见的几个宏开始讲解，它们都是如果Lisp没有宏，就必须构造在语言核心里的东西。</p>
+<h2 id="一-WHEN-和-UNLESS"><a href="#一-WHEN-和-UNLESS" class="headerlink" title="一 WHEN 和 UNLESS"></a>一 WHEN 和 UNLESS</h2><p>最基本的条件执行形式是由IF特殊操作符提供的，其基本形式是：如果condition成立，那么执行then-form，否则执行else-form。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(if condition then-form [else-form])</span><br></pre></td></tr></table></figure>
+<p>其中then-form或else-form必须是单一的Lisp形式，如果要在每个子句中执行一系列的操作，则必须将其用其他一些语法形式进行封装，例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(if (condition)</span><br><span class="line">	(progn </span><br><span class="line">		(then-form1)</span><br><span class="line">		(then-form2)))</span><br></pre></td></tr></table></figure>
+<p>类似上述这样的代码可以实现，当condition为真时，做这个，那个以及一些事情。可否有一种方式能将这种IF加上PROGN所组成的模式抽象出来，宏就能实现。Common Lisp提供了一个标准宏WHEN，可以这么写：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(when  (condition)</span><br><span class="line">	(then-form1)</span><br><span class="line">	(then-form2))</span><br></pre></td></tr></table></figure>
+<p>如果WHEN没有被内置到标准库中，我们可以使用下面这个宏来定义自己的WHEN：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(defmacro when (condition &amp;rest body)</span><br><span class="line">	`(if ,condition (progn ,@body)))</span><br></pre></td></tr></table></figure>
+<p>与WHEN宏同系列的另一个宏是UNLESS，它取相反的条件，只有当条件为假时才求值其形式体：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(defmacro unless (condition &amp;rest body)</span><br><span class="line">	`(if (not ,condition) (progn ,@body)))</span><br></pre></td></tr></table></figure>
+<p>必须承认，这些都是相当简单的宏，它们只是抽象掉了一些语言层面约定俗成的细节，其实宏可以被更大规模地用于创建完整的特定领域的嵌入式语言。</p>
+<p>反引号（`）用于 宏展开（macro expansion）时，它的作用是对表达式进行部分求值，以便在表达式中直接引用变量或常量，同时保持部分结构不变。<br>逗号 <code>,</code>表示对表达式进行求值<br><code>,</code>（unquote）会将一个表达式求值并插入到宏扩展的代码中。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(defmacro example1 (x)</span><br><span class="line">  `(list 1 2 ,x 4))  ; 使用 , 来插入 x 的值</span><br><span class="line"></span><br><span class="line">(example1 3)  ; 执行宏，传入 3</span><br></pre></td></tr></table></figure>
+<p>展开后，<code>example1</code> 会将 <code>x</code> 的值（即 3）插入到 <code>list</code> 中，结果如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">; 展开后的代码 </span><br><span class="line">(list 1 2 3 4)</span><br></pre></td></tr></table></figure>
+
+<p><code> ,@</code>是 解包操作符（unquote-splicing），它用于在列表中“展开”或“解包”一个列表，使其中的元素被直接插入到外部列表中。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">(defmacro example2 (x)</span><br><span class="line">  `(list 1 2 ,@x 4))  ; 使用 ,@ 来展开 x</span><br><span class="line"></span><br><span class="line">(example2 &#x27;(3 4 5))  ; 执行宏，传入 (3 4 5)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>在这个例子中，<code>x</code> 是一个列表 <code>(3 4 5)</code>，使用 <code>,@</code> 会将其元素 <code>3</code>、<code>4</code> 和 <code>5</code> 解包并插入到 <code>list</code> 中，结果如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">; 展开后的代码</span><br><span class="line">(list 1 2 3 4 5 4)</span><br></pre></td></tr></table></figure>
+<h2 id="二-COND"><a href="#二-COND" class="headerlink" title="二 COND"></a>二 COND</h2><p>当遇到多重分支的条件语句时，原始的IF表达式再次变得丑陋不堪：如果a成立那么执行x，否则如果b成立那么执行y，否则执行z：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">(if a</span><br><span class="line">	(do-x)</span><br><span class="line">	(if b</span><br><span class="line">		(do-y)</span><br><span class="line">		(do-z)))</span><br></pre></td></tr></table></figure>
+<p>如果需要在then子句中包括多个形式，就需要用到PROGN，代码结构会变得更加复杂。因此 Common Lisp提供了用于表达多重分支条件的宏 COND。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">(cond</span><br><span class="line">  (test1 expr1)</span><br><span class="line">  (test2 expr2)</span><br><span class="line">  ...</span><br><span class="line">  (t exprN))  ; &#x27;t&#x27; 是默认情况，类似于 else</span><br></pre></td></tr></table></figure>
+<p>在 <code>cond</code> 语句中，Lisp 会逐个评估每个条件（<code>test1</code>, <code>test2</code> 等），直到找到一个结果为真（非 <code>nil</code>）的条件。如果找到了真条件，Lisp 会执行对应的表达式（<code>expr1</code>, <code>expr2</code> 等），并返回其结果。<code>t</code> 表示“真”，如果没有条件匹配，<code>t</code> 分支会执行。</p>
+<h2 id="三-AND，OR-和-NOT"><a href="#三-AND，OR-和-NOT" class="headerlink" title="三 AND，OR 和 NOT"></a>三 AND，OR 和 NOT</h2><p>NOT是函数，它接受单一参数并对其值取反，当参数为NIL时返回T，否则返回NIL。<br>AND和OR则是宏，它们实现了对任意数量子表达式的逻辑合取和析取操作，并被定义成宏以支持“短路”特性。</p>
+<p>只要AND的一个子表达式求值为NIL，它就立即停止并返回NIL，如果将所有子表达式都求值为非NIL，那么它将返回最后一个子表达式的值。</p>
+<p>对于OR来说，只要一个子表达式求值得到非NIL，它就立即停止并返回当前子表达式的值，如果没有子表达式求值为真，OR返回NIL。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(not nil)             ; --&gt; T</span><br><span class="line">(not (= 1 1))         ; --&gt; NIL</span><br><span class="line">(and (= 1 2) (= 3 3)) ; --&gt; NIL</span><br><span class="line">(or (= 1 2) (= 3 3))  ; --&gt; T</span><br></pre></td></tr></table></figure>
+<h2 id="四-循环"><a href="#四-循环" class="headerlink" title="四 循环"></a>四 循环</h2><p>循环构造是另外一类主要的控制构造。Common Lisp的循环机制，除了更加强大和灵活以外，还是一门关于宏所提供的“鱼和熊掌兼得”的编程风格的有趣课程。<br>DO提供了一种基本的结构化循环构造，而DOLIST和DOTIMES则提供了两种易用却不那么通用的构造。最后，LOOP宏提供了一种成熟的微型语言，它是一种独特的表达循环的方式。不论你喜欢或不喜欢这种循环的构造方式，LOOP本身都是为语言增加新构造的宏展示其强大威力的突出示例。</p>
+<h2 id="五-DOLIST-和-DOTIMES"><a href="#五-DOLIST-和-DOTIMES" class="headerlink" title="五 DOLIST 和 DOTIMES"></a>五 DOLIST 和 DOTIMES</h2><p>先从易于使用的DOLIST和DOTIMES宏开始。<br>DOLIST在一个列表的元素上循环操作，使用一个依次持有列表中所有后继元素的变量来执行循环体。下面是其基本形式（去掉了一些难懂的选项）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(dolist (var list-form)</span><br><span class="line">	body-form*)</span><br></pre></td></tr></table></figure>
+<p>例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">CL-USER&gt; (dolist (x &#x27;(1 2 3)) (print x))</span><br><span class="line">1 </span><br><span class="line">2 </span><br><span class="line">3 </span><br><span class="line">NIL</span><br></pre></td></tr></table></figure>
+<p>在这种方式下，DOLIST这种形式本身求值为NIL。<br>如果想在列表结束之前中断一个DOLIST循环，则可以使用RETURN。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">CL-USER&gt; (dolist (x &#x27;(1 2 3)) (print x) (if (evenp x) (return)))</span><br><span class="line">1 </span><br><span class="line">2 </span><br><span class="line">NIL</span><br></pre></td></tr></table></figure>
+<p>evenp 判断一个数是否为偶数。</p>
+<p>DOTIMES是用于循环计数的高级循环构造，其基本模板和DOLIST非常相似。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(dotimes (var count-form)</span><br><span class="line">	body-form*)</span><br></pre></td></tr></table></figure>
+<p>其中count-form必须能求值为一个整数，通过每次循环，var所持有的整数依次从0到比那个数小1的每一个后继整数。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">CL-USER&gt; (dotimes (i 4) (print i))</span><br><span class="line">0 </span><br><span class="line">1 </span><br><span class="line">2 </span><br><span class="line">3 </span><br><span class="line">NIL</span><br></pre></td></tr></table></figure>
+
+<h2 id="六-DO"><a href="#六-DO" class="headerlink" title="六 DO"></a>六 DO</h2><p>尽管DOLIST和DOTIMES方便易用，但也无法应用于所有循环，使用DO可以解决所有的循环问题。与DOLIST和DOTIMES只提供一个循环变量有所不同的是，DO允许绑定任意数量的变量，并且变量值在每次循环中的改变也是可自定义的，也可以自定义测试条件来决定何时终止循环，并可以提供一个形式，在循环结束时进行求值来为DO表达式整体生成一个返回值。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(do (variable-definition*)</span><br><span class="line">	(end-test-form result-form*)</span><br><span class="line">	statement*)</span><br></pre></td></tr></table></figure>
+<p>每一个variable-definition引入一个将存在于循环体作用域之内的变量，单一变量定义的完整形式是含有三个元素的列表。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(var init-form step-form)</span><br></pre></td></tr></table></figure>
+<p>上述init-form在循环开始时被求值并将结果值绑定到变量var上，在循环的每一个后续迭代开始之前，step-form将被求值并把新值赋值给var，step-form是可选的。</p>
+<p>在每次迭代开始时以及所有循环变量都被指定新值后，end-test-form会被求值，只要其值为NIL，迭代过程就会继续。</p>
+<p>当end-test-form求值为真，result-form将被求值，且最后一个结果形式的值将作为DO表达式的值返回。<br>示例：计算斐波那契数列的第 n 项</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(do ((n 0 (1+ n))</span><br><span class="line">     (cur 0 next)</span><br><span class="line">     (next 1 (+ cur next)))</span><br><span class="line">    ((= 4 n) cur))</span><br></pre></td></tr></table></figure>
+<p>示例：打印前N个自然数的值：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(do ((i 0 (1+ i)))</span><br><span class="line">    ((&gt;= i 4))</span><br><span class="line">  (print i))</span><br></pre></td></tr></table></figure>
+<p>当然打印前N个自然数的值使用DOTIMES会更加方便：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(dotimes (i 4) (print i))</span><br></pre></td></tr></table></figure>
+
+<p>下面的例子演示一个不绑定循环变量的DO循环，在当前时间小于一个全局变量值的时候，它保持循环，每分钟打印一个”Waiting”：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(do ()</span><br><span class="line">	((&gt; (get-universal-time) *some-future-data*))</span><br><span class="line">	(format t &quot;Waiting~%&quot;)</span><br><span class="line">	(sleep 60))</span><br></pre></td></tr></table></figure>
+
+<h2 id="七-强大的LOOP"><a href="#七-强大的LOOP" class="headerlink" title="七 强大的LOOP"></a>七 强大的LOOP</h2><p>简单的情形可以使用DOLIST和DOTIMES，如果它们不满足要求可以使用通用的DO。但是有一种循环需求在实际开发中很常见，例如在多种数据结构上的循环：列表，向量，哈希表和包，或者在循环时以多种方式来聚集值：收集，计数，求和，最小化，最大化等这一系列问题都可以用LOOP宏轻松实现。<br>LOOP宏有两大版本，简化的扩展的。简化版是没有变量绑定的无限循环，而扩展版则允许复杂的变量绑定和条件判断。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(loop</span><br><span class="line">	body-form*)</span><br></pre></td></tr></table></figure>
+<p>主体形式在每次循环时都被求值，整个循环将不停的迭代，直到使用RETURN来进行终止。例如可以使用一个简化的LOOP来写出前面的DO循环。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">(loop</span><br><span class="line">	(when (&gt; (get-universal-time) *some-future-data*) </span><br><span class="line">		(return))</span><br><span class="line">	(format t &quot;Waiting ~%&quot;)</span><br><span class="line">	(sleep 60))</span><br></pre></td></tr></table></figure>
+<p>问题，将1到10的数字收集到一个列表中：<br>使用DO循环：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(do ((nums nil) (i 1 (1+ i)))</span><br><span class="line">    ((&gt; i 10) (nreverse nums))</span><br><span class="line">  (push i nums))</span><br></pre></td></tr></table></figure>
+<p>使用LOOP：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(loop for i from 1 to 10 collecting i)</span><br></pre></td></tr></table></figure>
+<p>关于LOOP的这种语法，有些人喜欢，有些人则讨厌。</p>
+<p>下面是关于LOOP的其他一些用法：</p>
+<ol>
+<li>统计一个字符串中元音字母的个数：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(loop for  x across &quot;This is my blog&quot; counting (find x &quot;aeiou&quot;))</span><br></pre></td></tr></table></figure></li>
+<li>计算第10个斐波那契数，它类似于前面的DO循环版本：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(loop for i below 10</span><br><span class="line">      and a = 0 then b</span><br><span class="line">      and b = 1 then (+ b a)</span><br><span class="line">      finally (return a))</span><br></pre></td></tr></table></figure>
+符号across, and, below, collecting, counting, finally, for, from, summing, then 和to都是一些循环关键字。值得注意的是，我们通过LOOP可以看到，宏是如何被用于扩展基本语言的。尽管LOOP提供了它自己的语法用来表达循环构造，但它并没有抹杀Lisp的其他优势，如果它没有被包括在标准库中，你也可以自己实现或借助一个第三方库来实。现其余自Lisp的许多编程思想，从条件表达式到垃圾收集，都已经被吸取进其他语言，但Lisp的宏系统却始终使它保持了在语言风格上的独特性。Lisp的宏和大多数其他语言中的也叫宏的东西是完全不一样的，要完全认识Lisp中的宏系统，就需要重新看待它。</li>
+</ol>
+<p>一种常见的观点认为，语言的定义可能包含一个使用“核心”语言实现的标准功能库——如果某些功能没有被实现在标准库中，那么他们可能被程序员使用标准库提供的功能实现了。C的标准库差不多可以完全用可移植的C来实现，类似的，Java的标准Java开发包(JDK)中提供的不断改进的类和接口也是用”纯”Java编写的。</p>
+<p>使用核心加上标准库的方式来定义语言的优势在于易于理解和实现，但真正的好处是很容易对其进行扩展，如果C语言中不包括做某件事的函数，那么就可以写出这个函数。类似的，类似Java这样的语言通过定义新的类就可以扩展该语言。</p>
+<p><strong>尽管Common Lisp支持所有这些扩展语言的方法，但宏还提供了另一个表达方法。</strong> 每个宏都有自己的语法，它们能够决定那些被传递的S-表达式如何转换成Lisp形式。核心语言有了宏就可以构造出新的语法，例如WHEN, DOLIST和LOOP这样的控制构造以及DEFUN和DEFPARAMETER这样的定义形式，从而使这些新语法可以作为“标准库”的一部分而不是将其硬编码到语言核心。这已经涉及到语言本身是如何实现的，但作为一个Lisp程序员，我们更关心的是它所提供的语言扩展方式，而这将使Common Lisp成为更好的用于表达特定编程问题解决方案的语言。</p>
+<p><strong>S-表达式</strong><br>S-表达式的基本元素是列表(lisp)和原子(atom)，列表由括号所包围，并可包含任何数量的由空格所分割的元素。原子是除了列表之外的所有元素，包括符号、数字、字符串等。列表元素本身也可以是S-表达式(原子或嵌套的列表)</p>
+<p><strong>作为Lisp形式的S-表达式</strong><br>在读取器把大量文本转化为S-表达式后，这些S-表达式随后可以作为Lisp形式被求值，并不是每个读取器可读的S-表达式都有必要作为Lisp形式来求值，Common Lisp的求值规则定义了第二层的语法来检测哪种S-表达式可以看作Lisp形式。例如，从读取 (foo 1 2) 得到的S-表达式在句法上是良好定义的，但是只有当foo是一个函数或宏的名字时，它才可以被求值。</p>
+<p>现在以Lisp中常见的几个宏开始讲解，它们都是如果Lisp没有宏，就必须构造在语言核心里的东西。</p>
+<h2 id="一-WHEN-和-UNLESS-1"><a href="#一-WHEN-和-UNLESS-1" class="headerlink" title="一 WHEN 和 UNLESS"></a>一 WHEN 和 UNLESS</h2><p>最基本的条件执行形式是由IF特殊操作符提供的，其基本形式是：如果condition成立，那么执行then-form，否则执行else-form。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(if condition then-form [else-form])</span><br></pre></td></tr></table></figure>
+<p>其中then-form或else-form必须是单一的Lisp形式，如果要在每个子句中执行一系列的操作，则必须将其用其他一些语法形式进行封装，例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(if (condition)</span><br><span class="line">	(progn </span><br><span class="line">		(then-form1)</span><br><span class="line">		(then-form2)))</span><br></pre></td></tr></table></figure>
+<p>类似上述这样的代码可以实现，当condition为真时，做这个，那个以及一些事情。可否有一种方式能将这种IF加上PROGN所组成的模式抽象出来，宏就能实现。Common Lisp提供了一个标准宏WHEN，可以这么写：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(when  (condition)</span><br><span class="line">	(then-form1)</span><br><span class="line">	(then-form2))</span><br></pre></td></tr></table></figure>
+<p>如果WHEN没有被内置到标准库中，我们可以使用下面这个宏来定义自己的WHEN：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(defmacro when (condition &amp;rest body)</span><br><span class="line">	`(if ,condition (progn ,@body)))</span><br></pre></td></tr></table></figure>
+<p>与WHEN宏同系列的另一个宏是UNLESS，它取相反的条件，只有当条件为假时才求值其形式体：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(defmacro unless (condition &amp;rest body)</span><br><span class="line">	`(if (not ,condition) (progn ,@body)))</span><br></pre></td></tr></table></figure>
+<p>必须承认，这些都是相当简单的宏，它们只是抽象掉了一些语言层面约定俗成的细节，其实宏可以被更大规模地用于创建完整的特定领域的嵌入式语言。</p>
+<p>反引号（`）用于 宏展开（macro expansion）时，它的作用是对表达式进行部分求值，以便在表达式中直接引用变量或常量，同时保持部分结构不变。<br>逗号 <code>,</code>表示对表达式进行求值<br><code>,</code>（unquote）会将一个表达式求值并插入到宏扩展的代码中。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(defmacro example1 (x)</span><br><span class="line">  `(list 1 2 ,x 4))  ; 使用 , 来插入 x 的值</span><br><span class="line"></span><br><span class="line">(example1 3)  ; 执行宏，传入 3</span><br></pre></td></tr></table></figure>
+<p>展开后，<code>example1</code> 会将 <code>x</code> 的值（即 3）插入到 <code>list</code> 中，结果如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">; 展开后的代码 </span><br><span class="line">(list 1 2 3 4)</span><br></pre></td></tr></table></figure>
+
+<p><code> ,@</code>是 解包操作符（unquote-splicing），它用于在列表中“展开”或“解包”一个列表，使其中的元素被直接插入到外部列表中。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">(defmacro example2 (x)</span><br><span class="line">  `(list 1 2 ,@x 4))  ; 使用 ,@ 来展开 x</span><br><span class="line"></span><br><span class="line">(example2 &#x27;(3 4 5))  ; 执行宏，传入 (3 4 5)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>在这个例子中，<code>x</code> 是一个列表 <code>(3 4 5)</code>，使用 <code>,@</code> 会将其元素 <code>3</code>、<code>4</code> 和 <code>5</code> 解包并插入到 <code>list</code> 中，结果如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">; 展开后的代码</span><br><span class="line">(list 1 2 3 4 5 4)</span><br></pre></td></tr></table></figure>
+<h2 id="二-COND-1"><a href="#二-COND-1" class="headerlink" title="二 COND"></a>二 COND</h2><p>当遇到多重分支的条件语句时，原始的IF表达式再次变得丑陋不堪：如果a成立那么执行x，否则如果b成立那么执行y，否则执行z：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">(if a</span><br><span class="line">	(do-x)</span><br><span class="line">	(if b</span><br><span class="line">		(do-y)</span><br><span class="line">		(do-z)))</span><br></pre></td></tr></table></figure>
+<p>如果需要在then子句中包括多个形式，就需要用到PROGN，代码结构会变得更加复杂。因此 Common Lisp提供了用于表达多重分支条件的宏 COND。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">(cond</span><br><span class="line">  (test1 expr1)</span><br><span class="line">  (test2 expr2)</span><br><span class="line">  ...</span><br><span class="line">  (t exprN))  ; &#x27;t&#x27; 是默认情况，类似于 else</span><br></pre></td></tr></table></figure>
+<p>在 <code>cond</code> 语句中，Lisp 会逐个评估每个条件（<code>test1</code>, <code>test2</code> 等），直到找到一个结果为真（非 <code>nil</code>）的条件。如果找到了真条件，Lisp 会执行对应的表达式（<code>expr1</code>, <code>expr2</code> 等），并返回其结果。<code>t</code> 表示“真”，如果没有条件匹配，<code>t</code> 分支会执行。</p>
+<h2 id="三-AND，OR-和-NOT-1"><a href="#三-AND，OR-和-NOT-1" class="headerlink" title="三 AND，OR 和 NOT"></a>三 AND，OR 和 NOT</h2><p>NOT是函数，它接受单一参数并对其值取反，当参数为NIL时返回T，否则返回NIL。<br>AND和OR则是宏，它们实现了对任意数量子表达式的逻辑合取和析取操作，并被定义成宏以支持“短路”特性。</p>
+<p>只要AND的一个子表达式求值为NIL，它就立即停止并返回NIL，如果将所有子表达式都求值为非NIL，那么它将返回最后一个子表达式的值。</p>
+<p>对于OR来说，只要一个子表达式求值得到非NIL，它就立即停止并返回当前子表达式的值，如果没有子表达式求值为真，OR返回NIL。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(not nil)             ; --&gt; T</span><br><span class="line">(not (= 1 1))         ; --&gt; NIL</span><br><span class="line">(and (= 1 2) (= 3 3)) ; --&gt; NIL</span><br><span class="line">(or (= 1 2) (= 3 3))  ; --&gt; T</span><br></pre></td></tr></table></figure>
+<h2 id="四-循环-1"><a href="#四-循环-1" class="headerlink" title="四 循环"></a>四 循环</h2><p>循环构造是另外一类主要的控制构造。Common Lisp的循环机制，除了更加强大和灵活以外，还是一门关于宏所提供的“鱼和熊掌兼得”的编程风格的有趣课程。<br>DO提供了一种基本的结构化循环构造，而DOLIST和DOTIMES则提供了两种易用却不那么通用的构造。最后，LOOP宏提供了一种成熟的微型语言，它是一种独特的表达循环的方式。不论你喜欢或不喜欢这种循环的构造方式，LOOP本身都是为语言增加新构造的宏展示其强大威力的突出示例。</p>
+<h2 id="五-DOLIST-和-DOTIMES-1"><a href="#五-DOLIST-和-DOTIMES-1" class="headerlink" title="五 DOLIST 和 DOTIMES"></a>五 DOLIST 和 DOTIMES</h2><p>先从易于使用的DOLIST和DOTIMES宏开始。<br>DOLIST在一个列表的元素上循环操作，使用一个依次持有列表中所有后继元素的变量来执行循环体。下面是其基本形式（去掉了一些难懂的选项）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(dolist (var list-form)</span><br><span class="line">	body-form*)</span><br></pre></td></tr></table></figure>
+<p>例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">CL-USER&gt; (dolist (x &#x27;(1 2 3)) (print x))</span><br><span class="line">1 </span><br><span class="line">2 </span><br><span class="line">3 </span><br><span class="line">NIL</span><br></pre></td></tr></table></figure>
+<p>在这种方式下，DOLIST这种形式本身求值为NIL。<br>如果想在列表结束之前中断一个DOLIST循环，则可以使用RETURN。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">CL-USER&gt; (dolist (x &#x27;(1 2 3)) (print x) (if (evenp x) (return)))</span><br><span class="line">1 </span><br><span class="line">2 </span><br><span class="line">NIL</span><br></pre></td></tr></table></figure>
+<p>evenp 判断一个数是否为偶数。</p>
+<p>DOTIMES是用于循环计数的高级循环构造，其基本模板和DOLIST非常相似。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(dotimes (var count-form)</span><br><span class="line">	body-form*)</span><br></pre></td></tr></table></figure>
+<p>其中count-form必须能求值为一个整数，通过每次循环，var所持有的整数依次从0到比那个数小1的每一个后继整数。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">CL-USER&gt; (dotimes (i 4) (print i))</span><br><span class="line">0 </span><br><span class="line">1 </span><br><span class="line">2 </span><br><span class="line">3 </span><br><span class="line">NIL</span><br></pre></td></tr></table></figure>
+
+<h2 id="六-DO-1"><a href="#六-DO-1" class="headerlink" title="六 DO"></a>六 DO</h2><p>尽管DOLIST和DOTIMES方便易用，但也无法应用于所有循环，使用DO可以解决所有的循环问题。与DOLIST和DOTIMES只提供一个循环变量有所不同的是，DO允许绑定任意数量的变量，并且变量值在每次循环中的改变也是可自定义的，也可以自定义测试条件来决定何时终止循环，并可以提供一个形式，在循环结束时进行求值来为DO表达式整体生成一个返回值。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(do (variable-definition*)</span><br><span class="line">	(end-test-form result-form*)</span><br><span class="line">	statement*)</span><br></pre></td></tr></table></figure>
+<p>每一个variable-definition引入一个将存在于循环体作用域之内的变量，单一变量定义的完整形式是含有三个元素的列表。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(var init-form step-form)</span><br></pre></td></tr></table></figure>
+<p>上述init-form在循环开始时被求值并将结果值绑定到变量var上，在循环的每一个后续迭代开始之前，step-form将被求值并把新值赋值给var，step-form是可选的。</p>
+<p>在每次迭代开始时以及所有循环变量都被指定新值后，end-test-form会被求值，只要其值为NIL，迭代过程就会继续。</p>
+<p>当end-test-form求值为真，result-form将被求值，且最后一个结果形式的值将作为DO表达式的值返回。<br>示例：计算斐波那契数列的第 n 项</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(do ((n 0 (1+ n))</span><br><span class="line">     (cur 0 next)</span><br><span class="line">     (next 1 (+ cur next)))</span><br><span class="line">    ((= 4 n) cur))</span><br></pre></td></tr></table></figure>
+<p>示例：打印前N个自然数的值：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(do ((i 0 (1+ i)))</span><br><span class="line">    ((&gt;= i 4))</span><br><span class="line">  (print i))</span><br></pre></td></tr></table></figure>
+<p>当然打印前N个自然数的值使用DOTIMES会更加方便：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(dotimes (i 4) (print i))</span><br></pre></td></tr></table></figure>
+
+<p>下面的例子演示一个不绑定循环变量的DO循环，在当前时间小于一个全局变量值的时候，它保持循环，每分钟打印一个”Waiting”：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(do ()</span><br><span class="line">	((&gt; (get-universal-time) *some-future-data*))</span><br><span class="line">	(format t &quot;Waiting~%&quot;)</span><br><span class="line">	(sleep 60))</span><br></pre></td></tr></table></figure>
+
+<h2 id="七-强大的LOOP-1"><a href="#七-强大的LOOP-1" class="headerlink" title="七 强大的LOOP"></a>七 强大的LOOP</h2><p>简单的情形可以使用DOLIST和DOTIMES，如果它们不满足要求可以使用通用的DO。但是有一种循环需求在实际开发中很常见，例如在多种数据结构上的循环：列表，向量，哈希表和包，或者在循环时以多种方式来聚集值：收集，计数，求和，最小化，最大化等这一系列问题都可以用LOOP宏轻松实现。<br>LOOP宏有两大版本，简化的扩展的。简化版是没有变量绑定的无限循环，而扩展版则允许复杂的变量绑定和条件判断。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(loop</span><br><span class="line">	body-form*)</span><br></pre></td></tr></table></figure>
+<p>主体形式在每次循环时都被求值，整个循环将不停的迭代，直到使用RETURN来进行终止。例如可以使用一个简化的LOOP来写出前面的DO循环。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">(loop</span><br><span class="line">	(when (&gt; (get-universal-time) *some-future-data*) </span><br><span class="line">		(return))</span><br><span class="line">	(format t &quot;Waiting ~%&quot;)</span><br><span class="line">	(sleep 60))</span><br></pre></td></tr></table></figure>
+<p>问题，将1到10的数字收集到一个列表中：<br>使用DO循环：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(do ((nums nil) (i 1 (1+ i)))</span><br><span class="line">    ((&gt; i 10) (nreverse nums))</span><br><span class="line">  (push i nums))</span><br></pre></td></tr></table></figure>
+<p>使用LOOP：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(loop for i from 1 to 10 collecting i)</span><br></pre></td></tr></table></figure>
+<p>关于LOOP的这种语法，有些人喜欢，有些人则讨厌。</p>
+<p>下面是关于LOOP的其他一些用法：</p>
+<ol>
+<li>统计一个字符串中元音字母的个数：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(loop for  x across &quot;This is my blog&quot; counting (find x &quot;aeiou&quot;))</span><br></pre></td></tr></table></figure></li>
+<li>计算第10个斐波那契数，它类似于前面的DO循环版本：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(loop for i below 10</span><br><span class="line">      and a = 0 then b</span><br><span class="line">      and b = 1 then (+ b a)</span><br><span class="line">      finally (return a))</span><br></pre></td></tr></table></figure>
+符号across, and, below, collecting, counting, finally, for, from, summing, then 和to都是一些循环关键字。值得注意的是，我们通过LOOP可以看到，宏是如何被用于扩展基本语言的。尽管LOOP提供了它自己的语法用来表达循环构造，但它并没有抹杀Lisp的其他优势，如果它没有被包括在标准库中，你也可以自己实现或借助一个第三方库来实现。</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div></div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechat.png" alt="编程之禅 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.png" alt="编程之禅 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>编程之禅
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://wangjunstf.github.io/2025/01/16/jie-gou-common-lisp-hong-cong-ji-ben-yu-fa-dao-gao-ji-yong-fa/" title="解构Common Lisp宏：从基本语法到高级用法">https://wangjunstf.github.io/2025/01/16/jie-gou-common-lisp-hong-cong-ji-ben-yu-fa-dao-gao-ji-yong-fa/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Common-Lisp/" rel="tag"># Common Lisp</a>
+              <a href="/tags/%E5%AE%8F/" rel="tag"># 宏</a>
+              <a href="/tags/WHEN/" rel="tag"># WHEN</a>
+              <a href="/tags/COND/" rel="tag"># COND</a>
+              <a href="/tags/DO/" rel="tag"># DO</a>
+              <a href="/tags/DOLIST/" rel="tag"># DOLIST</a>
+              <a href="/tags/DOTIMES/" rel="tag"># DOTIMES</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2025/01/16/uiop-run-program-ji-ben-shi-yong-jiao-cheng/" rel="prev" title="uiop-run-program 基本使用教程">
+      <i class="fa fa-chevron-left"></i> uiop-run-program 基本使用教程
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2025/01/16/common-lisp-ru-he-bian-xie-hong/" rel="next" title="Common Lisp如何编写宏">
+      Common Lisp如何编写宏 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+      <div class="tabs tabs-comment">
+        <ul class="nav-tabs">
+            <li class="tab"><a href="#comment-gitalk">gitalk</a></li>
+            <li class="tab"><a href="#comment-disqus">Load Disqus</a></li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane gitalk" id="comment-gitalk">
+              <div class="comments" id="gitalk-container"></div>
+            </div>
+            <div class="tab-pane disqus" id="comment-disqus">
+              
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+            </div>
+        </div>
+      </div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80-WHEN-%E5%92%8C-UNLESS"><span class="nav-number">1.</span> <span class="nav-text">一 WHEN 和 UNLESS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C-COND"><span class="nav-number">2.</span> <span class="nav-text">二 COND</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89-AND%EF%BC%8COR-%E5%92%8C-NOT"><span class="nav-number">3.</span> <span class="nav-text">三 AND，OR 和 NOT</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B-%E5%BE%AA%E7%8E%AF"><span class="nav-number">4.</span> <span class="nav-text">四 循环</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%94-DOLIST-%E5%92%8C-DOTIMES"><span class="nav-number">5.</span> <span class="nav-text">五 DOLIST 和 DOTIMES</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AD-DO"><span class="nav-number">6.</span> <span class="nav-text">六 DO</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%83-%E5%BC%BA%E5%A4%A7%E7%9A%84LOOP"><span class="nav-number">7.</span> <span class="nav-text">七 强大的LOOP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80-WHEN-%E5%92%8C-UNLESS-1"><span class="nav-number">8.</span> <span class="nav-text">一 WHEN 和 UNLESS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C-COND-1"><span class="nav-number">9.</span> <span class="nav-text">二 COND</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89-AND%EF%BC%8COR-%E5%92%8C-NOT-1"><span class="nav-number">10.</span> <span class="nav-text">三 AND，OR 和 NOT</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B-%E5%BE%AA%E7%8E%AF-1"><span class="nav-number">11.</span> <span class="nav-text">四 循环</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%94-DOLIST-%E5%92%8C-DOTIMES-1"><span class="nav-number">12.</span> <span class="nav-text">五 DOLIST 和 DOTIMES</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AD-DO-1"><span class="nav-number">13.</span> <span class="nav-text">六 DO</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%83-%E5%BC%BA%E5%A4%A7%E7%9A%84LOOP-1"><span class="nav-number">14.</span> <span class="nav-text">七 强大的LOOP</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">编程之禅</p>
+  <div class="site-description" itemprop="description">本博客用于分享大模型，编程语言，网络原理，操作系统，数据结构与算法等知识。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">69</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">138</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/wangjunstf" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;wangjunstf" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-rss fa-fw"></i>RSS</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.ruanyifeng.com/blog/" title="https:&#x2F;&#x2F;www.ruanyifeng.com&#x2F;blog&#x2F;" rel="noopener" target="_blank">阮一峰的网络日志</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.liaoxuefeng.com/" title="https:&#x2F;&#x2F;www.liaoxuefeng.com&#x2F;" rel="noopener" target="_blank">廖雪峰</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">编程之禅</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+<script>
+  (function() {
+    function leancloudSelector(url) {
+      url = encodeURI(url);
+      return document.getElementById(url).querySelector('.leancloud-visitors-count');
+    }
+
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.id);
+      var title = visitors.dataset.flagTitle;
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            leancloudSelector(url).innerText = counter.time + 1;
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              });
+          } else {
+              Counter('post', '/classes/Counter', { title, url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.error('Failed to create', error);
+                });
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.id);
+      });
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          for (let url of entries) {
+            let target = results.find(item => item.url === url);
+            leancloudSelector(url).innerText = target ? target.time : 0;
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    let { app_id, app_key, server_url } = {"enable":true,"app_id":"CYdcr1PXFECvJbnSb3k2DpM8-gzGzoHsz","app_key":"ALz5OyA5ck1P2CMQYhtP4KzG","server_url":null,"security":false};
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${api_server}/1.1${url}`, {
+          method,
+          headers: {
+            'X-LC-Id'     : app_id,
+            'X-LC-Key'    : app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    }
+
+    let api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(response => response.json())
+        .then(({ api_server }) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://eleganceblog.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://wangjunstf.github.io/2025/01/16/jie-gou-common-lisp-hong-cong-ji-ben-yu-fa-dao-gao-ji-yong-fa/";
+    this.page.identifier = "2025/01/16/jie-gou-common-lisp-hong-cong-ji-ben-yu-fa-dao-gao-ji-yong-fa/";
+    this.page.title = "解构Common Lisp宏：从基本语法到高级用法";
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://eleganceblog.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '00c06e8fabae7b42521c',
+      clientSecret: '753415ed39734f4af6c6363c48340bb130817349',
+      repo        : 'wangjunstf.github.io',
+      owner       : 'wangjunstf',
+      admin       : ['wangjunstf'],
+      id          : '00505c118e0f05ed0ce5f7483d8c6039',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+</body>
+</html>
