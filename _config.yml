@@ -141,3 +141,12 @@ permalink_pinyin:
   separator: '-' # default: '-'
 
 
+markdown:
+  render:
+    html: true
+    xhtmlOut: true
+    breaks: true
+    linkify: true
+    typographer: true
+  plugins:
+    - markdown-it-katex
