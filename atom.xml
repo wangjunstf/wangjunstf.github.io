@@ -6,7 +6,7 @@
   <link href="https://wangjunstf.github.io/atom.xml" rel="self"/>
   
   <link href="https://wangjunstf.github.io/"/>
-  <updated>2025-01-16T10:45:49.523Z</updated>
+  <updated>2025-01-18T02:21:36.468Z</updated>
   <id>https://wangjunstf.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>test latest</title>
+    <link href="https://wangjunstf.github.io/2025/01/17/test/"/>
+    <id>https://wangjunstf.github.io/2025/01/17/test/</id>
+    <published>2025-01-16T17:23:50.000Z</published>
+    <updated>2025-01-18T02:21:36.468Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;——-2025年1月16日更新-——&quot;&gt;&lt;a href=&quot;#——-2025年1月16日更新-——&quot; class=&quot;headerlink&quot; title=&quot;—— 2025年1月16日更新 ——&quot;&gt;&lt;/a&gt;—— 2025年1月16日更新</summary>
+        
+      
+    
+    
+    
+    <category term="Lisp" scheme="https://wangjunstf.github.io/categories/Lisp/"/>
+    
+    
+    <category term="Lisp" scheme="https://wangjunstf.github.io/tags/Lisp/"/>
+    
+  </entry>
   
   <entry>
     <title>Common Lisp实践：建立单元测试框架</title>
@@ -307,9 +332,9 @@
     <category term="深入理解计算机系统" scheme="https://wangjunstf.github.io/categories/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/"/>
     
     
-    <category term="C" scheme="https://wangjunstf.github.io/tags/C/"/>
-    
     <category term="CPP" scheme="https://wangjunstf.github.io/tags/CPP/"/>
+    
+    <category term="C" scheme="https://wangjunstf.github.io/tags/C/"/>
     
     <category term="常见内存错误" scheme="https://wangjunstf.github.io/tags/%E5%B8%B8%E8%A7%81%E5%86%85%E5%AD%98%E9%94%99%E8%AF%AF/"/>
     
@@ -467,30 +492,6 @@
     <category term="快速排序" scheme="https://wangjunstf.github.io/tags/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/"/>
     
     <category term="快速选择" scheme="https://wangjunstf.github.io/tags/%E5%BF%AB%E9%80%9F%E9%80%89%E6%8B%A9/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>C++ 智能指针需要注意的点</title>
-    <link href="https://wangjunstf.github.io/2021/10/24/c-zhi-neng-zhi-zhen-xu-yao-zhu-yi-de-dian/"/>
-    <id>https://wangjunstf.github.io/2021/10/24/c-zhi-neng-zhi-zhen-xu-yao-zhu-yi-de-dian/</id>
-    <published>2021-10-24T03:10:21.000Z</published>
-    <updated>2024-10-01T14:17:56.607Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;C++11提供了三种智能指针：std::shared_ptr, std::unique_ptr, std::weak_ptr，使用时需添加头&lt;code&gt;&amp;lt;memory&amp;gt;&lt;/code&gt;。&lt;/p&gt;
-&lt;h2 id=&quot;智能指针与普通指针混用&quot;&gt;&lt;a href=&quot;#智能指针与普通指针混用&quot; class=&quot;headerlink&quot; title=&quot;智能指针与普通指针混用&quot;&gt;&lt;/a&gt;智能指针与普通指针混用&lt;/h2&gt;</summary>
-    
-    
-    
-    <category term="CPP" scheme="https://wangjunstf.github.io/categories/CPP/"/>
-    
-    
-    <category term="CPP" scheme="https://wangjunstf.github.io/tags/CPP/"/>
-    
-    <category term="指针指针" scheme="https://wangjunstf.github.io/tags/%E6%8C%87%E9%92%88%E6%8C%87%E9%92%88/"/>
-    
-    <category term="weak_ptr" scheme="https://wangjunstf.github.io/tags/weak-ptr/"/>
     
   </entry>
   

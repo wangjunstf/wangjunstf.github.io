@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>test latest</title>
+      <link href="/2025/01/17/test/"/>
+      <url>/2025/01/17/test/</url>
+      
+        <content type="html"><![CDATA[<h2 id="——-2025年1月16日更新-——"><a href="#——-2025年1月16日更新-——" class="headerlink" title="—— 2025年1月16日更新 ——"></a>—— 2025年1月16日更新 ——</h2><p>最新的机器学习的定义：计算机程序从经验E中学习，解决某一任务T进行某一性能度量P，通过P测定在T上的表现因经验E而提高。</p><pre class="mermaid">graph LR  A((机器学习))  A --> B1(监督学习)  B1 --> B11(回归问题)  B1 --> B12(分类问题)  A --> B2(无监督学习)  B2 --> B21(分簇)</pre><p>回归问题通常采用最小二乘法。<br><strong>最小二乘法的基本原理：</strong><br>给定一组数据点$(x1,y1),(x2,y2),…,(xn,yn)(x_1, y_1), (x_2, y_2), (x_n, y_n),(x1​,y1​),(x2​,y2​),…,(xn​,yn​)$<br>目标是找到一个函数$f(x)$ 来描述这些数据点。最小二乘法的核心思想是：</p><ul><li>计算预测值与真实值之间的误差：$\epsilon_i=y_i - f(x_i)$</li><li>定义目标函数为误差的平方和：$S = \sum_{i=1}^{n} \epsilon_i^2 = \sum_{i=1}^{n} (y_i - f(x_i))^2$</li><li>通过调整模型参数，使得 S 达到最小值。<br>对于简单的线性回归$f(x)=wx+b$，目标是求解 w 和 b 使得平方误差最小。</li></ul><p><strong>数学解法</strong><br>假设模型为$f(x)=wx+b$，最小二乘法的目标是最小化：$S = \sum_{i=1}^{n} (y_i - (wx_i+b))^2$<br>对 $S$ 分别对 $w$ 和 $b$ 求偏导数，并令偏导数等于0，可得出一组线性方程，通过解这组方程即可得到最优参数 w 和 b。<br>$$ w = \frac{\sum_{i=1}^n (x_i - \bar{x})(y_i - \bar{y})}{\sum_{i=1}^n (x_i - \bar{x})^2}, \quad b = \bar{y} - w\bar{x} $$<br>其中$\bar{x}$和 $\bar{y}$分别是 $x$ 和 $y$ 的均值。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Lisp </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Lisp </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Common Lisp实践：建立单元测试框架</title>
       <link href="/2025/01/16/common-lisp-shi-jian-jian-li-dan-yuan-ce-shi-kuang-jia/"/>
       <url>/2025/01/16/common-lisp-shi-jian-jian-li-dan-yuan-ce-shi-kuang-jia/</url>
@@ -354,9 +379,9 @@
       
         <tags>
             
-            <tag> C </tag>
-            
             <tag> CPP </tag>
+            
+            <tag> C </tag>
             
             <tag> 常见内存错误 </tag>
             
