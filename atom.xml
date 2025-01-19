@@ -6,7 +6,7 @@
   <link href="https://wangjunstf.github.io/atom.xml" rel="self"/>
   
   <link href="https://wangjunstf.github.io/"/>
-  <updated>2025-01-19T15:19:27.585Z</updated>
+  <updated>2025-01-19T15:32:50.925Z</updated>
   <id>https://wangjunstf.github.io/</id>
   
   <author>
@@ -21,16 +21,12 @@
     <link href="https://wangjunstf.github.io/2025/01/19/dao-shu-de-gai-nian-he-ying-yong/"/>
     <id>https://wangjunstf.github.io/2025/01/19/dao-shu-de-gai-nian-he-ying-yong/</id>
     <published>2025-01-19T15:15:16.000Z</published>
-    <updated>2025-01-19T15:19:27.585Z</updated>
+    <updated>2025-01-19T15:32:50.925Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;一-什么是导数&quot;&gt;一</summary>
-        
-      
+    <summary type="html">&lt;h2 id=&quot;一-什么是导数&quot;&gt;一 什么是导数&lt;/h2&gt;
+&lt;p&gt;导数是微积分中的一个重要概念，它描述了一个函数$f(x)$在某一点的变化率或斜率，斜率越大，函数图像越陡，$x$增加相同的数值，$f(x)$变化更快。&lt;/p&gt;
+&lt;p&gt;如果一个函数$f(x)$在某一点$x=a$可导，那么导数就是$f(x)$在$x=a$这一点的变化率。从几何上看，导数可以看作是曲线$y=f(x)$在点$a,f(a)$处的切线的斜率。&lt;/p&gt;</summary>
     
     
     
