@@ -354,9 +354,9 @@
       
         <tags>
             
-            <tag> C </tag>
-            
             <tag> CPP </tag>
+            
+            <tag> C </tag>
             
             <tag> 常见内存错误 </tag>
             
@@ -1018,9 +1018,9 @@
       
         <tags>
             
-            <tag> 算法 </tag>
-            
             <tag> 前缀和 </tag>
+            
+            <tag> 算法 </tag>
             
             <tag> 最长连续子数组 </tag>
             
@@ -1246,9 +1246,9 @@
       
         <tags>
             
-            <tag> 算法 </tag>
-            
             <tag> 快速排序 </tag>
+            
+            <tag> 算法 </tag>
             
         </tags>
       
