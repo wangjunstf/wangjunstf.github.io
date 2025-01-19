@@ -6,7 +6,7 @@
   <link href="https://wangjunstf.github.io/atom.xml" rel="self"/>
   
   <link href="https://wangjunstf.github.io/"/>
-  <updated>2025-01-16T10:45:49.523Z</updated>
+  <updated>2025-01-19T15:19:27.585Z</updated>
   <id>https://wangjunstf.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>导数的概念和应用</title>
+    <link href="https://wangjunstf.github.io/2025/01/19/dao-shu-de-gai-nian-he-ying-yong/"/>
+    <id>https://wangjunstf.github.io/2025/01/19/dao-shu-de-gai-nian-he-ying-yong/</id>
+    <published>2025-01-19T15:15:16.000Z</published>
+    <updated>2025-01-19T15:19:27.585Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;一-什么是导数&quot;&gt;一</summary>
+        
+      
+    
+    
+    
+    <category term="Math" scheme="https://wangjunstf.github.io/categories/Math/"/>
+    
+    
+    <category term="导数" scheme="https://wangjunstf.github.io/tags/%E5%AF%BC%E6%95%B0/"/>
+    
+    <category term="导数法则" scheme="https://wangjunstf.github.io/tags/%E5%AF%BC%E6%95%B0%E6%B3%95%E5%88%99/"/>
+    
+  </entry>
   
   <entry>
     <title>Common Lisp实践：建立单元测试框架</title>
@@ -476,30 +503,6 @@
     <category term="快速排序" scheme="https://wangjunstf.github.io/tags/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/"/>
     
     <category term="快速选择" scheme="https://wangjunstf.github.io/tags/%E5%BF%AB%E9%80%9F%E9%80%89%E6%8B%A9/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>C++ 智能指针需要注意的点</title>
-    <link href="https://wangjunstf.github.io/2021/10/24/c-zhi-neng-zhi-zhen-xu-yao-zhu-yi-de-dian/"/>
-    <id>https://wangjunstf.github.io/2021/10/24/c-zhi-neng-zhi-zhen-xu-yao-zhu-yi-de-dian/</id>
-    <published>2021-10-24T03:10:21.000Z</published>
-    <updated>2024-10-01T14:17:56.607Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;C++11提供了三种智能指针：std::shared_ptr, std::unique_ptr, std::weak_ptr，使用时需添加头&lt;code&gt;&amp;lt;memory&amp;gt;&lt;/code&gt;。&lt;/p&gt;
-&lt;h2 id=&quot;智能指针与普通指针混用&quot;&gt;智能指针与普通指针混用&lt;/h2&gt;</summary>
-    
-    
-    
-    <category term="CPP" scheme="https://wangjunstf.github.io/categories/CPP/"/>
-    
-    
-    <category term="CPP" scheme="https://wangjunstf.github.io/tags/CPP/"/>
-    
-    <category term="指针指针" scheme="https://wangjunstf.github.io/tags/%E6%8C%87%E9%92%88%E6%8C%87%E9%92%88/"/>
-    
-    <category term="weak_ptr" scheme="https://wangjunstf.github.io/tags/weak-ptr/"/>
     
   </entry>
   
