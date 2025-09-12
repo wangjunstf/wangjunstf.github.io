@@ -6,7 +6,7 @@
   <link href="https://wangjunstf.github.io/atom.xml" rel="self"/>
   
   <link href="https://wangjunstf.github.io/"/>
-  <updated>2025-01-19T15:32:50.925Z</updated>
+  <updated>2025-09-12T14:42:49.289Z</updated>
   <id>https://wangjunstf.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>C++变量和基本类型之底层原理</title>
+    <link href="https://wangjunstf.github.io/2025/09/12/cpp-bian-liang-he-ji-ben-lei-xing-zhi-di-ceng-yuan-li/"/>
+    <id>https://wangjunstf.github.io/2025/09/12/cpp-bian-liang-he-ji-ben-lei-xing-zhi-di-ceng-yuan-li/</id>
+    <published>2025-09-12T14:40:38.000Z</published>
+    <updated>2025-09-12T14:42:49.289Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;一、内置基本类型&quot;&gt;一、内置基本类型&lt;/h2&gt;
+&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="CPP" scheme="https://wangjunstf.github.io/categories/CPP/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>导数的概念和应用</title>
@@ -476,29 +500,6 @@
     
     
     <category term="CentOS7" scheme="https://wangjunstf.github.io/tags/CentOS7/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>快速排序的变种——快速选择算法</title>
-    <link href="https://wangjunstf.github.io/2021/10/24/kuai-su-pai-xu-de-bian-chong-kuai-su-xuan-ze-suan-fa/"/>
-    <id>https://wangjunstf.github.io/2021/10/24/kuai-su-pai-xu-de-bian-chong-kuai-su-xuan-ze-suan-fa/</id>
-    <published>2021-10-24T09:58:56.000Z</published>
-    <updated>2024-10-01T14:17:56.616Z</updated>
-    
-    
-    <summary type="html">&lt;h1&gt;快速排序的变种——快速选择算法&lt;/h1&gt;
-&lt;p&gt;给出一个数组，例如[1,4,2,6,8,3]，现在要求出第 k 大的数字，即将数组从大到小排列，选择第k个数。用什么算法更快找到这个数？&lt;/p&gt;
-&lt;p&gt;最容易想到的就是先将数组排序，就可以很容易找到第 k 大的数字。就算用快速排序，时间复杂度为 O(nlgn)。有没有更快的算法？&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="LeetCode" scheme="https://wangjunstf.github.io/categories/LeetCode/"/>
-    
-    
-    <category term="快速排序" scheme="https://wangjunstf.github.io/tags/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/"/>
-    
-    <category term="快速选择" scheme="https://wangjunstf.github.io/tags/%E5%BF%AB%E9%80%9F%E9%80%89%E6%8B%A9/"/>
     
   </entry>
   

@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>C++变量和基本类型之底层原理</title>
+      <link href="/2025/09/12/cpp-bian-liang-he-ji-ben-lei-xing-zhi-di-ceng-yuan-li/"/>
+      <url>/2025/09/12/cpp-bian-liang-he-ji-ben-lei-xing-zhi-di-ceng-yuan-li/</url>
+      
+        <content type="html"><![CDATA[<h2 id="一、内置基本类型">一、内置基本类型</h2><h2 id="二、变量">二、变量</h2>]]></content>
+      
+      
+      <categories>
+          
+          <category> CPP </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>导数的概念和应用</title>
       <link href="/2025/01/19/dao-shu-de-gai-nian-he-ying-yong/"/>
       <url>/2025/01/19/dao-shu-de-gai-nian-he-ying-yong/</url>
@@ -723,7 +742,7 @@
       
       <categories>
           
-          <category> cpp </category>
+          <category> CPP </category>
           
       </categories>
       
