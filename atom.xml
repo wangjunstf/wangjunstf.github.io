@@ -6,7 +6,7 @@
   <link href="https://wangjunstf.github.io/atom.xml" rel="self"/>
   
   <link href="https://wangjunstf.github.io/"/>
-  <updated>2025-09-17T01:32:40.435Z</updated>
+  <updated>2025-09-17T07:53:58.022Z</updated>
   <id>https://wangjunstf.github.io/</id>
   
   <author>
@@ -21,19 +21,22 @@
     <link href="https://wangjunstf.github.io/2025/09/17/qiu-liang-shu-zui-xiao-gong-bei-shu-de-tong-jie/"/>
     <id>https://wangjunstf.github.io/2025/09/17/qiu-liang-shu-zui-xiao-gong-bei-shu-de-tong-jie/</id>
     <published>2025-09-17T01:30:54.000Z</published>
-    <updated>2025-09-17T01:32:40.435Z</updated>
+    <updated>2025-09-17T07:53:58.022Z</updated>
     
     
-      
-      
-        
-        
     <summary type="html">&lt;h1&gt;求两数的最小偶倍数（通用方法解法）&lt;/h1&gt;
 &lt;p&gt;最小偶倍数通常指的是两个数的最小公倍数（LCM），但确保结果为偶数。对于任意两个正整数 (a) 和 (b)，最小偶倍数的计算基于以下逻辑：&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;先计算 (a) 和 (b) 的最小公倍数</summary>
-        
-      
+&lt;li&gt;先计算 (a) 和 (b) 的最小公倍数 (&#92;text{LCM}(a, b))。&lt;/li&gt;
+&lt;li&gt;如果 (&#92;text{LCM}(a, b)) 是偶数，则它就是最小偶倍数。&lt;/li&gt;
+&lt;li&gt;如果 (&#92;text{LCM}(a, b)) 是奇数，则最小偶倍数为 (2 &#92;times &#92;text{LCM}(a, b))（因为 (&#92;text{LCM}(a, b)) 是最小公倍数，任何更小的公倍数都不可能是偶数）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;计算 (&#92;text{LCM}(a, b)) 的通用方法是先计算最大公约数（GCD），然后使用公式：&lt;br&gt;
+[&lt;br&gt;
+&#92;text{LCM}(a, b) = &#92;frac{|a &#92;times b|}{&#92;text{GCD}(a, b)}&lt;br&gt;
+]&lt;br&gt;
+由于 (a) 和 (b) 为正整数，可忽略绝对值。&lt;/p&gt;
+&lt;p&gt;计算 GCD 的常用算法是欧几里得算法（辗转相除法）。&lt;/p&gt;</summary>
     
     
     
