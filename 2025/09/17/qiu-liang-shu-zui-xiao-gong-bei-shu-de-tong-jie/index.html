@@ -19,15 +19,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"wangjunstf.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.22.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":{"disqus":{"text":"Load Disqus","order":-1},"gitalk":{"order":-2}}},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="求两数的最小偶倍数（通用方法解法） 最小偶倍数通常指的是两个数的最小公倍数（LCM），但确保结果为偶数。对于任意两个正整数 (a) 和 (b)，最小偶倍数的计算基于以下逻辑：  先计算 (a) 和 (b) 的最小公倍数 (\text{LCM}(a, b))。 如果 (\text{LCM}(a, b)) 是偶数，则它就是最小偶倍数。 如果 (\text{LCM}(a, b)) 是奇数，则最小偶倍数为">
+    <meta name="description" content="求两个数a和b的最小公倍数，最常用和最有效的方法是利用它们与最大公约数（Greatest Common Divisor, GCD）之间的关系。 核心公式 两个数的最小公倍数等于这两个数的乘积除以它们的最大公约数。用数学公式表示为： $$LCM(a,b)&#x3D;\frac{|a * b|}{GCD(a,b)}$$">
 <meta property="og:type" content="article">
-<meta property="og:title" content="求两数最小公倍数的通解">
+<meta property="og:title" content="求两数最小公倍数的通解（通用方法解法）">
 <meta property="og:url" content="https://wangjunstf.github.io/2025/09/17/qiu-liang-shu-zui-xiao-gong-bei-shu-de-tong-jie/index.html">
 <meta property="og:site_name" content="编程之禅">
-<meta property="og:description" content="求两数的最小偶倍数（通用方法解法） 最小偶倍数通常指的是两个数的最小公倍数（LCM），但确保结果为偶数。对于任意两个正整数 (a) 和 (b)，最小偶倍数的计算基于以下逻辑：  先计算 (a) 和 (b) 的最小公倍数 (\text{LCM}(a, b))。 如果 (\text{LCM}(a, b)) 是偶数，则它就是最小偶倍数。 如果 (\text{LCM}(a, b)) 是奇数，则最小偶倍数为">
+<meta property="og:description" content="求两个数a和b的最小公倍数，最常用和最有效的方法是利用它们与最大公约数（Greatest Common Divisor, GCD）之间的关系。 核心公式 两个数的最小公倍数等于这两个数的乘积除以它们的最大公约数。用数学公式表示为： $$LCM(a,b)&#x3D;\frac{|a * b|}{GCD(a,b)}$$">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-09-17T01:30:54.000Z">
-<meta property="article:modified_time" content="2025-09-17T07:53:58.022Z">
+<meta property="article:modified_time" content="2025-09-17T08:29:45.085Z">
 <meta property="article:author" content="编程之禅">
 <meta property="article:tag" content="最小公倍数">
 <meta property="article:tag" content="LCM">
@@ -38,10 +38,10 @@
 <link rel="canonical" href="https://wangjunstf.github.io/2025/09/17/qiu-liang-shu-zui-xiao-gong-bei-shu-de-tong-jie/">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://wangjunstf.github.io/2025/09/17/qiu-liang-shu-zui-xiao-gong-bei-shu-de-tong-jie/","path":"2025/09/17/qiu-liang-shu-zui-xiao-gong-bei-shu-de-tong-jie/","title":"求两数最小公倍数的通解"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://wangjunstf.github.io/2025/09/17/qiu-liang-shu-zui-xiao-gong-bei-shu-de-tong-jie/","path":"2025/09/17/qiu-liang-shu-zui-xiao-gong-bei-shu-de-tong-jie/","title":"求两数最小公倍数的通解（通用方法解法）"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>求两数最小公倍数的通解 | 编程之禅</title>
+<title>求两数最小公倍数的通解（通用方法解法） | 编程之禅</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-CL6NGHBZWY"></script>
   <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-CL6NGHBZWY","only_pageview":false,"measure_protocol_api_secret":null}</script>
@@ -145,7 +145,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">求两数的最小偶倍数（通用方法解法）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E6%AD%A5%E9%AA%A4"><span class="nav-number">1.1.</span> <span class="nav-text">算法步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="nav-number">1.2.</span> <span class="nav-text">代码实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Python"><span class="nav-number">1.2.1.</span> <span class="nav-text">Python</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JavaScript"><span class="nav-number">1.2.2.</span> <span class="nav-text">JavaScript</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java"><span class="nav-number">1.2.3.</span> <span class="nav-text">Java</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#C"><span class="nav-number">1.2.4.</span> <span class="nav-text">C++</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#C-2"><span class="nav-number">1.2.5.</span> <span class="nav-text">C</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%B4%E6%98%8E"><span class="nav-number">1.3.</span> <span class="nav-text">说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%B9%E6%AE%8A-case%EF%BC%9A%E5%BD%93%E5%85%B6%E4%B8%AD%E4%B8%80%E4%B8%AA%E6%95%B0%E4%B8%BA-2-%E6%97%B6"><span class="nav-number">1.4.</span> <span class="nav-text">特殊 case：当其中一个数为 2 时</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%B8%E5%BF%83%E5%85%AC%E5%BC%8F"><span class="nav-number">1.</span> <span class="nav-text">核心公式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B1%82%E8%A7%A3%E6%AD%A5%E9%AA%A4"><span class="nav-number">2.</span> <span class="nav-text">求解步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BE%E4%BE%8B%E8%AF%B4%E6%98%8E"><span class="nav-number">3.</span> <span class="nav-text">举例说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#C-%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="nav-number">4.</span> <span class="nav-text">C++ 代码实现</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -232,12 +232,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="求两数最小公倍数的通解 | 编程之禅">
+      <meta itemprop="name" content="求两数最小公倍数的通解（通用方法解法） | 编程之禅">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          求两数最小公倍数的通解
+          求两数最小公倍数的通解（通用方法解法）
         </h1>
 
         <div class="post-meta-container">
@@ -249,7 +249,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2025-09-17 09:30:54 / 修改时间：15:53:58" itemprop="dateCreated datePublished" datetime="2025-09-17T09:30:54+08:00">2025-09-17</time>
+      <time title="创建时间：2025-09-17 09:30:54 / 修改时间：16:29:45" itemprop="dateCreated datePublished" datetime="2025-09-17T09:30:54+08:00">2025-09-17</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -262,7 +262,7 @@
     </span>
 
   
-    <span id="/2025/09/17/qiu-liang-shu-zui-xiao-gong-bei-shu-de-tong-jie/" class="post-meta-item leancloud_visitors" data-flag-title="求两数最小公倍数的通解" title="阅读次数">
+    <span id="/2025/09/17/qiu-liang-shu-zui-xiao-gong-bei-shu-de-tong-jie/" class="post-meta-item leancloud_visitors" data-flag-title="求两数最小公倍数的通解（通用方法解法）" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -289,7 +289,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>910</span>
+      <span>790</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -306,63 +306,47 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><h1>求两数的最小偶倍数（通用方法解法）</h1>
-<p>最小偶倍数通常指的是两个数的最小公倍数（LCM），但确保结果为偶数。对于任意两个正整数 (a) 和 (b)，最小偶倍数的计算基于以下逻辑：</p>
-<ul>
-<li>先计算 (a) 和 (b) 的最小公倍数 (\text{LCM}(a, b))。</li>
-<li>如果 (\text{LCM}(a, b)) 是偶数，则它就是最小偶倍数。</li>
-<li>如果 (\text{LCM}(a, b)) 是奇数，则最小偶倍数为 (2 \times \text{LCM}(a, b))（因为 (\text{LCM}(a, b)) 是最小公倍数，任何更小的公倍数都不可能是偶数）。</li>
-</ul>
-<p>计算 (\text{LCM}(a, b)) 的通用方法是先计算最大公约数（GCD），然后使用公式：<br>
-[<br>
-\text{LCM}(a, b) = \frac{|a \times b|}{\text{GCD}(a, b)}<br>
-]<br>
-由于 (a) 和 (b) 为正整数，可忽略绝对值。</p>
-<p>计算 GCD 的常用算法是欧几里得算法（辗转相除法）。</p>
+    <div class="post-body" itemprop="articleBody"><p>求两个数<code>a</code>和<code>b</code>的最小公倍数，最常用和最有效的方法是利用它们与最大公约数（Greatest Common Divisor, GCD）之间的关系。</p>
+<h2 id="核心公式">核心公式</h2>
+<p>两个数的最小公倍数等于这两个数的乘积除以它们的最大公约数。用数学公式表示为：<br>
+$$LCM(a,b)=\frac{|a * b|}{GCD(a,b)}$$</p>
 <span id="more"></span>
-<h2 id="算法步骤">算法步骤</h2>
-<ol>
-<li>定义一个函数计算 (\text{GCD}(a, b))：
+<p>其中：</p>
 <ul>
-<li>如果 (b = 0)，则 (\text{GCD}(a, b) = a)。</li>
-<li>否则，递归计算 (\text{GCD}(b, a \bmod b))。</li>
+<li><code>LCM(a, b)</code>是<code>a</code>和<code>b</code>的最小公倍数</li>
+<li><code>GCD(a, b)</code>是<code>a</code>和<code>b</code>的最大公约数</li>
+<li><code>|a*b|</code>表示<code>a</code>和<code>b</code>乘积的绝对值（确保结果为正）。</li>
+</ul>
+<h2 id="求解步骤">求解步骤</h2>
+<ol>
+<li>计算最大公约数(GCD)：首先，你需要一个函数来计算两个数的最大公约数。最经典的算法是欧几里得算法（Euclidean Algorithm），也称为辗转相除法。
+<ul>
+<li><strong>欧几里得算法原理：</strong> 两个整数 <code>a</code> 和 <code>b</code>（假设 <code>a &gt; b</code>）的最大公约数等于 <code>b</code> 和 <code>a</code> 除以 <code>b</code> 的余数（<code>a % b</code>）的最大公约数。我们不断重复这个过程，直到余数为0，此时的除数就是原始两个数的最大公约数。</li>
 </ul>
 </li>
-<li>计算 (\text{LCM}(a, b) = \frac{a \times b}{\text{GCD}(a, b)})。</li>
-<li>检查 (\text{LCM}(a, b)) 的奇偶性：
+<li><strong>应用公式：</strong> 计算出 <code>GCD(a, b)</code> 后，直接代入上述核心公式，即可求得最小公倍数。</li>
+</ol>
+<h2 id="举例说明">举例说明</h2>
+<p>求 12 和 18 的最小公倍数。</p>
+<ol>
+<li>求GCD(12, 18)：
 <ul>
-<li>如果为偶数，结果即为 (\text{LCM}(a, b))。</li>
-<li>如果为奇数，结果为 (2 \times \text{LCM}(a, b)).</li>
+<li><code>18 % 12 = 6</code></li>
+<li><code>12 % 6 = 0</code></li>
+<li>余数为0，所以GCD(12, 18)=6</li>
+</ul>
+</li>
+<li>计算LCM
+<ul>
+<li><code> LCM(12, 18) = (12 * 18) / GCD(12, 18)</code></li>
+<li><code>LCM(12, 18) = 216 / 6</code></li>
+<li><code>LCM(12, 18) = 36</code></li>
 </ul>
 </li>
 </ol>
-<h2 id="代码实现">代码实现</h2>
-<p>以下是用几种常见编程语言实现的示例：</p>
-<h3 id="Python">Python</h3>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">gcd</span>(<span class="params">a, b</span>):</span><br><span class="line">    <span class="keyword">while</span> b:</span><br><span class="line">        a, b = b, a % b</span><br><span class="line">    <span class="keyword">return</span> a</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">smallest_even_multiple</span>(<span class="params">a, b</span>):</span><br><span class="line">    lcm = (a * b) // gcd(a, b)</span><br><span class="line">    <span class="keyword">return</span> lcm <span class="keyword">if</span> lcm % <span class="number">2</span> == <span class="number">0</span> <span class="keyword">else</span> <span class="number">2</span> * lcm</span><br><span class="line"></span><br><span class="line"><span class="comment"># 示例用法</span></span><br><span class="line">a = <span class="number">3</span></span><br><span class="line">b = <span class="number">5</span></span><br><span class="line">result = smallest_even_multiple(a, b)</span><br><span class="line"><span class="built_in">print</span>(result)  <span class="comment"># 输出 30</span></span><br></pre></td></tr></table></figure>
-<h3 id="JavaScript">JavaScript</h3>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">gcd</span>(<span class="params">a, b</span>) &#123;</span><br><span class="line">    <span class="keyword">while</span> (b !== <span class="number">0</span>) &#123;</span><br><span class="line">        [a, b] = [b, a % b];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> a;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">smallestEvenMultiple</span>(<span class="params">a, b</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> lcm = (a * b) / <span class="title function_">gcd</span>(a, b);</span><br><span class="line">    <span class="keyword">return</span> lcm % <span class="number">2</span> === <span class="number">0</span> ? lcm : <span class="number">2</span> * lcm;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 示例用法</span></span><br><span class="line"><span class="keyword">const</span> a = <span class="number">3</span>;</span><br><span class="line"><span class="keyword">const</span> b = <span class="number">5</span>;</span><br><span class="line"><span class="keyword">const</span> result = <span class="title function_">smallestEvenMultiple</span>(a, b);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(result);  <span class="comment">// 输出 30</span></span><br></pre></td></tr></table></figure>
-<h3 id="Java">Java</h3>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">int</span> <span class="title function_">gcd</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span> &#123;</span><br><span class="line">        <span class="keyword">while</span> (b != <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">temp</span> <span class="operator">=</span> b;</span><br><span class="line">            b = a % b;</span><br><span class="line">            a = temp;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> a;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">int</span> <span class="title function_">smallestEvenMultiple</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">lcm</span> <span class="operator">=</span> (a * b) / gcd(a, b);</span><br><span class="line">        <span class="keyword">return</span> lcm % <span class="number">2</span> == <span class="number">0</span> ? lcm : <span class="number">2</span> * lcm;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">a</span> <span class="operator">=</span> <span class="number">3</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">b</span> <span class="operator">=</span> <span class="number">5</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">result</span> <span class="operator">=</span> smallestEvenMultiple(a, b);</span><br><span class="line">        System.out.println(result);  <span class="comment">// 输出 30</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="C">C++</h3>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">gcd</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (b != <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="type">int</span> temp = b;</span><br><span class="line">        b = a % b;</span><br><span class="line">        a = temp;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> a;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">smallestEvenMultiple</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> lcm = (a * b) / <span class="built_in">gcd</span>(a, b);</span><br><span class="line">    <span class="keyword">return</span> (lcm % <span class="number">2</span> == <span class="number">0</span>) ? lcm : <span class="number">2</span> * lcm;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> a = <span class="number">3</span>;</span><br><span class="line">    <span class="type">int</span> b = <span class="number">5</span>;</span><br><span class="line">    <span class="type">int</span> result = <span class="built_in">smallestEvenMultiple</span>(a, b);</span><br><span class="line">    cout &lt;&lt; result &lt;&lt; endl;  <span class="comment">// 输出 30</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="C-2">C</h3>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">gcd</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span> &#123;</span><br><span class="line">    <span class="keyword">while</span> (b != <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="type">int</span> temp = b;</span><br><span class="line">        b = a % b;</span><br><span class="line">        a = temp;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> a;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">smallestEvenMultiple</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span> &#123;</span><br><span class="line">    <span class="type">int</span> lcm = (a * b) / gcd(a, b);</span><br><span class="line">    <span class="keyword">return</span> (lcm % <span class="number">2</span> == <span class="number">0</span>) ? lcm : <span class="number">2</span> * lcm;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="type">int</span> a = <span class="number">3</span>;</span><br><span class="line">    <span class="type">int</span> b = <span class="number">5</span>;</span><br><span class="line">    <span class="type">int</span> result = smallestEvenMultiple(a, b);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, result);  <span class="comment">// 输出 30</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="说明">说明</h2>
-<ul>
-<li>上述代码首先计算两个数的 GCD，然后计算 LCM，最后根据 LCM 的奇偶性决定是否乘以 2。</li>
-<li>时间复杂度主要取决于 GCD 计算，欧几里得算法的时间复杂度为 (O(\log(\min(a, b)))，因此整体效率较高。</li>
-<li>如果两个数中至少有一个为偶数，则 LCM 很可能为偶数，但并非绝对（例如 (a=2, b=3) 的 LCM 为 6，是偶数；但 (a=3, b=5) 的 LCM 为 15，是奇数，所以需要调整为 30）。</li>
-</ul>
-<h2 id="特殊-case：当其中一个数为-2-时">特殊 case：当其中一个数为 2 时</h2>
-<p>如果问题中的“两数”特指 2 和另一个数 (n)（如常见编程问题中的定义），则最小偶倍数就是 2 和 (n) 的最小公倍数，计算可简化为：</p>
-<ul>
-<li>如果 (n) 为偶数，结果为 (n)。</li>
-<li>如果 (n) 为奇数，结果为 (2 \times n)。</li>
-</ul>
-<p>但上述通用方法适用于任意两个数。</p>
-<p>希望这能帮到您！如果有更多细节，请提供具体数字以便进一步分析。</p>
-
+<h2 id="C-代码实现">C++ 代码实现</h2>
+<p>下面是使用 C++ 实现上述逻辑的代码。代码结构清晰，包含一个计算 GCD 的函数和一个计算 LCM 的函数。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;numeric&gt;</span> <span class="comment">// C++17 标准库中包含了 std::gcd 和 std::lcm</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 函数声明</span></span><br><span class="line"><span class="function"><span class="type">long</span> <span class="type">long</span> <span class="title">gcd</span><span class="params">(<span class="type">long</span> <span class="type">long</span> a, <span class="type">long</span> <span class="type">long</span> b)</span></span>;</span><br><span class="line"><span class="function"><span class="type">long</span> <span class="type">long</span> <span class="title">lcm</span><span class="params">(<span class="type">long</span> <span class="type">long</span> a, <span class="type">long</span> <span class="type">long</span> b)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// --- 方法一：手动实现 GCD 和 LCM (推荐，兼容性好) ---</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @brief 使用欧几里得算法计算最大公约数 (GCD)</span></span><br><span class="line"><span class="comment"> * * @param a 第一个整数</span></span><br><span class="line"><span class="comment"> * @param b 第二个整数</span></span><br><span class="line"><span class="comment"> * @return long long a 和 b 的最大公约数</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="type">long</span> <span class="type">long</span> <span class="title">gcd</span><span class="params">(<span class="type">long</span> <span class="type">long</span> a, <span class="type">long</span> <span class="type">long</span> b)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (b != <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="type">long</span> <span class="type">long</span> temp = b;</span><br><span class="line">        b = a % b;</span><br><span class="line">        a = temp;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> a;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @brief 使用公式 (a * b) / gcd(a, b) 计算最小公倍数 (LCM)</span></span><br><span class="line"><span class="comment"> * * @param a 第一个整数</span></span><br><span class="line"><span class="comment"> * @param b 第二个整数</span></span><br><span class="line"><span class="comment"> * @return long long a 和 b 的最小公倍数</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="type">long</span> <span class="type">long</span> <span class="title">lcm</span><span class="params">(<span class="type">long</span> <span class="type">long</span> a, <span class="type">long</span> <span class="type">long</span> b)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (a == <span class="number">0</span> || b == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>; <span class="comment">// 0 和任何数的最小公倍数是 0</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 为了防止 a * b 溢出，可以先做除法</span></span><br><span class="line">    <span class="comment">// a * (b / gcd(a,b)) 同样有效</span></span><br><span class="line">    <span class="comment">// 使用 std::abs 确保处理负数时结果为正</span></span><br><span class="line">    <span class="keyword">return</span> std::<span class="built_in">abs</span>(a * b) / <span class="built_in">gcd</span>(a, b); </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">long</span> <span class="type">long</span> num1, num2;</span><br><span class="line"></span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;请输入两个整数: &quot;</span>;</span><br><span class="line">    std::cin &gt;&gt; num1 &gt;&gt; num2;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// --- 使用手动实现的函数 ---</span></span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;--- 使用手动实现 ---&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">    <span class="type">long</span> <span class="type">long</span> result_gcd = <span class="built_in">gcd</span>(num1, num2);</span><br><span class="line">    <span class="type">long</span> <span class="type">long</span> result_lcm = <span class="built_in">lcm</span>(num1, num2);</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;最大公约数 (GCD) 是: &quot;</span> &lt;&lt; result_gcd &lt;&lt; std::endl;</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;最小公倍数 (LCM) 是: &quot;</span> &lt;&lt; result_lcm &lt;&lt; std::endl;</span><br><span class="line">    std::cout &lt;&lt; std::endl;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">// --- 方法二：使用 C++17 标准库 &lt;numeric&gt; (如果你的编译器支持) ---</span></span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;--- 使用 C++17 标准库 ---&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;最大公约数 (GCD) 是: &quot;</span> &lt;&lt; std::<span class="built_in">gcd</span>(num1, num2) &lt;&lt; std::endl;</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;最小公倍数 (LCM) 是: &quot;</span> &lt;&lt; std::<span class="built_in">lcm</span>(num1, num2) &lt;&lt; std::endl;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -397,7 +381,7 @@
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://wangjunstf.github.io/2025/09/17/qiu-liang-shu-zui-xiao-gong-bei-shu-de-tong-jie/" title="求两数最小公倍数的通解">https://wangjunstf.github.io/2025/09/17/qiu-liang-shu-zui-xiao-gong-bei-shu-de-tong-jie/</a>
+      <a href="https://wangjunstf.github.io/2025/09/17/qiu-liang-shu-zui-xiao-gong-bei-shu-de-tong-jie/" title="求两数最小公倍数的通解（通用方法解法）">https://wangjunstf.github.io/2025/09/17/qiu-liang-shu-zui-xiao-gong-bei-shu-de-tong-jie/</a>
   </li>
   <li class="post-copyright-license">
       <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -469,14 +453,14 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">180k</span>
+    <span title="站点总字数">179k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">10:53</span>
+    <span title="站点阅读时长">10:52</span>
   </span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
@@ -532,12 +516,12 @@
 <script src="/js/third-party/math/mathjax.js"></script>
 
 
-<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"eleganceblog","count":true,"i18n":{"disqus":"disqus"}}</script>
-<script src="/js/third-party/comments/disqus.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
 
 <script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"wangjunstf","repo":"wangjunstf.github.io","client_id":"00c06e8fabae7b42521c","client_secret":"753415ed39734f4af6c6363c48340bb130817349","admin_user":"wangjunstf","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"zh-CN","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"ef3820d74c711d93ed565b0b094bbea8"}</script>
 <script src="/js/third-party/comments/gitalk.js"></script>
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"eleganceblog","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
 
 </body>
 </html>
