@@ -6,7 +6,7 @@
   <link href="https://wangjunstf.github.io/atom.xml" rel="self"/>
   
   <link href="https://wangjunstf.github.io/"/>
-  <updated>2025-09-16T13:14:06.298Z</updated>
+  <updated>2025-09-17T01:32:40.435Z</updated>
   <id>https://wangjunstf.github.io/</id>
   
   <author>
@@ -17,9 +17,41 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>求两数最小公倍数的通解</title>
+    <link href="https://wangjunstf.github.io/2025/09/17/qiu-liang-shu-zui-xiao-gong-bei-shu-de-tong-jie/"/>
+    <id>https://wangjunstf.github.io/2025/09/17/qiu-liang-shu-zui-xiao-gong-bei-shu-de-tong-jie/</id>
+    <published>2025-09-17T01:30:54.000Z</published>
+    <updated>2025-09-17T01:32:40.435Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;求两数的最小偶倍数（通用方法解法）&lt;/h1&gt;
+&lt;p&gt;最小偶倍数通常指的是两个数的最小公倍数（LCM），但确保结果为偶数。对于任意两个正整数 (a) 和 (b)，最小偶倍数的计算基于以下逻辑：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;先计算 (a) 和 (b) 的最小公倍数</summary>
+        
+      
+    
+    
+    
+    <category term="算法" scheme="https://wangjunstf.github.io/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+    <category term="最小公倍数" scheme="https://wangjunstf.github.io/tags/%E6%9C%80%E5%B0%8F%E5%85%AC%E5%80%8D%E6%95%B0/"/>
+    
+    <category term="LCM" scheme="https://wangjunstf.github.io/tags/LCM/"/>
+    
+    <category term="GCD" scheme="https://wangjunstf.github.io/tags/GCD/"/>
+    
+  </entry>
+  
+  <entry>
     <title>C++中auto与decltype的区别</title>
-    <link href="https://wangjunstf.github.io/2025/09/12/cpp-bian-liang-he-ji-ben-lei-xing-zhi-di-ceng-yuan-li/"/>
-    <id>https://wangjunstf.github.io/2025/09/12/cpp-bian-liang-he-ji-ben-lei-xing-zhi-di-ceng-yuan-li/</id>
+    <link href="https://wangjunstf.github.io/2025/09/12/cpp-zhong-auto-yu-decltype-de-qu-bie/"/>
+    <id>https://wangjunstf.github.io/2025/09/12/cpp-zhong-auto-yu-decltype-de-qu-bie/</id>
     <published>2025-09-12T14:40:38.000Z</published>
     <updated>2025-09-16T13:14:06.298Z</updated>
     
@@ -477,28 +509,6 @@
     <category term="hexo" scheme="https://wangjunstf.github.io/tags/hexo/"/>
     
     <category term="next主题" scheme="https://wangjunstf.github.io/tags/next%E4%B8%BB%E9%A2%98/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Parallels Desktop 最小安装 CentOS 7</title>
-    <link href="https://wangjunstf.github.io/2021/11/05/parallels-desktop-zui-xiao-an-zhuang-centos-7/"/>
-    <id>https://wangjunstf.github.io/2021/11/05/parallels-desktop-zui-xiao-an-zhuang-centos-7/</id>
-    <published>2021-11-05T09:36:45.000Z</published>
-    <updated>2024-10-01T14:17:56.611Z</updated>
-    
-    
-    <summary type="html">&lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot;/&gt;
-&lt;h2 id=&quot;镜像文件下载&quot;&gt;镜像文件下载&lt;/h2&gt;
-&lt;p&gt;下载地址：&lt;a href=&quot;http://mirrors.aliyun.com/centos/7.9.2009/isos/x86_64/&quot;&gt;http://mirrors.aliyun.com/centos/7.9.2009/isos/x86_64/&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;BT种子：&lt;a href=&quot;http://mirrors.aliyun.com/centos/7.9.2009/isos/x86_64/CentOS-7-x86_64-DVD-2009.torrent&quot;&gt;http://mirrors.aliyun.com/centos/7.9.2009/isos/x86_64/CentOS-7-x86_64-DVD-2009.torrent&lt;/a&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Linux" scheme="https://wangjunstf.github.io/categories/Linux/"/>
-    
-    
-    <category term="CentOS7" scheme="https://wangjunstf.github.io/tags/CentOS7/"/>
     
   </entry>
   

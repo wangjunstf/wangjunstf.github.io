@@ -22,7 +22,7 @@
     <meta name="description" content="理解 decltype 和 auto 的区别对掌握现代 C++ 编程很重要。它们虽然都用于类型推导，但规则和初衷不同。下面这个表格汇总了它们的核心区别，帮你快速把握要点。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C++中auto与decltype的区别">
-<meta property="og:url" content="https://wangjunstf.github.io/2025/09/12/cpp-bian-liang-he-ji-ben-lei-xing-zhi-di-ceng-yuan-li/index.html">
+<meta property="og:url" content="https://wangjunstf.github.io/2025/09/12/cpp-zhong-auto-yu-decltype-de-qu-bie/index.html">
 <meta property="og:site_name" content="编程之禅">
 <meta property="og:description" content="理解 decltype 和 auto 的区别对掌握现代 C++ 编程很重要。它们虽然都用于类型推导，但规则和初衷不同。下面这个表格汇总了它们的核心区别，帮你快速把握要点。">
 <meta property="og:locale" content="zh_CN">
@@ -35,10 +35,10 @@
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://wangjunstf.github.io/2025/09/12/cpp-bian-liang-he-ji-ben-lei-xing-zhi-di-ceng-yuan-li/">
+<link rel="canonical" href="https://wangjunstf.github.io/2025/09/12/cpp-zhong-auto-yu-decltype-de-qu-bie/">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://wangjunstf.github.io/2025/09/12/cpp-bian-liang-he-ji-ben-lei-xing-zhi-di-ceng-yuan-li/","path":"2025/09/12/cpp-bian-liang-he-ji-ben-lei-xing-zhi-di-ceng-yuan-li/","title":"C++中auto与decltype的区别"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://wangjunstf.github.io/2025/09/12/cpp-zhong-auto-yu-decltype-de-qu-bie/","path":"2025/09/12/cpp-zhong-auto-yu-decltype-de-qu-bie/","title":"C++中auto与decltype的区别"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>C++中auto与decltype的区别 | 编程之禅</title>
@@ -94,7 +94,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-每日进展"><a href="/%E6%AF%8F%E6%97%A5%E8%BF%9B%E5%B1%95" rel="section"><i class="fas fa-tasks fa-fw"></i>每日进展</a></li><li class="menu-item menu-item-开源项目"><a href="/github/" rel="section"><i class="fab fa-github fa-fw"></i>开源项目</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-算法"><a href="/categories/%E7%AE%97%E6%B3%95/" rel="section"><i class="fas fa-cogs fa-fw"></i>算法</a></li><li class="menu-item menu-item-数据结构"><a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="section"><i class="fa fa-code fa-fw"></i>数据结构</a></li><li class="menu-item menu-item-linux"><a href="/categories/Linux/" rel="section"><i class="fab fa-ubuntu fa-fw"></i>Linux</a></li><li class="menu-item menu-item-gdb"><a href="/2021/06/12/gdb-ru-men-jiao-cheng/" rel="section"><i class="fa fa-bug fa-fw"></i>GDB</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-开源项目"><a href="/github/" rel="section"><i class="fab fa-github fa-fw"></i>开源项目</a></li><li class="menu-item menu-item-c++"><a href="/categories/CPP/" rel="section"><i class="fa fa-cuttlefish fa-fw"></i>C++</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-算法"><a href="/categories/%E7%AE%97%E6%B3%95/" rel="section"><i class="fas fa-cogs fa-fw"></i>算法</a></li><li class="menu-item menu-item-数据结构"><a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="section"><i class="fa fa-code fa-fw"></i>数据结构</a></li><li class="menu-item menu-item-linux"><a href="/categories/Linux/" rel="section"><i class="fab fa-ubuntu fa-fw"></i>Linux</a></li><li class="menu-item menu-item-gdb"><a href="/2021/06/12/gdb-ru-men-jiao-cheng/" rel="section"><i class="fa fa-bug fa-fw"></i>GDB</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -152,13 +152,13 @@
         <div class="site-overview-wrap sidebar-panel">
           <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <p class="site-author-name" itemprop="name">编程之禅</p>
-  <div class="site-description" itemprop="description">本博客用于分享大模型，编程语言，网络原理，操作系统，数据结构与算法等知识。</div>
+  <div class="site-description" itemprop="description">本博客用于分享C++，数据结构与算法，操作系统，网络原理等知识。</div>
 </div>
 <div class="site-state-wrap animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">71</span>
+          <span class="site-state-item-count">72</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -169,7 +169,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">142</span>
+        <span class="site-state-item-count">145</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -219,7 +219,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://wangjunstf.github.io/2025/09/12/cpp-bian-liang-he-ji-ben-lei-xing-zhi-di-ceng-yuan-li/">
+    <link itemprop="mainEntityOfPage" href="https://wangjunstf.github.io/2025/09/12/cpp-zhong-auto-yu-decltype-de-qu-bie/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -228,7 +228,7 @@
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="编程之禅">
-      <meta itemprop="description" content="本博客用于分享大模型，编程语言，网络原理，操作系统，数据结构与算法等知识。">
+      <meta itemprop="description" content="本博客用于分享C++，数据结构与算法，操作系统，网络原理等知识。">
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
@@ -268,7 +268,7 @@
     </span>
 
   
-    <span id="/2025/09/12/cpp-bian-liang-he-ji-ben-lei-xing-zhi-di-ceng-yuan-li/" class="post-meta-item leancloud_visitors" data-flag-title="C++中auto与decltype的区别" title="阅读次数">
+    <span id="/2025/09/12/cpp-zhong-auto-yu-decltype-de-qu-bie/" class="post-meta-item leancloud_visitors" data-flag-title="C++中auto与decltype的区别" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -283,8 +283,8 @@
       </span>
       <span class="post-meta-item-text">Disqus：</span>
     
-    <a title="disqus" href="/2025/09/12/cpp-bian-liang-he-ji-ben-lei-xing-zhi-di-ceng-yuan-li/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2025/09/12/cpp-bian-liang-he-ji-ben-lei-xing-zhi-di-ceng-yuan-li/" itemprop="commentCount"></span>
+    <a title="disqus" href="/2025/09/12/cpp-zhong-auto-yu-decltype-de-qu-bie/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2025/09/12/cpp-zhong-auto-yu-decltype-de-qu-bie/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -431,7 +431,7 @@
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://wangjunstf.github.io/2025/09/12/cpp-bian-liang-he-ji-ben-lei-xing-zhi-di-ceng-yuan-li/" title="C++中auto与decltype的区别">https://wangjunstf.github.io/2025/09/12/cpp-bian-liang-he-ji-ben-lei-xing-zhi-di-ceng-yuan-li/</a>
+      <a href="https://wangjunstf.github.io/2025/09/12/cpp-zhong-auto-yu-decltype-de-qu-bie/" title="C++中auto与decltype的区别">https://wangjunstf.github.io/2025/09/12/cpp-zhong-auto-yu-decltype-de-qu-bie/</a>
   </li>
   <li class="post-copyright-license">
       <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -454,6 +454,9 @@
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/2025/09/17/qiu-liang-shu-zui-xiao-gong-bei-shu-de-tong-jie/" rel="next" title="求两数最小公倍数的通解">
+                  求两数最小公倍数的通解 <i class="fa fa-angle-right"></i>
+                </a>
             </div>
           </div>
     </footer>
@@ -503,14 +506,14 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">179k</span>
+    <span title="站点总字数">180k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">10:49</span>
+    <span title="站点阅读时长">10:53</span>
   </span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
@@ -570,7 +573,7 @@
 <script src="/js/third-party/comments/disqus.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
 
-<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"wangjunstf","repo":"wangjunstf.github.io","client_id":"00c06e8fabae7b42521c","client_secret":"753415ed39734f4af6c6363c48340bb130817349","admin_user":"wangjunstf","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"zh-CN","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"6cbfcf97454349814eac73ae6df565d8"}</script>
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"wangjunstf","repo":"wangjunstf.github.io","client_id":"00c06e8fabae7b42521c","client_secret":"753415ed39734f4af6c6363c48340bb130817349","admin_user":"wangjunstf","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"zh-CN","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"83740c2faf58ba5a8871e68fc428b5f5"}</script>
 <script src="/js/third-party/comments/gitalk.js"></script>
 
 </body>
