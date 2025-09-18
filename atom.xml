@@ -6,7 +6,7 @@
   <link href="https://wangjunstf.github.io/atom.xml" rel="self"/>
   
   <link href="https://wangjunstf.github.io/"/>
-  <updated>2025-09-18T01:58:05.366Z</updated>
+  <updated>2025-09-18T06:49:10.747Z</updated>
   <id>https://wangjunstf.github.io/</id>
   
   <author>
@@ -15,6 +15,40 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>业余无线电——相对值单位</title>
+    <link href="https://wangjunstf.github.io/2025/09/18/ye-yu-wu-xian-dian-xiang-dui-zhi-dan-wei/"/>
+    <id>https://wangjunstf.github.io/2025/09/18/ye-yu-wu-xian-dian-xiang-dui-zhi-dan-wei/</id>
+    <published>2025-09-18T06:31:59.000Z</published>
+    <updated>2025-09-18T06:49:10.747Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;本质上就是&lt;strong&gt;用对数（log）来表示比值&lt;/strong&gt;，这样方便比较非常大的功率或电压范围。例如：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;绝对值&lt;/strong&gt;：直接告诉你功率有多大，例如 1 W、5 W、50 W。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;相对值&lt;/strong&gt;：告诉你和某个参考值相比有多大，例如比 1 W 大 10 倍、或小 10 倍。&lt;br&gt;
+在无线电里，功率、电压、场强常常跨越 &lt;strong&gt;10⁶～10¹² 倍&lt;/strong&gt;的范围，直接写数字会非常大，所以大家用&lt;strong&gt;对数刻度&lt;/strong&gt;（dB）来表达。&lt;/li&gt;
+&lt;/ul&gt;</summary>
+    
+    
+    
+    <category term="无线电" scheme="https://wangjunstf.github.io/categories/%E6%97%A0%E7%BA%BF%E7%94%B5/"/>
+    
+    
+    <category term="dB" scheme="https://wangjunstf.github.io/tags/dB/"/>
+    
+    <category term="dBm" scheme="https://wangjunstf.github.io/tags/dBm/"/>
+    
+    <category term="dBW" scheme="https://wangjunstf.github.io/tags/dBW/"/>
+    
+    <category term="dBi" scheme="https://wangjunstf.github.io/tags/dBi/"/>
+    
+    <category term="dBd" scheme="https://wangjunstf.github.io/tags/dBd/"/>
+    
+    <category term="dBc" scheme="https://wangjunstf.github.io/tags/dBc/"/>
+    
+  </entry>
   
   <entry>
     <title>C++中auto类型推导的常见用法</title>
@@ -44,7 +78,7 @@
     <link href="https://wangjunstf.github.io/2025/09/18/qiao-yong-ha-xi-biao-yu-zu-he-gong-shi-gao-xiao-tong-ji-shu-zu-zhong-xiang-tong-shu-dui-de-shu-liang/"/>
     <id>https://wangjunstf.github.io/2025/09/18/qiao-yong-ha-xi-biao-yu-zu-he-gong-shi-gao-xiao-tong-ji-shu-zu-zhong-xiang-tong-shu-dui-de-shu-liang/</id>
     <published>2025-09-18T00:33:06.000Z</published>
-    <updated>2025-09-18T02:11:20.338Z</updated>
+    <updated>2025-09-18T05:16:32.410Z</updated>
     
     
     <summary type="html">&lt;p&gt;现有以下题目：&lt;a href=&quot;https://leetcode.cn/problems/number-of-good-pairs/&quot;&gt;1512. 好数对的数目&lt;/a&gt;&lt;br&gt;
@@ -465,42 +499,6 @@ $$LCM(a,b)=&#92;frac{|a * b|}{GCD(a,b)}$$&lt;/p&gt;</summary>
     <category term="垃圾回收" scheme="https://wangjunstf.github.io/tags/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/"/>
     
     <category term="标记清除法" scheme="https://wangjunstf.github.io/tags/%E6%A0%87%E8%AE%B0%E6%B8%85%E9%99%A4%E6%B3%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux 虚拟内存系统, 内存映射, fork, execve, malloc, free 动态内存分配与释放</title>
-    <link href="https://wangjunstf.github.io/2021/11/09/linux-xu-ni-nei-cun-xi-tong-nei-cun-ying-she-fork-execve-malloc-free-dong-tai-nei-cun-fen-pei-yu-shi-fang/"/>
-    <id>https://wangjunstf.github.io/2021/11/09/linux-xu-ni-nei-cun-xi-tong-nei-cun-ying-she-fork-execve-malloc-free-dong-tai-nei-cun-fen-pei-yu-shi-fang/</id>
-    <published>2021-11-09T10:02:08.000Z</published>
-    <updated>2024-10-01T14:17:56.611Z</updated>
-    
-    
-    <summary type="html">&lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot;/&gt;
-&lt;p&gt;Linux 为每个进程维护一个单独的虚拟地址空间，如下图所示。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;内核虚拟内存包含内核中的代码和数据结构。&lt;/li&gt;
-&lt;li&gt;内核虚拟内存的某些区域被映射到所有进程共享的物理页面，例如每个进程都共享内核的代码和全局数据结构。&lt;/li&gt;
-&lt;li&gt;Linux 也将一组连续的虚拟页面(大小等于系统中 DRAM 的总量)映射到相应的一组连续的物理页面。例如：访问页表，或对设备执行IO操作，这些设备被映射到特定物理内存位置时。&lt;/li&gt;
-&lt;li&gt;内核虚拟内存的其它区域包含每个进程的独有数据，例如页表，内核在进程的上下文中执行代码时使用的栈，以及记录虚拟地址空间当前组织的各种数据结构。&lt;/li&gt;
-&lt;/ul&gt;</summary>
-    
-    
-    
-    <category term="深入理解计算机系统" scheme="https://wangjunstf.github.io/categories/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/"/>
-    
-    
-    <category term="动态内存" scheme="https://wangjunstf.github.io/tags/%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98/"/>
-    
-    <category term="Linux" scheme="https://wangjunstf.github.io/tags/Linux/"/>
-    
-    <category term="虚拟内存" scheme="https://wangjunstf.github.io/tags/%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98/"/>
-    
-    <category term="内存映射" scheme="https://wangjunstf.github.io/tags/%E5%86%85%E5%AD%98%E6%98%A0%E5%B0%84/"/>
-    
-    <category term="fork" scheme="https://wangjunstf.github.io/tags/fork/"/>
-    
-    <category term="execve" scheme="https://wangjunstf.github.io/tags/execve/"/>
     
   </entry>
   
