@@ -6,7 +6,7 @@
   <link href="https://wangjunstf.github.io/atom.xml" rel="self"/>
   
   <link href="https://wangjunstf.github.io/"/>
-  <updated>2025-09-17T08:29:45.085Z</updated>
+  <updated>2025-09-18T01:58:05.366Z</updated>
   <id>https://wangjunstf.github.io/</id>
   
   <author>
@@ -17,11 +17,58 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>C++中auto类型推导的常见用法</title>
+    <link href="https://wangjunstf.github.io/2025/09/18/cpp-zhong-auto-lei-xing-tui-dao-de-chang-jian-yong-fa/"/>
+    <id>https://wangjunstf.github.io/2025/09/18/cpp-zhong-auto-lei-xing-tui-dao-de-chang-jian-yong-fa/</id>
+    <published>2025-09-18T01:56:16.000Z</published>
+    <updated>2025-09-18T01:58:05.366Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;C++ 中的 &lt;code&gt;auto&lt;/code&gt; 关键字是一个强大的类型推导工具，它能显著简化代码并提高可读性。下面我将为你详细解析它的各种用法、注意事项和最佳实践。&lt;/p&gt;
+&lt;h3 id=&quot;🧠-一、auto-的基本概念&quot;&gt;🧠 一、auto 的基本概念&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;auto&lt;/code&gt; 是 C++11 标准引入的关键字，用于在声明变量时​&lt;strong&gt;​自动推导变量的类型​&lt;/strong&gt;​，推导依据是变量的初始化表达式。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="CPP" scheme="https://wangjunstf.github.io/categories/CPP/"/>
+    
+    
+    <category term="CPP" scheme="https://wangjunstf.github.io/tags/CPP/"/>
+    
+    <category term="auto" scheme="https://wangjunstf.github.io/tags/auto/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【算法解析】巧用哈希表与组合公式：高效统计数组中相同数对的数量</title>
+    <link href="https://wangjunstf.github.io/2025/09/18/qiao-yong-ha-xi-biao-yu-zu-he-gong-shi-gao-xiao-tong-ji-shu-zu-zhong-xiang-tong-shu-dui-de-shu-liang/"/>
+    <id>https://wangjunstf.github.io/2025/09/18/qiao-yong-ha-xi-biao-yu-zu-he-gong-shi-gao-xiao-tong-ji-shu-zu-zhong-xiang-tong-shu-dui-de-shu-liang/</id>
+    <published>2025-09-18T00:33:06.000Z</published>
+    <updated>2025-09-18T02:11:20.338Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;现有以下题目：&lt;a href=&quot;https://leetcode.cn/problems/number-of-good-pairs/&quot;&gt;1512. 好数对的数目&lt;/a&gt;&lt;br&gt;
+现有一个整数数组，要求统计数组中满足条件的索引对 (i, j)（其中 i &amp;lt; j 且 nums[i] = nums[j]）数量。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="算法" scheme="https://wangjunstf.github.io/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    <category term="LeetCode" scheme="https://wangjunstf.github.io/categories/%E7%AE%97%E6%B3%95/LeetCode/"/>
+    
+    
+    <category term="哈希表" scheme="https://wangjunstf.github.io/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/"/>
+    
+    <category term="组合公式" scheme="https://wangjunstf.github.io/tags/%E7%BB%84%E5%90%88%E5%85%AC%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
     <title>求两数最小公倍数的通解（通用方法解法）</title>
     <link href="https://wangjunstf.github.io/2025/09/17/qiu-liang-shu-zui-xiao-gong-bei-shu-de-tong-jie/"/>
     <id>https://wangjunstf.github.io/2025/09/17/qiu-liang-shu-zui-xiao-gong-bei-shu-de-tong-jie/</id>
     <published>2025-09-17T01:30:54.000Z</published>
-    <updated>2025-09-17T08:29:45.085Z</updated>
+    <updated>2025-09-18T02:06:12.358Z</updated>
     
     
     <summary type="html">&lt;p&gt;求两个数&lt;code&gt;a&lt;/code&gt;和&lt;code&gt;b&lt;/code&gt;的最小公倍数，最常用和最有效的方法是利用它们与最大公约数（Greatest Common Divisor, GCD）之间的关系。&lt;/p&gt;
@@ -32,6 +79,8 @@ $$LCM(a,b)=&#92;frac{|a * b|}{GCD(a,b)}$$&lt;/p&gt;</summary>
     
     
     <category term="算法" scheme="https://wangjunstf.github.io/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    <category term="LeetCode" scheme="https://wangjunstf.github.io/categories/%E7%AE%97%E6%B3%95/LeetCode/"/>
     
     
     <category term="最小公倍数" scheme="https://wangjunstf.github.io/tags/%E6%9C%80%E5%B0%8F%E5%85%AC%E5%80%8D%E6%95%B0/"/>
@@ -452,57 +501,6 @@ $$LCM(a,b)=&#92;frac{|a * b|}{GCD(a,b)}$$&lt;/p&gt;</summary>
     <category term="fork" scheme="https://wangjunstf.github.io/tags/fork/"/>
     
     <category term="execve" scheme="https://wangjunstf.github.io/tags/execve/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>虚拟内存的作用，虚拟地址，页表，TLB，缓存原理</title>
-    <link href="https://wangjunstf.github.io/2021/11/09/xu-ni-nei-cun-de-zuo-yong-xu-ni-di-zhi-ye-biao-tlb-huan-cun-yuan-li/"/>
-    <id>https://wangjunstf.github.io/2021/11/09/xu-ni-nei-cun-de-zuo-yong-xu-ni-di-zhi-ye-biao-tlb-huan-cun-yuan-li/</id>
-    <published>2021-11-09T09:55:22.000Z</published>
-    <updated>2024-10-01T14:17:56.618Z</updated>
-    
-    
-    <summary type="html">&lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot;/&gt;
-&lt;h2 id=&quot;9-1-物理地址和虚拟地址&quot;&gt;9.1 物理地址和虚拟地址&lt;/h2&gt;
-&lt;p&gt;计算机系统的主存是由 M 个连续的字节大小的单元组成的数组。每个字节都有一个唯一的物理地址，地址范围从 0 到 M-1。计算机使用内存最自然的方式是使用物理地址，我们将这种方式称为物理寻址。&lt;/p&gt;
-&lt;p&gt;CPU 向内存发送一个地址，内存将该地址开始的四个字节信息传送到 CPU 中的一个 4字节寄存器。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="深入理解计算机系统" scheme="https://wangjunstf.github.io/categories/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/"/>
-    
-    
-    <category term="虚拟内存" scheme="https://wangjunstf.github.io/tags/%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98/"/>
-    
-    <category term="虚拟地址" scheme="https://wangjunstf.github.io/tags/%E8%99%9A%E6%8B%9F%E5%9C%B0%E5%9D%80/"/>
-    
-    <category term="页表" scheme="https://wangjunstf.github.io/tags/%E9%A1%B5%E8%A1%A8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>解决 hexo 博客在 chrome 下无法正常显示图片的问题</title>
-    <link href="https://wangjunstf.github.io/2021/11/05/jie-jue-hexo-bo-ke-zai-chrome-xia-wu-fa-zheng-chang-xian-shi-tu-pian-de-wen-ti/"/>
-    <id>https://wangjunstf.github.io/2021/11/05/jie-jue-hexo-bo-ke-zai-chrome-xia-wu-fa-zheng-chang-xian-shi-tu-pian-de-wen-ti/</id>
-    <published>2021-11-05T12:09:05.000Z</published>
-    <updated>2024-10-01T14:17:56.618Z</updated>
-    
-    
-    <summary type="html">&lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot;/&gt;
-&lt;h2 id=&quot;出现的问题&quot;&gt;出现的问题&lt;/h2&gt;
-&lt;p&gt;最近发现一个奇怪的问题， hexo 发的博客图片 在 Google Chrome 下无法正常显示，但在 Safari 和 FireFox 下确可以正常显示。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="疑难杂症" scheme="https://wangjunstf.github.io/categories/%E7%96%91%E9%9A%BE%E6%9D%82%E7%97%87/"/>
-    
-    
-    <category term="chrome" scheme="https://wangjunstf.github.io/tags/chrome/"/>
-    
-    <category term="hexo" scheme="https://wangjunstf.github.io/tags/hexo/"/>
-    
-    <category term="next主题" scheme="https://wangjunstf.github.io/tags/next%E4%B8%BB%E9%A2%98/"/>
     
   </entry>
   

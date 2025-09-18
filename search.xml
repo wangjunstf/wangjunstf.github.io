@@ -4,6 +4,62 @@
   
     
     <entry>
+      <title>C++中auto类型推导的常见用法</title>
+      <link href="/2025/09/18/cpp-zhong-auto-lei-xing-tui-dao-de-chang-jian-yong-fa/"/>
+      <url>/2025/09/18/cpp-zhong-auto-lei-xing-tui-dao-de-chang-jian-yong-fa/</url>
+      
+        <content type="html"><![CDATA[<p>C++ 中的 <code>auto</code> 关键字是一个强大的类型推导工具，它能显著简化代码并提高可读性。下面我将为你详细解析它的各种用法、注意事项和最佳实践。</p><h3 id="🧠-一、auto-的基本概念">🧠 一、auto 的基本概念</h3><p><code>auto</code> 是 C++11 标准引入的关键字，用于在声明变量时​<strong>​自动推导变量的类型​</strong>​，推导依据是变量的初始化表达式。</p><span id="more"></span><p>​<strong>​基本示例：​</strong>​</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">auto x = 42;        // x 被推导为 int</span><br><span class="line">auto y = 3.14;      // y 被推导为 double</span><br><span class="line">auto z = &quot;Hello&quot;;   // z 被推导为 const char*</span><br></pre></td></tr></table></figure><p>​<strong>​优势：​</strong>​</p><ul><li>​<strong>​代码简洁​</strong>​：避免书写冗长的类型名，特别是复杂的模板类型。</li><li>​<strong>​泛型编程​</strong>​：更容易编写适用于不同类型的模板代码。</li><li>​<strong>​可维护性​</strong>​：如果初始化表达式的类型改变（例如函数返回类型改变），<code>auto</code> 变量类型会自动适应，无需修改代码。</li></ul><h3 id="🔍-二、在范围for循环中的用法">🔍 二、在范围for循环中的用法</h3><p>在范围for循环（Range-based for loop）中，<code>auto</code> 的用法主要有以下几种形式，各有不同的语义和用途。</p><table><thead><tr><th>用法</th><th>是否复制元素</th><th>是否可修改原元素</th><th>适用场景</th></tr></thead><tbody><tr><td>​<strong>​<code>auto</code>​</strong>​</td><td>是</td><td>否（修改的是副本）</td><td>需修改副本或元素很小（如内置类型）</td></tr><tr><td>​<strong>​<code>auto&amp;</code>​</strong>​</td><td>否</td><td>是</td><td>需要修改容器中的元素</td></tr><tr><td>​<strong>​<code>const auto&amp;</code>​</strong>​</td><td>否</td><td>否</td><td>​<strong>​只读访问​</strong>​，适用于所有类型，​<strong>​推荐首选​</strong>​</td></tr><tr><td>​<strong>​<code>auto&amp;&amp;</code>​</strong>​</td><td>否</td><td>是</td><td>泛型编程，需处理左值和右值</td></tr></tbody></table><ol><li><p>​<strong>​<code>auto</code>（值拷贝）​</strong>​<br>创建容器中元素的​<strong>​副本​</strong>​。修改的是副本，不影响原容器。</p> <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">std::vector&lt;int&gt; vec = &#123;1, 2, 3&#125;;</span><br><span class="line">for (auto elem : vec) &#123; </span><br><span class="line">    elem *= 2; // 只修改副本，原容器元素不变</span><br><span class="line">&#125;</span><br><span class="line">// vec 仍为 &#123;1, 2, 3&#125;</span><br></pre></td></tr></table></figure><p>​<strong>​适用场景​</strong>​：元素是内置类型（如 <code>int</code>, <code>double</code>）且拷贝开销小，或者​<strong>​需要修改元素的副本​</strong>​而不影响原容器时。</p></li><li><p>​<strong>​<code>auto&amp;</code>（左值引用）​</strong>​<br>创建容器中元素的​<strong>​引用​</strong>​。修改它会直接影响原容器。</p> <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">std::vector&lt;int&gt; vec = &#123;1, 2, 3&#125;;</span><br><span class="line">for (auto&amp; elem : vec) &#123; </span><br><span class="line">    elem *= 2; // 直接修改原元素</span><br><span class="line">&#125;</span><br><span class="line">// vec 变为 &#123;2, 4, 6&#125;</span><br></pre></td></tr></table></figure><p>​<strong>​适用场景​</strong>​：需要修改原容器中的元素，或者元素是大型对象（如 <code>std::string</code>, 自定义类）​<strong>​希望避免复制开销​</strong>​但需要修改时。</p></li><li><p>​<strong>​<code>const auto&amp;</code>（常量引用）​</strong>​<br>创建容器中元素的​<strong>​常量引用​</strong>​。​<strong>​只读访问，无法修改​</strong>​，且避免复制开销。</p> <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">std::vector&lt;std::string&gt; words = &#123;&quot;Hello&quot;, &quot;World&quot;&#125;;</span><br><span class="line">for (const auto&amp; word : words) &#123;</span><br><span class="line">    std::cout &lt;&lt; word &lt;&lt; &quot; &quot;; // 可读</span><br><span class="line">    // word = &quot;Hi&quot;; // 错误！不可修改</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>​<strong>​适用场景​</strong>​：​<strong>​绝大多数只读遍历的情况​</strong>​，尤其是元素为大型对象时。​<strong>​这是最安全、最高效的只读遍历方式​</strong>​，也是​<strong>​推荐首选​</strong>​的写法。</p></li><li><p>​<strong>​<code>auto&amp;&amp;</code>（通用引用，Universal Reference）​</strong>​<br>这是最灵活的形式，可以绑定到左值、右值、const和非const对象。</p> <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">std::vector&lt;std::string&gt; getVector(); // 返回一个临时vector（右值）</span><br><span class="line">// ...</span><br><span class="line">for (auto&amp;&amp; elem : getVector()) &#123; // 可以绑定到临时容器中的元素</span><br><span class="line">    std::cout &lt;&lt; elem; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>​<strong>​适用场景​</strong>​：主要用于​<strong>​泛型编程和模板代码​</strong>​，或者需要​<strong>​完美转发（perfect forwarding）​</strong>​ 的场景。在普通代码中，<code>const auto&amp;</code> 或 <code>auto&amp;</code> 通常更清晰直观。</p></li></ol><h3 id="⚠️-三、注意事项与常见陷阱">⚠️ 三、注意事项与常见陷阱</h3><ol><li><p>​<strong>​必须初始化​</strong>​<br><code>auto</code> 变量​<strong>​必须在声明时初始化​</strong>​，编译器需要根据初始化表达式来推导类型。</p> <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">auto x; // 错误！缺少初始化表达式，无法推导类型</span><br><span class="line">x = 5;</span><br></pre></td></tr></table></figure></li><li><p>​<strong>​类型推导会丢弃引用和const限定符​</strong>​<br>使用 <code>auto</code> 进行类型推导时，​<strong>​顶层的 <code>const</code> 和引用属性会被丢弃​</strong>​（除非你显式加上它们）。</p> <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">int i = 10;</span><br><span class="line">const int&amp; cir = i;</span><br><span class="line">auto x = cir; // x 的类型是 int，而不是 const int&amp;</span><br></pre></td></tr></table></figure></li><li><p>​<strong>​与初始化表达式形式的关系​</strong>​<br><code>auto</code> 的推导结果受初始化表达式形式的影响。</p> <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">auto a = 42;    // a 是 int</span><br><span class="line">auto b(42);     // b 是 int</span><br><span class="line">auto c = &#123;42&#125;;  // c 是 std::initializer_list&lt;int&gt;</span><br><span class="line">auto d &#123;42&#125;;    // 在C++17后，d 是 int；之前可能是 initializer_list</span><br></pre></td></tr></table></figure></li><li><p>​<strong>​其他限制​</strong>​<br><code>auto</code> 不能用于函数参数声明（但C++14的泛型Lambda除外）、不能用于非静态成员变量、不能用于数组类型推导等。</p></li></ol><h3 id="💡-四、实用建议">💡 四、实用建议</h3><ul><li>​<strong>​优先考虑 <code>const auto&amp;</code>​</strong>​：在范围for循环中只读访问元素时，这是​<strong>​默认的首选​</strong>​，因为它安全且高效。</li><li>​<strong>​需要修改元素时用 <code>auto&amp;</code>​</strong>​：当你确实需要修改容器中的元素时使用。</li><li>​<strong>​小型简单类型可用 <code>auto</code>​</strong>​：如果元素是<code>int</code>、<code>double</code>等内置类型，且你需要的是副本，使用 <code>auto</code> 拷贝开销也很小。</li><li>​<strong>​泛型编程考虑 <code>auto&amp;&amp;</code>​</strong>​：在编写模板代码或需要处理各种值类别（左值/右值）时非常强大。</li><li>​<strong>​复杂类型的好帮手​</strong>​：当处理复杂的迭代器类型或嵌套的STL容器（如<code>std::map&lt;std::string, std::vector&lt;int&gt;&gt;</code>）时，<code>auto</code> 能极大简化代码。</li></ul><p>掌握 <code>auto</code> 的关键在于理解其类型推导规则，并根据具体场景（是否需要修改、元素类型大小、是否只读）选择最合适的用法。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> CPP </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> CPP </tag>
+            
+            <tag> auto </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>【算法解析】巧用哈希表与组合公式：高效统计数组中相同数对的数量</title>
+      <link href="/2025/09/18/qiao-yong-ha-xi-biao-yu-zu-he-gong-shi-gao-xiao-tong-ji-shu-zu-zhong-xiang-tong-shu-dui-de-shu-liang/"/>
+      <url>/2025/09/18/qiao-yong-ha-xi-biao-yu-zu-he-gong-shi-gao-xiao-tong-ji-shu-zu-zhong-xiang-tong-shu-dui-de-shu-liang/</url>
+      
+        <content type="html"><![CDATA[<p>现有以下题目：<a href="https://leetcode.cn/problems/number-of-good-pairs/">1512. 好数对的数目</a><br>现有一个整数数组，要求统计数组中满足条件的索引对 (i, j)（其中 i &lt; j 且 nums[i] = nums[j]）数量。</p><span id="more"></span><h2 id="一、暴力循环">一、暴力循环</h2><p>两层for循环可以遍历所有的索引对，但它的时间复杂度是O(n^2)，空间复杂度是O(n)。代码如下：</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">numIdenticalPairs</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;nums.<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j=i<span class="number">+1</span>;j&lt;nums.<span class="built_in">size</span>(); j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(nums[i]==nums[j])</span><br><span class="line">                    ans++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><p>有没有办法能把时间复杂度降到O(n)。</p><h2 id="二、组合公式-哈希表">二、组合公式+哈希表</h2><p>输入：nums = [1,2,3,1,1,3]<br>输出：4<br>解释：有 4 组好数对，分别是 (0,3), (0,4), (3,4), (2,5)</p><p>根据上述示例，我们可以对问题进行分解，先计算关于1，再计算关于2的对数，再计算关于3的对数。</p><p>对于每个数字出现的次数：我们可以使用<strong>组合数公式</strong>直接计算出该数字包含多少对：</p><ul><li>当数组中某个数字出现1次时，代表该数字没有满足条件的索引对</li><li>当数组中某个数字出现2次时，代表该数字有1对满足条件的索引对</li><li>当数组中某个数字出现3次时，代表该数字有3对满足条件的索引对</li><li>当数组中某个数字出现4次时，代表该数字有6对满足条件的索引对</li><li>…</li><li>当数组中某个数字出现n次时，代表有$\frac{n*(n-1)}{2}$对满足条件的索引对</li></ul><p>上述公式表示<code>n</code>个元素中选取 2 个的组合数，更用法的公式如：从n个元素选出m个元素的公式为：<br>$$\frac{n!}{m!(n-m)!}$$</p><p>我们只需计算出给定数组中不同数字的组合数并相加就能得到答案。<br>使用哈希表（如 <code>std::unordered_map</code>）遍历数组，记录每个数字出现的次数，时间复杂度O(n)。</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;unordered_map&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">numIdenticalPairs</span><span class="params">(<span class="type">const</span> std::vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">    std::unordered_map&lt;<span class="type">int</span> ,<span class="type">int</span>&gt; freq;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> num : nums)</span><br><span class="line">        freq[num]++;</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> count = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">const</span> <span class="keyword">auto</span>&amp; entry : freq)&#123;</span><br><span class="line">        <span class="type">int</span> v = entry.second;</span><br><span class="line">        count += v * (v - <span class="number">1</span>) / <span class="number">2</span>; </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> count;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 示例测试</span></span><br><span class="line">    std::vector&lt;<span class="type">int</span>&gt; nums = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">3</span>&#125;;</span><br><span class="line">    <span class="type">int</span> result = <span class="built_in">numIdenticalPairs</span>(nums);</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;Number of identical pairs: &quot;</span> &lt;&lt; result &lt;&lt; std::endl; <span class="comment">// 输出应为 4</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>上述代码中第二个for循环用了auto类型推导，关于它的详细用法可以参考：<br>[C++中auto类型推导的常见用法](<a href="https://wangjunstf.github.io/2025/09/18/cpp-zhong-auto-lei-xing-tui-dao-de-chang-jian-yong-fa/" title="C++中auto类型推导的常见用法">https://wangjunstf.github.io/2025/09/18/cpp-zhong-auto-lei-xing-tui-dao-de-chang-jian-yong-fa/</a>)</p><p>在这里它根据freq的元素类型推断entry的类型。</p><p>代码中的 <code>entry</code> 是一个​<strong>​常量引用​</strong>​，它指向 <code>std::unordered_map&lt;int, int&gt;</code> 中的一个键值对（<code>std::pair</code>）。更准确地说，它的类型是：</p><p><code>const std::pair&lt;const int, int&gt;&amp;</code></p><p>下面是关键点的解析：</p><table><thead><tr><th>组成部分</th><th>含义</th><th>说明</th></tr></thead><tbody><tr><td>​<strong>​<code>const</code>​</strong>​</td><td>常量</td><td>表示不能通过 <code>entry</code> 修改 <code>unordered_map</code> 中的元素。</td></tr><tr><td>​<strong>​<code>std::pair</code>​</strong>​</td><td>键值对</td><td><code>unordered_map</code> 中的每个元素都是一个 <code>pair</code> 对象。</td></tr><tr><td>​<strong>​<code>&lt;const int, int&gt;</code>​</strong>​</td><td>模板参数</td><td><code>pair</code> 的第一个成员（<code>first</code>）是 ​<strong>​<code>const int</code>​</strong>​（键），第二个成员（<code>second</code>）是 ​<strong>​<code>int</code>​</strong>​（值）。</td></tr><tr><td>​<strong>​<code>&amp;</code>​</strong>​</td><td>引用</td><td>避免在循环中拷贝整个 <code>pair</code> 对象，提升效率。</td></tr></tbody></table><p>在你的代码中：</p><ul><li><code>entry.first</code> 是键（即数组中的数字，例如 <code>1</code>, <code>2</code>, <code>3</code>），因为是 <code>const</code>，所以不可修改。</li><li><code>entry.second</code> 是值（即该数字出现的频率，例如 <code>3</code>, <code>2</code>, <code>1</code>），这里被用来计算好数对的数量：<code>count += v * (v - 1) / 2;</code>。</li></ul><p>这种使用 <code>const auto&amp;</code> 来遍历关联容器的做法非常常见，因为它​<strong>​既安全又高效​</strong>​。</p><p>简单来说，<code>entry</code> 就像是 <code>freq</code> 这个哈希表中每个单元的只读视图，让你能安全地读取每个数字及其对应的出现次数。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+          <category> LeetCode </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 哈希表 </tag>
+            
+            <tag> 组合公式 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>求两数最小公倍数的通解（通用方法解法）</title>
       <link href="/2025/09/17/qiu-liang-shu-zui-xiao-gong-bei-shu-de-tong-jie/"/>
       <url>/2025/09/17/qiu-liang-shu-zui-xiao-gong-bei-shu-de-tong-jie/</url>
@@ -14,6 +70,8 @@
       <categories>
           
           <category> 算法 </category>
+          
+          <category> LeetCode </category>
           
       </categories>
       
@@ -812,6 +870,8 @@
       
       <categories>
           
+          <category> 算法 </category>
+          
           <category> 数据结构 </category>
           
       </categories>
@@ -841,6 +901,8 @@
       
       <categories>
           
+          <category> 算法 </category>
+          
           <category> 数据结构 </category>
           
       </categories>
@@ -869,6 +931,8 @@
       
       
       <categories>
+          
+          <category> 算法 </category>
           
           <category> 数据结构 </category>
           
@@ -1264,6 +1328,8 @@
       
       <categories>
           
+          <category> 算法 </category>
+          
           <category> 数据结构 </category>
           
       </categories>
@@ -1294,6 +1360,8 @@
       
       
       <categories>
+          
+          <category> 算法 </category>
           
           <category> 数据结构 </category>
           
@@ -1713,6 +1781,8 @@
       
       
       <categories>
+          
+          <category> 算法 </category>
           
           <category> 数据结构 </category>
           
