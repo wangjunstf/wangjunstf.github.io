@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://wangjunstf.github.io/2025/09/22/emacs-ru-men-jiao-cheng/</loc>
+    <lastmod>2025-09-22</lastmod>
+  </url>
+  <url>
     <loc>https://wangjunstf.github.io/2025/09/18/ye-yu-wu-xian-dian-xiang-dui-zhi-dan-wei/</loc>
     <lastmod>2025-09-18</lastmod>
   </url>
@@ -85,19 +89,19 @@
     <lastmod>2024-10-01</lastmod>
   </url>
   <url>
-    <loc>https://wangjunstf.github.io/2021/09/10/suan-fa-fen-xi-jian-jin-ji-hao/</loc>
-    <lastmod>2024-10-01</lastmod>
-  </url>
-  <url>
     <loc>https://wangjunstf.github.io/2021/11/09/xu-ni-nei-cun-de-zuo-yong-xu-ni-di-zhi-ye-biao-tlb-huan-cun-yuan-li/</loc>
     <lastmod>2024-10-01</lastmod>
   </url>
   <url>
-    <loc>https://wangjunstf.github.io/2021/07/15/jin-cheng-diao-du/</loc>
+    <loc>https://wangjunstf.github.io/2021/11/05/jie-jue-hexo-bo-ke-zai-chrome-xia-wu-fa-zheng-chang-xian-shi-tu-pian-de-wen-ti/</loc>
     <lastmod>2024-10-01</lastmod>
   </url>
   <url>
-    <loc>https://wangjunstf.github.io/2021/11/05/jie-jue-hexo-bo-ke-zai-chrome-xia-wu-fa-zheng-chang-xian-shi-tu-pian-de-wen-ti/</loc>
+    <loc>https://wangjunstf.github.io/2021/09/10/suan-fa-fen-xi-jian-jin-ji-hao/</loc>
+    <lastmod>2024-10-01</lastmod>
+  </url>
+  <url>
+    <loc>https://wangjunstf.github.io/2021/07/15/jin-cheng-diao-du/</loc>
     <lastmod>2024-10-01</lastmod>
   </url>
   <url>
@@ -121,6 +125,10 @@
     <lastmod>2024-10-01</lastmod>
   </url>
   <url>
+    <loc>https://wangjunstf.github.io/2021/09/16/hui-fu-er-cha-sou-suo-shu/</loc>
+    <lastmod>2024-10-01</lastmod>
+  </url>
+  <url>
     <loc>https://wangjunstf.github.io/2021/11/11/kuai-su-mi-suan-fa/</loc>
     <lastmod>2024-10-01</lastmod>
   </url>
@@ -137,10 +145,6 @@
     <lastmod>2024-10-01</lastmod>
   </url>
   <url>
-    <loc>https://wangjunstf.github.io/2021/09/16/hui-fu-er-cha-sou-suo-shu/</loc>
-    <lastmod>2024-10-01</lastmod>
-  </url>
-  <url>
     <loc>https://wangjunstf.github.io/2021/09/17/zi-fu-chuan-zhuan-zheng-shu-zi-dong-ji/</loc>
     <lastmod>2024-10-01</lastmod>
   </url>
@@ -153,10 +157,6 @@
     <lastmod>2024-10-01</lastmod>
   </url>
   <url>
-    <loc>https://wangjunstf.github.io/2021/10/03/qian-zhui-he-yu-er-fen-cha-zhao-de-ying-yong/</loc>
-    <lastmod>2024-10-01</lastmod>
-  </url>
-  <url>
     <loc>https://wangjunstf.github.io/2021/09/12/qian-zhui-he-zhao-dao-han-you-xiang-tong-shu-liang-0-he-1-de-zui-chang-lian-xu-zi-shu-zu/</loc>
     <lastmod>2024-10-01</lastmod>
   </url>
@@ -165,7 +165,7 @@
     <lastmod>2024-10-01</lastmod>
   </url>
   <url>
-    <loc>https://wangjunstf.github.io/2021/07/18/duo-chu-li-qi-diao-du/</loc>
+    <loc>https://wangjunstf.github.io/2021/10/03/qian-zhui-he-yu-er-fen-cha-zhao-de-ying-yong/</loc>
     <lastmod>2024-10-01</lastmod>
   </url>
   <url>
@@ -173,11 +173,11 @@
     <lastmod>2024-10-01</lastmod>
   </url>
   <url>
-    <loc>https://wangjunstf.github.io/2021/07/18/duo-ji-fan-kui-dui-lie/</loc>
+    <loc>https://wangjunstf.github.io/2021/07/18/duo-chu-li-qi-diao-du/</loc>
     <lastmod>2024-10-01</lastmod>
   </url>
   <url>
-    <loc>https://wangjunstf.github.io/2023/01/28/the-rust-slice-type/</loc>
+    <loc>https://wangjunstf.github.io/2021/07/18/duo-ji-fan-kui-dui-lie/</loc>
     <lastmod>2024-10-01</lastmod>
   </url>
   <url>
@@ -189,6 +189,10 @@
     <lastmod>2024-10-01</lastmod>
   </url>
   <url>
+    <loc>https://wangjunstf.github.io/2023/01/28/the-rust-slice-type/</loc>
+    <lastmod>2024-10-01</lastmod>
+  </url>
+  <url>
     <loc>https://wangjunstf.github.io/2021/03/28/vim-xue-xi-bi-ji/</loc>
     <lastmod>2024-10-01</lastmod>
   </url>
@@ -197,7 +201,7 @@
     <lastmod>2024-10-01</lastmod>
   </url>
   <url>
-    <loc>https://wangjunstf.github.io/2021/09/10/makefile-ji-chu-jiao-cheng/</loc>
+    <loc>https://wangjunstf.github.io/2021/11/09/linux-xu-ni-nei-cun-xi-tong-nei-cun-ying-she-fork-execve-malloc-free-dong-tai-nei-cun-fen-pei-yu-shi-fang/</loc>
     <lastmod>2024-10-01</lastmod>
   </url>
   <url>
@@ -205,11 +209,11 @@
     <lastmod>2024-10-01</lastmod>
   </url>
   <url>
-    <loc>https://wangjunstf.github.io/2021/11/09/linux-xu-ni-nei-cun-xi-tong-nei-cun-ying-she-fork-execve-malloc-free-dong-tai-nei-cun-fen-pei-yu-shi-fang/</loc>
+    <loc>https://wangjunstf.github.io/2021/11/05/parallels-desktop-zui-xiao-an-zhuang-centos-7/</loc>
     <lastmod>2024-10-01</lastmod>
   </url>
   <url>
-    <loc>https://wangjunstf.github.io/2021/11/05/parallels-desktop-zui-xiao-an-zhuang-centos-7/</loc>
+    <loc>https://wangjunstf.github.io/2021/09/10/makefile-ji-chu-jiao-cheng/</loc>
     <lastmod>2024-10-01</lastmod>
   </url>
   <url>
@@ -225,11 +229,11 @@
     <lastmod>2024-10-01</lastmod>
   </url>
   <url>
-    <loc>https://wangjunstf.github.io/2021/05/15/lr-yu-fa-fen-xi/</loc>
+    <loc>https://wangjunstf.github.io/2021/08/24/javascript-jian-jie/</loc>
     <lastmod>2024-10-01</lastmod>
   </url>
   <url>
-    <loc>https://wangjunstf.github.io/2021/08/24/javascript-jian-jie/</loc>
+    <loc>https://wangjunstf.github.io/2021/09/11/linux-bing-fa-yu-jin-cheng-guan-li/</loc>
     <lastmod>2024-10-01</lastmod>
   </url>
   <url>
@@ -237,15 +241,15 @@
     <lastmod>2024-10-01</lastmod>
   </url>
   <url>
-    <loc>https://wangjunstf.github.io/2021/08/24/linux-huan-xing-fu-xing-jie-shu-fu-wen-jian-jie-shu-fu-qu-bie/</loc>
-    <lastmod>2024-10-01</lastmod>
-  </url>
-  <url>
     <loc>https://wangjunstf.github.io/2021/09/10/linux-quan-xian-guan-li/</loc>
     <lastmod>2024-10-01</lastmod>
   </url>
   <url>
-    <loc>https://wangjunstf.github.io/2021/09/11/linux-bing-fa-yu-jin-cheng-guan-li/</loc>
+    <loc>https://wangjunstf.github.io/2021/08/24/linux-huan-xing-fu-xing-jie-shu-fu-wen-jian-jie-shu-fu-qu-bie/</loc>
+    <lastmod>2024-10-01</lastmod>
+  </url>
+  <url>
+    <loc>https://wangjunstf.github.io/2021/05/15/lr-yu-fa-fen-xi/</loc>
     <lastmod>2024-10-01</lastmod>
   </url>
   <url>
@@ -269,11 +273,11 @@
     <lastmod>2024-10-01</lastmod>
   </url>
   <url>
-    <loc>https://wangjunstf.github.io/2021/04/26/common-lisp-yu-fa-gui-ze/</loc>
+    <loc>https://wangjunstf.github.io/2021/04/26/common-lisp-han-shu/</loc>
     <lastmod>2024-10-01</lastmod>
   </url>
   <url>
-    <loc>https://wangjunstf.github.io/2021/04/26/common-lisp-han-shu/</loc>
+    <loc>https://wangjunstf.github.io/2021/04/26/common-lisp-yu-fa-gui-ze/</loc>
     <lastmod>2024-10-01</lastmod>
   </url>
   <url>
@@ -285,7 +289,7 @@
     <lastmod>2024-10-01</lastmod>
   </url>
   <url>
-    <loc>https://wangjunstf.github.io/2021/11/09/c-chang-jian-de-nei-cun-cuo-wu/</loc>
+    <loc>https://wangjunstf.github.io/2021/09/12/c-dong-tai-nei-cun-yu-zhi-neng-zhi-zhen/</loc>
     <lastmod>2024-10-01</lastmod>
   </url>
   <url>
@@ -293,7 +297,7 @@
     <lastmod>2024-10-01</lastmod>
   </url>
   <url>
-    <loc>https://wangjunstf.github.io/2021/09/12/c-dong-tai-nei-cun-yu-zhi-neng-zhi-zhen/</loc>
+    <loc>https://wangjunstf.github.io/2021/11/09/c-chang-jian-de-nei-cun-cuo-wu/</loc>
     <lastmod>2024-10-01</lastmod>
   </url>
   <url>
