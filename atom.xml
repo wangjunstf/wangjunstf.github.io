@@ -6,7 +6,7 @@
   <link href="https://wangjunstf.github.io/atom.xml" rel="self"/>
   
   <link href="https://wangjunstf.github.io/"/>
-  <updated>2025-09-23T09:09:34.858Z</updated>
+  <updated>2025-09-26T13:55:44.390Z</updated>
   <id>https://wangjunstf.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>原码 反码 补码的原理</title>
+    <link href="https://wangjunstf.github.io/2025/09/26/yuan-ma-fan-ma-bu-ma-de-yuan-li/"/>
+    <id>https://wangjunstf.github.io/2025/09/26/yuan-ma-fan-ma-bu-ma-de-yuan-li/</id>
+    <published>2025-09-26T13:33:28.000Z</published>
+    <updated>2025-09-26T13:55:44.390Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;CPU中以二进制来表示和计算数据，为了进行算数运算，先后出现了以下三种编码：原码，反码和补码。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="操作系统" scheme="https://wangjunstf.github.io/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
+    
+    
+    <category term="原码" scheme="https://wangjunstf.github.io/tags/%E5%8E%9F%E7%A0%81/"/>
+    
+    <category term="反码" scheme="https://wangjunstf.github.io/tags/%E5%8F%8D%E7%A0%81/"/>
+    
+    <category term="补码" scheme="https://wangjunstf.github.io/tags/%E8%A1%A5%E7%A0%81/"/>
+    
+  </entry>
   
   <entry>
     <title>Emacs 配置C++开发环境</title>
@@ -465,32 +488,6 @@ $$LCM(a,b)=&#92;frac{|a * b|}{GCD(a,b)}$$&lt;/p&gt;</summary>
     
     
     <category term="快速幂" scheme="https://wangjunstf.github.io/tags/%E5%BF%AB%E9%80%9F%E5%B9%82/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>C/C++ 实现一个堆内存分配器(malloc/free)</title>
-    <link href="https://wangjunstf.github.io/2021/11/09/c-yu-yan-shi-xian-yi-ge-dui-nei-cun-fen-pei-qi-malloc-free/"/>
-    <id>https://wangjunstf.github.io/2021/11/09/c-yu-yan-shi-xian-yi-ge-dui-nei-cun-fen-pei-qi-malloc-free/</id>
-    <published>2021-11-09T10:27:32.000Z</published>
-    <updated>2024-10-01T14:17:56.607Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;C 语言使用 malloc 分配内存，使用 free 释放内存。那么它们是怎么实现的呢？&lt;/p&gt;
-&lt;p&gt;堆内存位于数据段(data) 和内存映射区之间，它有一个堆顶指针 brk，malloc 将堆内存分为空闲块和已分配块，使用链表来管理空闲块和已分配块。当堆内存用完时，使用系统调用 sbrk 增大 brk 来增大堆内存的大小。当要求分配的内存大小大于空闲块时，就将空闲块分成两份，一份分配给用户，剩下的内存作为一个空闲块。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="深入理解计算机系统" scheme="https://wangjunstf.github.io/categories/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/"/>
-    
-    
-    <category term="堆内存" scheme="https://wangjunstf.github.io/tags/%E5%A0%86%E5%86%85%E5%AD%98/"/>
-    
-    <category term="内存分配器" scheme="https://wangjunstf.github.io/tags/%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E5%99%A8/"/>
-    
-    <category term="malloc" scheme="https://wangjunstf.github.io/tags/malloc/"/>
-    
-    <category term="free" scheme="https://wangjunstf.github.io/tags/free/"/>
     
   </entry>
   
