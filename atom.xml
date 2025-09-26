@@ -6,7 +6,7 @@
   <link href="https://wangjunstf.github.io/atom.xml" rel="self"/>
   
   <link href="https://wangjunstf.github.io/"/>
-  <updated>2025-09-26T15:11:56.175Z</updated>
+  <updated>2025-09-26T15:21:50.108Z</updated>
   <id>https://wangjunstf.github.io/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>CPP中short, int, long, long long以及对应unsigned的范围</title>
+    <title>C++中short, int, long, long long以及对应unsigned的范围</title>
     <link href="https://wangjunstf.github.io/2025/09/26/cpp-zhong-short-int-long-long-long-yi-ji-dui-ying-unsigned-de-fan-wei/"/>
     <id>https://wangjunstf.github.io/2025/09/26/cpp-zhong-short-int-long-long-long-yi-ji-dui-ying-unsigned-de-fan-wei/</id>
     <published>2025-09-26T15:10:54.000Z</published>
-    <updated>2025-09-26T15:11:56.175Z</updated>
+    <updated>2025-09-26T15:21:50.108Z</updated>
     
     
     <summary type="html">&lt;p&gt;在 C++ 中，&lt;code&gt;short&lt;/code&gt;, &lt;code&gt;int&lt;/code&gt;, &lt;code&gt;long&lt;/code&gt;类型的大小由​&lt;strong&gt;​编译器和目标平台共同决定&lt;/strong&gt;。&lt;/p&gt;</summary>
@@ -30,6 +30,8 @@
     
     <category term="CPP" scheme="https://wangjunstf.github.io/categories/CPP/"/>
     
+    
+    <category term="CPP" scheme="https://wangjunstf.github.io/tags/CPP/"/>
     
     <category term="short" scheme="https://wangjunstf.github.io/tags/short/"/>
     
@@ -144,7 +146,7 @@
     <link href="https://wangjunstf.github.io/2025/09/18/cpp-zhong-auto-lei-xing-tui-dao-de-chang-jian-yong-fa/"/>
     <id>https://wangjunstf.github.io/2025/09/18/cpp-zhong-auto-lei-xing-tui-dao-de-chang-jian-yong-fa/</id>
     <published>2025-09-18T01:56:16.000Z</published>
-    <updated>2025-09-18T01:58:05.366Z</updated>
+    <updated>2025-09-26T15:21:43.903Z</updated>
     
     
     <summary type="html">&lt;p&gt;C++ 中的 &lt;code&gt;auto&lt;/code&gt; 关键字是一个强大的类型推导工具，它能显著简化代码并提高可读性。下面我将为你详细解析它的各种用法、注意事项和最佳实践。&lt;/p&gt;
@@ -219,7 +221,7 @@ $$LCM(a,b)=&#92;frac{|a * b|}{GCD(a,b)}$$&lt;/p&gt;</summary>
     <link href="https://wangjunstf.github.io/2025/09/12/cpp-zhong-auto-yu-decltype-de-qu-bie/"/>
     <id>https://wangjunstf.github.io/2025/09/12/cpp-zhong-auto-yu-decltype-de-qu-bie/</id>
     <published>2025-09-12T14:40:38.000Z</published>
-    <updated>2025-09-16T13:14:06.298Z</updated>
+    <updated>2025-09-26T15:21:38.539Z</updated>
     
     
     <summary type="html">&lt;p&gt;理解 &lt;code&gt;decltype&lt;/code&gt; 和 &lt;code&gt;auto&lt;/code&gt; 的区别对掌握现代 C++ 编程很重要。它们虽然都用于类型推导，但&lt;strong&gt;规则和初衷不同&lt;/strong&gt;。下面这个表格汇总了它们的核心区别，帮你快速把握要点。&lt;/p&gt;</summary>

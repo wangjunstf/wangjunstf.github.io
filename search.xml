@@ -4,7 +4,7 @@
   
     
     <entry>
-      <title>CPP中short, int, long, long long以及对应unsigned的范围</title>
+      <title>C++中short, int, long, long long以及对应unsigned的范围</title>
       <link href="/2025/09/26/cpp-zhong-short-int-long-long-long-yi-ji-dui-ying-unsigned-de-fan-wei/"/>
       <url>/2025/09/26/cpp-zhong-short-int-long-long-long-yi-ji-dui-ying-unsigned-de-fan-wei/</url>
       
@@ -19,6 +19,8 @@
       
       
         <tags>
+            
+            <tag> CPP </tag>
             
             <tag> short </tag>
             
