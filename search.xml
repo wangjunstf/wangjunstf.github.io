@@ -4,6 +4,37 @@
   
     
     <entry>
+      <title>CPP中short, int, long, long long以及对应unsigned的范围</title>
+      <link href="/2025/09/26/cpp-zhong-short-int-long-long-long-yi-ji-dui-ying-unsigned-de-fan-wei/"/>
+      <url>/2025/09/26/cpp-zhong-short-int-long-long-long-yi-ji-dui-ying-unsigned-de-fan-wei/</url>
+      
+        <content type="html"><![CDATA[<p>在 C++ 中，<code>short</code>, <code>int</code>, <code>long</code>类型的大小由​<strong>​编译器和目标平台共同决定</strong>。</p><span id="more"></span><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  cout &lt;&lt; <span class="built_in">sizeof</span>(<span class="type">short</span>) &lt;&lt; endl;</span><br><span class="line">  cout &lt;&lt; <span class="built_in">sizeof</span>(<span class="type">int</span>) &lt;&lt; endl;</span><br><span class="line">  cout &lt;&lt; <span class="built_in">sizeof</span>(<span class="type">long</span>) &lt;&lt; endl;</span><br><span class="line">  cout &lt;&lt; <span class="built_in">sizeof</span>(<span class="type">long</span> <span class="type">long</span>) &lt;&lt; endl;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>例如在64位Ubuntu中使用g++编译并运行输出以下内容：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">2</span><br><span class="line">4</span><br><span class="line">8</span><br><span class="line">8</span><br></pre></td></tr></table></figure><p>在64位windows11中使用g++编译并运行输出以下内容：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">2</span><br><span class="line">4</span><br><span class="line">4</span><br><span class="line">8</span><br></pre></td></tr></table></figure><p>区别在于long，在ubuntu下它是8字节，在windows下它和int一样是4字节。</p><p>下面基于Ubuntu来计算short, int, long的取值范围。</p><p>现代的CPU都采用补码来表示有符号整数，关于补码的介绍参考：<a href="https://wangjunstf.github.io/2025/09/26/yuan-ma-fan-ma-bu-ma-de-yuan-li/">原码 反码 补码的原理</a></p><h2 id="short">short</h2><p>short 和 unsigned short都只占16bit，区别是short为有符号类型，unsigned short为无符号类型。有符号数在计算机内部用补码表示，即最高位表示符号位，0为正数，1为负数。</p><p>对于有符号数，除了最高位为符号位，还可以使用15位来表示数字</p><p>能表示的最小数字（补码）是：1000 0000 0000 0000，即 -32768<br>其能表示的最大数字（补码）是：0111 1111 1111 1111 ，即32767<br>所以 shor的范围为：[-$2^{15}$ ，$2^{15}-1$ ]即 [-32768, 32767]</p><p>unsigned short没有符号，所以可以用16bit来表示数据。最小值是<code>0000 0000 0000 0000</code>即0，最大值是<code>1111 1111 1111 1111</code>即65535<br>所以 short 的范围为：[0, $2^{16}-1$]即[0,65535]</p><p>为了方便表示二进制数，下面统一用十六进制数，每4位二进制数表示1位十六进制数。、<br>例如 <code>0111 1111 1111 1111</code>用十六进制表示为：<code>7FFF</code></p><h2 id="int">int</h2><p>int 和 unsigned int都占32位，前者为有符号类型，后者为无符号类型。在计算机中有符号数都用补码表示。</p><p>int 能表示的最小数字（十六进制补码）为：8000 0000，即-2147483648<br>int 能表示的最大数字（十六进制补码）为：7FFF FFFF，即2147483647<br>所以int的范围为：[$-2^{31}, 2^{31}-1$]即[-2147483648, 2147483647]</p><p>同理，unsigned int没有符号位。最小值（十六进制）：<code>0000 0000</code>即0 ，最大值（十六进制）：<code>FFFF FFFF</code>即<code>4,294,967,295</code><br>所以 unsigned int 的范围为：[0, $2^{32}-1$]即[0,4,294,967,295 ]</p><h2 id="long">long</h2><p>long 和 unsigned long都占64位，前者为有符号类型，后者为无符号类型。在计算机中有符号数都用补码表示。</p><p>long 能表示的最小数字（十六进制补码）为：<code>8000 0000 0000 0000</code>即-9,223,372,036,854,775,808 读作负的九百二十二京三千三百七十二兆三百六十八亿五千四百七十七万五千八百零八<br>long 能表示的最大数字（十六进制补码）为：<code>7FFF FFFF FFFF FFFF</code> ，即9,223,372,036,854,775,807<br>所以 long的范围为：[$-2^{63}, 2^{63}-1$]</p><p>同理，unsigned long没有符号位，最小值（十六进制）：<code>0000 0000 0000 00000</code>，最大值（十六进制）：<code>FFFF FFFF FFFF FFFF</code> 即<code>18,446,744,073,709,551,615</code> 读作 一千八百四十四京…<br>所以unsigned long的范围为：[0,$2^{64}-1$ ]</p><h2 id="long-long">long long</h2><p>long long 的大小是跨平台固定的，不管在Linux 还是 Windows下它都是64位。范围参考上述的long 的范围。</p><h2 id="公式">公式</h2><p>对于 n 位二进制数。<br>有符号数的范围为：[$-2^{n-1}$, $2^{n-1}-1$]<br>无符号数的范围为：[0, $2^n-1$]</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> CPP </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> short </tag>
+            
+            <tag> int </tag>
+            
+            <tag> long </tag>
+            
+            <tag> long long </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>原码 反码 补码的原理</title>
       <link href="/2025/09/26/yuan-ma-fan-ma-bu-ma-de-yuan-li/"/>
       <url>/2025/09/26/yuan-ma-fan-ma-bu-ma-de-yuan-li/</url>
