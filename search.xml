@@ -13,14 +13,14 @@
       
       <categories>
           
-          <category> CPP </category>
+          <category> cpp </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> CPP </tag>
+            <tag> cpp </tag>
             
             <tag> short </tag>
             
@@ -160,14 +160,14 @@
       
       <categories>
           
-          <category> CPP </category>
+          <category> cpp </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> CPP </tag>
+            <tag> cpp </tag>
             
             <tag> auto </tag>
             
@@ -247,14 +247,14 @@
       
       <categories>
           
-          <category> CPP </category>
+          <category> cpp </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> CPP </tag>
+            <tag> cpp </tag>
             
             <tag> auto </tag>
             
@@ -1314,9 +1314,9 @@
       
         <tags>
             
-            <tag> 算法 </tag>
-            
             <tag> 前缀和 </tag>
+            
+            <tag> 算法 </tag>
             
             <tag> 最长连续子数组 </tag>
             
