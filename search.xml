@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>C++中 bitset 用法总结</title>
+      <link href="/2025/09/30/cpp-zhong-bitset-yong-fa-zong-jie/"/>
+      <url>/2025/09/30/cpp-zhong-bitset-yong-fa-zong-jie/</url>
+      
+        <content type="html"><![CDATA[<p><code>bitset</code> 是 C++ 标准库中的固定大小位集合容器，用于高效处理二进制位操作。</p><h2 id="基本特性">基本特性</h2><ul><li><strong>固定大小</strong>：在编译时确定大小</li><li><strong>高效存储</strong>：每个位只占 1 bit</li><li><strong>支持位运算</strong>：直接支持与、或、异或等位操作</li></ul><span id="more"></span><h2 id="常用操作">常用操作</h2><h3 id="1-构造和初始化">1. 构造和初始化</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bitset&gt;</span></span></span><br><span class="line"></span><br><span class="line">bitset&lt;8&gt; b1;           <span class="comment">// 全0：00000000</span></span><br><span class="line"><span class="function">bitset&lt;8&gt; <span class="title">b2</span><span class="params">(<span class="number">0xAF</span>)</span></span>;     <span class="comment">// 十六进制：10101111</span></span><br><span class="line"><span class="function">bitset&lt;8&gt; <span class="title">b3</span><span class="params">(<span class="string">&quot;1100&quot;</span>)</span></span>;   <span class="comment">// 字符串：00001100</span></span><br></pre></td></tr></table></figure><h3 id="2-访问和修改">2. 访问和修改</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">bitset&lt;8&gt; <span class="title">bs</span><span class="params">(<span class="string">&quot;10101010&quot;</span>)</span></span>;</span><br><span class="line"></span><br><span class="line">bs[<span class="number">0</span>] = <span class="number">1</span>;              <span class="comment">// 设置第0位</span></span><br><span class="line"><span class="type">bool</span> bit = bs[<span class="number">2</span>];       <span class="comment">// 获取第2位</span></span><br><span class="line">bs.<span class="built_in">set</span>(<span class="number">3</span>);              <span class="comment">// 设置第3位为1</span></span><br><span class="line">bs.<span class="built_in">reset</span>(<span class="number">1</span>);            <span class="comment">// 设置第1位为0</span></span><br><span class="line">bs.<span class="built_in">flip</span>(<span class="number">4</span>);             <span class="comment">// 翻转第4位</span></span><br></pre></td></tr></table></figure><h3 id="3-查询信息">3. 查询信息</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">bs.<span class="built_in">size</span>();              <span class="comment">// 返回位数：8</span></span><br><span class="line">bs.<span class="built_in">count</span>();             <span class="comment">// 返回1的个数</span></span><br><span class="line">bs.<span class="built_in">any</span>();               <span class="comment">// 是否有1存在</span></span><br><span class="line">bs.<span class="built_in">none</span>();              <span class="comment">// 是否全为0</span></span><br><span class="line">bs.<span class="built_in">all</span>();               <span class="comment">// 是否全为1</span></span><br></pre></td></tr></table></figure><h3 id="4-位运算">4. 位运算</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">bitset&lt;8&gt; <span class="title">a</span><span class="params">(<span class="string">&quot;11001100&quot;</span>)</span></span>;</span><br><span class="line"><span class="function">bitset&lt;8&gt; <span class="title">b</span><span class="params">(<span class="string">&quot;10101010&quot;</span>)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">auto</span> c = a &amp; b;         <span class="comment">// 按位与</span></span><br><span class="line"><span class="keyword">auto</span> d = a | b;         <span class="comment">// 按位或  </span></span><br><span class="line"><span class="keyword">auto</span> e = a ^ b;         <span class="comment">// 按位异或</span></span><br><span class="line"><span class="keyword">auto</span> f = ~a;            <span class="comment">// 按位取反</span></span><br></pre></td></tr></table></figure><h3 id="5-转换">5. 转换</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">bs.<span class="built_in">to_string</span>();         <span class="comment">// 转为字符串</span></span><br><span class="line">bs.<span class="built_in">to_ulong</span>();          <span class="comment">// 转为unsigned long</span></span><br><span class="line">bs.<span class="built_in">to_ullong</span>();         <span class="comment">// 转为unsigned long long</span></span><br></pre></td></tr></table></figure><h2 id="应用场景">应用场景</h2><ul><li>状态标志存储</li><li>位掩码操作</li><li>集合运算（最多64个元素）</li><li>位级算法优化</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> cpp </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> bitset </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>C++中short, int, long, long long以及对应unsigned的范围</title>
       <link href="/2025/09/26/cpp-zhong-short-int-long-long-long-yi-ji-dui-ying-unsigned-de-fan-wei/"/>
       <url>/2025/09/26/cpp-zhong-short-int-long-long-long-yi-ji-dui-ying-unsigned-de-fan-wei/</url>

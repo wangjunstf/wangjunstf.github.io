@@ -6,7 +6,7 @@
   <link href="https://wangjunstf.github.io/atom.xml" rel="self"/>
   
   <link href="https://wangjunstf.github.io/"/>
-  <updated>2025-09-27T01:34:49.860Z</updated>
+  <updated>2025-09-30T12:54:41.287Z</updated>
   <id>https://wangjunstf.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>C++中 bitset 用法总结</title>
+    <link href="https://wangjunstf.github.io/2025/09/30/cpp-zhong-bitset-yong-fa-zong-jie/"/>
+    <id>https://wangjunstf.github.io/2025/09/30/cpp-zhong-bitset-yong-fa-zong-jie/</id>
+    <published>2025-09-30T12:53:22.000Z</published>
+    <updated>2025-09-30T12:54:41.287Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;code&gt;bitset&lt;/code&gt; 是 C++ 标准库中的固定大小位集合容器，用于高效处理二进制位操作。&lt;/p&gt;
+&lt;h2 id=&quot;基本特性&quot;&gt;基本特性&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;固定大小&lt;/strong&gt;：在编译时确定大小&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;高效存储&lt;/strong&gt;：每个位只占 1 bit&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;支持位运算&lt;/strong&gt;：直接支持与、或、异或等位操作&lt;/li&gt;
+&lt;/ul&gt;</summary>
+    
+    
+    
+    <category term="cpp" scheme="https://wangjunstf.github.io/categories/cpp/"/>
+    
+    
+    <category term="bitset" scheme="https://wangjunstf.github.io/tags/bitset/"/>
+    
+  </entry>
   
   <entry>
     <title>C++中short, int, long, long long以及对应unsigned的范围</title>
@@ -470,30 +495,6 @@ $$LCM(a,b)=&#92;frac{|a * b|}{GCD(a,b)}$$&lt;/p&gt;</summary>
     <category term="Lisp" scheme="https://wangjunstf.github.io/tags/Lisp/"/>
     
     <category term="数据结构" scheme="https://wangjunstf.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>用两个栈模拟一个队列</title>
-    <link href="https://wangjunstf.github.io/2021/11/11/yong-liang-ge-zhan-mo-ni-yi-ge-dui-lie/"/>
-    <id>https://wangjunstf.github.io/2021/11/11/yong-liang-ge-zhan-mo-ni-yi-ge-dui-lie/</id>
-    <published>2021-11-11T09:39:40.000Z</published>
-    <updated>2024-10-01T14:17:56.618Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;思路&quot;&gt;思路&lt;/h2&gt;
-&lt;p&gt;本题是考察栈和队列的常见问题。要解答本题必须知道栈的队列的基本原理。&lt;/p&gt;
-&lt;p&gt;栈：一种后进先出的数据结构，想象一个单车道，汽车一辆接一辆往里开，最先进入的在最里面，最后进入的在最外面，当需要出去的时候，最后进入的先出，最先进入的最后出去。符合类似进出原则的数据结构就叫做栈。 往栈中存入数据也叫压栈，取出数据也叫弹栈。&lt;/p&gt;
-&lt;p&gt;队列：先进先出的数据结构。顾名思义，就像排队一样，最先进入在队头，后进入在队尾，队头先出队，队尾后出队。往队列中存入数据叫入队，往队列中取数据叫出队。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="算法" scheme="https://wangjunstf.github.io/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-    <category term="栈" scheme="https://wangjunstf.github.io/tags/%E6%A0%88/"/>
-    
-    <category term="队列" scheme="https://wangjunstf.github.io/tags/%E9%98%9F%E5%88%97/"/>
     
   </entry>
   
