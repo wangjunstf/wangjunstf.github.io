@@ -13,7 +13,7 @@
       
       <categories>
           
-          <category> CPP </category>
+          <category> cpp </category>
           
       </categories>
       
@@ -38,7 +38,7 @@
       
       <categories>
           
-          <category> CPP </category>
+          <category> cpp </category>
           
       </categories>
       
@@ -183,7 +183,7 @@
       
       <categories>
           
-          <category> CPP </category>
+          <category> cpp </category>
           
       </categories>
       
@@ -268,7 +268,7 @@
       
       <categories>
           
-          <category> CPP </category>
+          <category> cpp </category>
           
       </categories>
       
@@ -499,9 +499,9 @@
       
         <tags>
             
-            <tag> C++ </tag>
+            <tag> cpp </tag>
             
-            <tag> Effective C++ </tag>
+            <tag> Effective </tag>
             
         </tags>
       
@@ -857,18 +857,18 @@
       
       <categories>
           
-          <category> CPP </category>
+          <category> cpp </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> CPP </tag>
-            
             <tag> 指针指针 </tag>
             
             <tag> weak_ptr </tag>
+            
+            <tag> cpp </tag>
             
         </tags>
       
@@ -1005,7 +1005,7 @@
       
       <categories>
           
-          <category> CPP </category>
+          <category> cpp </category>
           
       </categories>
       
@@ -1297,14 +1297,12 @@
       
       <categories>
           
-          <category> CPP </category>
+          <category> cpp </category>
           
       </categories>
       
       
         <tags>
-            
-            <tag> CPP </tag>
             
             <tag> 动态内存 </tag>
             
@@ -1536,11 +1534,11 @@
       
         <tags>
             
-            <tag> CPP </tag>
-            
             <tag> 红黑树 </tag>
             
             <tag> 二叉搜索树 </tag>
+            
+            <tag> cpp </tag>
             
         </tags>
       

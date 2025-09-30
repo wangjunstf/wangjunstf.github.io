@@ -6,7 +6,7 @@
   <link href="https://wangjunstf.github.io/atom.xml" rel="self"/>
   
   <link href="https://wangjunstf.github.io/"/>
-  <updated>2025-09-30T12:58:32.868Z</updated>
+  <updated>2025-09-30T13:19:51.888Z</updated>
   <id>https://wangjunstf.github.io/</id>
   
   <author>
@@ -21,14 +21,14 @@
     <link href="https://wangjunstf.github.io/2025/09/30/cpp-zhong-bitset-yong-fa-zong-jie/"/>
     <id>https://wangjunstf.github.io/2025/09/30/cpp-zhong-bitset-yong-fa-zong-jie/</id>
     <published>2025-09-30T12:53:22.000Z</published>
-    <updated>2025-09-30T12:58:32.868Z</updated>
+    <updated>2025-09-30T13:19:51.888Z</updated>
     
     
     <summary type="html">&lt;p&gt;&lt;code&gt;bitset&lt;/code&gt; 是 C++ 标准库中的固定大小位集合容器，用于高效处理二进制位操作。&lt;/p&gt;</summary>
     
     
     
-    <category term="CPP" scheme="https://wangjunstf.github.io/categories/CPP/"/>
+    <category term="cpp" scheme="https://wangjunstf.github.io/categories/cpp/"/>
     
     
     <category term="bitset" scheme="https://wangjunstf.github.io/tags/bitset/"/>
@@ -40,14 +40,14 @@
     <link href="https://wangjunstf.github.io/2025/09/26/cpp-zhong-short-int-long-long-long-yi-ji-dui-ying-unsigned-de-fan-wei/"/>
     <id>https://wangjunstf.github.io/2025/09/26/cpp-zhong-short-int-long-long-long-yi-ji-dui-ying-unsigned-de-fan-wei/</id>
     <published>2025-09-26T15:10:54.000Z</published>
-    <updated>2025-09-30T12:59:09.733Z</updated>
+    <updated>2025-09-30T13:20:02.640Z</updated>
     
     
     <summary type="html">&lt;p&gt;在 C++ 中，&lt;code&gt;short&lt;/code&gt;, &lt;code&gt;int&lt;/code&gt;, &lt;code&gt;long&lt;/code&gt;类型的大小由​&lt;strong&gt;​编译器和目标平台共同决定&lt;/strong&gt;。&lt;/p&gt;</summary>
     
     
     
-    <category term="CPP" scheme="https://wangjunstf.github.io/categories/CPP/"/>
+    <category term="cpp" scheme="https://wangjunstf.github.io/categories/cpp/"/>
     
     
     <category term="short" scheme="https://wangjunstf.github.io/tags/short/"/>
@@ -108,7 +108,7 @@
     <link href="https://wangjunstf.github.io/2025/09/22/emacs-ru-men-jiao-cheng/"/>
     <id>https://wangjunstf.github.io/2025/09/22/emacs-ru-men-jiao-cheng/</id>
     <published>2025-09-22T10:17:40.000Z</published>
-    <updated>2025-09-23T09:10:44.965Z</updated>
+    <updated>2025-09-30T13:22:33.671Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;Emacs-命令格式&quot;&gt;Emacs 命令格式&lt;/h2&gt;
@@ -163,7 +163,7 @@
     <link href="https://wangjunstf.github.io/2025/09/18/cpp-zhong-auto-lei-xing-tui-dao-de-chang-jian-yong-fa/"/>
     <id>https://wangjunstf.github.io/2025/09/18/cpp-zhong-auto-lei-xing-tui-dao-de-chang-jian-yong-fa/</id>
     <published>2025-09-18T01:56:16.000Z</published>
-    <updated>2025-09-30T12:58:58.878Z</updated>
+    <updated>2025-09-30T13:20:07.869Z</updated>
     
     
     <summary type="html">&lt;p&gt;C++ 中的 &lt;code&gt;auto&lt;/code&gt; 关键字是一个强大的类型推导工具，它能显著简化代码并提高可读性。下面我将为你详细解析它的各种用法、注意事项和最佳实践。&lt;/p&gt;
@@ -172,7 +172,7 @@
     
     
     
-    <category term="CPP" scheme="https://wangjunstf.github.io/categories/CPP/"/>
+    <category term="cpp" scheme="https://wangjunstf.github.io/categories/cpp/"/>
     
     
     <category term="auto" scheme="https://wangjunstf.github.io/tags/auto/"/>
@@ -236,14 +236,14 @@ $$LCM(a,b)=&#92;frac{|a * b|}{GCD(a,b)}$$&lt;/p&gt;</summary>
     <link href="https://wangjunstf.github.io/2025/09/12/cpp-zhong-auto-yu-decltype-de-qu-bie/"/>
     <id>https://wangjunstf.github.io/2025/09/12/cpp-zhong-auto-yu-decltype-de-qu-bie/</id>
     <published>2025-09-12T14:40:38.000Z</published>
-    <updated>2025-09-30T12:58:49.774Z</updated>
+    <updated>2025-09-30T13:19:56.800Z</updated>
     
     
     <summary type="html">&lt;p&gt;理解 &lt;code&gt;decltype&lt;/code&gt; 和 &lt;code&gt;auto&lt;/code&gt; 的区别对掌握现代 C++ 编程很重要。它们虽然都用于类型推导，但&lt;strong&gt;规则和初衷不同&lt;/strong&gt;。下面这个表格汇总了它们的核心区别，帮你快速把握要点。&lt;/p&gt;</summary>
     
     
     
-    <category term="CPP" scheme="https://wangjunstf.github.io/categories/CPP/"/>
+    <category term="cpp" scheme="https://wangjunstf.github.io/categories/cpp/"/>
     
     
     <category term="auto" scheme="https://wangjunstf.github.io/tags/auto/"/>
@@ -423,7 +423,7 @@ $$LCM(a,b)=&#92;frac{|a * b|}{GCD(a,b)}$$&lt;/p&gt;</summary>
     <link href="https://wangjunstf.github.io/2023/01/12/effective-cpp/"/>
     <id>https://wangjunstf.github.io/2023/01/12/effective-cpp/</id>
     <published>2023-01-12T09:31:47.000Z</published>
-    <updated>2024-10-01T14:17:56.609Z</updated>
+    <updated>2025-09-30T13:22:13.385Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;导读&quot;&gt;&lt;strong&gt;导读&lt;/strong&gt;&lt;/h2&gt;
@@ -437,9 +437,9 @@ $$LCM(a,b)=&#92;frac{|a * b|}{GCD(a,b)}$$&lt;/p&gt;</summary>
     <category term="编程语言" scheme="https://wangjunstf.github.io/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
     
     
-    <category term="C++" scheme="https://wangjunstf.github.io/tags/C/"/>
+    <category term="cpp" scheme="https://wangjunstf.github.io/tags/cpp/"/>
     
-    <category term="Effective C++" scheme="https://wangjunstf.github.io/tags/Effective-C/"/>
+    <category term="Effective" scheme="https://wangjunstf.github.io/tags/Effective/"/>
     
   </entry>
   
