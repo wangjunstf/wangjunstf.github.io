@@ -6,7 +6,7 @@
   <link href="https://wangjunstf.github.io/atom.xml" rel="self"/>
   
   <link href="https://wangjunstf.github.io/"/>
-  <updated>2025-09-30T12:54:41.287Z</updated>
+  <updated>2025-09-30T12:56:50.437Z</updated>
   <id>https://wangjunstf.github.io/</id>
   
   <author>
@@ -21,16 +21,10 @@
     <link href="https://wangjunstf.github.io/2025/09/30/cpp-zhong-bitset-yong-fa-zong-jie/"/>
     <id>https://wangjunstf.github.io/2025/09/30/cpp-zhong-bitset-yong-fa-zong-jie/</id>
     <published>2025-09-30T12:53:22.000Z</published>
-    <updated>2025-09-30T12:54:41.287Z</updated>
+    <updated>2025-09-30T12:56:50.437Z</updated>
     
     
-    <summary type="html">&lt;p&gt;&lt;code&gt;bitset&lt;/code&gt; 是 C++ 标准库中的固定大小位集合容器，用于高效处理二进制位操作。&lt;/p&gt;
-&lt;h2 id=&quot;基本特性&quot;&gt;基本特性&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;固定大小&lt;/strong&gt;：在编译时确定大小&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;高效存储&lt;/strong&gt;：每个位只占 1 bit&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;支持位运算&lt;/strong&gt;：直接支持与、或、异或等位操作&lt;/li&gt;
-&lt;/ul&gt;</summary>
+    <summary type="html">&lt;p&gt;&lt;code&gt;bitset&lt;/code&gt; 是 C++ 标准库中的固定大小位集合容器，用于高效处理二进制位操作。&lt;/p&gt;</summary>
     
     
     
