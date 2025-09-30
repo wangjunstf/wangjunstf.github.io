@@ -280,7 +280,7 @@ $$LCM(a,b)=&#92;frac{|a * b|}{GCD(a,b)}$$&lt;/p&gt;</summary>
     <link href="https://wangjunstf.github.io/2025/01/16/common-lisp-shi-jian-jian-li-dan-yuan-ce-shi-kuang-jia/"/>
     <id>https://wangjunstf.github.io/2025/01/16/common-lisp-shi-jian-jian-li-dan-yuan-ce-shi-kuang-jia/</id>
     <published>2025-01-16T10:44:23.000Z</published>
-    <updated>2025-01-16T10:45:49.523Z</updated>
+    <updated>2025-09-30T13:36:14.954Z</updated>
     
     
     <summary type="html">&lt;p&gt;&lt;strong&gt;单元测试框架&lt;/strong&gt;是一种工具或库，用于帮助开发人员创建、组织、运行和报告代码的单元测试。&lt;br&gt;
@@ -302,7 +302,7 @@ $$LCM(a,b)=&#92;frac{|a * b|}{GCD(a,b)}$$&lt;/p&gt;</summary>
     <link href="https://wangjunstf.github.io/2025/01/16/common-lisp-ru-he-bian-xie-hong/"/>
     <id>https://wangjunstf.github.io/2025/01/16/common-lisp-ru-he-bian-xie-hong/</id>
     <published>2025-01-16T10:41:56.000Z</published>
-    <updated>2025-01-16T10:43:32.701Z</updated>
+    <updated>2025-09-30T13:36:21.824Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;一-宏展开期和运行期&quot;&gt;一 宏展开期和运行期&lt;/h2&gt;
@@ -324,7 +324,7 @@ $$LCM(a,b)=&#92;frac{|a * b|}{GCD(a,b)}$$&lt;/p&gt;</summary>
     <link href="https://wangjunstf.github.io/2025/01/16/jie-gou-common-lisp-hong-cong-ji-ben-yu-fa-dao-gao-ji-yong-fa/"/>
     <id>https://wangjunstf.github.io/2025/01/16/jie-gou-common-lisp-hong-cong-ji-ben-yu-fa-dao-gao-ji-yong-fa/</id>
     <published>2025-01-16T10:33:41.000Z</published>
-    <updated>2025-01-16T10:39:21.127Z</updated>
+    <updated>2025-09-30T13:32:07.298Z</updated>
     
     
     <summary type="html">&lt;p&gt;其余自Lisp的许多编程思想，从条件表达式到垃圾收集，都已经被吸取进其他语言，但Lisp的宏系统却始终使它保持了在语言风格上的独特性。Lisp的宏和大多数其他语言中的也叫宏的东西是完全不一样的，要完全认识Lisp中的宏系统，就需要重新看待它。&lt;/p&gt;</summary>
@@ -376,7 +376,7 @@ $$LCM(a,b)=&#92;frac{|a * b|}{GCD(a,b)}$$&lt;/p&gt;</summary>
     <link href="https://wangjunstf.github.io/2025/01/16/common-lisp-bian-liang/"/>
     <id>https://wangjunstf.github.io/2025/01/16/common-lisp-bian-liang/</id>
     <published>2025-01-16T10:17:39.000Z</published>
-    <updated>2025-01-16T10:25:54.570Z</updated>
+    <updated>2025-09-30T13:36:36.676Z</updated>
     
     
     <summary type="html">&lt;p&gt;Common Lisp 支持两种类型的变量：词法变量(lexical)和动态变量(dynamic)&lt;/p&gt;
@@ -388,7 +388,9 @@ $$LCM(a,b)=&#92;frac{|a * b|}{GCD(a,b)}$$&lt;/p&gt;</summary>
     <category term="Lisp" scheme="https://wangjunstf.github.io/categories/Lisp/"/>
     
     
-    <category term="Common Lisp 变量" scheme="https://wangjunstf.github.io/tags/Common-Lisp-%E5%8F%98%E9%87%8F/"/>
+    <category term="Common Lisp" scheme="https://wangjunstf.github.io/tags/Common-Lisp/"/>
+    
+    <category term="变量" scheme="https://wangjunstf.github.io/tags/%E5%8F%98%E9%87%8F/"/>
     
   </entry>
   
@@ -423,7 +425,7 @@ $$LCM(a,b)=&#92;frac{|a * b|}{GCD(a,b)}$$&lt;/p&gt;</summary>
     <link href="https://wangjunstf.github.io/2023/01/12/effective-cpp/"/>
     <id>https://wangjunstf.github.io/2023/01/12/effective-cpp/</id>
     <published>2023-01-12T09:31:47.000Z</published>
-    <updated>2025-09-30T13:22:13.385Z</updated>
+    <updated>2025-09-30T13:30:39.998Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;导读&quot;&gt;&lt;strong&gt;导读&lt;/strong&gt;&lt;/h2&gt;
@@ -434,12 +436,12 @@ $$LCM(a,b)=&#92;frac{|a * b|}{GCD(a,b)}$$&lt;/p&gt;</summary>
     
     
     
-    <category term="编程语言" scheme="https://wangjunstf.github.io/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
+    <category term="cpp" scheme="https://wangjunstf.github.io/categories/cpp/"/>
     
     
     <category term="cpp" scheme="https://wangjunstf.github.io/tags/cpp/"/>
     
-    <category term="Effective" scheme="https://wangjunstf.github.io/tags/Effective/"/>
+    <category term="Effective cpp" scheme="https://wangjunstf.github.io/tags/Effective-cpp/"/>
     
   </entry>
   
@@ -448,7 +450,7 @@ $$LCM(a,b)=&#92;frac{|a * b|}{GCD(a,b)}$$&lt;/p&gt;</summary>
     <link href="https://wangjunstf.github.io/2022/01/20/arm-yi-wei-zhi-ling/"/>
     <id>https://wangjunstf.github.io/2022/01/20/arm-yi-wei-zhi-ling/</id>
     <published>2022-01-20T03:36:23.000Z</published>
-    <updated>2024-10-01T14:17:56.604Z</updated>
+    <updated>2025-09-30T13:37:05.626Z</updated>
     
     
     <summary type="html">&lt;p&gt;移位指令是一组经常使用的指令，它包括移位指令（含算术移位指令，逻辑移位指令），循环移位指令（含带进位循环移位指令），其作用就是将目的操作数的所有位按操作符规定的方式移动指定的位数。&lt;/p&gt;
