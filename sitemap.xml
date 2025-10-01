@@ -2,15 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://wangjunstf.github.io/2025/10/01/en/the-relationship-between-left-associativity-right-associativity-and-operator-precedence-in-cpp/</loc>
-    
-    <lastmod>2025-10-01</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://wangjunstf.github.io/2025/10/01/cpp-zuo-jie-he-yu-you-jie-he-de-gai-nian-yu-yun-suan-fu-de-you-xian-ji-you-shi-me-guan-xi/</loc>
     
     <lastmod>2025-10-01</lastmod>
@@ -1956,27 +1947,6 @@
   
   <url>
     <loc>https://wangjunstf.github.io/tags/%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91/</loc>
-    <lastmod>2025-10-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://wangjunstf.github.io/tags/left-associativity/</loc>
-    <lastmod>2025-10-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://wangjunstf.github.io/tags/right-associativity/</loc>
-    <lastmod>2025-10-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://wangjunstf.github.io/tags/operator-precedence/</loc>
     <lastmod>2025-10-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
