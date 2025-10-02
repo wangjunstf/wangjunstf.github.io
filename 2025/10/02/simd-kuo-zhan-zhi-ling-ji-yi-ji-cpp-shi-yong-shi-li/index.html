@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"wangjunstf.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.22.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":{"disqus":{"text":"Load Disqus","order":-1},"gitalk":{"order":-2}}},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="什么是SIMD扩展指令集 SIMD（单指令多数据）扩展指令集是一种并行计算技术，允许一条指令同时处理多个数据元素，提升数据密集型任务的执行效率。常见示例包括：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SIMD扩展指令集以及C++使用示例">
+<meta property="og:url" content="https://wangjunstf.github.io/2025/10/02/simd-kuo-zhan-zhi-ling-ji-yi-ji-cpp-shi-yong-shi-li/index.html">
+<meta property="og:site_name" content="编程之禅">
+<meta property="og:description" content="什么是SIMD扩展指令集 SIMD（单指令多数据）扩展指令集是一种并行计算技术，允许一条指令同时处理多个数据元素，提升数据密集型任务的执行效率。常见示例包括：">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-10-02T03:22:22.000Z">
+<meta property="article:modified_time" content="2025-10-02T14:39:55.596Z">
+<meta property="article:author" content="编程之禅">
+<meta property="article:tag" content="SIMD">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://wangjunstf.github.io/2025/10/02/simd-kuo-zhan-zhi-ling-ji-yi-ji-cpp-shi-yong-shi-li/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://wangjunstf.github.io/2025/10/02/simd-kuo-zhan-zhi-ling-ji-yi-ji-cpp-shi-yong-shi-li/","path":"2025/10/02/simd-kuo-zhan-zhi-ling-ji-yi-ji-cpp-shi-yong-shi-li/","title":"SIMD扩展指令集以及C++使用示例"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>SIMD扩展指令集以及C++使用示例 | 编程之禅</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CL6NGHBZWY"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-CL6NGHBZWY","only_pageview":false,"measure_protocol_api_secret":null}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+  <script async defer data-website-id="3513700f-8e4a-4020-93b4-864af3521f06" src="https://cloud.umami.is/script.js" data-host-url="https://cloud.umami.is/share/YxRDEYSuIxGsyXw7/wangjunstf.github.io"></script>
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="编程之禅" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">编程之禅</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-开源项目"><a href="/github/" rel="section"><i class="fab fa-github fa-fw"></i>开源项目</a></li><li class="menu-item menu-item-c++"><a href="/categories/cpp/" rel="section"><i class="fa-solid fa-microchip fa-fw"></i>C++</a></li><li class="menu-item menu-item-操作系统"><a href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="section"><i class="fab fa-ubuntu fa-fw"></i>操作系统</a></li><li class="menu-item menu-item-网络原理"><a href="/categories/%E7%BD%91%E7%BB%9C%E5%8E%9F%E7%90%86/" rel="section"><i class="fa-solid fa-globe fa-fw"></i>网络原理</a></li><li class="menu-item menu-item-算法"><a href="/categories/%E7%AE%97%E6%B3%95/" rel="section"><i class="fas fa-cogs fa-fw"></i>算法</a></li><li class="menu-item menu-item-linux"><a href="/categories/Linux/" rel="section"><i class="fa-brands fa-linux fa-fw"></i>Linux</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFSIMD%E6%89%A9%E5%B1%95%E6%8C%87%E4%BB%A4%E9%9B%86"><span class="nav-number">1.</span> <span class="nav-text">什么是SIMD扩展指令集</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SIMD-%E6%8C%87%E4%BB%A4%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"><span class="nav-number">2.</span> <span class="nav-text">SIMD 指令使用示例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%9F%BA%E7%A1%80%E5%A4%B4%E6%96%87%E4%BB%B6%E5%92%8C%E8%AE%BE%E7%BD%AE"><span class="nav-number">2.1.</span> <span class="nav-text">1. 基础头文件和设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-SSE-%E6%B5%AE%E7%82%B9%E5%90%91%E9%87%8F%E5%8A%A0%E6%B3%95"><span class="nav-number">2.2.</span> <span class="nav-text">2. SSE 浮点向量加法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-AVX-%E5%8F%8C%E7%B2%BE%E5%BA%A6%E5%90%91%E9%87%8F%E8%BF%90%E7%AE%97"><span class="nav-number">2.3.</span> <span class="nav-text">3. AVX 双精度向量运算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E6%95%B4%E6%95%B0%E5%90%91%E9%87%8F%E5%A4%84%E7%90%86"><span class="nav-number">2.4.</span> <span class="nav-text">4. 整数向量处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-%E5%90%91%E9%87%8F%E7%82%B9%E7%A7%AF%E4%BC%98%E5%8C%96"><span class="nav-number">2.5.</span> <span class="nav-text">5. 向量点积优化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-AVX2-%E6%95%B4%E6%95%B0%E5%90%91%E9%87%8F%E5%8C%96"><span class="nav-number">2.6.</span> <span class="nav-text">6. AVX2 整数向量化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-%E6%9D%A1%E4%BB%B6%E9%80%89%E6%8B%A9%E5%92%8C%E6%B7%B7%E5%90%88%E6%93%8D%E4%BD%9C"><span class="nav-number">2.7.</span> <span class="nav-text">7. 条件选择和混合操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E7%A4%BA%E4%BE%8B"><span class="nav-number">2.8.</span> <span class="nav-text">8. 性能测试示例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-%E4%B8%BB%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8"><span class="nav-number">2.9.</span> <span class="nav-text">9. 主函数调用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%96%E8%AF%91%E5%91%BD%E4%BB%A4"><span class="nav-number">2.10.</span> <span class="nav-text">编译命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E9%94%AE%E8%A6%81%E7%82%B9"><span class="nav-number">2.11.</span> <span class="nav-text">关键要点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AVX%E5%92%8CSSE%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">3.</span> <span class="nav-text">AVX和SSE的区别</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B7%E4%BD%93%E5%B7%AE%E5%BC%82%E7%A4%BA%E4%BE%8B"><span class="nav-number">3.1.</span> <span class="nav-text">具体差异示例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%AF%84%E5%AD%98%E5%99%A8%E7%B1%BB%E5%9E%8B"><span class="nav-number">3.2.</span> <span class="nav-text">1. 寄存器类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E6%8C%87%E4%BB%A4%E5%89%8D%E7%BC%80"><span class="nav-number">3.3.</span> <span class="nav-text">2. 指令前缀</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E5%AE%9E%E9%99%85%E6%80%A7%E8%83%BD%E5%AF%B9%E6%AF%94"><span class="nav-number">3.4.</span> <span class="nav-text">3. 实际性能对比</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E5%86%85%E5%AD%98%E5%AF%B9%E9%BD%90%E8%A6%81%E6%B1%82"><span class="nav-number">3.5.</span> <span class="nav-text">4. 内存对齐要求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-%E7%BC%96%E8%AF%91%E5%99%A8%E6%A0%87%E5%BF%97"><span class="nav-number">3.6.</span> <span class="nav-text">5. 编译器标志</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%89%E6%8B%A9%E5%BB%BA%E8%AE%AE"><span class="nav-number">3.7.</span> <span class="nav-text">选择建议</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">编程之禅</p>
+  <div class="site-description" itemprop="description">本博客用于分享C++，数据结构与算法，操作系统，网络原理等知识。</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">83</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">164</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/wangjunstf" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;wangjunstf" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+          链接
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="https://paulgraham.com/index.html" title="https:&#x2F;&#x2F;paulgraham.com&#x2F;index.html" rel="noopener" target="_blank">保罗·格雷厄姆</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://www.ruanyifeng.com/blog/" title="https:&#x2F;&#x2F;www.ruanyifeng.com&#x2F;blog&#x2F;" rel="noopener" target="_blank">阮一峰的网络日志</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://www.liaoxuefeng.com/" title="https:&#x2F;&#x2F;www.liaoxuefeng.com&#x2F;" rel="noopener" target="_blank">廖雪峰</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://wangjunstf.github.io/2025/10/02/simd-kuo-zhan-zhi-ling-ji-yi-ji-cpp-shi-yong-shi-li/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="编程之禅">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="编程之禅">
+      <meta itemprop="description" content="本博客用于分享C++，数据结构与算法，操作系统，网络原理等知识。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="SIMD扩展指令集以及C++使用示例 | 编程之禅">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          SIMD扩展指令集以及C++使用示例
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2025-10-02 11:22:22 / 修改时间：22:39:55" itemprop="dateCreated datePublished" datetime="2025-10-02T11:22:22+08:00">2025-10-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/cpp/" itemprop="url" rel="index"><span itemprop="name">cpp</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2025/10/02/simd-kuo-zhan-zhi-ling-ji-yi-ji-cpp-shi-yong-shi-li/" class="post-meta-item leancloud_visitors" data-flag-title="SIMD扩展指令集以及C++使用示例" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/2025/10/02/simd-kuo-zhan-zhi-ling-ji-yi-ji-cpp-shi-yong-shi-li/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2025/10/02/simd-kuo-zhan-zhi-ling-ji-yi-ji-cpp-shi-yong-shi-li/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>2.1k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>7 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h2 id="什么是SIMD扩展指令集">什么是SIMD扩展指令集</h2>
+<p>SIMD（单指令多数据）扩展指令集是一种并行计算技术，允许一条指令同时处理多个数据元素，提升数据密集型任务的执行效率。常见示例包括：</p>
+<span id="more"></span>
+<ul>
+<li><strong>x86架构</strong>：MMX、SSE、AVX系列</li>
+<li><strong>ARM架构</strong>：NEON、SVE</li>
+<li><strong>PowerPC</strong>：AltiVec</li>
+</ul>
+<p><strong>核心特点</strong>：</p>
+<ol>
+<li><strong>并行处理</strong>：单指令操作多个数据（如4个浮点数同时相加）</li>
+<li><strong>适用场景</strong>：多媒体处理、科学计算、机器学习推理等</li>
+</ol>
+<p>例如，AVX2可在一条指令中完成8个32位浮点数的加法，相比标量指令提升吞吐量。现代CPU普遍集成SIMD单元以加速向量化计算。</p>
+<p><strong>关键特性</strong>：</p>
+<ul>
+<li>数据级并行：单指令处理多个数据元素</li>
+<li>专用寄存器：不同指令集使用不同宽度寄存器</li>
+<li>数据类型：支持整数、单/双精度浮点数</li>
+<li>编译器支持：可通过内联函数、自动向量化或汇编使用</li>
+</ul>
+<p>现代编译器（GCC/Clang/MSVC）提供 intrinsic 函数直接调用 SIMD 指令，无需编写汇编代码。</p>
+<h2 id="SIMD-指令使用示例">SIMD 指令使用示例</h2>
+<p>以下是 C++ 中使用 SIMD 指令的详细示例：</p>
+<h3 id="1-基础头文件和设置">1. 基础头文件和设置</h3>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;immintrin.h&gt;</span>  <span class="comment">// 包含所有 SIMD intrinsic</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 对齐内存分配（重要！）</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ALIGNED_16 __attribute__((aligned(16)))</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ALIGNED_32 __attribute__((aligned(32)))</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ALIGNED_64 __attribute__((aligned(64)))</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-SSE-浮点向量加法">2. SSE 浮点向量加法</h3>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">sse_float_addition</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ALIGNED_16 <span class="type">float</span> a[<span class="number">4</span>] = &#123;<span class="number">1.0f</span>, <span class="number">2.0f</span>, <span class="number">3.0f</span>, <span class="number">4.0f</span>&#125;;</span><br><span class="line">    ALIGNED_16 <span class="type">float</span> b[<span class="number">4</span>] = &#123;<span class="number">5.0f</span>, <span class="number">6.0f</span>, <span class="number">7.0f</span>, <span class="number">8.0f</span>&#125;;</span><br><span class="line">    ALIGNED_16 <span class="type">float</span> result[<span class="number">4</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 加载数据到 SSE 寄存器</span></span><br><span class="line">    __m128 vec_a = _mm_load_ps(a);</span><br><span class="line">    __m128 vec_b = _mm_load_ps(b);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// SIMD 加法（一次处理4个float）</span></span><br><span class="line">    __m128 vec_result = _mm_add_ps(vec_a, vec_b);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 存储结果</span></span><br><span class="line">    _mm_store_ps(result, vec_result);</span><br><span class="line">    </span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;SSE Float Addition: &quot;</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++) &#123;</span><br><span class="line">        std::cout &lt;&lt; result[i] &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    std::cout &lt;&lt; std::endl; <span class="comment">// 输出: 6 8 10 12</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="3-AVX-双精度向量运算">3. AVX 双精度向量运算</h3>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">avx_double_operations</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ALIGNED_32 <span class="type">double</span> a[<span class="number">4</span>] = &#123;<span class="number">1.0</span>, <span class="number">2.0</span>, <span class="number">3.0</span>, <span class="number">4.0</span>&#125;;</span><br><span class="line">    ALIGNED_32 <span class="type">double</span> b[<span class="number">4</span>] = &#123;<span class="number">5.0</span>, <span class="number">6.0</span>, <span class="number">7.0</span>, <span class="number">8.0</span>&#125;;</span><br><span class="line">    ALIGNED_32 <span class="type">double</span> result[<span class="number">4</span>];</span><br><span class="line">    </span><br><span class="line">    __m256d vec_a = _mm256_load_pd(a);</span><br><span class="line">    __m256d vec_b = _mm256_load_pd(b);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 多种运算</span></span><br><span class="line">    __m256d add_result = _mm256_add_pd(vec_a, vec_b);</span><br><span class="line">    __m256d mul_result = _mm256_mul_pd(vec_a, vec_b);</span><br><span class="line">    __m256d sub_result = _mm256_sub_pd(vec_b, vec_a);</span><br><span class="line">    </span><br><span class="line">    _mm256_store_pd(result, add_result);</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;AVX Double Addition: &quot;</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++) &#123;</span><br><span class="line">        std::cout &lt;&lt; result[i] &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    std::cout &lt;&lt; std::endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="4-整数向量处理">4. 整数向量处理</h3>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">sse_integer_operations</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ALIGNED_16 <span class="type">int32_t</span> a[<span class="number">4</span>] = &#123;<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>, <span class="number">40</span>&#125;;</span><br><span class="line">    ALIGNED_16 <span class="type">int32_t</span> b[<span class="number">4</span>] = &#123;<span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>&#125;;</span><br><span class="line">    ALIGNED_16 <span class="type">int32_t</span> result[<span class="number">4</span>];</span><br><span class="line">    </span><br><span class="line">    __m128i vec_a = _mm_load_si128((__m128i*)a);</span><br><span class="line">    __m128i vec_b = _mm_load_si128((__m128i*)b);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 整数加法</span></span><br><span class="line">    __m128i add_result = _mm_add_epi32(vec_a, vec_b);</span><br><span class="line">    <span class="comment">// 整数乘法（注意：SSE4.1）</span></span><br><span class="line">    __m128i mul_result = _mm_mullo_epi32(vec_a, vec_b);</span><br><span class="line">    </span><br><span class="line">    _mm_store_si128((__m128i*)result, add_result);</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;SSE Integer Addition: &quot;</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++) &#123;</span><br><span class="line">        std::cout &lt;&lt; result[i] &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    std::cout &lt;&lt; std::endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="5-向量点积优化">5. 向量点积优化</h3>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">float</span> <span class="title">sse_dot_product</span><span class="params">(<span class="type">const</span> <span class="type">float</span>* a, <span class="type">const</span> <span class="type">float</span>* b, <span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">    __m128 sum = _mm_setzero_ps();</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i += <span class="number">4</span>) &#123;</span><br><span class="line">        __m128 vec_a = _mm_load_ps(a + i);</span><br><span class="line">        __m128 vec_b = _mm_load_ps(b + i);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 乘积累加：sum += a * b</span></span><br><span class="line">        __m128 product = _mm_mul_ps(vec_a, vec_b);</span><br><span class="line">        sum = _mm_add_ps(sum, product);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 水平求和：sum[0] + sum[1] + sum[2] + sum[3]</span></span><br><span class="line">    __m128 shuf = _mm_shuffle_ps(sum, sum, _MM_SHUFFLE(<span class="number">2</span>, <span class="number">3</span>, <span class="number">0</span>, <span class="number">1</span>));</span><br><span class="line">    __m128 sums = _mm_add_ps(sum, shuf);</span><br><span class="line">    shuf = _mm_movehl_ps(shuf, sums);</span><br><span class="line">    sums = _mm_add_ss(sums, shuf);</span><br><span class="line">    </span><br><span class="line">    <span class="type">float</span> result;</span><br><span class="line">    _mm_store_ss(&amp;result, sums);</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="6-AVX2-整数向量化">6. AVX2 整数向量化</h3>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">avx2_integer_operations</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ALIGNED_32 <span class="type">int32_t</span> a[<span class="number">8</span>] = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>&#125;;</span><br><span class="line">    ALIGNED_32 <span class="type">int32_t</span> b[<span class="number">8</span>] = &#123;<span class="number">8</span>, <span class="number">7</span>, <span class="number">6</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>&#125;;</span><br><span class="line">    ALIGNED_32 <span class="type">int32_t</span> result[<span class="number">8</span>];</span><br><span class="line">    </span><br><span class="line">    __m256i vec_a = _mm256_load_si256((__m256i*)a);</span><br><span class="line">    __m256i vec_b = _mm256_load_si256((__m256i*)b);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// AVX2 整数运算</span></span><br><span class="line">    __m256i add_result = _mm256_add_epi32(vec_a, vec_b);</span><br><span class="line">    __m256i sub_result = _mm256_sub_epi32(vec_a, vec_b);</span><br><span class="line">    __m256i max_result = _mm256_max_epi32(vec_a, vec_b);</span><br><span class="line">    </span><br><span class="line">    _mm256_store_si256((__m256i*)result, add_result);</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;AVX2 Integer Addition: &quot;</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">8</span>; i++) &#123;</span><br><span class="line">        std::cout &lt;&lt; result[i] &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    std::cout &lt;&lt; std::endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="7-条件选择和混合操作">7. 条件选择和混合操作</h3>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">sse_conditional_operations</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ALIGNED_16 <span class="type">float</span> a[<span class="number">4</span>] = &#123;<span class="number">1.0f</span>, <span class="number">2.0f</span>, <span class="number">3.0f</span>, <span class="number">4.0f</span>&#125;;</span><br><span class="line">    ALIGNED_16 <span class="type">float</span> b[<span class="number">4</span>] = &#123;<span class="number">5.0f</span>, <span class="number">6.0f</span>, <span class="number">7.0f</span>, <span class="number">8.0f</span>&#125;;</span><br><span class="line">    ALIGNED_16 <span class="type">float</span> mask_val[<span class="number">4</span>] = &#123;<span class="number">0.0f</span>, <span class="number">2.5f</span>, <span class="number">3.5f</span>, <span class="number">0.0f</span>&#125;;</span><br><span class="line">    ALIGNED_16 <span class="type">float</span> result[<span class="number">4</span>];</span><br><span class="line">    </span><br><span class="line">    __m128 vec_a = _mm_load_ps(a);</span><br><span class="line">    __m128 vec_b = _mm_load_ps(b);</span><br><span class="line">    __m128 mask = _mm_load_ps(mask_val);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 创建比较掩码：如果 a &gt; mask 则全1，否则全0</span></span><br><span class="line">    __m128 cmp_mask = _mm_cmpgt_ps(vec_a, mask);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 根据掩码选择：mask为真选a，否则选b</span></span><br><span class="line">    __m128 blended = _mm_blendv_ps(vec_b, vec_a, cmp_mask);</span><br><span class="line">    </span><br><span class="line">    _mm_store_ps(result, blended);</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;SSE Conditional Blend: &quot;</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++) &#123;</span><br><span class="line">        std::cout &lt;&lt; result[i] &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    std::cout &lt;&lt; std::endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="8-性能测试示例">8. 性能测试示例</h3>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;chrono&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">performance_comparison</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">const</span> <span class="type">int</span> size = <span class="number">1000000</span>;</span><br><span class="line">    ALIGNED_16 <span class="type">float</span>* a = (<span class="type">float</span>*)_mm_malloc(size * <span class="built_in">sizeof</span>(<span class="type">float</span>), <span class="number">16</span>);</span><br><span class="line">    ALIGNED_16 <span class="type">float</span>* b = (<span class="type">float</span>*)_mm_malloc(size * <span class="built_in">sizeof</span>(<span class="type">float</span>), <span class="number">16</span>);</span><br><span class="line">    ALIGNED_16 <span class="type">float</span>* result = (<span class="type">float</span>*)_mm_malloc(size * <span class="built_in">sizeof</span>(<span class="type">float</span>), <span class="number">16</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 初始化数据</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; size; i++) &#123;</span><br><span class="line">        a[i] = i * <span class="number">0.1f</span>;</span><br><span class="line">        b[i] = i * <span class="number">0.2f</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 标量版本</span></span><br><span class="line">    <span class="keyword">auto</span> start = std::chrono::high_resolution_clock::<span class="built_in">now</span>();</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; size; i++) &#123;</span><br><span class="line">        result[i] = a[i] + b[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">auto</span> end = std::chrono::high_resolution_clock::<span class="built_in">now</span>();</span><br><span class="line">    <span class="keyword">auto</span> scalar_time = std::chrono::<span class="built_in">duration_cast</span>&lt;std::chrono::microseconds&gt;(end - start);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// SIMD 版本</span></span><br><span class="line">    start = std::chrono::high_resolution_clock::<span class="built_in">now</span>();</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; size; i += <span class="number">4</span>) &#123;</span><br><span class="line">        __m128 vec_a = _mm_load_ps(a + i);</span><br><span class="line">        __m128 vec_b = _mm_load_ps(b + i);</span><br><span class="line">        __m128 vec_result = _mm_add_ps(vec_a, vec_b);</span><br><span class="line">        _mm_store_ps(result + i, vec_result);</span><br><span class="line">    &#125;</span><br><span class="line">    end = std::chrono::high_resolution_clock::<span class="built_in">now</span>();</span><br><span class="line">    <span class="keyword">auto</span> simd_time = std::chrono::<span class="built_in">duration_cast</span>&lt;std::chrono::microseconds&gt;(end - start);</span><br><span class="line">    </span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;Scalar time: &quot;</span> &lt;&lt; scalar_time.<span class="built_in">count</span>() &lt;&lt; <span class="string">&quot; μs\n&quot;</span>;</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;SIMD time: &quot;</span> &lt;&lt; simd_time.<span class="built_in">count</span>() &lt;&lt; <span class="string">&quot; μs\n&quot;</span>;</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;Speedup: &quot;</span> &lt;&lt; (<span class="type">double</span>)scalar_time.<span class="built_in">count</span>() / simd_time.<span class="built_in">count</span>() &lt;&lt; <span class="string">&quot;x\n&quot;</span>;</span><br><span class="line">    </span><br><span class="line">    _mm_free(a);</span><br><span class="line">    _mm_free(b);</span><br><span class="line">    _mm_free(result);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="9-主函数调用">9. 主函数调用</h3>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;=== SIMD Instruction Examples ===\n&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">sse_float_addition</span>();</span><br><span class="line">    <span class="built_in">avx_double_operations</span>();</span><br><span class="line">    <span class="built_in">sse_integer_operations</span>();</span><br><span class="line">    <span class="built_in">avx2_integer_operations</span>();</span><br><span class="line">    <span class="built_in">sse_conditional_operations</span>();</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 点积示例</span></span><br><span class="line">    ALIGNED_16 <span class="type">float</span> vec1[<span class="number">4</span>] = &#123;<span class="number">1.0f</span>, <span class="number">2.0f</span>, <span class="number">3.0f</span>, <span class="number">4.0f</span>&#125;;</span><br><span class="line">    ALIGNED_16 <span class="type">float</span> vec2[<span class="number">4</span>] = &#123;<span class="number">2.0f</span>, <span class="number">3.0f</span>, <span class="number">4.0f</span>, <span class="number">5.0f</span>&#125;;</span><br><span class="line">    <span class="type">float</span> dot = <span class="built_in">sse_dot_product</span>(vec1, vec2, <span class="number">4</span>);</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;SSE Dot Product: &quot;</span> &lt;&lt; dot &lt;&lt; std::endl;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">performance_comparison</span>();</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="编译命令">编译命令</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 基础 SSE 支持</span></span><br><span class="line">g++ -msse -msse2 -O3 simd_example.cpp -o simd_example</span><br><span class="line"></span><br><span class="line"><span class="comment"># 包含 AVX 和 AVX2</span></span><br><span class="line">g++ -mavx -mavx2 -O3 simd_example.cpp -o simd_example</span><br><span class="line"></span><br><span class="line"><span class="comment"># 检测 CPU 特性</span></span><br><span class="line">g++ -march=native -O3 simd_example.cpp -o simd_example</span><br></pre></td></tr></table></figure>
+<h3 id="关键要点">关键要点</h3>
+<ol>
+<li><strong>内存对齐</strong>：SIMD 操作需要16/32/64字节对齐的内存</li>
+<li><strong>数据布局</strong>：连续内存访问模式性能最佳</li>
+<li><strong>指令集检测</strong>：运行时检查 CPU 支持的指令集</li>
+<li><strong>编译器优化</strong>：使用 <code>-O3</code> 和架构特定标志</li>
+<li><strong>避免函数调用</strong>：在热循环中尽量减少函数调用</li>
+</ol>
+<p>这些示例展示了 SIMD 在数值计算、信号处理、图像处理等领域的强大性能优势。</p>
+<h2 id="AVX和SSE的区别">AVX和SSE的区别</h2>
+<p><strong>主要区别：</strong></p>
+<ol>
+<li>
+<p><strong>指令集支持范围不同</strong></p>
+<ul>
+<li><code>-msse -msse2</code>：仅支持 SSE/SSE2 指令（128位寄存器）</li>
+<li><code>-mavx -mavx2</code>：支持 AVX/AVX2 指令（256位寄存器），<strong>自动包含 SSE/SSE2</strong></li>
+</ul>
+</li>
+<li>
+<p><strong>寄存器宽度不同</strong></p>
+<ul>
+<li>SSE：128位，一次处理4个float或2个double</li>
+<li>AVX：256位，一次处理8个float或4个double</li>
+</ul>
+</li>
+<li>
+<p><strong>性能差异</strong></p>
+<ul>
+<li>AVX2 相比 SSE 理论上有2倍的吞吐量提升</li>
+<li>但需要CPU硬件支持（Haswell架构及以后）</li>
+</ul>
+</li>
+<li>
+<p><strong>兼容性</strong></p>
+<ul>
+<li>SSE/SSE2：几乎所有现代x86 CPU都支持</li>
+<li>AVX/AVX2：需要较新的CPU（2011年后的Intel，2013年后的AMD）</li>
+</ul>
+</li>
+</ol>
+<p><strong>推荐做法</strong>：使用 <code>-march=native</code> 自动检测并启用当前CPU支持的所有指令集。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">```cpp</span><br><span class="line">#ifdef __AVX__</span><br><span class="line">void avx_double_operations() &#123;</span><br><span class="line">    // AVX 代码</span><br><span class="line">&#125;</span><br><span class="line">#else</span><br><span class="line">void avx_double_operations() &#123;</span><br><span class="line">    std::cout &lt;&lt; &quot;AVX not supported&quot; &lt;&lt; std::endl;</span><br><span class="line">&#125;</span><br><span class="line">#endif</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 只编译 SSE 版本（移除 AVX 函数）</span></span><br><span class="line">g++ -msse -msse2 -O3 1.cpp -o sse_example</span><br><span class="line"></span><br><span class="line"><span class="comment"># 或者编译 AVX 版本</span></span><br><span class="line">g++ -mavx -mavx2 -O3 1.cpp -o avx_example</span><br></pre></td></tr></table></figure>
+<p><strong>关键原则</strong>：编译选项必须与代码中使用的 SIMD 指令集匹配。</p>
+<p>sse和AVX的区别</p>
+<p><strong>SSE 与 AVX 核心区别对比</strong></p>
+<table>
+<thead>
+<tr>
+<th>特性</th>
+<th>SSE (Streaming SIMD Extensions)</th>
+<th>AVX (Advanced Vector Extensions)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>发布时间</strong></td>
+<td>1999年 (SSE)</td>
+<td>2011年 (AVX)</td>
+</tr>
+<tr>
+<td><strong>寄存器宽度</strong></td>
+<td>128位</td>
+<td>256位</td>
+</tr>
+<tr>
+<td><strong>数据并行度</strong></td>
+<td>4个float / 2个double</td>
+<td>8个float / 4个double</td>
+</tr>
+<tr>
+<td><strong>寄存器数量</strong></td>
+<td>8个 (xmm0-xmm7)</td>
+<td>16个 (ymm0-ymm15)</td>
+</tr>
+<tr>
+<td><strong>指令格式</strong></td>
+<td>2操作数: <code>dst = op(dst, src)</code></td>
+<td>3操作数: <code>dst = op(src1, src2)</code></td>
+</tr>
+<tr>
+<td><strong>性能提升</strong></td>
+<td>2-4倍</td>
+<td>4-8倍 (相比标量)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="具体差异示例">具体差异示例</h3>
+<h3 id="1-寄存器类型">1. 寄存器类型</h3>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// SSE (128位)</span></span><br><span class="line">__m128  sse_float;   <span class="comment">// 4个float</span></span><br><span class="line">__m128d sse_double;  <span class="comment">// 2个double  </span></span><br><span class="line">__m128i sse_int;     <span class="comment">// 各种整数</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// AVX (256位)</span></span><br><span class="line">__m256  avx_float;   <span class="comment">// 8个float</span></span><br><span class="line">__m256d avx_double;  <span class="comment">// 4个double</span></span><br><span class="line">__m256i avx_int;     <span class="comment">// 各种整数</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-指令前缀">2. 指令前缀</h3>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// SSE 指令</span></span><br><span class="line">_mm_add_ps()    <span class="comment">// 4个float相加</span></span><br><span class="line">_mm_add_pd()    <span class="comment">// 2个double相加</span></span><br><span class="line">_mm_load_ps()   <span class="comment">// 加载4个float</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// AVX 指令  </span></span><br><span class="line">_mm256_add_ps() <span class="comment">// 8个float相加</span></span><br><span class="line">_mm256_add_pd() <span class="comment">// 4个double相加</span></span><br><span class="line">_mm256_load_ps() <span class="comment">// 加载8个float</span></span><br></pre></td></tr></table></figure>
+<h3 id="3-实际性能对比">3. 实际性能对比</h3>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// SSE: 一次处理4个float</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">sse_vector_add</span><span class="params">(<span class="type">float</span>* a, <span class="type">float</span>* b, <span class="type">float</span>* out, <span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i += <span class="number">4</span>) &#123;</span><br><span class="line">        __m128 va = _mm_load_ps(a + i);</span><br><span class="line">        __m128 vb = _mm_load_ps(b + i);</span><br><span class="line">        __m128 vc = _mm_add_ps(va, vb);</span><br><span class="line">        _mm_store_ps(out + i, vc);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// AVX: 一次处理8个float  </span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">avx_vector_add</span><span class="params">(<span class="type">float</span>* a, <span class="type">float</span>* b, <span class="type">float</span>* out, <span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i += <span class="number">8</span>) &#123;</span><br><span class="line">        __m256 va = _mm256_load_ps(a + i);</span><br><span class="line">        __m256 vb = _mm256_load_ps(b + i);</span><br><span class="line">        __m256 vc = _mm256_add_ps(va, vb);</span><br><span class="line">        _mm256_store_ps(out + i, vc);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="4-内存对齐要求">4. 内存对齐要求</h3>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// SSE: 16字节对齐</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ALIGNED_16 __attribute__((aligned(16)))</span></span><br><span class="line">ALIGNED_16 <span class="type">float</span> sse_data[<span class="number">4</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// AVX: 32字节对齐  </span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ALIGNED_32 __attribute__((aligned(32)))</span></span><br><span class="line">ALIGNED_32 <span class="type">float</span> avx_data[<span class="number">8</span>];</span><br></pre></td></tr></table></figure>
+<h3 id="5-编译器标志">5. 编译器标志</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># SSE 支持</span></span><br><span class="line">g++ -msse -msse2 -msse3 -msse4.1 -msse4.2</span><br><span class="line"></span><br><span class="line"><span class="comment"># AVX 支持</span></span><br><span class="line">g++ -mavx -mavx2</span><br><span class="line"></span><br><span class="line"><span class="comment"># 自动检测最佳指令集</span></span><br><span class="line">g++ -march=native</span><br></pre></td></tr></table></figure>
+<h3 id="选择建议">选择建议</h3>
+<ul>
+<li><strong>SSE</strong>: 兼容性要求高，老硬件支持</li>
+<li><strong>AVX</strong>: 性能优先，现代CPU（2011年后）</li>
+<li><strong>最佳实践</strong>: 使用 <code>-march=native</code> 让编译器自动选择</li>
+</ul>
+<p><strong>总结</strong>: AVX 是 SSE 的扩展，提供更宽的寄存器和更优的指令格式，性能更好但需要更新的硬件支持。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechat.png" alt="编程之禅 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="编程之禅 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>编程之禅
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://wangjunstf.github.io/2025/10/02/simd-kuo-zhan-zhi-ling-ji-yi-ji-cpp-shi-yong-shi-li/" title="SIMD扩展指令集以及C++使用示例">https://wangjunstf.github.io/2025/10/02/simd-kuo-zhan-zhi-ling-ji-yi-ji-cpp-shi-yong-shi-li/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/SIMD/" rel="tag"># SIMD</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2025/10/01/cpp-zuo-jie-he-yu-you-jie-he-de-gai-nian-yu-yun-suan-fu-de-you-xian-ji-you-shi-me-guan-xi/" rel="prev" title="C++左结合，右结合的概念，与运算符的优先级有什么关系">
+                  <i class="fa fa-angle-left"></i> C++左结合，右结合的概念，与运算符的优先级有什么关系
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+      <div class="tabs tabs-comment">
+        <ul class="nav-tabs">
+            <li class="tab"><a href="#comment-gitalk">gitalk</a></li>
+            <li class="tab"><a href="#comment-disqus">Load Disqus</a></li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane gitalk" id="comment-gitalk">
+              <div class="comments gitalk-container"></div>
+            </div>
+            <div class="tab-pane disqus" id="comment-disqus">
+              
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+            </div>
+        </div>
+      </div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">编程之禅</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">193k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">11:44</span>
+  </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/wangjunstf" class="github-corner" title="在 GitHub 上关注我" aria-label="在 GitHub 上关注我" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"neutral","dark":"neutral"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.4.0/mermaid.min.js","integrity":"sha256-G8ouPAnw4zzMbnAenHnVz6h9XpKbNdOkrqTh7AadyHs="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
+
+
+
+
+
+  
+
+
+  <script class="next-config" data-name="leancloud_visitors" type="application/json">{"enable":true,"app_id":"CYdcr1PXFECvJbnSb3k2DpM8-gzGzoHsz","app_key":"ALz5OyA5ck1P2CMQYhtP4KzG","server_url":null,"security":false}</script>
+  <script src="/js/third-party/statistics/lean-analytics.js"></script>
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"all","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"eleganceblog","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"wangjunstf","repo":"wangjunstf.github.io","client_id":"00c06e8fabae7b42521c","client_secret":"753415ed39734f4af6c6363c48340bb130817349","admin_user":"wangjunstf","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"zh-CN","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"6c5fc21cfcba87988af567f5a479b561"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+
+</body>
+</html>

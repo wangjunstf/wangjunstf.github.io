@@ -6,7 +6,7 @@
   <link href="https://wangjunstf.github.io/atom.xml" rel="self"/>
   
   <link href="https://wangjunstf.github.io/"/>
-  <updated>2025-10-01T03:22:37.117Z</updated>
+  <updated>2025-10-02T14:39:55.596Z</updated>
   <id>https://wangjunstf.github.io/</id>
   
   <author>
@@ -17,11 +17,31 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>SIMD扩展指令集以及C++使用示例</title>
+    <link href="https://wangjunstf.github.io/2025/10/02/simd-kuo-zhan-zhi-ling-ji-yi-ji-cpp-shi-yong-shi-li/"/>
+    <id>https://wangjunstf.github.io/2025/10/02/simd-kuo-zhan-zhi-ling-ji-yi-ji-cpp-shi-yong-shi-li/</id>
+    <published>2025-10-02T03:22:22.000Z</published>
+    <updated>2025-10-02T14:39:55.596Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;什么是SIMD扩展指令集&quot;&gt;什么是SIMD扩展指令集&lt;/h2&gt;
+&lt;p&gt;SIMD（单指令多数据）扩展指令集是一种并行计算技术，允许一条指令同时处理多个数据元素，提升数据密集型任务的执行效率。常见示例包括：&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="cpp" scheme="https://wangjunstf.github.io/categories/cpp/"/>
+    
+    
+    <category term="SIMD" scheme="https://wangjunstf.github.io/tags/SIMD/"/>
+    
+  </entry>
+  
+  <entry>
     <title>C++左结合，右结合的概念，与运算符的优先级有什么关系</title>
     <link href="https://wangjunstf.github.io/2025/10/01/cpp-zuo-jie-he-yu-you-jie-he-de-gai-nian-yu-yun-suan-fu-de-you-xian-ji-you-shi-me-guan-xi/"/>
     <id>https://wangjunstf.github.io/2025/10/01/cpp-zuo-jie-he-yu-you-jie-he-de-gai-nian-yu-yun-suan-fu-de-you-xian-ji-you-shi-me-guan-xi/</id>
     <published>2025-10-01T03:20:02.000Z</published>
-    <updated>2025-10-01T03:22:37.117Z</updated>
+    <updated>2025-10-01T04:00:48.718Z</updated>
     
     
     <summary type="html">&lt;h3 id=&quot;什么是结合性？&quot;&gt;什么是结合性？&lt;/h3&gt;
@@ -458,31 +478,6 @@ $$LCM(a,b)=&#92;frac{|a * b|}{GCD(a,b)}$$&lt;/p&gt;</summary>
     <category term="Rust" scheme="https://wangjunstf.github.io/tags/Rust/"/>
     
     <category term="slice" scheme="https://wangjunstf.github.io/tags/slice/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Effective C++总结</title>
-    <link href="https://wangjunstf.github.io/2023/01/12/effective-cpp/"/>
-    <id>https://wangjunstf.github.io/2023/01/12/effective-cpp/</id>
-    <published>2023-01-12T09:31:47.000Z</published>
-    <updated>2025-09-30T13:30:39.998Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;导读&quot;&gt;&lt;strong&gt;导读&lt;/strong&gt;&lt;/h2&gt;
-&lt;p&gt;学习程序语言根本大法是一回事；学习如何以某种语言设计并实现高效程序则是令一会事。&lt;/p&gt;
-&lt;p&gt;一组明智选择并精心设计的 classes，functions 和 templates 可使程序编写容易，直观，高效，并且远离错误。&lt;/p&gt;
-&lt;h3 id=&quot;1-explicit&quot;&gt;&lt;strong&gt;1 explicit&lt;/strong&gt;&lt;/h3&gt;
-&lt;p&gt;default 构造函数：一个可被调用而不带任何实参的函数，这样的构造函数要不没有参数，要不就是每个参数都有缺省值。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="cpp" scheme="https://wangjunstf.github.io/categories/cpp/"/>
-    
-    
-    <category term="cpp" scheme="https://wangjunstf.github.io/tags/cpp/"/>
-    
-    <category term="Effective cpp" scheme="https://wangjunstf.github.io/tags/Effective-cpp/"/>
     
   </entry>
   
