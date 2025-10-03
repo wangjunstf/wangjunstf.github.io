@@ -6,7 +6,7 @@
   <link href="https://wangjunstf.github.io/atom.xml" rel="self"/>
   
   <link href="https://wangjunstf.github.io/"/>
-  <updated>2025-10-02T14:39:55.596Z</updated>
+  <updated>2025-10-03T12:47:26.963Z</updated>
   <id>https://wangjunstf.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>C++智能指针使用示例</title>
+    <link href="https://wangjunstf.github.io/2025/10/03/cpp-zhi-neng-zhi-zhen-shi-yong-shi-li/"/>
+    <id>https://wangjunstf.github.io/2025/10/03/cpp-zhi-neng-zhi-zhen-shi-yong-shi-li/</id>
+    <published>2025-10-03T12:20:20.000Z</published>
+    <updated>2025-10-03T12:47:26.963Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;智能指针所需头文件&quot;&gt;智能指针所需头文件&lt;/h2&gt;
+&lt;figure class=&quot;highlight cpp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;keyword&quot;&gt;include&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&amp;lt;memory&amp;gt;&lt;/span&gt;  &lt;span class=&quot;comment&quot;&gt;// 主要头文件，包含所有智能指针&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
+    
+    
+    
+    <category term="cpp" scheme="https://wangjunstf.github.io/categories/cpp/"/>
+    
+    
+    <category term="智能指针" scheme="https://wangjunstf.github.io/tags/%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88/"/>
+    
+    <category term="weak_ptr" scheme="https://wangjunstf.github.io/tags/weak-ptr/"/>
+    
+    <category term="unique_ptr" scheme="https://wangjunstf.github.io/tags/unique-ptr/"/>
+    
+    <category term="shared_ptr" scheme="https://wangjunstf.github.io/tags/shared-ptr/"/>
+    
+  </entry>
   
   <entry>
     <title>SIMD扩展指令集以及C++使用示例</title>
@@ -452,32 +478,6 @@ $$LCM(a,b)=&#92;frac{|a * b|}{GCD(a,b)}$$&lt;/p&gt;</summary>
     <category term="Common Lisp" scheme="https://wangjunstf.github.io/tags/Common-Lisp/"/>
     
     <category term="变量" scheme="https://wangjunstf.github.io/tags/%E5%8F%98%E9%87%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>The Rust Slice Type</title>
-    <link href="https://wangjunstf.github.io/2023/01/28/the-rust-slice-type/"/>
-    <id>https://wangjunstf.github.io/2023/01/28/the-rust-slice-type/</id>
-    <published>2023-01-28T09:22:10.000Z</published>
-    <updated>2024-10-01T14:17:56.613Z</updated>
-    
-    
-    <summary type="html">&lt;h1&gt;The Rust Slice Type&lt;/h1&gt;
-&lt;p&gt;Slice is a kind of data structure that store heap memory, it contains two fields, one representing the memory address and the other representing the length. Our most common string literal is a kind of slice.&lt;/p&gt;
-&lt;p&gt;Slice let us reference a contiguous sequence of elements in a collection rather than the whole collection. A slice is a kind of reference, so it does not have ownership. And the slice ensures that the data it references is always valid.&lt;/p&gt;
-&lt;h2 id=&quot;String-Slices&quot;&gt;String Slices&lt;/h2&gt;
-&lt;p&gt;A string slice is a reference to part of a String, and it looks like this:&lt;/p&gt;
-&lt;figure class=&quot;highlight rust&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;variable&quot;&gt;s&lt;/span&gt; = &lt;span class=&quot;type&quot;&gt;String&lt;/span&gt;::&lt;span class=&quot;title function_ invoke__&quot;&gt;from&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;quot;hello world&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;variable&quot;&gt;world&lt;/span&gt; = &amp;amp;s[&lt;span class=&quot;number&quot;&gt;6&lt;/span&gt;..&lt;span class=&quot;number&quot;&gt;11&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
-    
-    
-    
-    <category term="Rust" scheme="https://wangjunstf.github.io/categories/Rust/"/>
-    
-    
-    <category term="Rust" scheme="https://wangjunstf.github.io/tags/Rust/"/>
-    
-    <category term="slice" scheme="https://wangjunstf.github.io/tags/slice/"/>
     
   </entry>
   
