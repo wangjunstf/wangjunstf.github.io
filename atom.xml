@@ -6,7 +6,7 @@
   <link href="https://wangjunstf.github.io/atom.xml" rel="self"/>
   
   <link href="https://wangjunstf.github.io/"/>
-  <updated>2025-10-03T12:47:26.963Z</updated>
+  <updated>2025-10-04T07:09:14.610Z</updated>
   <id>https://wangjunstf.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CPP面向对象之多态示例——代码抽象和封装</title>
+    <link href="https://wangjunstf.github.io/2025/10/04/cpp-mian-xiang-dui-xiang-zhi-duo-tai-shi-li-dai-ma-chou-xiang-he-feng-zhuang/"/>
+    <id>https://wangjunstf.github.io/2025/10/04/cpp-mian-xiang-dui-xiang-zhi-duo-tai-shi-li-dai-ma-chou-xiang-he-feng-zhuang/</id>
+    <published>2025-10-04T07:00:59.000Z</published>
+    <updated>2025-10-04T07:09:14.610Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;通过将派生类指针转换为基类指针可以实现很多功能，例如多态，接口抽象与实现分离，回调机制设计，工厂模式等。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="cpp" scheme="https://wangjunstf.github.io/categories/cpp/"/>
+    
+    
+    <category term="类继承" scheme="https://wangjunstf.github.io/tags/%E7%B1%BB%E7%BB%A7%E6%89%BF/"/>
+    
+    <category term="类派生" scheme="https://wangjunstf.github.io/tags/%E7%B1%BB%E6%B4%BE%E7%94%9F/"/>
+    
+    <category term="多态" scheme="https://wangjunstf.github.io/tags/%E5%A4%9A%E6%80%81/"/>
+    
+    <category term="工厂模式" scheme="https://wangjunstf.github.io/tags/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
   
   <entry>
     <title>C++智能指针使用示例</title>
@@ -455,29 +480,6 @@ $$LCM(a,b)=&#92;frac{|a * b|}{GCD(a,b)}$$&lt;/p&gt;</summary>
     <category term="Common Lisp" scheme="https://wangjunstf.github.io/tags/Common-Lisp/"/>
     
     <category term="uiop:run-program" scheme="https://wangjunstf.github.io/tags/uiop-run-program/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Common Lisp 变量</title>
-    <link href="https://wangjunstf.github.io/2025/01/16/common-lisp-bian-liang/"/>
-    <id>https://wangjunstf.github.io/2025/01/16/common-lisp-bian-liang/</id>
-    <published>2025-01-16T10:17:39.000Z</published>
-    <updated>2025-09-30T13:36:36.676Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;Common Lisp 支持两种类型的变量：词法变量(lexical)和动态变量(dynamic)&lt;/p&gt;
-&lt;h2 id=&quot;一-变量的基础知识&quot;&gt;一 变量的基础知识&lt;/h2&gt;
-&lt;p&gt;和常见的编程语言一样，Common Lisp中的变量是一些可以保存值的具名位置，但在Common Lisp 中，变量并不像在C++或Java那样带有确定的类型，一个变量可以保存任何类型的值，并且这些变量带有可用于运行期类型检查的类型信息。因此，Common Lisp是动态类型的，如果将某个并非数字的对象传给了+函数，那么Common Lisp将会报类型错误。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Lisp" scheme="https://wangjunstf.github.io/categories/Lisp/"/>
-    
-    
-    <category term="Common Lisp" scheme="https://wangjunstf.github.io/tags/Common-Lisp/"/>
-    
-    <category term="变量" scheme="https://wangjunstf.github.io/tags/%E5%8F%98%E9%87%8F/"/>
     
   </entry>
   
