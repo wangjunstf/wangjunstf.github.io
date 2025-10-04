@@ -6,7 +6,7 @@
   <link href="https://wangjunstf.github.io/atom.xml" rel="self"/>
   
   <link href="https://wangjunstf.github.io/"/>
-  <updated>2025-10-04T09:30:44.672Z</updated>
+  <updated>2025-10-04T15:26:18.799Z</updated>
   <id>https://wangjunstf.github.io/</id>
   
   <author>
@@ -15,6 +15,52 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>C++ dynamic_cast与static_cast安全性与性能对比</title>
+    <link href="https://wangjunstf.github.io/2025/10/04/cpp-zhong-dynamic-cast-yu-static-cast-an-quan-xing-yu-xing-neng-dui-bi/"/>
+    <id>https://wangjunstf.github.io/2025/10/04/cpp-zhong-dynamic-cast-yu-static-cast-an-quan-xing-yu-xing-neng-dui-bi/</id>
+    <published>2025-10-04T15:22:56.000Z</published>
+    <updated>2025-10-04T15:26:18.799Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;code&gt;dynamic_cast&lt;/code&gt;是在运行时进行类型安全检查的转换，主要用于多态类层次间的安全向下转换；而 &lt;code&gt;static_cast&lt;/code&gt;是在编译时进行的通用类型转换，适用于各种明确的类型转换但不提供运行时安全检查。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="cpp" scheme="https://wangjunstf.github.io/categories/cpp/"/>
+    
+    
+    <category term="static_cast" scheme="https://wangjunstf.github.io/tags/static-cast/"/>
+    
+    <category term="dynamic_cast" scheme="https://wangjunstf.github.io/tags/dynamic-cast/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C++四种强制类型转换：static_cast，dynamic_cast，const_cast，reinterpret_cast</title>
+    <link href="https://wangjunstf.github.io/2025/10/04/cpp-si-chong-qiang-zhi-lei-xing-zhuan-huan-static-cast-dynamic-cast-const-cast-reinterpret-cast/"/>
+    <id>https://wangjunstf.github.io/2025/10/04/cpp-si-chong-qiang-zhi-lei-xing-zhuan-huan-static-cast-dynamic-cast-const-cast-reinterpret-cast/</id>
+    <published>2025-10-04T15:16:40.000Z</published>
+    <updated>2025-10-04T15:26:27.523Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;code&gt;static_cast&lt;/code&gt;用于编译时相关的类型转换，&lt;code&gt;dynamic_cast&lt;/code&gt;用于运行时多态类的安全向下转换，&lt;code&gt;const_cast&lt;/code&gt;用于移除或添加&lt;code&gt;const&lt;/code&gt;/&lt;code&gt;volatile&lt;/code&gt;属性，而&lt;code&gt;reinterpret_cast&lt;/code&gt;则用于低级别的位模式重新解释。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="cpp" scheme="https://wangjunstf.github.io/categories/cpp/"/>
+    
+    
+    <category term="static_cast" scheme="https://wangjunstf.github.io/tags/static-cast/"/>
+    
+    <category term="dynamic_cast" scheme="https://wangjunstf.github.io/tags/dynamic-cast/"/>
+    
+    <category term="const_cast" scheme="https://wangjunstf.github.io/tags/const-cast/"/>
+    
+    <category term="reinterpret_cast" scheme="https://wangjunstf.github.io/tags/reinterpret-cast/"/>
+    
+  </entry>
   
   <entry>
     <title>C++虚函数表与 type_info 直观解释</title>
@@ -427,59 +473,6 @@ $$LCM(a,b)=&#92;frac{|a * b|}{GCD(a,b)}$$&lt;/p&gt;</summary>
     <category term="Common Lisp" scheme="https://wangjunstf.github.io/tags/Common-Lisp/"/>
     
     <category term="单元测试" scheme="https://wangjunstf.github.io/tags/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Common Lisp如何编写宏</title>
-    <link href="https://wangjunstf.github.io/2025/01/16/common-lisp-ru-he-bian-xie-hong/"/>
-    <id>https://wangjunstf.github.io/2025/01/16/common-lisp-ru-he-bian-xie-hong/</id>
-    <published>2025-01-16T10:41:56.000Z</published>
-    <updated>2025-09-30T13:36:21.824Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;一-宏展开期和运行期&quot;&gt;一 宏展开期和运行期&lt;/h2&gt;
-&lt;p&gt;编写宏就是在编写那些将被编译器用来生成代码并随后编译的程序，只有当所有宏都被完全展开并且产生的代码被编译后，程序才可以实际运行。宏运行的时期被称为宏展开期(macro expansion time)，这和运行期(runtime)是不同的，宏展开期无法访问运行期的数据。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Lisp" scheme="https://wangjunstf.github.io/categories/Lisp/"/>
-    
-    
-    <category term="Common Lisp" scheme="https://wangjunstf.github.io/tags/Common-Lisp/"/>
-    
-    <category term="宏" scheme="https://wangjunstf.github.io/tags/%E5%AE%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>解构Common Lisp宏：从基本语法到高级用法</title>
-    <link href="https://wangjunstf.github.io/2025/01/16/jie-gou-common-lisp-hong-cong-ji-ben-yu-fa-dao-gao-ji-yong-fa/"/>
-    <id>https://wangjunstf.github.io/2025/01/16/jie-gou-common-lisp-hong-cong-ji-ben-yu-fa-dao-gao-ji-yong-fa/</id>
-    <published>2025-01-16T10:33:41.000Z</published>
-    <updated>2025-09-30T13:32:07.298Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;其余自Lisp的许多编程思想，从条件表达式到垃圾收集，都已经被吸取进其他语言，但Lisp的宏系统却始终使它保持了在语言风格上的独特性。Lisp的宏和大多数其他语言中的也叫宏的东西是完全不一样的，要完全认识Lisp中的宏系统，就需要重新看待它。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Lisp" scheme="https://wangjunstf.github.io/categories/Lisp/"/>
-    
-    
-    <category term="Common Lisp" scheme="https://wangjunstf.github.io/tags/Common-Lisp/"/>
-    
-    <category term="宏" scheme="https://wangjunstf.github.io/tags/%E5%AE%8F/"/>
-    
-    <category term="WHEN" scheme="https://wangjunstf.github.io/tags/WHEN/"/>
-    
-    <category term="COND" scheme="https://wangjunstf.github.io/tags/COND/"/>
-    
-    <category term="DO" scheme="https://wangjunstf.github.io/tags/DO/"/>
-    
-    <category term="DOLIST" scheme="https://wangjunstf.github.io/tags/DOLIST/"/>
-    
-    <category term="DOTIMES" scheme="https://wangjunstf.github.io/tags/DOTIMES/"/>
     
   </entry>
   

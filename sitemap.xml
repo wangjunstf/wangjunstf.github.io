@@ -2,6 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://wangjunstf.github.io/2025/10/04/cpp-si-chong-qiang-zhi-lei-xing-zhuan-huan-static-cast-dynamic-cast-const-cast-reinterpret-cast/</loc>
+    
+    <lastmod>2025-10-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://wangjunstf.github.io/2025/10/04/cpp-zhong-dynamic-cast-yu-static-cast-an-quan-xing-yu-xing-neng-dui-bi/</loc>
+    
+    <lastmod>2025-10-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://wangjunstf.github.io/2025/10/04/cpp-xu-han-shu-biao-yu-type-info-zhi-guan-jie-shi/</loc>
     
     <lastmod>2025-10-04</lastmod>
@@ -2046,6 +2064,34 @@
   
   <url>
     <loc>https://wangjunstf.github.io/tags/type-info/</loc>
+    <lastmod>2025-10-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://wangjunstf.github.io/tags/static-cast/</loc>
+    <lastmod>2025-10-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://wangjunstf.github.io/tags/dynamic-cast/</loc>
+    <lastmod>2025-10-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://wangjunstf.github.io/tags/const-cast/</loc>
+    <lastmod>2025-10-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://wangjunstf.github.io/tags/reinterpret-cast/</loc>
     <lastmod>2025-10-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
