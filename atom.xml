@@ -6,7 +6,7 @@
   <link href="https://wangjunstf.github.io/atom.xml" rel="self"/>
   
   <link href="https://wangjunstf.github.io/"/>
-  <updated>2025-10-04T07:13:40.642Z</updated>
+  <updated>2025-10-04T09:30:44.672Z</updated>
   <id>https://wangjunstf.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>C++虚函数表与 type_info 直观解释</title>
+    <link href="https://wangjunstf.github.io/2025/10/04/cpp-xu-han-shu-biao-yu-type-info-zhi-guan-jie-shi/"/>
+    <id>https://wangjunstf.github.io/2025/10/04/cpp-xu-han-shu-biao-yu-type-info-zhi-guan-jie-shi/</id>
+    <published>2025-10-04T09:30:00.000Z</published>
+    <updated>2025-10-04T09:30:44.672Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;虚函数、虚函数表和 type_info共同构成了 C++ 运行时多态和类型识别的核心机制。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="cpp" scheme="https://wangjunstf.github.io/categories/cpp/"/>
+    
+    
+    <category term="虚函数表" scheme="https://wangjunstf.github.io/tags/%E8%99%9A%E5%87%BD%E6%95%B0%E8%A1%A8/"/>
+    
+    <category term="type_info" scheme="https://wangjunstf.github.io/tags/type-info/"/>
+    
+  </entry>
   
   <entry>
     <title>C++面向对象之多态示例——代码抽象和封装</title>
@@ -459,27 +480,6 @@ $$LCM(a,b)=&#92;frac{|a * b|}{GCD(a,b)}$$&lt;/p&gt;</summary>
     <category term="DOLIST" scheme="https://wangjunstf.github.io/tags/DOLIST/"/>
     
     <category term="DOTIMES" scheme="https://wangjunstf.github.io/tags/DOTIMES/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>uiop-run-program 基本使用教程</title>
-    <link href="https://wangjunstf.github.io/2025/01/16/uiop-run-program-ji-ben-shi-yong-jiao-cheng/"/>
-    <id>https://wangjunstf.github.io/2025/01/16/uiop-run-program-ji-ben-shi-yong-jiao-cheng/</id>
-    <published>2025-01-16T10:28:41.000Z</published>
-    <updated>2025-01-16T10:39:38.970Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;uiop:run-program 是 Common Lisp 中 UIOP (Utilities for Implementation- and OS- Portability) 库的一部分，用于在 Lisp 环境中执行外部程序和命令。这个函数提供了一个强大的接口来启动外部进程，并可以处理进程的输入、输出和退出状态。以下是一个关于如何使用 uiop:run-program 的入门教程：&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Lisp" scheme="https://wangjunstf.github.io/categories/Lisp/"/>
-    
-    
-    <category term="Common Lisp" scheme="https://wangjunstf.github.io/tags/Common-Lisp/"/>
-    
-    <category term="uiop:run-program" scheme="https://wangjunstf.github.io/tags/uiop-run-program/"/>
     
   </entry>
   
