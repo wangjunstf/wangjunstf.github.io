@@ -6,7 +6,7 @@
   <link href="https://wangjunstf.github.io/atom.xml" rel="self"/>
   
   <link href="https://wangjunstf.github.io/"/>
-  <updated>2025-10-04T07:09:14.610Z</updated>
+  <updated>2025-10-04T07:13:40.642Z</updated>
   <id>https://wangjunstf.github.io/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>CPP面向对象之多态示例——代码抽象和封装</title>
+    <title>C++面向对象之多态示例——代码抽象和封装</title>
     <link href="https://wangjunstf.github.io/2025/10/04/cpp-mian-xiang-dui-xiang-zhi-duo-tai-shi-li-dai-ma-chou-xiang-he-feng-zhuang/"/>
     <id>https://wangjunstf.github.io/2025/10/04/cpp-mian-xiang-dui-xiang-zhi-duo-tai-shi-li-dai-ma-chou-xiang-he-feng-zhuang/</id>
     <published>2025-10-04T07:00:59.000Z</published>
-    <updated>2025-10-04T07:09:14.610Z</updated>
+    <updated>2025-10-04T07:13:40.642Z</updated>
     
     
     <summary type="html">&lt;p&gt;通过将派生类指针转换为基类指针可以实现很多功能，例如多态，接口抽象与实现分离，回调机制设计，工厂模式等。&lt;/p&gt;</summary>
