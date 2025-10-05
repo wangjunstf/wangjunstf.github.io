@@ -6,7 +6,7 @@
   <link href="https://wangjunstf.github.io/atom.xml" rel="self"/>
   
   <link href="https://wangjunstf.github.io/"/>
-  <updated>2025-10-04T15:26:18.799Z</updated>
+  <updated>2025-10-05T01:41:13.990Z</updated>
   <id>https://wangjunstf.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://wangjunstf.github.io/2025/10/04/cpp-zhong-dynamic-cast-yu-static-cast-an-quan-xing-yu-xing-neng-dui-bi/"/>
     <id>https://wangjunstf.github.io/2025/10/04/cpp-zhong-dynamic-cast-yu-static-cast-an-quan-xing-yu-xing-neng-dui-bi/</id>
     <published>2025-10-04T15:22:56.000Z</published>
-    <updated>2025-10-04T15:26:18.799Z</updated>
+    <updated>2025-10-05T01:41:13.990Z</updated>
     
     
     <summary type="html">&lt;p&gt;&lt;code&gt;dynamic_cast&lt;/code&gt;是在运行时进行类型安全检查的转换，主要用于多态类层次间的安全向下转换；而 &lt;code&gt;static_cast&lt;/code&gt;是在编译时进行的通用类型转换，适用于各种明确的类型转换但不提供运行时安全检查。&lt;/p&gt;</summary>
