@@ -20,9 +20,9 @@
       
         <tags>
             
-            <tag> static_cast </tag>
-            
             <tag> dynamic_cast </tag>
+            
+            <tag> static_cast </tag>
             
         </tags>
       
@@ -47,9 +47,9 @@
       
         <tags>
             
-            <tag> static_cast </tag>
-            
             <tag> dynamic_cast </tag>
+            
+            <tag> static_cast </tag>
             
             <tag> const_cast </tag>
             

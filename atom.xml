@@ -31,9 +31,9 @@
     <category term="cpp" scheme="https://wangjunstf.github.io/categories/cpp/"/>
     
     
-    <category term="static_cast" scheme="https://wangjunstf.github.io/tags/static-cast/"/>
-    
     <category term="dynamic_cast" scheme="https://wangjunstf.github.io/tags/dynamic-cast/"/>
+    
+    <category term="static_cast" scheme="https://wangjunstf.github.io/tags/static-cast/"/>
     
   </entry>
   
@@ -52,9 +52,9 @@
     <category term="cpp" scheme="https://wangjunstf.github.io/categories/cpp/"/>
     
     
-    <category term="static_cast" scheme="https://wangjunstf.github.io/tags/static-cast/"/>
-    
     <category term="dynamic_cast" scheme="https://wangjunstf.github.io/tags/dynamic-cast/"/>
+    
+    <category term="static_cast" scheme="https://wangjunstf.github.io/tags/static-cast/"/>
     
     <category term="const_cast" scheme="https://wangjunstf.github.io/tags/const-cast/"/>
     
