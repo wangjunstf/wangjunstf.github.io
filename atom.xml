@@ -6,7 +6,7 @@
   <link href="https://wangjunstf.github.io/atom.xml" rel="self"/>
   
   <link href="https://wangjunstf.github.io/"/>
-  <updated>2025-10-07T08:46:02.464Z</updated>
+  <updated>2025-10-07T08:51:19.407Z</updated>
   <id>https://wangjunstf.github.io/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>CPP安全使用可变参数</title>
+    <title>C++安全使用可变参数</title>
     <link href="https://wangjunstf.github.io/2025/10/07/cpp-an-quan-shi-yong-ke-bian-can-shu/"/>
     <id>https://wangjunstf.github.io/2025/10/07/cpp-an-quan-shi-yong-ke-bian-can-shu/</id>
     <published>2025-10-07T08:43:39.000Z</published>
-    <updated>2025-10-07T08:46:02.464Z</updated>
+    <updated>2025-10-07T08:51:19.407Z</updated>
     
     
     <summary type="html">&lt;p&gt;C语言中的省略符形参 (&lt;code&gt;...&lt;/code&gt;) 在现代 C++ (C++11 及以后) 中主要指&lt;strong&gt;可变参数模板 (Variadic Templates)&lt;/strong&gt;。&lt;/p&gt;</summary>
