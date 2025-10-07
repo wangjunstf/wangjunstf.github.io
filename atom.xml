@@ -6,7 +6,7 @@
   <link href="https://wangjunstf.github.io/atom.xml" rel="self"/>
   
   <link href="https://wangjunstf.github.io/"/>
-  <updated>2025-10-05T01:41:13.990Z</updated>
+  <updated>2025-10-07T08:46:02.464Z</updated>
   <id>https://wangjunstf.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CPP安全使用可变参数</title>
+    <link href="https://wangjunstf.github.io/2025/10/07/cpp-an-quan-shi-yong-ke-bian-can-shu/"/>
+    <id>https://wangjunstf.github.io/2025/10/07/cpp-an-quan-shi-yong-ke-bian-can-shu/</id>
+    <published>2025-10-07T08:43:39.000Z</published>
+    <updated>2025-10-07T08:46:02.464Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;C语言中的省略符形参 (&lt;code&gt;...&lt;/code&gt;) 在现代 C++ (C++11 及以后) 中主要指&lt;strong&gt;可变参数模板 (Variadic Templates)&lt;/strong&gt;。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="cpp" scheme="https://wangjunstf.github.io/categories/cpp/"/>
+    
+    
+    <category term="可变参数模板" scheme="https://wangjunstf.github.io/tags/%E5%8F%AF%E5%8F%98%E5%8F%82%E6%95%B0%E6%A8%A1%E6%9D%BF/"/>
+    
+    <category term="省略符形参，varargs" scheme="https://wangjunstf.github.io/tags/%E7%9C%81%E7%95%A5%E7%AC%A6%E5%BD%A2%E5%8F%82%EF%BC%8Cvarargs/"/>
+    
+  </entry>
   
   <entry>
     <title>C++ dynamic_cast与static_cast安全性与性能对比</title>
@@ -451,28 +472,6 @@ $$LCM(a,b)=&#92;frac{|a * b|}{GCD(a,b)}$$&lt;/p&gt;</summary>
     <category term="导数" scheme="https://wangjunstf.github.io/tags/%E5%AF%BC%E6%95%B0/"/>
     
     <category term="导数法则" scheme="https://wangjunstf.github.io/tags/%E5%AF%BC%E6%95%B0%E6%B3%95%E5%88%99/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Common Lisp实践：建立单元测试框架</title>
-    <link href="https://wangjunstf.github.io/2025/01/16/common-lisp-shi-jian-jian-li-dan-yuan-ce-shi-kuang-jia/"/>
-    <id>https://wangjunstf.github.io/2025/01/16/common-lisp-shi-jian-jian-li-dan-yuan-ce-shi-kuang-jia/</id>
-    <published>2025-01-16T10:44:23.000Z</published>
-    <updated>2025-09-30T13:36:14.954Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;&lt;strong&gt;单元测试框架&lt;/strong&gt;是一种工具或库，用于帮助开发人员创建、组织、运行和报告代码的单元测试。&lt;br&gt;
-&lt;strong&gt;单元测试&lt;/strong&gt;是指对软件系统中最小的可测试单元（通常是一个函数或方法）进行的验证测试。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Lisp" scheme="https://wangjunstf.github.io/categories/Lisp/"/>
-    
-    
-    <category term="Common Lisp" scheme="https://wangjunstf.github.io/tags/Common-Lisp/"/>
-    
-    <category term="单元测试" scheme="https://wangjunstf.github.io/tags/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/"/>
     
   </entry>
   
