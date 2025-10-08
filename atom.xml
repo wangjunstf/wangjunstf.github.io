@@ -6,7 +6,7 @@
   <link href="https://wangjunstf.github.io/atom.xml" rel="self"/>
   
   <link href="https://wangjunstf.github.io/"/>
-  <updated>2025-10-07T14:10:49.249Z</updated>
+  <updated>2025-10-08T01:14:49.868Z</updated>
   <id>https://wangjunstf.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CPP函数如何安全返回数组</title>
+    <link href="https://wangjunstf.github.io/2025/10/08/cpp-han-shu-ru-he-an-quan-fan-hui-shu-zu/"/>
+    <id>https://wangjunstf.github.io/2025/10/08/cpp-han-shu-ru-he-an-quan-fan-hui-shu-zu/</id>
+    <published>2025-10-08T01:13:41.000Z</published>
+    <updated>2025-10-08T01:14:49.868Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;因为数组不能拷贝，所以函数不能返回数组，不过，函数可以返回数组的指针或引用。在现代 C++ 中，我们应该&lt;strong&gt;优先使用标准库容器&lt;/strong&gt;而不是 C 风格的原始数组和指针，比如&lt;code&gt;std::array&lt;/code&gt;和&lt;code&gt;std::vector&lt;/code&gt;。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="cpp" scheme="https://wangjunstf.github.io/categories/cpp/"/>
+    
+    
+    <category term="数组指针" scheme="https://wangjunstf.github.io/tags/%E6%95%B0%E7%BB%84%E6%8C%87%E9%92%88/"/>
+    
+    <category term="std::array" scheme="https://wangjunstf.github.io/tags/std-array/"/>
+    
+    <category term="std::vector" scheme="https://wangjunstf.github.io/tags/std-vector/"/>
+    
+  </entry>
   
   <entry>
     <title>C++列表初始化的常见用法</title>
@@ -447,27 +470,6 @@ $$LCM(a,b)=&#92;frac{|a * b|}{GCD(a,b)}$$&lt;/p&gt;</summary>
     <category term="LCM" scheme="https://wangjunstf.github.io/tags/LCM/"/>
     
     <category term="GCD" scheme="https://wangjunstf.github.io/tags/GCD/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>C++中auto与decltype的区别</title>
-    <link href="https://wangjunstf.github.io/2025/09/12/cpp-zhong-auto-yu-decltype-de-qu-bie/"/>
-    <id>https://wangjunstf.github.io/2025/09/12/cpp-zhong-auto-yu-decltype-de-qu-bie/</id>
-    <published>2025-09-12T14:40:38.000Z</published>
-    <updated>2025-09-30T13:19:56.800Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;理解 &lt;code&gt;decltype&lt;/code&gt; 和 &lt;code&gt;auto&lt;/code&gt; 的区别对掌握现代 C++ 编程很重要。它们虽然都用于类型推导，但&lt;strong&gt;规则和初衷不同&lt;/strong&gt;。下面这个表格汇总了它们的核心区别，帮你快速把握要点。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="cpp" scheme="https://wangjunstf.github.io/categories/cpp/"/>
-    
-    
-    <category term="auto" scheme="https://wangjunstf.github.io/tags/auto/"/>
-    
-    <category term="decltype" scheme="https://wangjunstf.github.io/tags/decltype/"/>
     
   </entry>
   
