@@ -6,7 +6,7 @@
   <link href="https://wangjunstf.github.io/atom.xml" rel="self"/>
   
   <link href="https://wangjunstf.github.io/"/>
-  <updated>2025-10-08T01:14:49.868Z</updated>
+  <updated>2025-10-12T06:46:58.955Z</updated>
   <id>https://wangjunstf.github.io/</id>
   
   <author>
@@ -17,11 +17,31 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>CPP函数如何安全返回数组</title>
+    <title>C++快速排序算法实现与分析</title>
+    <link href="https://wangjunstf.github.io/2025/10/12/cpp-kuai-su-pai-xu-suan-fa-shi-xian-yu-fen-xi/"/>
+    <id>https://wangjunstf.github.io/2025/10/12/cpp-kuai-su-pai-xu-suan-fa-shi-xian-yu-fen-xi/</id>
+    <published>2025-10-12T05:52:51.000Z</published>
+    <updated>2025-10-12T06:46:58.955Z</updated>
+    
+    
+    <summary type="html">&lt;h1&gt;摘要&lt;/h1&gt;
+&lt;p&gt;快速排序（QuickSort）是一种高效的分治算法，由 Tony Hoare 于 1960 年发明。本文将介绍快速排序的基本原理、在 C++ 中的实现、性能分析以及实际示例。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="算法" scheme="https://wangjunstf.github.io/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+    <category term="快速排序" scheme="https://wangjunstf.github.io/tags/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C++函数如何安全返回数组</title>
     <link href="https://wangjunstf.github.io/2025/10/08/cpp-han-shu-ru-he-an-quan-fan-hui-shu-zu/"/>
     <id>https://wangjunstf.github.io/2025/10/08/cpp-han-shu-ru-he-an-quan-fan-hui-shu-zu/</id>
     <published>2025-10-08T01:13:41.000Z</published>
-    <updated>2025-10-08T01:14:49.868Z</updated>
+    <updated>2025-10-08T01:15:55.635Z</updated>
     
     
     <summary type="html">&lt;p&gt;因为数组不能拷贝，所以函数不能返回数组，不过，函数可以返回数组的指针或引用。在现代 C++ 中，我们应该&lt;strong&gt;优先使用标准库容器&lt;/strong&gt;而不是 C 风格的原始数组和指针，比如&lt;code&gt;std::array&lt;/code&gt;和&lt;code&gt;std::vector&lt;/code&gt;。&lt;/p&gt;</summary>
@@ -442,34 +462,6 @@
     <category term="哈希表" scheme="https://wangjunstf.github.io/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/"/>
     
     <category term="组合公式" scheme="https://wangjunstf.github.io/tags/%E7%BB%84%E5%90%88%E5%85%AC%E5%BC%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>求两数最小公倍数的通解（通用方法解法）</title>
-    <link href="https://wangjunstf.github.io/2025/09/17/qiu-liang-shu-zui-xiao-gong-bei-shu-de-tong-jie/"/>
-    <id>https://wangjunstf.github.io/2025/09/17/qiu-liang-shu-zui-xiao-gong-bei-shu-de-tong-jie/</id>
-    <published>2025-09-17T01:30:54.000Z</published>
-    <updated>2025-09-18T02:06:12.358Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;求两个数&lt;code&gt;a&lt;/code&gt;和&lt;code&gt;b&lt;/code&gt;的最小公倍数，最常用和最有效的方法是利用它们与最大公约数（Greatest Common Divisor, GCD）之间的关系。&lt;/p&gt;
-&lt;h2 id=&quot;核心公式&quot;&gt;核心公式&lt;/h2&gt;
-&lt;p&gt;两个数的最小公倍数等于这两个数的乘积除以它们的最大公约数。用数学公式表示为：&lt;br&gt;
-$$LCM(a,b)=&#92;frac{|a * b|}{GCD(a,b)}$$&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="算法" scheme="https://wangjunstf.github.io/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    <category term="LeetCode" scheme="https://wangjunstf.github.io/categories/%E7%AE%97%E6%B3%95/LeetCode/"/>
-    
-    
-    <category term="最小公倍数" scheme="https://wangjunstf.github.io/tags/%E6%9C%80%E5%B0%8F%E5%85%AC%E5%80%8D%E6%95%B0/"/>
-    
-    <category term="LCM" scheme="https://wangjunstf.github.io/tags/LCM/"/>
-    
-    <category term="GCD" scheme="https://wangjunstf.github.io/tags/GCD/"/>
     
   </entry>
   
