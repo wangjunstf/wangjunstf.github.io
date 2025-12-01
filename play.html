@@ -3,115 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>播放剪贴板音频链接</title>
+    <title>剪贴板音频一键播放（支持谷歌TTS）</title>
     <style>
-        body {
-            font-family: "Microsoft YaHei", Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-        }
-        .container {
-            text-align: center;
-            padding: 40px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
-        }
-        button {
-            margin-top: 20px;
-            padding: 15px 40px;
-            font-size: 18px;
-            background: #ff6b6b;
-            color: white;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        button:hover {
-            background: #ff5252b7a;
-            transform: scale(1.05);
-        }
-        audio {
-            margin-top: 30px;
-            width: 400px;
-        }
-        .tip {
-            margin-top: 20px;
-            font-size: 14px;
-            opacity: 0.8;
-        }
+        body {font-family: system-ui,Arial,sans-serif; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin:0; background: linear-gradient(135deg,#74b9ff,#0984e3); color:#fff;}
+        .box {text-align:center; padding:40px; background:rgba(255,255,255,0.15); border-radius:20px; backdrop-filter:blur(10px);}
+        button {margin-top:20px; padding:16px 40px; font-size:18px; background:#ff3838; border:none; border-radius:50px; color:#fff; cursor:pointer;}
+        button:hover {background:#ff4d4d; transform:scale(1.05);}
+        audio {margin-top:30px; width:380px; max-width:90vw;}
+        .msg {margin-top:20px; padding:10px; background:rgba(0,0,0,0.3); border-radius:10px; min-height:20px;}
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>剪贴板音频一键播放</h1>
-        <p>把音频链接复制到剪贴板，然后点击下方按钮即可播放</p>
-        <button id="playBtn">▶ 播放剪贴板音频</button>
-        
-        <audio id="player" controls autoplay></audio>
-        
-        <div class="tip" id="msg"></div>
-    </div>
+<div class="box">
+    <h1>剪贴板音频一键播放</h1>
+    <p>支持普通音频 + 谷歌翻译 TTS</p>
+    <button id="play">播放剪贴板音频</button>
+    <audio id="audio" controls></audio>
+    <div class="msg" id="msg"></div>
+</div>
 
-    <script>
-        const btn = document.getElementById('playBtn');
-        const audio = document.getElementById('player');
-        const msg = document.getElementById('msg');
+<script>
+const btn = document.getElementById('play');
+const audio = document.getElementById('audio');
+const msg = document.getElementById('msg');
 
-        // 支持的音频格式（可自行扩展）
-        const audioExtensions = [
-            '.mp3', '.wav', '.ogg', '.m4a', '.aac', 
-            '.flac', '.webm', '.mp4', '.mpeg'
-        ];
+// 免费公共 CORS 代理（2025年还能用，挑一个快的）
+const proxies = [
+    'https://corsproxy.io/?',           // 推荐第1个
+    'https://api.allorigins.win/raw/?',  // 第2个备用
+    'https://cors-anywhere.temporary.site/' // 第3个备用
+];
 
-        btn.addEventListener('click', async () => {
-            try {
-                // 读取剪贴板文字
-                const text = await navigator.clipboard.readText();
-                const url = text.trim();
+btn.onclick = async () => {
+    try {
+        let url = (await navigator.clipboard.readText()).trim();
+        if (!url) return show('剪贴板为空');
 
-                if (!url) {
-                    showMessage('剪贴板为空！', 'error');
+        // 如果是谷歌翻译的链接，强制走代理
+        if (url.includes('translate.google') || url.includes('translate_tts')) {
+            for (let proxy of proxies) {
+                try {
+                    const proxyUrl = proxy + encodeURIComponent(url);
+                    audio.src = proxyUrl;
+                    audio.play();
+                    show(`谷歌TTS播放中（代理：${proxy.split('/')[2]}）<br>${url.substring(0,60)}...`, 'green');
                     return;
-                }
-
-                // 判断是否可能是音频链接
-                const isAudioUrl = audioExtensions.some(ext => 
-                    url.toLowerCase().includes(ext)
-                ) || url.includes('blob:'); // 也支持某些网站生成的 blob 链接
-
-                if (!isAudioUrl && !url.startsWith('http')) {
-                    showMessage('剪贴板内容不是有效的音频链接', 'error');
-                    return;
-                }
-
-                // 设置音频源并播放
-                audio.src = url;
-                audio.play().catch(e => {
-                    showMessage('播放失败，可能链接无效或浏览器阻止自动播放<br>错误：' + e.message, 'error');
-                });
-
-                showMessage(`正在播放：<br>${url}`, 'success');
-
-            } catch (err) {
-                // 旧浏览器或没有权限时会走到这里
-                showMessage('读取剪贴板失败，请确保在 HTTPS 下使用或允许剪贴板权限', 'error');
-                console.error(err);
+                } catch (e) { continue; }
             }
-        });
-
-        function showMessage(text, type = 'info') {
-            msg.innerHTML = text;
-            msg.style.color = type === 'error' ? '#ffb3b3' : '#b3ffb3';
-            setTimeout(() => msg.innerHTML = '', 8000);
+            show('所有代理都失败了，谷歌可能又升级了反爬', 'red');
+            return;
         }
-    </script>
+
+        // 普通链接直接播
+        audio.src = url;
+        audio.play();
+        show('正在播放<br>' + url, 'green');
+
+    } catch (e) {
+        show('失败：' + e.message, 'red');
+    }
+};
+
+function show(text, color='white') {
+    msg.innerHTML = text;
+    msg.style.color = color;
+    setTimeout(()=>msg.innerHTML='', 8000);
+}
+</script>
 </body>
 </html>

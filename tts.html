@@ -1,0 +1,4 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>TTS播放器</title><style>body{background:#000;color:#0f0;font-family:system-ui;text-align:center;padding-top:15%}button{font-size:2em;padding:20px 50px;border:none;border-radius:99px;background:#0f0;color:#000;cursor:pointer}</style></head><body>
+<h1>复制谷歌TTS链接 → 点我播放</h1>
+<button onclick="navigator.clipboard.readText().then(t=>{let u=t.trim();if(u.includes('translate.google'))u='https://cors.bridged.cc/'+encodeURIComponent(u);new Audio(u).play()})">立刻播放剪贴板音频</button>
+</body></html>
