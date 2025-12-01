@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>播放剪贴板音频链接</title>
+    <style>
+        body {
+            font-family: "Microsoft YaHei", Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+        .container {
+            text-align: center;
+            padding: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+        }
+        button {
+            margin-top: 20px;
+            padding: 15px 40px;
+            font-size: 18px;
+            background: #ff6b6b;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        button:hover {
+            background: #ff5252b7a;
+            transform: scale(1.05);
+        }
+        audio {
+            margin-top: 30px;
+            width: 400px;
+        }
+        .tip {
+            margin-top: 20px;
+            font-size: 14px;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>剪贴板音频一键播放</h1>
+        <p>把音频链接复制到剪贴板，然后点击下方按钮即可播放</p>
+        <button id="playBtn">▶ 播放剪贴板音频</button>
+        
+        <audio id="player" controls autoplay></audio>
+        
+        <div class="tip" id="msg"></div>
+    </div>
+
+    <script>
+        const btn = document.getElementById('playBtn');
+        const audio = document.getElementById('player');
+        const msg = document.getElementById('msg');
+
+        // 支持的音频格式（可自行扩展）
+        const audioExtensions = [
+            '.mp3', '.wav', '.ogg', '.m4a', '.aac', 
+            '.flac', '.webm', '.mp4', '.mpeg'
+        ];
+
+        btn.addEventListener('click', async () => {
+            try {
+                // 读取剪贴板文字
+                const text = await navigator.clipboard.readText();
+                const url = text.trim();
+
+                if (!url) {
+                    showMessage('剪贴板为空！', 'error');
+                    return;
+                }
+
+                // 判断是否可能是音频链接
+                const isAudioUrl = audioExtensions.some(ext => 
+                    url.toLowerCase().includes(ext)
+                ) || url.includes('blob:'); // 也支持某些网站生成的 blob 链接
+
+                if (!isAudioUrl && !url.startsWith('http')) {
+                    showMessage('剪贴板内容不是有效的音频链接', 'error');
+                    return;
+                }
+
+                // 设置音频源并播放
+                audio.src = url;
+                audio.play().catch(e => {
+                    showMessage('播放失败，可能链接无效或浏览器阻止自动播放<br>错误：' + e.message, 'error');
+                });
+
+                showMessage(`正在播放：<br>${url}`, 'success');
+
+            } catch (err) {
+                // 旧浏览器或没有权限时会走到这里
+                showMessage('读取剪贴板失败，请确保在 HTTPS 下使用或允许剪贴板权限', 'error');
+                console.error(err);
+            }
+        });
+
+        function showMessage(text, type = 'info') {
+            msg.innerHTML = text;
+            msg.style.color = type === 'error' ? '#ffb3b3' : '#b3ffb3';
+            setTimeout(() => msg.innerHTML = '', 8000);
+        }
+    </script>
+</body>
+</html>
