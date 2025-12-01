@@ -1,4 +1,83 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><title>TTS播放器</title><style>body{background:#000;color:#0f0;font-family:system-ui;text-align:center;padding-top:15%}button{font-size:2em;padding:20px 50px;border:none;border-radius:99px;background:#0f0;color:#000;cursor:pointer}</style></head><body>
-<h1>复制谷歌TTS链接 → 点我播放</h1>
-<button onclick="navigator.clipboard.readText().then(t=>{let u=t.trim();if(u.includes('translate.google'))u='https://cors.bridged.cc/'+encodeURIComponent(u);new Audio(u).play()})">立刻播放剪贴板音频</button>
-</body></html>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>TTS播放器</title>
+    <style>
+        body {background:#000;color:#0f0;font-family:system-ui;text-align:center;padding-top:15%;margin:0;}
+        button {font-size:2em;padding:20px 50px;border:none;border-radius:99px;background:#0f0;color:#000;cursor:pointer;transition:all 0.3s;}
+        button:hover {background:#00ff00;transform:scale(1.05);}
+        #msg {margin-top:20px;font-size:1.2em;min-height:1.5em;}
+    </style>
+</head>
+<body>
+    <h1>复制谷歌TTS链接 → 点我播放</h1>
+    <button onclick="playClipboard()">立刻播放剪贴板音频</button>
+    <div id="msg"></div>
+    <audio id="audio" controls style="margin-top:20px;display:none;"></audio>
+
+    <script>
+        async function playClipboard() {
+            const msg = document.getElementById('msg');
+            const audio = document.getElementById('audio');
+            msg.innerHTML = '读取剪贴板...';
+            audio.style.display = 'block';
+
+            try {
+                let url = (await navigator.clipboard.readText()).trim();
+                if (!url) {
+                    msg.innerHTML = '<span style="color:#f00">剪贴板为空！</span>';
+                    return;
+                }
+
+                // 检测是否谷歌TTS
+                if (url.includes('translate.google') || url.includes('translate_tts')) {
+                    msg.innerHTML = '使用代理加载谷歌TTS...';
+                    // 主代理：2025年实测有效
+                    let proxyUrl = 'https://corsproxy.io/?' + encodeURIComponent(url);
+                    // 备用代理（如果主挂了）
+                    const backups = [
+                        'https://api.allorigins.win/raw?url=' + encodeURIComponent(url),
+                        'https://cors-anywhere.temporary.site/' + url  // 需要临时激活，但备用
+                    ];
+
+                    // 尝试主代理
+                    if (await testUrl(proxyUrl)) {
+                        url = proxyUrl;
+                    } else {
+                        // 试备用
+                        for (let backup of backups) {
+                            if (await testUrl(backup)) {
+                                url = backup;
+                                break;
+                            }
+                        }
+                        if (!url.includes('corsproxy.io')) {
+                            throw new Error('所有代理失效，谷歌TTS可能又升级了封锁');
+                        }
+                    }
+                }
+
+                audio.src = url;
+                await audio.play();
+                msg.innerHTML = '<span style="color:#0f0">播放成功！（控件下方）</span>';
+                msg.style.color = '#0f0';
+
+            } catch (e) {
+                msg.innerHTML = '<span style="color:#f00">播放失败：' + e.message + '<br>建议：试试书签版或换浏览器。</span>';
+                console.error(e);
+            }
+        }
+
+        // 简单测试URL是否可加载（HEAD请求）
+        async function testUrl(testUrl) {
+            try {
+                const res = await fetch(testUrl, {method: 'HEAD'});
+                return res.ok && res.headers.get('content-type')?.includes('audio/');
+            } catch {
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>
